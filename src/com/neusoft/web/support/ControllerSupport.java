@@ -1,6 +1,7 @@
 package com.neusoft.web.support;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +50,29 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("msg", "没有符合条件的数据!");
 		}	
 	}
-	
+
+	protected final void savePageData(String key, String methodName)throws Exception
+	{
+		//1.获取需要调用的方法对象
+		Method method=this.services.getClass().getDeclaredMethod(methodName);
+		method.setAccessible(true);
+		//2.调用方法
+		Object tem = method.invoke(services);
+		List<Map<String,String>> rows = (List<Map<String, String>>) tem;
+		if(rows.size()>0)
+		{
+			this.saveAttribute(key, rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "没有符合条件的数据!");
+		}
+	}
+
+	protected final void savePageMsg(String key, String msg)throws Exception {
+		this.saveAttribute(key, msg);
+	}
+
 	/**
 	 * 单一实例 查询
 	 * @throws Exception
@@ -66,6 +89,24 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("msg", "提示:该数据已删除或禁止访问!");
 		}	
 	}
+
+	protected final void savePageInstance(String key, String methodName)throws Exception
+	{
+		//1.获取需要调用的方法对象
+		Method method=this.services.getClass().getDeclaredMethod(methodName);
+		method.setAccessible(true);
+		//2.调用方法
+		Object tem = method.invoke(services);
+		Map<String,String> ins = (Map<String,String>)tem;
+		if(ins!=null)
+		{
+			this.saveAttribute(key, ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "提示:该数据已删除或禁止访问!");
+		}
+	}
 	
 	/**
 	 * 通过反射执行更新方法
@@ -73,7 +114,7 @@ public abstract class ControllerSupport implements BaseController
 	 * @return
 	 * @throws Exception
 	 */
-	private boolean executeUpdateMethod(String methodName)throws Exception
+	public boolean executeUpdateMethod(String methodName)throws Exception
 	{
 		//1.获取需要调用的方法对象
 		Method method=this.services.getClass().getDeclaredMethod(methodName);
@@ -82,13 +123,13 @@ public abstract class ControllerSupport implements BaseController
 		return  (boolean)method.invoke(services);
 	}
 	
-	
+
 	/**
 	 * 更新行为的总开关
 	 * <
 	 *   简单消息提示
 	 * >
-	 * @param utype
+	 * @param methodName
 	 * @param msgText
 	 * @throws Exception
 	 */
@@ -100,7 +141,7 @@ public abstract class ControllerSupport implements BaseController
 	
 	/**
 	 * 带有编号的消息提示的更新行为
-	 * @param utype
+	 * @param methodName
 	 * @param typeText
 	 * @param msgText
 	 * @param key
@@ -145,7 +186,12 @@ public abstract class ControllerSupport implements BaseController
         this.services.setMapDto(dto);
         
     }
-    
+	@Override
+	public void setMapDtoForFile(Map<String, Object> dto) {
+		this.dto=dto;
+		//同步为Services传递DTO
+		this.services.setMapDto(dto);
+	}
     protected final void showDto()
     {
     	System.out.println(this.dto);
@@ -166,4 +212,6 @@ public abstract class ControllerSupport implements BaseController
     {
     	return this.attribute;
     }
+
+
 }

@@ -1,9 +1,12 @@
 package com.neusoft.web.support;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
@@ -26,7 +29,7 @@ public class BaseServlet extends HttpServlet
         	 *      解析访问路径,获取目标类的名称
         	 ************************************************************/
      		//拦截请求的访问路径
-     		String  uri=request.getRequestURI();
+     		String uri=request.getRequestURI();
      		//获取请求资源的主文件名
      		String baseName=uri.substring(uri.lastIndexOf("/")+1).replace(".html", "");
      		
@@ -47,7 +50,12 @@ public class BaseServlet extends HttpServlet
      		 *                        向业务控制器,填充页面数据     i
      		 ***********************************************************/
      		//为业务控制器织入DTO切片
-     		controller.setMapDto(this.createDto(request));
+
+
+
+
+			 controller.setMapDto(this.createDto(request));
+
 
      		/***********************************************************
      		 *                        调用业务控制器的流程控制方法
@@ -62,6 +70,7 @@ public class BaseServlet extends HttpServlet
      		Map<String,Object> rueqestAttribute=controller.getAttribute();
      		//织入属性处理切片
      		this.parseRueqestAttribute(request, rueqestAttribute);
+
          }	
          catch(Exception ex)
          {
@@ -71,8 +80,63 @@ public class BaseServlet extends HttpServlet
          }
 		request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
 	}
-	
-	
+
+	/**
+	 * 前端传来图片时创建的dto
+	 * @param request
+	 * @return
+	 */
+	private Map<String, Object> createDtoForFile(HttpServletRequest request) {
+		Map<String,Object> dto = this.createDto(request);
+		try {
+			// 创建工厂类
+			DiskFileItemFactory factory=new DiskFileItemFactory();
+			// 创建解析器
+			ServletFileUpload upload=new ServletFileUpload(factory);
+
+
+			//设置缓冲区大小与临时文件目录,如果单个文件的大小超过内存缓冲区，该文件将会临时缓存在此目录下
+			factory.setSizeThreshold(1024*1024*10);
+			File uploadTemp=new File("\\uploadTemp");
+			uploadTemp.mkdirs();
+			factory.setRepository(uploadTemp);
+			//设置单个文件大小限制
+			upload.setFileSizeMax(1024*1024*100);
+			//设置所有文件总和大小限制
+			upload.setSizeMax(1024*1024*300);
+			List<FileItem> list=upload.parseRequest(request);
+			System.out.println(list);
+			for (FileItem fileItem:list){
+				if (!fileItem.isFormField()&&fileItem.getName()!=null&&!"".equals(fileItem.getName())){
+					String filName=fileItem.getName();
+					//利用UUID生成伪随机字符串，作为文件名避免重复
+					String uuid= UUID.randomUUID().toString();
+
+					//获取文件后缀名
+					String suffix=filName.substring(filName.lastIndexOf("."));
+
+					//获取文件上传目录路径，在项目部署路径下的upload目录里。若想让浏览器不能直接访问到图片，可以放在WEB-INF下
+					String uploadPath=request.getSession().getServletContext().getRealPath("/upload");
+					dto.put("imgPath",uuid+suffix);
+					File file=new File(uploadPath);
+					file.mkdirs();
+					//写入文件到磁盘，该行执行完毕后，若有该临时文件，将会自动删除
+					fileItem.write(new File(uploadPath,uuid+suffix));
+
+				}
+				else {
+					System.out.println(fileItem.getFieldName());
+					System.out.println(fileItem.getString());
+					dto.put(fileItem.getFieldName(),new String(fileItem.getString().getBytes("ISO8859_1"), "utf-8"));
+				}
+			}
+		}  catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
+
+
 	private void parseRueqestAttribute(HttpServletRequest request,Map<String,Object> rueqestAttribute)
 	{
 		//1.还原所有的键值对,形成集合
@@ -95,6 +159,9 @@ public class BaseServlet extends HttpServlet
 	 */
 	private  Map<String,Object> createDto(HttpServletRequest request)
 	{
+		//获取session的用户流水号
+		String id = (String) request.getSession().getAttribute("userID");
+
 		//1.获取页面数据
 		Map<String,String[]> tem=request.getParameterMap();
 		int initSize=((int)(tem.size()/0.75))+1;
@@ -125,6 +192,7 @@ public class BaseServlet extends HttpServlet
 			}	
 		}
 		//System.out.println(dto);
+		dto.put("userID", id);
 		return dto;
 	}
 
