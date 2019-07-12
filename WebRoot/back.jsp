@@ -1,36 +1,45 @@
-<%@ page language="java" pageEncoding="GBK"%>
-<%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
+<%String path=request.getContextPath(); %>
 <html>
 <head>
-<title>Insert title here</title>
+<meta charset="utf-8">
+<title>404</title>
+<style>
+*{margin:0;padding:0;outline:none;font-family:\5FAE\8F6F\96C5\9ED1,å®‹ä½“;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;cursor:default;font-weight:lighter;}
+.center{margin:0 auto;}
+.whole{width:100%;height:100%;line-height:100%;position:fixed;bottom:0;left:0;z-index:-1000;overflow:hidden;}
+.whole img{width:100%;height:100%;}
+.mask{width:100%;height:100%;position:absolute;top:0;left:0;background:#000;opacity:0.6;filter:alpha(opacity=60);}
+.b{width:100%;text-align:center;height:400px;position:absolute;top:50%;margin-top:-230px}.a{width:150px;height:50px;margin-top:30px}.a a{display:block;float:left;width:150px;height:50px;background:#fff;text-align:center;line-height:50px;font-size:18px;border-radius:25px;color:#333}.a a:hover{color:#000;box-shadow:#fff 0 0 20px}
+p{color:#fff;margin-top:40px;font-size:24px;}
+#num{margin:0 5px;font-weight:bold;}
+</style>
+<script type="text/javascript">
+	var num=6;
+	function redirect(){
+		num--;
+		document.getElementById("num").innerHTML=num;
+		if(num<0){
+			document.getElementById("num").innerHTML=0;
+			location.href="<%=path%>/NewFile.jsp";
+			}
+		}
+	setInterval("redirect()", 1000);
+</script>
 </head>
-<body>
-${msg }
-<br>
-<br>
-<!-- ²éÑ¯Ìõ¼şÇø -->
-<table border="1" width="95%" align="center">
-  <caption>
-    <hr width="160">
-  </caption>
-  <tr>
-    <td></td>
-  </tr>
-</table>
 
-<!-- Êı¾İµü´úÇø -->
-<table border="1" width="95%" align="center">
-  <tr>
-    <td></td>
-  </tr>
-</table>
+<body onLoad="redirect();">
+<div class="whole">
+	<img src="images/2.jpg" />
+    <div class="mask"></div>
+</div>
+<div class="b">
+		<img src="images/404.png" class="center"/>
+		<p>
+			æš‚æ—¶æœªèƒ½æ‰¾åˆ°æ‚¨æŸ¥æ‰¾çš„é¡µé¢<br>
+			å¯èƒ½è¾“å…¥çš„ç½‘å€é”™è¯¯æˆ–æ­¤é¡µé¢ä¸å­˜åœ¨<br>
+            <span id="num"></span>ç§’åè‡ªåŠ¨è·³è½¬åˆ°ä¸»é¡µ
+		</p>
+	</div>
 
-<!-- ¹¦ÄÜ°´Å¥Çø -->
-<table border="1" width="95%" align="center">
-  <tr>
-    <td>
-    </td>
-  </tr>
-</table>
 </body>
 </html>

@@ -50,6 +50,58 @@ public abstract class ControllerSupport implements BaseController
 		}	
 	}
 	
+	protected final void saveHistoryPageData()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.userHistoryQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "没有符合条件的数据!");
+		}	
+	}
+	
+	protected final void saveUserNoticePageData()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.userNoticeQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "没有符合条件的数据!");
+		}	
+	}
+	
+	protected final void saveNoticePageData() throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminNoticeQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "没有符合条件的数据!");
+		}	
+	}
+	
+	protected final void saveAdminBusiPageData() throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminBusinessQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "没有符合条件的数据!");
+		}	
+	}
+	
 	/**
 	 * 单一实例 查询
 	 * @throws Exception
@@ -57,6 +109,45 @@ public abstract class ControllerSupport implements BaseController
 	protected final void savePageInstance()throws Exception
 	{
 		Map<String,String> ins=this.services.findById();
+		if(ins!=null)
+		{
+			this.saveAttribute("ins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "提示:该数据已删除或禁止访问!");
+		}	
+	}
+	
+	protected final void saveUserLoginInstance()throws Exception
+	{
+		Map<String,String> ins=this.services.userLogin();
+		if(ins!=null)
+		{
+			this.saveAttribute("ins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "提示:用户名或密码不相符!");
+		}	
+	}
+	
+	protected final void saveAdminLoginInstance()throws Exception
+	{
+		Map<String,String> ins=this.services.adminLogin();
+		if(ins!=null)
+		{
+			this.saveAttribute("ins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "提示:用户名或密码不相符!");
+		}	
+	}
+	
+	protected final void saveNoticeInstance()throws Exception
+	{
+		Map<String,String> ins=this.services.findByIdNotice();
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
@@ -82,7 +173,6 @@ public abstract class ControllerSupport implements BaseController
 		return  (boolean)method.invoke(services);
 	}
 	
-	
 	/**
 	 * 更新行为的总开关
 	 * <
@@ -106,12 +196,12 @@ public abstract class ControllerSupport implements BaseController
 	 * @param key
 	 * @throws Exception
 	 */
-	protected final void update(String methodName,String typeText,String msgText,String key)throws Exception
+	protected final void update(String methodName,String typeText,String msgText,String keyString)throws Exception
 	{
 		String msg=typeText+"失败!";
     	if(this.executeUpdateMethod(methodName))
     	{
-    		msg=msgText+"[ <msg> "+this.dto.get(key)+" </msg> ]";
+    		msg=msgText;
     	}
     	//Servlet向页面输出数据
     	this.saveAttribute("msg", msg);
@@ -131,6 +221,32 @@ public abstract class ControllerSupport implements BaseController
 		}
 	}
 
+	protected final void saveBusiPageDataForPass()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminBusinessQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
+	
+	protected final void saveHistoryPageDataForDelete()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.userHistoryQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
+	
+	protected final void saveNoticePageDataForDelete()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminNoticeQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
 	
 	
 	/*****************************************
