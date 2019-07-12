@@ -24,7 +24,28 @@
 	border:1px solid;
 	}
 </style>
-<script>
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.customConfig.uploadImgShowBase64 = true
+    var $text1 = $('#text1')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+    }
+
+    editor.create()
+    // 初始化 textarea 的值
+    $text1.val(editor.txt.html())
+
+
+    document.getElementById('subBtn').addEventListener('click', function () {
+        var vform = document.getElementById("myform");
+        // 读取 text
+        var aac204 = editor.txt.text()
+        vform.action = "/adminReleaseNotice.html?aac204="+aac204;
+
+    }, false)
 
 </script>
 </head>
@@ -33,7 +54,7 @@
 <%=request.getSession().getAttribute("ins")%>
 <%=request.getSession().getAttribute("管理员流水号")%>
 <br>
-<form id="myform" action="<%=path %>/adminReleaseNotice.html" method="post">
+<form id="myform" action="<%=path %>/adminReleaseNotice.html" enctype="multipart/form-data" method="post">
 <nav>
   <div class="container">
     <h1>Doc</h1>
@@ -111,7 +132,7 @@
 <table border="1" width="25%" align="center">
   <tr>
     <td align="center">
-       <input type="submit" name="next" value="发布">
+       <input type="submit" id="subBtn" name="next" value="发布">
 		<a href="<%=path %>/adminNotice.jsp">
 		<input class="btn btn-danger btn-block" type="button" name="next" value="管理">
 		</a> 
