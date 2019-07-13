@@ -211,9 +211,7 @@ ${ins }
        <button type="submit" name="next">查询</button>
        <button type="submit" id="del" name="next"  
               formaction="<%=path%>/adminDeleteNotice.html"  disabled="disabled">删除</button>
-		<a href="<%=path %>/adminReleaseNotice.jsp">
-		<button class="btn btn-danger btn-block" name="next" >发布</button>
-		</a> 
+		<button formaction="<%=path %>/adminReleaseNotice.jsp" name="next" >发布</button>
     </td>
   </tr>
 </table>
