@@ -1,0 +1,133 @@
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
+<%String path=request.getContextPath(); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>管理员信息</title>
+<link rel="alternate" type="application/rss+xml" title="egrappler.com" href="feed/index.html">
+<link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet"
+        type="text/css">
+<link rel="stylesheet" href="<%=path %>/css/style_adminhp.css">
+<link rel="stylesheet" href="<%=path %>/css/prettify.css">
+<style type="text/css">
+	.selected{
+		color:black;
+	}
+	.adminInfo table{
+	border:0 solid;
+	}
+	table tr:nth-child(odd)
+	{
+	background:#CCC;
+	}
+	table tr:nth-child(even)
+	{
+	background:#ff8040;
+	}
+</style>
+</head>
+<body >
+<br>
+<%Map map=(Map)request.getAttribute("ins") ;
+if(map != null){
+	request.getSession().setAttribute("管理员流水号", map.get("aac401"));
+}
+ %>
+<%=request.getSession().getAttribute("管理员流水号")%>
+<%request.getSession().setAttribute("ins", map); %>
+<br>
+<nav>
+  <div class="container">
+    <h1>Doc</h1>
+    <div id="menu">
+      <ul class="toplinks">
+        <li><a href="#">Opineo Website </a></li>
+        <li><a href="http://www.egrappler.com/">eGrappler</a></li>
+        <li><a href="../doc-template/docs.jsp">Blue Theme</a></li>
+        <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li>
+      </ul>
+    </div>
+    <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div>
+</nav>
+<header>
+  <div class="container">
+    <h2 class="docs-header">快来管理我吧哈哈哈！</h2>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <ul class="docs-nav" id="menu-left">
+      <li><strong>请开始你的管理！</strong></li>
+      <li><a href="<%=path %>/adminInfo.jsp" class="selected">个人信息  √</a></li>
+      <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
+      <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
+      <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
+      <li><a href="#license" class=" ">优惠券管理</a></li>
+    </ul>
+    <div class="docs-content">
+      <div class="adminInfo">
+        <p style="background-color:#DCDCDC;width:35%;margin:0 auto" align="center"> 你的个人信息</p>
+      <table align="center";>
+	<tr>
+		<td style="color:#FFFFFF">
+		流水号
+		</td>
+		<td style="color:#FFFFFF">
+		<input type="text" name="aac401" value="<%=request.getSession().getAttribute("管理员流水号")%>">
+		</td>
+	</tr>
+	<tr>
+		<td style="color:#FFFFFF">
+		工号
+		</td>
+		<td style="color:#FFFFFF">
+		<e:text name="aac402" readonly="true" defval="${ins.aac402}"/>
+		</td>
+	</tr>
+		<tr>
+		<td style="color:#FFFFFF">
+		用户名
+		</td>
+		<td style="color:#FFFFFF">
+		<e:text name="aac403" readonly="true" defval="${ins.aac403}"/>
+		</td>
+	</tr>
+		<tr>
+		<td style="color:#FFFFFF">
+		密码
+		</td>
+		<td style="color:#FFFFFF">
+		<e:text name="aac404" defval="${ins.aac404}" />
+		</td>
+	</tr>
+	<tr>
+		<td style="color:#FFFFFF">
+		备注
+		</td>
+		<td style="color:#FFFFFF">
+		<e:text name="aac405" defval="${ins.aac405}" />
+		</td>
+	</tr>
+	<tr>
+		<td style="color:#FFFFFF">
+		身份证
+		</td>
+		<td style="color:#FFFFFF">
+		<e:email name="aac406" readonly="true" defval="${ins.aac406}"/>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+ 
+
+
+</body>
+</html>

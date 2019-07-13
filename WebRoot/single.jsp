@@ -116,7 +116,7 @@
                                             <!-- Comment Content -->
                                             <div class="comment-content">
                                                 <div class="comment-author-name">
-                                                    <h6>Don Norman</h6> <span> ${rows[i].aaa302} </span>
+                                                    <h6>${rows[i].aaa103}</h6> <span> ${rows[i].aaa302} </span>
                                                 </div>
                                                 <p>${rows[i].aaa304} </p>
                                             </div>
@@ -139,7 +139,6 @@
                             </div>
                             <div class="col-md-12">
                                 <button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">Submit </button>
-                                <input type="submit" value="发布">
                             </div>
                         </div>
                     </form>

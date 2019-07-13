@@ -72,14 +72,20 @@ public class BBSServiceImpl extends JdbcServicesSupport {
     public List<Map<String, String>> queryForSingle() throws Exception{
         Object aaa301 = this.get("aaa301");
         StringBuilder sql = new StringBuilder()
-                .append("SELECT ")
-                .append("	aaa301, aaa302,aaa303,aaa304 ")
+                .append("SELECT" )
+                .append("	aaa301, ")
+                .append("	aaa302, ")
+                .append("	aaa303, ")
+                .append("	aaa304, ")
+                .append("	aaa103 ")
                 .append("FROM ")
-                .append("	aa03  ")
+                .append("	aa03 ,aa01 ")
                 .append("WHERE ")
-                .append("	aaa301 = ?  ")
-                .append("	OR aaa305 = ? ")
-                .append("	ORDER BY aaa305 ")
+                .append("	(aaa301 = ? ")
+                .append("	OR aaa305 = ?) ")
+                .append("	AND aa01.aaa101=aa03.aaa101 ")
+                .append("ORDER BY ")
+                .append("	aaa305 ")
                 ;
         return this.queryForList(sql.toString(), aaa301,aaa301);
     }
