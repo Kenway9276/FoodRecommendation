@@ -1,27 +1,53 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
-<%@ taglib uri="http://org.wangxg/jsp/extl" prefix="e"%>
+<%@ page language="java" contentType="text/html; charset=GBK"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%String path=request.getContextPath(); %>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
 <head>
-<title>店铺详情</title>
-<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-<script>
+    <!-- Required meta tags -->
+    <meta charset="gb2312">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Colorlib">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="#">
+    <!-- Page Title -->
+    <title>Listing &amp; Directory Website Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <!-- Simple line Icon -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_simple-line-icons.css">
+    <!-- Themify Icon -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_themify-icons.css">
+    <!-- Hover Effects -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_set1.css">
+    <!-- Swipper Slider -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_swiper.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_magnific-popup.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
+    
+    <script>
 	$(function(){
-		//获取点击事件的对象
+		//鑾峰彇鐐瑰嚮浜嬩欢鐨勫璞�
 		$(".nav li").click(function(){
-			//获取要显示或隐藏的对象
+			//鑾峰彇瑕佹樉绀烘垨闅愯棌鐨勫璞�
 			var divShow = $(".content").children('.list');
-			//判断当前对象是否被选中，如果没选中的话进入if循环
+			//鍒ゆ柇褰撳墠瀵硅薄鏄惁琚�変腑锛屽鏋滄病閫変腑鐨勮瘽杩涘叆if寰幆
 			if (!$(this).hasClass('selected')) {
-				//获取当前对象的索引
+				//鑾峰彇褰撳墠瀵硅薄鐨勭储寮�
 				var index = $(this).index();
-				//当前对象添加选中样式并且其同胞移除选中样式；
+				//褰撳墠瀵硅薄娣诲姞閫変腑鏍峰紡骞朵笖鍏跺悓鑳炵Щ闄ら�変腑鏍峰紡锛�
 				$(this).addClass('selected').siblings('li').removeClass('selected');
-				//索引对应的div块显示
+				//绱㈠紩瀵瑰簲鐨刣iv鍧楁樉绀�
 				$(divShow[index]).show();
-				//索引对应的div块的同胞隐藏
+				//绱㈠紩瀵瑰簲鐨刣iv鍧楃殑鍚岃優闅愯棌
 				$(divShow[index]).siblings('.list').hide();
 			}
 		});
@@ -29,11 +55,11 @@
 	
 	function onSetMark(vaab101)
     {
-  	  //添加到收藏夹
+  	  //娣诲姞鍒版敹钘忓す
   	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/markAdd.html?aab101="+vaab101;
   	 vform.submit();
-  	 //返回商家详情页面
+  	 //杩斿洖鍟嗗璇︽儏椤甸潰
   	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
  	 vform.submit();
     }
@@ -41,148 +67,387 @@
 	
 	function onDelMark(vaab101)
     {
-  	  //取消收藏
+  	  //鍙栨秷鏀惰棌
   	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
   	 vform.submit();
-  	 //返回商家详情页面
+  	 //杩斿洖鍟嗗璇︽儏椤甸潰
   	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
  	 vform.submit();
     }
 	
 	
-
-
 	
 	
 </script>
-
-
 </head>
+
 <body>
+    <!--============================= HEADER =============================-->
+    <div class="dark-bg sticky-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html">Listing</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon-menu"></span>
+            </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Explore
+                   <span class="icon-arrow-down"></span>
+                 </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Listing
+                  <span class="icon-arrow-down"></span>
+                </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Pages
+                  <span class="icon-arrow-down"></span>
+                </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Blog</a>
+                                </li>
+                                <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//END HEADER -->
+    <!--============================= BOOKING =============================-->
+    <div>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <a href="images/reserve-slide2.jpg" class="grid image-link">
+                        <img src="images/reserve-slide2.jpg" class="img-fluid" alt="#">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="images/reserve-slide1.jpg" class="grid image-link">
+                        <img src="images/reserve-slide1.jpg" class="img-fluid" alt="#">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="images/reserve-slide3.jpg" class="grid image-link">
+                        <img src="images/reserve-slide3.jpg" class="img-fluid" alt="#">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="images/reserve-slide1.jpg" class="grid image-link">
+                        <img src="images/reserve-slide1.jpg" class="img-fluid" alt="#">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="images/reserve-slide2.jpg" class="grid image-link">
+                        <img src="images/reserve-slide2.jpg" class="img-fluid" alt="#">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="images/reserve-slide3.jpg" class="grid image-link">
+                        <img src="images/reserve-slide3.jpg" class="img-fluid" alt="#">
+                    </a>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+        </div>
+    </div>
+    <!--//END BOOKING -->
+    <!--============================= RESERVE A SEAT =============================-->
+    <section class="reserve-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>${ins.aab104 }</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="reserve-seat-block">
+                        <div class="reserve-rating">
+                            <span>9.5</span>
+                        </div>
+                        <div class="review-btn">
+                            <a href="#" class="btn btn-outline-danger">WRITE A REVIEW</a>
+                            <span>34 reviews</span>
+                        </div>
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a href="#" class="btn btn-danger">RESERVE A SEAT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END RESERVE A SEAT -->
+    <!--============================= BOOKING DETAILS =============================-->
+    <section class="light-bg booking-details_wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 responsive-wrap">
+                    <div class="booking-checkbox_wrap">
+                        <div class="booking-checkbox">
+                            <p>Tasty Hand-Pulled Noodles is a 1950s style diner located in Madison, Wisconsin. Opened in 1946 by Mickey Weidman, and located just across the street from Camp Randall Stadium, it has become a popular game day tradition amongst
+                                many Badger fans. The diner is well known for its breakfast selections, especially the Scrambler, which is a large mound of potatoes, eggs, cheese, gravy, and a patrons鈥� choice of other toppings.</p>
+                            <p>Mickies has also been featured on 鈥淭odd鈥檚 Taste of the Town鈥� during one of ESPN鈥檚 college football broadcasts. We are one of the best Chinese restaurants in the New York, New York area. We have been recognized for our outstanding
+                                Chinese & Asian cuisine, excellent Chinese menu, and great restaurant specials. We are one of the best Chinese restaurants in the New York, New York area. We have been recognized for our outstanding Chinese & Asian cuisine,
+                                excellent Chinese menu, and great restaurant specials.</p>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="custom-checkbox">
+                        <span class="ti-check-box"></span>
+                        <span class="custom-control-description">Bike Parking</span>
+                      </label> </div>
+                            <div class="col-md-4">
+                                <label class="custom-checkbox">
+                       <span class="ti-check-box"></span>
+                       <span class="custom-control-description">Wireless Internet  </span>
+                     </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="custom-checkbox">
+                     <span class="ti-check-box"></span>
+                     <span class="custom-control-description">Smoking Allowed  </span>
+                   </label> </div>
+                            <div class="col-md-4">
+                                <label class="custom-checkbox">
+                    <span class="ti-check-box"></span>
+                    <span class="custom-control-description">Street Parking</span>
+                  </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="custom-checkbox">
+                   <span class="ti-check-box"></span>
+                   <span class="custom-control-description">Special</span>
+                 </label> </div>
+                            <div class="col-md-4">
+                                <label class="custom-checkbox">
+                  <span class="ti-check-box"></span>
+                  <span class="custom-control-description">Accepts Credit cards</span>
+                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="booking-checkbox_wrap mt-4">
+                        <h5>34 Reviews</h5>
+                        <hr>
+                        <div class="customer-review_wrap">
+                            <div class="customer-img">
+                                <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
+                                <p>Amanda G</p>
+                                <span>35 Reviews</span>
+                            </div>
+                            <div class="customer-content-wrap">
+                                <div class="customer-content">
+                                    <div class="customer-review">
+                                        <h6>Best noodles in the Newyork city</h6>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span class="round-icon-blank"></span>
+                                        <p>Reviewed 2 days ago</p>
+                                    </div>
+                                    <div class="customer-rating">8.0</div>
+                                </div>
+                                <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
+                                    hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
+                                    dipped in their chili sauce.
+                                </p>
+                                <p class="customer-text">I love how you can see into the kitchen and watch them make the noodles and you can definitely tell that this is a family run establishment. The prices are are great with one dish maybe being $9. You just have to remember
+                                    to bring cash.
+                                </p>
+                                <ul>
+                                    <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
+                                    <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
+                                    <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
+                                </ul>
+                                <span>28 people marked this review as helpful</span>
+                                <a href="#"><span class="icon-like"></span>Helpful</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="customer-review_wrap">
+                            <div class="customer-img">
+                                <img src="images/customer-img2.jpg" class="img-fluid" alt="#">
+                                <p>Kevin W</p>
+                                <span>17 Reviews</span>
+                            </div>
+                            <div class="customer-content-wrap">
+                                <div class="customer-content">
+                                    <div class="customer-review">
+                                        <h6>A hole-in-the-wall old school shop.</h6>
+                                        <span class="customer-rating-red"></span>
+                                        <span class="round-icon-blank"></span>
+                                        <span class="round-icon-blank"></span>
+                                        <span class="round-icon-blank"></span>
+                                        <span class="round-icon-blank"></span>
+                                        <p>Reviewed 3 months ago</p>
+                                    </div>
+                                    <div class="customer-rating customer-rating-red">2.0</div>
+                                </div>
+                                <p class="customer-text">The dumplings were so greasy...the pan-fried shrimp noodles were the same. So much oil and grease it was difficult to eat. The shrimp noodles only come with 3 shrimp (luckily the dish itself is cheap) </p>
+                                <p class="customer-text">The beef noodle soup was okay. I added black vinegar into the broth to give it some extra flavor. The soup has bok choy which I liked - it's a nice textural element. The shop itself is really unclean (which is the case
+                                    in many restaurants in Chinatown) They don't wipe down the tables after customers have eaten. If you peak into the kitchen many of their supplies are on the ground which is unsettling... </p>
+                                <span>10 people marked this review as helpful</span>
+                                <a href="#"><span class="icon-like"></span>Helpful</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 responsive-wrap">
+                    <div class="contact-info">
+                        <img src="images/map.jpg" class="img-fluid" alt="#">
+                        <div class="address">
+                            <span class="icon-location-pin"></span>
+                            <p> Doyers St<br> New York, NY 10013<br> b/t Division St & St James Pl <br> Chinatown, Civic Center</p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-screen-smartphone"></span>
+                            <p> +44 20 7336 8898</p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-link"></span>
+                            <p>https://burgerandlobster.com</p>
+                        </div>
+                        <div class="address">
+                            <span class="icon-clock"></span>
+                            <p>Mon - Sun 09:30 am - 05:30 pm <br>
+                                <span class="open-now">OPEN NOW</span></p>
+                        </div>
+                        <a href="#" class="btn btn-outline-danger btn-contact">SEND A MESSAGE</a>
+                    </div>
+                    <div class="follow">
+                        <div class="follow-img">
+                            <img src="images/follow-img.jpg" class="img-fluid" alt="#">
+                            <h6>Christine Evans</h6>
+                            <span>New York</span>
+                        </div>
+                        <ul class="social-counts">
+                            <li>
+                                <h6>26</h6>
+                                <span>Listings</span>
+                            </li>
+                            <li>
+                                <h6>326</h6>
+                                <span>Followers</span>
+                            </li>
+                            <li>
+                                <h6>12</h6>
+                                <span>Followers</span>
+                            </li>
+                        </ul>
+                        <a href="#">FOLLOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END BOOKING DETAILS -->
+    <!--============================= FOOTER =============================-->
+    <footer class="main-block dark-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        
+                        <p>Copyright &copy; 2018 Listing. All rights reserved | made with Colorlib -  More Templates <a href="http://www.cssmoban.com/" target="_blank" title="妯℃澘涔嬪">妯℃澘涔嬪</a> - Collect from <a href="http://www.cssmoban.com/" title="缃戦〉妯℃澘" target="_blank">缃戦〉妯℃澘</a></p>
+                        
+                        <ul>
+                            <li><a href="#"><span class="ti-facebook"></span></a></li>
+                            <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+                            <li><a href="#"><span class="ti-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--//END FOOTER -->
 
 
 
-	<form id="myform" action="<%=path%>/shopinfoFind.html" method="post">
 
-
-		<!-- 临时用户流水号,获取暂未实现获取 -->
-		<input type="hidden" name="aaa101" value="2"> ${msg } <br>
-		<c:if test="${ins!=null }">
-			<br>
-			<a>${ins.aab104 }</a>
-			<br>
-			<a>评分: </a>
-			<a>${ins.aab111 }</a>
-			<br>
-			<a>地址: </a>
-			<a>${ins.aab106 }</a>
-			<br>
-			<a>电话: </a>
-			<a>${ins.aab107 }</a>
-			<br>
-			<input type="submit" name="next" value="写点评">
-
-			<br>
-		</c:if>
-
-
-
-		<!-- 收藏按钮 -->
-		<c:if test="${empty IsMark }">
-			<input type="submit" onclick="onSetMark('${ins.aab101}')" value="收藏">
-		</c:if>
-		<c:if test="${!empty IsMark }">
-			<input type="submit" onclick="onDelMark('${ins.aab101}')"
-				value="取消收藏">
-		</c:if>
-
-
-
-
-
-		<ul class="nav">
-			<li>菜单</li>
-			<li>环境图</li>
-			<li>资质档案</li>
-		</ul>
-
-		<br> <br>
-		<div class="content">
-			<div class="list ">
-				<c:choose>
-					<c:when test="${menus!=null }">
-						<!-- 显示实际查询到的数据 -->
-						<c:forEach items="${menus }" var="menu" varStatus="vs">
-							<br>
-							<br>
-							<a>图片: </a>
-							<a>${menu.aab202 }</a>
-							<br>
-							<a>菜品名: </a>
-							<a>${menu.aab207 }</a>
-							<br>
-							<a>价格: </a>
-							<a>${menu.aab203 }</a>
-							<br>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<a>该商家尚未上传菜单!</a>
-					</c:otherwise>
-				</c:choose>
-			</div>
-			<div class="list">
-				<br> <a>${ins.aab109 }</a>
-			</div>
-			<div class="list">
-				<br> <a>${ins.aab108 }</a>
-			</div>
-		</div>
-
-
-		<br> <br> <br> <br> <br>
-
-
-		<c:choose>
-			<c:when test="${comments!=null }">
-				<!-- 显示实际查询到的数据 -->
-				<c:forEach items="${comments }" var="comment" varStatus="vs">
-					<br>
-
-					<c:if test="${comment.aaa305=='0' }">
-
-						<a>昵称: </a>
-						<a>${comment.aaa103 }</a>
-						<br>
-						<a>评分: </a>
-						<a>${comment.aab307 }</a>
-						<br>
-						<a>评论内容: </a>
-						<a>${comment.aab303 }</a>
-						<br>
-						<a>图片: </a>
-						<a>${comment.aab306 }</a>
-						<br>
-						<a>时间: </a>
-						<a>${comment.aab304 }</a>
-
-					</c:if>
-
-
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<a>该商家尚未上传菜单!</a>
-			</c:otherwise>
-		</c:choose>
-
-
-
-
-	</form>
-
-
+    <!-- jQuery, Bootstrap JS. -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src=" <%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
+    <script src=" <%=path%>/js/xzs_popper.min.js"></script>
+    <script src=" <%=path%>/js/xzs_bootstrap.min.js"></script>
+    <!-- Magnific popup JS -->
+    <script src=" <%=path%>/js/xzs_jquery.magnific-popup.js"></script>
+    <!-- Swipper Slider JS -->
+    <script src=" <%=path%>/js/xzs_swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+    <script>
+        if ($('.image-link').length) {
+            $('.image-link').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        }
+        if ($('.image-link2').length) {
+            $('.image-link2').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

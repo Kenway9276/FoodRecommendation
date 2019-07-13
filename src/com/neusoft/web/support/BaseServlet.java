@@ -49,19 +49,20 @@ public class BaseServlet extends HttpServlet
      		/***********************************************************
      		 *                        向业务控制器,填充页面数据     i
      		 ***********************************************************/
+
+
      		//为业务控制器织入DTO切片
-     		if(controllerFirstName.contains(""))
+
+
+
+     		if(controllerFirstName.contains("ReleaseNotice"))
      		{
      			controller.setMapDtoForFile(this.createDtoForFile(request));
      		}
-     		else
+     		else 
      		{
      			controller.setMapDto(this.createDto(request));
-     		}
-
-
-			 controller.setMapDto(this.createDto(request));
-
+			}
 
      		/***********************************************************
      		 *                        调用业务控制器的流程控制方法
@@ -99,8 +100,6 @@ public class BaseServlet extends HttpServlet
 			DiskFileItemFactory factory=new DiskFileItemFactory();
 			// 创建解析器
 			ServletFileUpload upload=new ServletFileUpload(factory);
-
-
 			//设置缓冲区大小与临时文件目录,如果单个文件的大小超过内存缓冲区，该文件将会临时缓存在此目录下
 			factory.setSizeThreshold(1024*1024*10);
 			File uploadTemp=new File("\\uploadTemp");
@@ -133,7 +132,9 @@ public class BaseServlet extends HttpServlet
 				else {
 					System.out.println(fileItem.getFieldName());
 					System.out.println(fileItem.getString());
-					dto.put(fileItem.getFieldName(),new String(fileItem.getString().getBytes("ISO8859_1"), "utf-8"));
+
+					String temp = new String(fileItem.getString().getBytes("ISO-8859-1"), "GBK");
+					dto.put(fileItem.getFieldName(),temp);
 				}
 			}
 		}  catch (Exception e) {

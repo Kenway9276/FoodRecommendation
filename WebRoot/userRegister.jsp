@@ -12,7 +12,9 @@
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
-${ins }
+<div style="color:#FFFFFF">
+${msg}
+</div>
 <br>
 <form action="<%=path %>/userRegister.html" method="post">
 <div class="signupform">
@@ -44,8 +46,12 @@ ${ins }
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<input placeholder="ÇëÊäÈëÃÜÂë" name="aaa105" type="${empty ins.aaa101?'password':'text' }" value="${ins.aaa105 }">
+							<input placeholder="Çë${empty ins.aaa101?'ÊäÈë':'È·ÈÏ' }ÃÜÂë" name="aaa105" type="password">
 						</div>
+						<div style="display:${empty ins.aaa101?'none':'show'}" class="input-group">
+							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<input placeholder="¶ş´ÎÈ·ÈÏ/ĞŞ¸ÄÃÜÂë" name="raaa105" type="password">
+						</div> 
 						<div class="input-group">
 							<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
 							<e:email placeholder="ÇëÊäÈëÓÊÏä" name="aaa106" required="true" defval="${ins.aaa106}"/>
@@ -57,11 +63,7 @@ ${ins }
 						<div style="height:40px;vertical-align:middle" class="input-group">
 							<span><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
 							<e:date name="aaa108" required="true" defval="${ins.aaa108}" />
-						</div>
-						<div style="display:${empty ins.aaa101?'none':'show'};height:40px" class="input-group">
-							<span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-							<e:date name="aaa110"  defval="${ins.aaa110}" />
-						</div>        
+						</div>      
 							<input class="btn btn-danger btn-block" type="submit" name="next" value="${empty ins.aaa101?'×¢²á':'ĞŞ¸Ä' }"
         					formaction="<%=path%>/user${empty ins.aaa101?'Register':'Modify' }.html">      
 			</div>

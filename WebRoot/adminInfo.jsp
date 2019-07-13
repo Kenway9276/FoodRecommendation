@@ -29,6 +29,16 @@
 	{
 	background:#ff8040;
 	}
+	button{
+	display:inline-block;
+	border:none;
+	background-color:#ff8040;
+	color:#FFFFFF;
+	padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    border-radius:6px;
+	}
 </style>
 </head>
 <body >
@@ -41,6 +51,7 @@ if(map != null){
 <%=request.getSession().getAttribute("管理员流水号")%>
 <%request.getSession().setAttribute("ins", map); %>
 <br>
+<form action="<%=path %>/adminInfo.html" method="post">
 <nav>
   <div class="container">
     <h1>Doc</h1>
@@ -56,7 +67,7 @@ if(map != null){
 </nav>
 <header>
   <div class="container">
-    <h2 class="docs-header">快来管理我吧哈哈哈！</h2>
+    <h2 class="docs-header">知己知彼，百战不殆！</h2>
   </div>
 </header>
 <section>
@@ -102,7 +113,7 @@ if(map != null){
 		密码
 		</td>
 		<td style="color:#FFFFFF">
-		<e:text name="aac404" defval="${ins.aac404}" />
+		<input type="password" name="aac404" />
 		</td>
 	</tr>
 	<tr>
@@ -122,6 +133,10 @@ if(map != null){
 		</td>
 	</tr>
 </table>
+<br>
+<div style="margin:0 auto;width:100px">
+	<button type="submit" name="next" formaction="<%=path %>/adminModifyInfo.html" name="next" >修改</button>
+</div>
 </div>
 </div>
 </div>

@@ -59,6 +59,15 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("rows", rows);
 		}
 	}
+	
+	protected final void saveAdminForumPageData()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminForumQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
 
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
@@ -180,6 +189,7 @@ public abstract class ControllerSupport implements BaseController
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
+			this.saveAttribute("msg", "登陆成功!");
 		}
 		else
 		{
@@ -377,6 +387,12 @@ public abstract class ControllerSupport implements BaseController
 	protected final void update(String methodName,String msgText)throws Exception
 	{
 		String msg=this.executeUpdateMethod(methodName)?"成功!":"失败!";
+		this.saveAttribute("msg", msgText+msg);
+	}
+	
+	protected final void updatePWD(String methodName,String msgText)throws Exception
+	{
+		String msg=this.executeUpdateMethod(methodName)?"成功!":"失败!密码错误!";
 		this.saveAttribute("msg", msgText+msg);
 	}
 	
