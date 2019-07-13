@@ -797,57 +797,127 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		 public List<Map<String,String>> busiQuery()throws Exception
 		  {
 		  		//
-		  		Object aab102=this.get("qaab102");     //
-		  		Object aab103=this.get("qaab103");     //
-		  		Object aab105=this.get("qaab105");     //
-		  		Object aab106=this.get("qaab106");     //
-		  		Object baab104=this.get("baab104");    //
-		  		Object eaab104=this.get("eaab104");    //
+			 	Object aab101=this.get("aab101");
+		  		Object aab207=this.get("qaab207");     //
+//		  		Object aab204=Tools.joinArray(this.get("qaab204"));     //
+//		  		Object aab205=Tools.joinArray(this.get("qaab205"));     //
+//		  		Object aab206=this.get("qaab206");     //
 		  		
 		  		//
 		  		StringBuilder sql=new StringBuilder()
-		  				.append("select x.aab101,x.aab102,x.aab103,x.aab104,a.fvalue cnaab105,")
-		  				.append("       b.fvalue cnaab106,x.aab108,x.aab109")
-		  				.append("  from syscode a,syscode b, ab01 x")
-		  				.append(" where x.aab105=a.fcode and a.fname='aab105'")
-		  				.append("   and x.aab106=b.fcode and b.fname='aab106'") 
+		  				.append("select a.aab201,a.aab101,a.aab207,a.aab202,a.aab203,a.aab204,a.aab205,a.aab206 ")
+						.append("FROM ab02 a ")
+						.append("where a.aab101=? ") 
 		  				;
 		  		
 		  		//
 		  		List<Object> paramList=new ArrayList<>();
 		  		//
-		  		if(this.isNotNull(aab102))
-		  		{
-		  			sql.append(" and x.aab102 like ?");
-		  			paramList.add("%"+aab102+"%");
-		  		}
-		  		if(this.isNotNull(aab103))
-		  		{
-		  			sql.append(" and x.aab103=?");
-		  			paramList.add(aab103);
-		  		}
-		  		if(this.isNotNull(aab105))
-		  		{
-		  			sql.append(" and x.aab105=?");
-		  			paramList.add(aab105);
-		  		}
-		  		if(this.isNotNull(aab106))
-		  		{
-		  			sql.append(" and x.aab106=?");
-		  			paramList.add(aab106);
-		  		}
-		  		if(this.isNotNull(baab104))
-		  		{
-		  			sql.append(" and x.aab104>=?");
-		  			paramList.add(baab104);
-		  		}
-		  		if(this.isNotNull(eaab104))
-		  		{
-		  			sql.append(" and x.aab104<=?");
-		  			paramList.add(eaab104);
-		  		}
+		  			
+		  		paramList.add(aab101);
 		  		
-		  		sql.append(" order by x.aab102");
-		  		return this.queryForList(sql.toString(), paramList.toArray());
+		  		if(this.isNotNull(aab207))
+		  		{
+		  			sql.append(" and a.aab207 like ?");
+		  			paramList.add(aab207);
+		  		}
+//		  		if(this.isNotNull(aab204))
+//		  		{
+//		  			sql.append(" and a.aab203 like ?");
+//		  			paramList.add(aab204);
+//		  		}
+//		  		if(this.isNotNull(aab205))
+//		  		{
+//		  			sql.append(" and a.aab204 like ?");
+//		  			paramList.add(aab205);
+//		  		}
+//		  		if(this.isNotNull(aab206))
+//		  		{
+//		  			sql.append(" and a.aab205 = ?");
+//		  			paramList.add(aab206);
+//		  		}
+		  		
+		  		sql.append(" order by a.aab201");
+		  		List<Map<String,String>> tems = this.queryForList(sql.toString(), paramList);
+				 for (int i = 0; i < tems.size(); i++) 
+				 	{
+				        tems.get(i).put("qaab204", tems.get(i).get("aab204"));
+				        tems.get(i).put("qaab205", tems.get(i).get("aab205"));
+				        tems.get(i).put("qaab206", tems.get(i).get("aab206"));
+				        //获取一条口味并把代码替换为中文
+				        parseBusiCodeList(tems.get(i),"aab204");
+				        parseBusiCodeList(tems.get(i),"aab205");
+				        parseBusiCodeList(tems.get(i),"aab206");
+				    }
+				    return tems;
 		  }
+		 //商家查看订座信息(未处理)
+		 public List<Map<String,String>> busiManageReservation()throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			 .append("SELECT a.aac101,a.aaa101,a.aab101,a.aaa201,a.aac102,")
+		    			 .append("		 a.aac103,a.aac104,a.aac105,a.aac106,b.aaa101,")
+		    			 .append("		 b.aaa103")
+		    			 .append("	FROM ac01 a,aa01 b")
+		    			 .append(" WHERE a.aaa101 = b.aaa101  ")
+		    			 .append("	AND  a.aab101 = ? ")
+		    			 .append(" 	AND  a.aac106 = ? ")
+		    			 ;
+		    	Object args[]=
+			    	{
+			   			this.get("aab101"),
+			   			"0"
+			    	};
+		    	return this.queryForList(sql.toString(), args);
+		    }
+		 //商家查看订座信息
+		 public List<Map<String,String>> busiReservation()throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			 .append("SELECT a.aac101,a.aaa101,a.aab101,a.aaa201,a.aac102,")
+		    			 .append("		 a.aac103,a.aac104,a.aac105,a.aac106,b.aaa101,")
+		    			 .append("		 b.aaa103")
+		    			 .append("	FROM ac01 a,aa01 b")
+		    			 .append(" WHERE a.aaa101 = b.aaa101  ")
+		    			 .append("	AND  a.aab101 = ? ")
+		    			 .append(" 	AND  a.aac106 = ? ")
+		    			 ;
+		    	Object args[]=
+			    	{
+			   			this.get("aab101"),
+			   			"1"
+			    	};
+		    	return this.queryForList(sql.toString(), args);
+		    }
+		 //商家通过订座信息
+		 private boolean busiAccessReservation()throws Exception
+		 {
+			
+			 StringBuilder sql=new StringBuilder()
+		    			.append("UPDATE ac01 SET aac106 = ?")
+		    			.append(" WHERE aac101 = ?")
+		    			;
+		    	Object args[]=
+		    		{
+		    			"1",
+		    			this.get("aac101")
+		    		};
+			return this.executeUpdate(sql.toString(), args)>0;
+		 }
+		//商家拒绝订座信息
+		 private boolean busiRefuseReservation()throws Exception
+		 {
+			
+			 StringBuilder sql=new StringBuilder()
+		    			.append("UPDATE ac01 SET aac106 = ?")
+		    			.append(" WHERE aac101 = ?")
+		    			;
+		    	Object args[]=
+		    		{
+		    			"2",
+		    			this.get("aac101")
+		    		};
+			return this.executeUpdate(sql.toString(), args)>0;
+		 }
+		 
 }

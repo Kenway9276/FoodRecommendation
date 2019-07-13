@@ -19,11 +19,11 @@
 ${msg}
 <br>
 <br>
-<form action="<%=path%>/addEmp.html" method="post">
+<form action="<%=path%>/busiAddDish.html" method="post">
 <input type = "hidden" name="aab101" value="2">
 <table  border="1" align="center" width="45%">
     <caption>
-       	上传菜品
+       	${empty param.aab201?'添加':'修改'}菜品
     <hr width="160">
     </caption>
    <tr>
@@ -52,7 +52,7 @@ ${msg}
    <td>
    		<c:forEach items="${row}" var="ins" varStatus="vs" >
  	   		 <c:if test="${ins.sfcode == 'aaa202' }"  >
- 	   		 	<input type="checkbox" name="aab204" value="${ins.scode}">${ins.sname}
+ 	   		 	 <input type="checkbox" name="aab204" value="${ins.scode}">${ins.sname}
  	   		 </c:if>
    		</c:forEach>
    </td>
@@ -63,7 +63,7 @@ ${msg}
    <td>
    		<c:forEach items="${row}" var="ins" varStatus="vs" >
  	   		 <c:if test="${ins.sfcode == 'aaa203' }"  >
- 	   		 	<input type="checkbox" name="aab205" value="${ins.scode}">${ins.sname}
+ 	   		 	 <input type="checkbox" name="aab205" value="${ins.scode}">${ins.sname}
  	   		 </c:if>
    		</c:forEach>
    </td>
@@ -82,10 +82,10 @@ ${msg}
    </tr>
    <tr>
      <td colspan="2" align="center">
-       <input type="submit" name="next" value="添加"
-              formaction="<%=path%>/busiAddDish.html">
+       <input type="submit" name="next" value="${empty param.aab201?'添加':'修改' }"
+              formaction="<%=path%>/${empty param.aab201?'busiAddDish':'busiModifyDish' }.html">
        <input type="submit" name="next" value="返回" 
-              formaction="<%=path%>/busiModify.html"
+              formaction="<%=path%>/busiReturnMenuManage.html"
               formnovalidate="formnovalidate">
      </td>
    </tr>

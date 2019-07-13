@@ -50,8 +50,14 @@ public class BaseServlet extends HttpServlet
      		 *                        向业务控制器,填充页面数据     i
      		 ***********************************************************/
      		//为业务控制器织入DTO切片
-
-
+     		if(controllerFirstName.contains(""))
+     		{
+     			controller.setMapDtoForFile(this.createDtoForFile(request));
+     		}
+     		else
+     		{
+     			controller.setMapDto(this.createDto(request));
+     		}
 
 
 			 controller.setMapDto(this.createDto(request));
