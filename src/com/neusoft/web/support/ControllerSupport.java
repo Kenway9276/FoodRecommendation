@@ -78,6 +78,24 @@ public abstract class ControllerSupport implements BaseController
 		}	
 	}
 	
+	protected final void saveMapPageData(String key, String methodName)throws Exception
+	{
+	   //1.获取需要调用的方法对象
+	   Method method=this.services.getClass().getDeclaredMethod(methodName);
+	   method.setAccessible(true);
+	   //2.调用方法
+	   Object tem = method.invoke(services);
+	   Map<String,String> ins = (Map<String, String>) tem;
+	   if(ins!=null)
+	   {
+	      this.saveAttribute(key, ins);
+	   }
+	   else
+	   {
+	      this.saveAttribute("msg", "无关键词");
+	   }
+	}
+	
 	protected final void saveUserNoticePageData()throws Exception
 	{
 		List<Map<String,String>> rows=this.services.userNoticeQuery();
