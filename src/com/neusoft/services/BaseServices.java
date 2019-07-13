@@ -55,5 +55,37 @@ public interface BaseServices
 	{
 		return null;
 	}
+	default Map<String,String> busiLogin()throws Exception
+    {
+   	 return null;
+    }  
+    default Map<String,String> findBusiPopularizeById()throws Exception
+    {
+   	 return null;
+    }  
+    default List<Map<String,String>> userAssemble()throws Exception
+    {
+   	 return null;
+    }  
+    
+    default List<Map<String,String>> getSysco()throws Exception
+    {
+   	 return null;
+    }
+    
+    default boolean busiPopularize(String aab403,String aab404)throws Exception
+    {
+   	 return (Boolean) null;
+    }
+    
+    default List<Map<String,String>> busiDishMenuQuery()throws Exception
+    {
+   	 return null;
+    }
+    
+    default List<Map<String,String>> adminForumQuery()throws Exception
+    {
+   	 return null;
+    }
 	
 }

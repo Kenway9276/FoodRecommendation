@@ -59,6 +59,15 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("rows", rows);
 		}
 	}
+	
+	protected final void saveAdminForumPageData()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminForumQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
 
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
@@ -180,6 +189,7 @@ public abstract class ControllerSupport implements BaseController
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
+			this.saveAttribute("msg", "登陆成功!");
 		}
 		else
 		{
@@ -214,6 +224,101 @@ public abstract class ControllerSupport implements BaseController
 	}
 	
 	/**
+	 * mark=.=
+	 * @throws Exception
+	 */
+	//读取商家信息
+	protected final void saveBusiLoginInstance()throws Exception
+	{
+		Map<String,String> ins=this.services.busiLogin();
+		if(ins!=null)
+		{
+			this.saveAttribute("ins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "警告:该用户不存在!");
+		}	
+	}
+	//读取用户拼座信息
+	protected final void saveUserAssembleInstance()throws Exception
+	{
+		List<Map<String,String>> rows= this.services.userAssemble();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "数据无访问权限或不存在!");
+		}	
+	}
+	//读取syscode信息
+	protected final void saveSyscodeInstance()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.getSysco();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("row", rows);
+		}
+		else
+		{
+			this.saveAttribute("syscodeMsg", "连接失败!");
+		}	
+	}
+	
+	//读取的行家推广信息
+	protected final void saveBusiPopularizeInstance()throws Exception
+	{
+		Map<String,String> ins=this.services.findBusiPopularizeById();
+		if(ins!=null)
+		{
+			this.saveAttribute("ins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "提示:该数据不存在或无访问权限!");
+		}	
+	}
+	
+	//根据商家推广状态,决定所使用的sql语句
+	protected final void setBusiPopularizeEndTime()throws Exception
+	{
+		Map<String,String> ins=this.services.findBusiPopularizeById();
+		String aab402 = ins.get("aab402");
+		if(aab402.equals("0"))
+		{
+			this.update("busiPopularize", "推广");
+		}
+		else
+		{
+			this.update("busiContinuePopularize","推广");
+		}
+	}
+	//获取商家菜单信息
+	protected final void saveBusiMenuInstance()throws Exception
+	{
+		List<Map<String,String>> rows = this.services.busiDishMenuQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "读取菜单信息失败!");
+		}
+	}
+	
+	protected final void saveBusiMenuDataForDelete()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.busiDishMenuQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
+	
+	/**
 	 * 通过反射执行更新方法
 	 * @param methodName
 	 * @return
@@ -241,6 +346,12 @@ public abstract class ControllerSupport implements BaseController
 	protected final void update(String methodName,String msgText)throws Exception
 	{
 		String msg=this.executeUpdateMethod(methodName)?"成功!":"失败!";
+		this.saveAttribute("msg", msgText+msg);
+	}
+	
+	protected final void updatePWD(String methodName,String msgText)throws Exception
+	{
+		String msg=this.executeUpdateMethod(methodName)?"成功!":"失败!密码错误!";
 		this.saveAttribute("msg", msgText+msg);
 	}
 	
