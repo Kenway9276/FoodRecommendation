@@ -6,19 +6,20 @@
   Time: 15:53
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=GBK" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form id="postForm" action="/bBSPost.html" enctype="multipart/form-data" method="post">
-    æ ‡é¢˜<input type="text" name="aaa303"><br>
-    æ­£æ–‡<div id="div1">
-    <p>è¿™é‡Œè¾“å…¥æ­£æ–‡</p>
+<form id="aaa" action="/bBSPost.html" method="post">
+    ±êÌâ<input type="text" name="aaa303"><br>
+    ÕıÎÄ<div id="div1">
+    <p>ÕâÀïÊäÈëÕıÎÄ</p>
     </div>
-    <textarea name="aaa304" id="text1" style="display: none"></textarea>
-    <button id="subBtn" value="å‘å¸ƒ">å‘å¸ƒ</button>
+    <textarea name="aaa304" id="text1" ></textarea>
+    <textarea name="aaa306" id="text2" ></textarea>
+    <input type="submit" value="·¢²¼"></input>
 </form>
 
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -28,33 +29,19 @@
     var editor = new E('#div1')
     editor.customConfig.uploadImgShowBase64 = true
     var $text1 = $('#text1')
+    var $text2 = $('#text2')
     editor.customConfig.onchange = function (html) {
-        // ç›‘æ§å˜åŒ–ï¼ŒåŒæ­¥æ›´æ–°åˆ° textarea
+        // ¼à¿Ø±ä»¯£¬Í¬²½¸üĞÂµ½ textarea
         $text1.val(html)
+        $text2.val(editor.txt.text())
     }
 
     editor.create()
-    // åˆå§‹åŒ– textarea çš„å€¼
+    // ³õÊ¼»¯ textarea µÄÖµ
     $text1.val(editor.txt.html())
+    $text2.val(editor.txt.text())
 
 
-    document.getElementById('subBtn').addEventListener('click', function () {
-        var vform = document.getElementById("postForm");
-        // è¯»å– text
-        var aaa306 = editor.txt.text()
-        vform.action = "/bBSPost.html?aaa306="+aaa306;
-
-    }, false)
-
-</script>
-<script type="text/javascript">
-    function onSelect(vaaa306) {
-        var vform = document.getElementById("postForm");
-
-        vform.action = "/bBSPost.html?aaa306="+vaaa306;
-        //alert(vform.action);
-        vform.submit();
-    }
 </script>
 </body>
 </html>
