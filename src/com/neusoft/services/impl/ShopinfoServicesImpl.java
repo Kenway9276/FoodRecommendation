@@ -1,5 +1,6 @@
 package com.neusoft.services.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -147,6 +148,24 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		map.put("CurrentKeywords", Keywords);
 		map.put("CurrentCityName", CityName);
 		return map;
+	}
+	
+	
+	//分割商家环境图的地址(xxx.jpg,xxx.jpg,.......)
+	public List<Map<String,String>> savePhotoAddress()throws Exception
+	{
+		String sql="select aab109 from ab01 where aab101=? ";
+		String str=this.queryForMap(sql, this.get("aab101")).get("aab109");
+		String strs[]=str.split(",");
+		List<Map<String,String>> AddressList=new ArrayList();
+		for (int i = 0; i <strs.length; i++)
+		{
+			Map<String,String> map= new HashMap();
+			strs[i]="images/"+strs[i];
+			map.put("address",strs[i]);
+			AddressList.add(map);
+		}
+		return AddressList;
 	}
 
 }
