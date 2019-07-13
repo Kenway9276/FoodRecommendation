@@ -67,7 +67,7 @@ if(map != null){
 </nav>
 <header>
   <div class="container">
-    <h2 class="docs-header">快来管理我吧哈哈哈！</h2>
+    <h2 class="docs-header">知己知彼，百战不殆！</h2>
   </div>
 </header>
 <section>

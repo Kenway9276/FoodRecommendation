@@ -514,6 +514,54 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		return this.queryForList(sql.toString(), paramList.toArray());
 	  }
 	  
+	  public List<Map<String,String>> adminForumQuery()throws Exception
+	  {
+	  		Object baaa302=this.get("baaa302");		
+	  		Object eaaa302=this.get("eaaa302");	
+	  		Object aaa303=this.get("qaaa303");     	
+	  		Object aaa304=this.get("qaaa304");     	   	
+	  		Object aaa103=this.get("qaaa103");     	
+	  		
+//	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
+//	  		from aa01 a,ab01 b,ac01 c,aa02 d
+//	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
+	  		StringBuilder sql=new StringBuilder()
+	  				.append("select a.aaa301,a.aaa302,a.aaa303,a.aaa304,b.aaa103")
+	  				.append("  from aa03 a,aa01 b")
+	  				.append(" where a.aaa101=b.aaa101")
+	  				;
+	  		
+	  		List<Object> paramList=new ArrayList<>();
+	  		if(this.isNotNull(baaa302))
+	  		{
+	  			sql.append(" and a.aaa302>=?");
+	  			paramList.add(baaa302);
+	  		}
+	  		if(this.isNotNull(eaaa302))
+	  		{
+	  			sql.append(" and a.aaa302<=?");
+	  			paramList.add(eaaa302);
+	  		}
+	  		if(this.isNotNull(aaa303))
+	  		{
+	  			sql.append(" and a.aaa303 like ?");
+	  			paramList.add("%"+aaa303+"%");
+	  		}
+	  		if(this.isNotNull(aaa304))
+	  		{
+	  			sql.append(" and a.aaa304 like ?");
+	  			paramList.add("%"+aaa304+"%");
+	  		}
+	  		if(this.isNotNull(aaa103))
+	  		{
+	  			sql.append(" and b.aaa103 like ?");
+	  			paramList.add("%"+aaa103+"%");
+	  		}
+	  		sql.append(" order by a.aaa301");
+	  		//System.out.println(sql.toString());
+	  		return this.queryForList(sql.toString(), paramList.toArray());
+	  }
+	  
 	  public List<Map<String,String>> userNoticeQuery()throws Exception
 	  {
 	  		StringBuilder sql=new StringBuilder()

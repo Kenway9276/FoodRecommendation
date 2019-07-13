@@ -59,6 +59,15 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("rows", rows);
 		}
 	}
+	
+	protected final void saveAdminForumPageData()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminForumQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
 
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
