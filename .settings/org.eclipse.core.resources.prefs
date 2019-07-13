@@ -1,2 +1,9 @@
 eclipse.preferences.version=1
 encoding//WebRoot/shopdetail.jsp=UTF-8
+encoding//src/com/neusoft/services/BaseServices.java=GBK
+encoding//src/com/neusoft/services/impl/Ab01ServicesImpl.java=UTF-8
+encoding//src/com/neusoft/services/impl/MessageServicesImpl.java=GBK
+encoding//src/com/neusoft/services/impl/RankingServiceImpl.java=GBK
+encoding//src/com/neusoft/web/support/BaseServlet.java=GBK
+encoding//src/com/neusoft/web/support/ControllerSupport.java=GBK
+encoding/<project>=GBK

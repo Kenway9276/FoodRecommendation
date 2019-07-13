@@ -65,14 +65,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean userRegister()throws Exception
     {
-    	//1.±àĞ´SQLÓï¾ä
+    	//1.ç¼–å†™SQLè¯­å¥
     	StringBuilder sql=new StringBuilder()
     			.append("insert into aa01(aaa102,aaa103,aaa104,aaa105,aaa106,")
     			.append("                 aaa107,aaa108,aaa110)")
     			.append("          values(?,?,?,?,?,")
     			.append("                 ?,?,CURRENT_DATE)")
     			;
-    	//2.±àĞ´²ÎÊıÊı×é
+    	//2.ç¼–å†™å‚æ•°æ•°ç»„
     	Object args[]={
     			this.get("aaa102"),
        			this.get("aaa103"),
@@ -87,14 +87,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean adminReleaseNotice()throws Exception
     {
-    	//1.±àĞ´SQLÓï¾ä
+    	//1.ç¼–å†™SQLè¯­å¥
     	StringBuilder sql=new StringBuilder()
     			.append("insert into ac02(aac202,aac203,aac204,aac205,aac206,")
     			.append("                 aac207,aac401)")
     			.append("          values(?,CURRENT_TIMESTAMP,?,?,?,")
     			.append("                 ?,?)")
     			;
-    	//2.±àĞ´²ÎÊıÊı×é
+    	//2.ç¼–å†™å‚æ•°æ•°ç»„
     	Object args[]={
     			this.get("aac202"),
     			this.get("aac204"),
@@ -140,12 +140,12 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean addEmp()throws Exception
     {
-    	//»ñÈ¡µ±Ç°Ô±¹¤±àºÅ
+    	//è·å–å½“å‰å‘˜å·¥ç¼–å·
     	String aab103=Tools.getEmpNumber();
-    	//ÏòDTOÌí¼ÓÔ±¹¤±àºÅ
+    	//å‘DTOæ·»åŠ å‘˜å·¥ç¼–å·
     	this.put("aab103", aab103);
     	
-    	//1.±àĞ´SQLÓï¾ä
+    	//1.ç¼–å†™SQLè¯­å¥
     	StringBuilder sql=new StringBuilder()
     			.append("insert into ab01(aab102,aab103,aab104,aab105,aab106,")
     			.append("                 aab107,aab108,aab109,aab110,aab111,")
@@ -154,7 +154,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			.append("                 ?,?,?,?,?,")
     			.append("                 ?,?)")
     			;
-    	//2.±àĞ´²ÎÊıÊı×é
+    	//2.ç¼–å†™å‚æ•°æ•°ç»„
     	Object args[]={
     			this.get("aab102"),
     			aab103,
@@ -174,31 +174,31 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 
     private boolean batchDelete()throws Exception
     {
-    	//1.¶¨ÒåSQLÓï¾ä
+    	//1.å®šä¹‰SQLè¯­å¥
     	String sql="delete from ab01 where aab101=?";
-    	//2.»ñÈ¡Ò³ÃæidlistÊı×é
+    	//2.è·å–é¡µé¢idlistæ•°ç»„
     	String idlist[]=this.getIdList("idlist");
-    	//3.Ö´ĞĞ
+    	//3.æ‰§è¡Œ
     	return this.batchUpdate(sql, idlist);
     }
     
     private boolean userHistoryDelete()throws Exception
     {
-    	//1.¶¨ÒåSQLÓï¾ä
+    	//1.å®šä¹‰SQLè¯­å¥
     	String sql="delete from ac01 where aac101=?";
-    	//2.»ñÈ¡Ò³ÃæidlistÊı×é
+    	//2.è·å–é¡µé¢idlistæ•°ç»„
     	String idlist[]=this.getIdList("idlist");
-    	//3.Ö´ĞĞ
+    	//3.æ‰§è¡Œ
     	return this.batchUpdate(sql, idlist);
     }
     
     private boolean adminNoticeDelete()throws Exception
     {
-    	//1.¶¨ÒåSQLÓï¾ä
+    	//1.å®šä¹‰SQLè¯­å¥
     	String sql="delete from ac02 where aac201=?";
-    	//2.»ñÈ¡Ò³ÃæidlistÊı×é
+    	//2.è·å–é¡µé¢idlistæ•°ç»„
     	String idlist[]=this.getIdList("idlist");
-    	//3.Ö´ĞĞ
+    	//3.æ‰§è¡Œ
     	return this.batchUpdate(sql, idlist);
     }
     
@@ -228,7 +228,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     public Map<String,String> findById()throws Exception
     {
-    	//1.±àĞ´SQLÓï¾ä
+    	//1.ç¼–å†™SQLè¯­å¥
     	StringBuilder sql=new StringBuilder()
     			.append("select a.aab102,a.aab103,a.aab104,a.aab105,a.aab106,")
     			.append("       a.aab107,a.aab108,a.aab109,a.aab110,a.aab111,")
@@ -236,39 +236,39 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			.append("  from ab01 a")
     			.append(" where a.aab101=?")
     			;
-    	//Ö´ĞĞ²éÑ¯
+    	//æ‰§è¡ŒæŸ¥è¯¢
     	return this.queryForMap(sql.toString(), this.get("aab101"));
     }
     public Map<String,String> findByIdNotice()throws Exception
     {
-    	//1.±àĞ´SQLÓï¾ä
+    	//1.ç¼–å†™SQLè¯­å¥
     	StringBuilder sql=new StringBuilder()
     			.append("select aac202,aac203,aac204,aac205,")
     			.append("       aac206,aac207")
     			.append("  from ac02")
     			.append(" where aac201=?")
     			;
-    	//Ö´ĞĞ²éÑ¯
+    	//æ‰§è¡ŒæŸ¥è¯¢
     	return this.queryForMap(sql.toString(), this.get("aac201"));
     }
     
     
       /**
-       * ²»¶¨Ìõ¼ş²éÑ¯
+       * ä¸å®šæ¡ä»¶æŸ¥è¯¢
        * @return
        * @throws Exception
        */
 	  public List<Map<String,String>> query()throws Exception
 	  {
-	  		//»¹Ô­Ò³Ãæ²éÑ¯Ìõ¼ş
-	  		Object aab102=this.get("qaab102");     //ĞÕÃû  Ä£ºı²éÑ¯
-	  		Object aab103=this.get("qaab103");     //±àºÅ
-	  		Object aab105=this.get("qaab105");     //ĞÔ±ğ
-	  		Object aab106=this.get("qaab106");     //Ãñ×å
-	  		Object baab104=this.get("baab104");    //ÉúÈÕB
-	  		Object eaab104=this.get("eaab104");    //ÉúÈÕE
+	  		//è¿˜åŸé¡µé¢æŸ¥è¯¢æ¡ä»¶
+	  		Object aab102=this.get("qaab102");     //å§“å  æ¨¡ç³ŠæŸ¥è¯¢
+	  		Object aab103=this.get("qaab103");     //ç¼–å·
+	  		Object aab105=this.get("qaab105");     //æ€§åˆ«
+	  		Object aab106=this.get("qaab106");     //æ°‘æ—
+	  		Object baab104=this.get("baab104");    //ç”Ÿæ—¥B
+	  		Object eaab104=this.get("eaab104");    //ç”Ÿæ—¥E
 	  		
-	  		//¶¨ÒåSQLÖ÷Ìå
+	  		//å®šä¹‰SQLä¸»ä½“
 	  		StringBuilder sql=new StringBuilder()
 	  				.append("select x.aab101,x.aab102,x.aab103,x.aab104,a.fvalue cnaab105,")
 	  				.append("       b.fvalue cnaab106,x.aab108,x.aab109")
@@ -277,9 +277,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append("   and x.aab106=b.fcode and b.fname='aab106'") 
 	  				;
 	  		
-	  		//²ÎÊıÁĞ±í
+	  		//å‚æ•°åˆ—è¡¨
 	  		List<Object> paramList=new ArrayList<>();
-	  		//ÖğÒ»ÅĞ¶Ï²éÑ¯Ìõ¼şÊÇ·ñÂ¼Èë,Æ´½ÓANDÌõ¼ş
+	  		//é€ä¸€åˆ¤æ–­æŸ¥è¯¢æ¡ä»¶æ˜¯å¦å½•å…¥,æ‹¼æ¥ANDæ¡ä»¶
 	  		if(this.isNotNull(aab102))
 	  		{
 	  			sql.append(" and x.aab102 like ?");
@@ -317,19 +317,19 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
 	  public List<Map<String,String>> userHistoryQuery()throws Exception
 	  {
-	  		//»¹Ô­Ò³Ãæ²éÑ¯Ìõ¼ş
-	  		Object aab104=this.get("qaab104");		//ÉÌ¼ÒÃû
-	  		Object aac102=this.get("qaac102");     	//¶©×ùÈÕÆÚ
-	  		Object aac103=this.get("qaac103");     	//ÓÃ²ÍÈÕÆÚ
-	  		Object aac104=this.get("qaac104");     	//ÈËÊı
-	  		Object aac105=this.get("qaac105");     	//¶©×ùºÅ
-	  		Object aaa202=this.get("qaaa202");     	//¿ÚÎ¶
-	  		Object aaa203=this.get("qaaa203");     	//²ËÏµ
-	  		Object aaa204=this.get("qaaa204");     	//ÖÖÀà
-	  		Object aaa205=this.get("qaaa205");     	//Éè±¸
-	  		Object aaa206=this.get("qaaa206");     	//Î»ÖÃ
+	  		//è¿˜åŸé¡µé¢æŸ¥è¯¢æ¡ä»¶
+	  		Object aab104=this.get("qaab104");		//å•†å®¶å
+	  		Object aac102=this.get("qaac102");     	//è®¢åº§æ—¥æœŸ
+	  		Object aac103=this.get("qaac103");     	//ç”¨é¤æ—¥æœŸ
+	  		Object aac104=this.get("qaac104");     	//äººæ•°
+	  		Object aac105=this.get("qaac105");     	//è®¢åº§å·
+	  		Object aaa202=this.get("qaaa202");     	//å£å‘³
+	  		Object aaa203=this.get("qaaa203");     	//èœç³»
+	  		Object aaa204=this.get("qaaa204");     	//ç§ç±»
+	  		Object aaa205=this.get("qaaa205");     	//è®¾å¤‡
+	  		Object aaa206=this.get("qaaa206");     	//ä½ç½®
 	  		
-	  		//¶¨ÒåSQLÖ÷Ìå
+	  		//å®šä¹‰SQLä¸»ä½“
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
@@ -342,9 +342,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append("   and c.aaa201=d.aaa201 and a.aaa101=d.aaa101") 
 	  				;
 	  		
-	  		//²ÎÊıÁĞ±í
+	  		//å‚æ•°åˆ—è¡¨
 	  		List<Object> paramList=new ArrayList<>();
-	  		//ÖğÒ»ÅĞ¶Ï²éÑ¯Ìõ¼şÊÇ·ñÂ¼Èë,Æ´½ÓANDÌõ¼ş
+	  		//é€ä¸€åˆ¤æ–­æŸ¥è¯¢æ¡ä»¶æ˜¯å¦å½•å…¥,æ‹¼æ¥ANDæ¡ä»¶
 	  		if(this.isNotNull(aac102))
 	  		{
 	  			sql.append(" and c.aac102=?");
@@ -403,14 +403,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  
 	  public List<Map<String,String>> adminNoticeQuery()throws Exception
 	  {
-	  		//»¹Ô­Ò³Ãæ²éÑ¯Ìõ¼ş
-	  		Object aac203=this.get("qaac203");		//·¢²¼ÈÕÆÚ
-	  		Object aac402=this.get("qaac402");     	//·¢²¼ÈË¹¤ºÅ
-	  		Object aac202=this.get("qaac202");     	//±êÌâ
-	  		Object aac206=this.get("qaac206");     	//ÖÖÀà
-	  		Object aac207=this.get("qaac206");     	//ÓÅÏÈ¼¶
+	  		//è¿˜åŸé¡µé¢æŸ¥è¯¢æ¡ä»¶
+	  		Object aac203=this.get("qaac203");		//å‘å¸ƒæ—¥æœŸ
+	  		Object aac402=this.get("qaac402");     	//å‘å¸ƒäººå·¥å·
+	  		Object aac202=this.get("qaac202");     	//æ ‡é¢˜
+	  		Object aac206=this.get("qaac206");     	//ç§ç±»
+	  		Object aac207=this.get("qaac206");     	//ä¼˜å…ˆçº§
 	  		
-	  		//¶¨ÒåSQLÖ÷Ìå
+	  		//å®šä¹‰SQLä¸»ä½“
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
@@ -420,9 +420,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append(" where a.aac401=b.aac401")
 	  				;
 	  		
-	  		//²ÎÊıÁĞ±í
+	  		//å‚æ•°åˆ—è¡¨
 	  		List<Object> paramList=new ArrayList<>();
-	  		//ÖğÒ»ÅĞ¶Ï²éÑ¯Ìõ¼şÊÇ·ñÂ¼Èë,Æ´½ÓANDÌõ¼ş
+	  		//é€ä¸€åˆ¤æ–­æŸ¥è¯¢æ¡ä»¶æ˜¯å¦å½•å…¥,æ‹¼æ¥ANDæ¡ä»¶
 	  		if(this.isNotNull(aac203))
 	  		{
 	  			sql.append(" and a.aac203=?");
@@ -478,7 +478,376 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		//System.out.println(sql.toString());
 	  		return this.queryForList(sql.toString());
 	  }
-    
-
-	
+	  /*
+	     * ï¿½Ì¼ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼
+	     * (non-Javadoc)
+	     * @see com.neusoft.services.BaseServices#busiLogin()
+	     */
+		  public Map<String, String> busiLogin()throws Exception
+		    {
+		    	
+		    	//StringBuilder sql=new StringBuilder("select a from ab01 where a.aab102=? and a.aab103=?");
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("select a.aab102,a.aab103,a.aab104,a.aab105,a.aab106,")
+		    			.append("       a.aab107,a.aab108,a.aab109,a.aab110,a.aab111,")
+		    			.append("       a.aab112")
+		    			.append("  from ab01 a")
+		    			.append(" where a.aab102=?")
+		    			.append(" and a.aab103=?")
+		    			;
+		    	Object args[]={
+		    			this.get("aab102"),
+		    			this.get("aab103")
+		    	};
+		        return this.queryForMap(sql.toString(), args);	
+		   }
+		 //ï¿½Ì¼ï¿½×¢ï¿½ï¿½
+		 private boolean busiRegister()throws Exception
+		 {
+		    //1.ï¿½ï¿½Ğ´SQLï¿½ï¿½ï¿½
+			 	StringBuilder sql=new StringBuilder()
+		    		.append("insert into ab01(aab102,aab103,aab104,aab105,aab106,")
+		    		.append("                 aab107,aab108,aab109,aab110,aab111,")
+		   			.append("                 aab112,aab113,aab114)")
+		   			.append("          values(?,?,?,?,?,")
+		   			.append("                 ?,?,?,?,?,")
+		   			.append("                 ?,?,?)")
+		   			;
+		  	//2.ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		    	Object args[]=
+		    	{
+		    		this.get("aab102"),
+		   			this.get("aab103"),
+		   			this.get("aab104"),
+		   			"0",
+		   			this.get("aab106"),
+		   			this.get("aab107"),
+		   			"null",
+		   			"null",
+		   			"0",
+		   			"0.0",
+		   			"null",
+		   			"null",
+		   			"0"
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;	
+		    }
+		 //ï¿½Ì¼ï¿½×¢ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ï´ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½aa06(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+		 private boolean insertAa06()throws Exception
+		 {
+			 	StringBuilder sql=new StringBuilder()
+		    		.append("insert into aa06(aaa101,aab101,aaa602,aaa603)")
+		    		.append("values			(?,?,?,?)")
+		   			;
+		    	Object args[]=
+		    	{
+		    			"1",
+		    			"1",
+		    			"0",
+		    			"2000-01-01"
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;	
+		    }
+		 //ï¿½Ì¼ï¿½×¢ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ab04(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+		 private boolean insertAb04()throws Exception
+		 {
+			 	StringBuilder sql=new StringBuilder()
+		    		.append("insert into ab04(aab101,aab402,aab403,aab404)")
+		    		.append("values			(?,?,?,?)")
+		   			;
+		    	Object args[]=
+		    	{
+		    			"1",
+		    			"0",
+		    			"2016-01-01",
+		    			"2017-02-03"
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;	
+		    }
+		 //å•†å®¶ä¿®æ”¹ä¿¡æ¯
+		 private boolean busiModify()throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("update ab01 a")
+		    			.append("   set a.aab103=?,a.aab104=?,a.aab105=?,a.aab106=?,a.aab107=?,")
+		    			.append("       a.aab108=?,a.aab109=?,a.aab110=?,a.aab111=?,a.aab112=?,")
+		    			.append("       a.aab113=?,a.aab114=?")
+		    			.append(" where a.aab101=?")
+		    			;
+		    	Object args[]={
+		    			this.get("aab103"),
+		    			this.get("aab104"),
+		    			this.get("aab105"),
+		    			this.get("aab106"),
+		    			this.get("aab107"),
+		    			this.get("aab108"),
+		    			this.get("aab109"),
+		    			this.get("aab110"),
+		    			this.get("aab111"),
+		    			this.get("aab112"),
+		    			this.get("aab113"),
+		    			this.get("aab114"),
+		    			this.get("aab101")
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;
+		    }
+		//å•ä¾‹æŸ¥è¯¢å•†å®¶æ•°æ®
+		 public Map<String,String> findBusiPopularizeById()throws Exception
+		    {
+		    	
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("select a.aab401,a.aab101,a.aab402,a.aab403,a.aab404")
+		    			.append("  from ab04 a")
+		    			.append(" where a.aab101=?")
+		    			;
+		    	return this.queryForMap(sql.toString(), this.get("aab101"));
+		    }
+		 //å•†å®¶æ¨å¹¿1(aab402=0)
+		 private boolean busiPopularize()throws Exception
+		 {
+			
+			 StringBuilder sql=new StringBuilder()
+		    			.append("UPDATE ab04 SET aab404 = DATE_ADD(aab404,INTERVAL ? MONTH)")
+		    			.append(" WHERE aab101 = ?")
+		    			;
+		    	Object args[]=
+		    		{
+		    			this.get("popularizeMonth"),
+		    			this.get("aab101")
+		    		};
+			return this.executeUpdate(sql.toString(), args)>0;
+		 }
+		 //å•†å®¶æ¨å¹¿(aab402=1)
+		 private boolean busiContinuePopularize()throws Exception
+		 {
+			
+			 StringBuilder sql=new StringBuilder()
+		    			.append("UPDATE ab04 SET aab404 = DATE_ADD(CURRENT_DATE,INTERVAL ? MONTH)")
+		    			.append(" WHERE aab101 = ?")
+		    			;
+		    	Object args[]=
+		    		{
+		    			this.get("popularizeMonth"),
+		    			this.get("aab101")
+		    		};
+			return this.executeUpdate(sql.toString(), args)>0;
+		 }
+		 //å•†å®¶æ·»åŠ èœå•
+		 private boolean busiAddDish()throws Exception
+		 {
+		    //1.å®šä¹‰sqlè¯­å¥
+			 	StringBuilder sql=new StringBuilder()
+		    		.append("insert into ab02(aab101,aab202,aab207,aab203,aab204,")
+		    		.append("				  aab205,aab206)")
+		   			.append("          values(?,?,?,?,?,")
+		   			.append("                 ?,?)")
+		   			;
+		  	//2.å®šä¹‰æ•°ç»„
+		    	Object args[]=
+		    	{
+		    		this.get("aab101"),
+		    		this.get("aab202"),
+		   			this.get("aab207"),
+		   			this.get("aab203"),
+	    			Tools.joinArray(this.get("aab204")),
+	    			Tools.joinArray(this.get("aab205")),
+	    			this.get("aab206")
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;	
+		    }
+		 //éå†syscode
+		 public List<Map<String,String>> getSysco()throws Exception
+		 {
+			 StringBuilder sql=new StringBuilder()
+					 .append("select scode,sname,sfcode ")
+					 .append("from syscode")
+					 ;
+			 return this.queryForList(sql.toString());
+		 }
+		 //å•†å®¶æŸ¥è¯¢è‡ªå·±çš„èœå•
+		 public List<Map<String,String>> busiDishMenuQuery()throws Exception
+		 {
+			 StringBuilder sql=new StringBuilder()
+					 .append("select a.aab201,a.aab101,a.aab207,a.aab202,a.aab203,a.aab204,a.aab205,a.aab206 ")
+					 .append("FROM ab02 a ")
+					 .append("where a.aab101 = ? ")
+					 ;
+			 List<Map<String,String>> tems = this.queryForList(sql.toString(), this.get("aab101"));
+			 for (int i = 0; i < tems.size(); i++) 
+			 	{
+			        tems.get(i).put("qaab204", tems.get(i).get("aab204"));
+			        tems.get(i).put("qaab205", tems.get(i).get("aab205"));
+			        tems.get(i).put("qaab206", tems.get(i).get("aab206"));
+			        //è·å–ä¸€æ¡å£å‘³å¹¶æŠŠä»£ç æ›¿æ¢ä¸ºä¸­æ–‡
+			        parseBusiCodeList(tems.get(i),"aab204");
+			        parseBusiCodeList(tems.get(i),"aab205");
+			        parseBusiCodeList(tems.get(i),"aab206");
+			    }
+			    return tems;
+		 }
+		 //å°†å•†å®¶èœå“ä¸­çš„å£å‘³,èœç³»ç”±ç¼–å·è½¬åŒ–ä¸ºåç§°
+		 private String convertBusiCodeToName(String code, String labelName) throws Exception
+		 {
+			    String sql = "select sname from syscode where sfcode='"+labelName+"' and scode = '"+code+"'";
+			    List<Map<String,String>> list =  this.queryForList(sql);
+			    if(list.size() > 0)
+			    {
+			        return list.get(0).get("sname");
+			    }
+			    else 
+			    {
+			        return "";
+			    }
+		 }
+		 
+		 //å°†æ•°ç»„ä¸­çš„ç¼–ç è½¬æ¢ä¸ºåç§°
+		 private void parseBusiCodeList(Map<String, String> tem, String labelName)throws Exception 
+		 {
+		    String[] elements = tem.get(labelName).split(",");
+		    for(int i = 0; i < elements.length; i++)
+		    {
+		        elements[i] = convertBusiCodeToName(elements[i], labelName);
+		    }
+		    tem.put(labelName, Tools.joinArray(elements)) ;
+		 }
+		 //æ ¹æ®aab201å•ä¾‹åˆ é™¤èœå•
+		 private boolean busiDelDishById()throws Exception
+		    {
+		    	String sql="delete from ab02 where aab201=?";
+		    	return this.executeUpdate(sql, this.get("aab201"))>0;
+		    }
+		 
+		 
+		 private boolean userAssembleApply()throws Exception
+		 {
+		    //1.ç¼–å†™SQLè¯­å¥
+			 	StringBuilder sql=new StringBuilder()
+		    		.append("insert into aa05(aaa101,aab101,aaa502,aaa503,aaa504,")
+		    		.append("                 aaa505)")
+		   			.append("          values(?,?,?,?,?,")
+		   			.append("                 ?)")
+		   			;
+		  	//2.ç¼–å†™å‚æ•°æ•°ç»„
+		    	Object args[]=
+		    	{
+		    		this.get("aaa101"),
+		   			this.get("aab101"),
+		   			this.get("aaa502"),
+		   			this.get("aaa503"),
+		   			this.get("aaa504"),
+		   			"1"
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;	
+		    }
+		 //æ‹¼åº§æŸ¥è¯¢
+		 public List<Map<String,String>> userAssemble()throws Exception
+		  {
+		  		//è¿˜åŸé¡µé¢æŸ¥è¯¢æ¡ä»¶
+		  		Object aab104=this.get("qaab104");     //åº—é“ºå æ¨¡ç³ŠæŸ¥è¯¢
+		  		Object aaa103=this.get("qaaa103");     //æ‹¼åº§å‘èµ·äºº æ¨¡ç³ŠæŸ¥è¯¢
+		  		Object aaa504=this.get("qaaa504");     //æ‹¼åº§äººæ•°
+		  		Object aaa502=this.get("qaaa502");     //æ‹¼åº§å¼€å§‹æ—¶é—´
+		  		Object aaa503=this.get("qaaa503");     //æ‹¼åº§ç»“æŸæ—¶é—´
+		  		
+		  		//å®šä¹‰SQLä¸»ä½“
+		  		StringBuilder sql=new StringBuilder()
+		  				.append("select	a.aab101,a.aab104,a.aab105,b.aaa101,b.aab101,")
+		  				.append("		b.aaa502,b.aaa503,b.aaa504,b.aaa505,c.aaa101,")
+		  				.append("		c.aaa102,c.aaa103")
+		  				.append(" from 	ab01 a,aa05 b,aa01 c")
+		  				.append(" where	a.aab101=b.aab101 and c.aaa101=b.aaa101")
+		  				;
+		  		
+		  		//å‚æ•°åˆ—è¡¨
+		  		List<Object> paramList=new ArrayList<>();
+		  		//é€ä¸€åˆ¤æ–­æŸ¥è¯¢æ¡ä»¶æ˜¯å¦å½•å…¥,æ‹¼æ¥ANDæ¡ä»¶
+		  		if(this.isNotNull(aab104))
+		  		{
+		  			sql.append(" and a.aab104 like ?");
+		  			paramList.add("%"+aab104+"%");
+		  		}
+		  		if(this.isNotNull(aaa103))
+		  		{
+		  			sql.append(" and c.aab103 like ?");
+		  			paramList.add("%"+aab104+"%");
+		  		}
+		  		if(this.isNotNull(aaa504))
+		  		{
+		  			sql.append(" and b.aab105=?");
+		  			paramList.add(aaa504);
+		  		}
+		  		if(this.isNotNull(aaa502))
+		  		{
+		  			sql.append(" and b.aaa502>=?");
+		  			paramList.add(aaa502);
+		  		}
+		  		if(this.isNotNull(aaa503))
+		  		{
+		  			sql.append(" and b.aaa503<=?");
+		  			paramList.add(aaa503);
+		  		}
+		  		
+		  		sql.append(" order by a.aab104");
+		  		return this.queryForList(sql.toString(), paramList.toArray());
+		  }
+		 
+		 
+		 
+		 //å•†å®¶èœå•æ¡ä»¶æŸ¥è¯¢
+		 public List<Map<String,String>> busiQuery()throws Exception
+		  {
+		  		//
+		  		Object aab102=this.get("qaab102");     //
+		  		Object aab103=this.get("qaab103");     //
+		  		Object aab105=this.get("qaab105");     //
+		  		Object aab106=this.get("qaab106");     //
+		  		Object baab104=this.get("baab104");    //
+		  		Object eaab104=this.get("eaab104");    //
+		  		
+		  		//
+		  		StringBuilder sql=new StringBuilder()
+		  				.append("select x.aab101,x.aab102,x.aab103,x.aab104,a.fvalue cnaab105,")
+		  				.append("       b.fvalue cnaab106,x.aab108,x.aab109")
+		  				.append("  from syscode a,syscode b, ab01 x")
+		  				.append(" where x.aab105=a.fcode and a.fname='aab105'")
+		  				.append("   and x.aab106=b.fcode and b.fname='aab106'") 
+		  				;
+		  		
+		  		//
+		  		List<Object> paramList=new ArrayList<>();
+		  		//
+		  		if(this.isNotNull(aab102))
+		  		{
+		  			sql.append(" and x.aab102 like ?");
+		  			paramList.add("%"+aab102+"%");
+		  		}
+		  		if(this.isNotNull(aab103))
+		  		{
+		  			sql.append(" and x.aab103=?");
+		  			paramList.add(aab103);
+		  		}
+		  		if(this.isNotNull(aab105))
+		  		{
+		  			sql.append(" and x.aab105=?");
+		  			paramList.add(aab105);
+		  		}
+		  		if(this.isNotNull(aab106))
+		  		{
+		  			sql.append(" and x.aab106=?");
+		  			paramList.add(aab106);
+		  		}
+		  		if(this.isNotNull(baab104))
+		  		{
+		  			sql.append(" and x.aab104>=?");
+		  			paramList.add(baab104);
+		  		}
+		  		if(this.isNotNull(eaab104))
+		  		{
+		  			sql.append(" and x.aab104<=?");
+		  			paramList.add(eaab104);
+		  		}
+		  		
+		  		sql.append(" order by x.aab102");
+		  		return this.queryForList(sql.toString(), paramList.toArray());
+		  }
 }
