@@ -49,6 +49,7 @@ public class BaseServlet extends HttpServlet
      		/***********************************************************
      		 *                        向业务控制器,填充页面数据     i
      		 ***********************************************************/
+
      		//为业务控制器织入DTO切片
 
 
@@ -61,8 +62,6 @@ public class BaseServlet extends HttpServlet
      		{
      			controller.setMapDto(this.createDto(request));
 			}
-			
-
 
      		/***********************************************************
      		 *                        调用业务控制器的流程控制方法
@@ -132,6 +131,7 @@ public class BaseServlet extends HttpServlet
 				else {
 					System.out.println(fileItem.getFieldName());
 					System.out.println(fileItem.getString());
+
 					String temp = new String(fileItem.getString().getBytes("ISO-8859-1"), "GBK");
 					dto.put(fileItem.getFieldName(),temp);
 				}
