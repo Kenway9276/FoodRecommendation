@@ -180,6 +180,7 @@ public abstract class ControllerSupport implements BaseController
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
+			this.saveAttribute("msg", "µÇÂ½³É¹¦!");
 		}
 		else
 		{
