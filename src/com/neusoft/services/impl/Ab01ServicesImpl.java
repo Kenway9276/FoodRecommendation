@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 
 import com.neusoft.services.JdbcServicesSupport;
 import com.neusoft.system.tools.Tools;
@@ -77,7 +78,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			this.get("aaa102"),
        			this.get("aaa103"),
     			this.get("aaa104"),
-    			this.get("aaa105"),
+    			Tools.getMd5(this.get("aaa105")),
     			this.get("aaa106"),
     			this.get("aaa107"),
     			this.get("aaa108"),
@@ -87,6 +88,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean adminReleaseNotice()throws Exception
     {
+    	Object aac204 ="upload/" + this.get("imgPath");
     	//1.编写SQL语句
     	StringBuilder sql=new StringBuilder()
     			.append("insert into ac02(aac202,aac203,aac204,aac205,aac206,")
@@ -97,7 +99,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	//2.编写参数数组
     	Object args[]={
     			this.get("aac202"),
-    			this.get("aac204"),
+    			aac204,
     			this.get("aac205"),
     			this.get("aac206"),
     			this.get("aac207"),
@@ -112,17 +114,18 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			.append("update aa01")
     			.append("   set aaa103=?,aaa104=?,aaa105=?,aaa106=?,")
     			.append("       aaa107=?,aaa108=?,aaa110=?")
-    			.append(" where aaa102=?")
+    			.append(" where aaa102=? and aaa105=?")
     			;
     	Object args[]={
     			this.get("aaa103"),
     			this.get("aaa104"),
-    			this.get("aaa105"),
+    			Tools.getMd5(this.get("raaa105")),
     			this.get("aaa106"),
     			this.get("aaa107"),
     			this.get("aaa108"),
     			this.get("aaa110"),
     			this.get("aaa102"),
+    			Tools.getMd5(this.get("aaa105"))
     	};
     	return this.executeUpdate(sql.toString(), args)>0;
     	
@@ -133,7 +136,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		StringBuilder sql=new StringBuilder("select * from aa01 where aaa102=? and aaa105=?");
     	Object args[]={
     			this.get("aaa102"),
-    			this.get("aaa105"),
+    			Tools.getMd5(this.get("aaa105")),
     	};
     	return this.queryForMap(sql.toString(), args);
     }

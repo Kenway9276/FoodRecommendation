@@ -244,6 +244,12 @@ public abstract class ControllerSupport implements BaseController
 		this.saveAttribute("msg", msgText+msg);
 	}
 	
+	protected final void updatePWD(String methodName,String msgText)throws Exception
+	{
+		String msg=this.executeUpdateMethod(methodName)?"成功!":"失败!密码错误!";
+		this.saveAttribute("msg", msgText+msg);
+	}
+	
 	/**
 	 * 带有编号的消息提示的更新行为
 	 * @param methodName
