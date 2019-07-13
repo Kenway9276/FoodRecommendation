@@ -44,8 +44,12 @@ ${ins }
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<input placeholder="ÇëÊäÈëÃÜÂë" name="aaa105" type="${empty ins.aaa101?'password':'text' }" value="${ins.aaa105 }">
+							<input placeholder="Çë${empty ins.aaa101?'ÊäÈë':'È·ÈÏ' }ÃÜÂë" name="aaa105" type="password">
 						</div>
+						<div style="display:${empty ins.aaa101?'none':'show'}" class="input-group">
+							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<input placeholder="¶ş´ÎÈ·ÈÏ/ĞŞ¸ÄÃÜÂë" name="raaa105" type="password">
+						</div> 
 						<div class="input-group">
 							<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
 							<e:email placeholder="ÇëÊäÈëÓÊÏä" name="aaa106" required="true" defval="${ins.aaa106}"/>

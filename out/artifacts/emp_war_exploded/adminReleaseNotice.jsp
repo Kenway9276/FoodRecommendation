@@ -9,6 +9,7 @@
 <meta name="description" content="">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
 <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>公告管理</title>
 <link rel="alternate" type="application/rss+xml" title="egrappler.com" href="feed/index.html">
@@ -25,27 +26,6 @@
 	}
 </style>
 <script type="text/javascript">
-    var E = window.wangEditor
-    var editor = new E('#div1')
-    editor.customConfig.uploadImgShowBase64 = true
-    var $text1 = $('#text1')
-    editor.customConfig.onchange = function (html) {
-        // 监控变化，同步更新到 textarea
-        $text1.val(html)
-    }
-
-    editor.create()
-    // 初始化 textarea 的值
-    $text1.val(editor.txt.html())
-
-
-    document.getElementById('subBtn').addEventListener('click', function () {
-        var vform = document.getElementById("myform");
-        // 读取 text
-        var aac204 = editor.txt.text()
-        vform.action = "/adminReleaseNotice.html?aac204="+aac204;
-
-    }, false)
 
 </script>
 </head>
@@ -132,7 +112,7 @@
 <table border="1" width="25%" align="center">
   <tr>
     <td align="center">
-       <input type="submit" id="subBtn" name="next" value="发布">
+       <input type="submit" name="next" value="发布">
 		<a href="<%=path %>/adminNotice.jsp">
 		<input class="btn btn-danger btn-block" type="button" name="next" value="管理">
 		</a> 

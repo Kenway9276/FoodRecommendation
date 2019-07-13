@@ -12,8 +12,10 @@
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
+${msg}
+<br>
 <form action="<%=path %>/userLogin.html" method="post">
-<div class="signupform">
+<div class="signupform">.
 <h1></h1>
 	<div class="container">
 		
@@ -49,7 +51,6 @@
 		</div>
 		<div class="footer">
  </div>
-	</div>
 	</form>
 	</body>
 </html>

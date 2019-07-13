@@ -46,7 +46,7 @@ ${msg }
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;发布日期&nbsp;&nbsp;&nbsp;<e:text name="aac203" readonly="true" defval="${ins.aac203 }"/></a>
 						</li>
 						<li>
-							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;封面图片&nbsp;&nbsp;&nbsp;<e:text name="aac204" readonly="true" defval="${ins.aac204 }"/></a>
+							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;封面图片&nbsp;&nbsp;&nbsp;<img src="${ins.aac204 }"></a>
 						</li>
 						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
