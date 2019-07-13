@@ -2,6 +2,8 @@ package com.neusoft.services.impl;
 
 import com.neusoft.services.JdbcServicesSupport;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
@@ -41,13 +43,18 @@ public class BBSServiceImpl extends JdbcServicesSupport {
     public List<Map<String, String>> queryForList() throws Exception{
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
+                .append("	aaa301, ")
                 .append("	aaa303, ")
                 .append("	aaa304, ")
                 .append("	aaa302, ")
-                .append("	aaa306 ")
+                .append("	aaa306, ")
+                .append("	aaa103 ")
                 .append("FROM ")
-                .append("	aa03 ")
-                .append("	WHERE aaa301 != 1 and aaa305 = 0 ")
+                .append("	aa03,aa01 ")
+                .append("WHERE ")
+                .append("	(aaa301 != 1  ")
+                .append("	AND aaa305 = 0) ")
+                .append("	and aa01.aaa101 = aa03.aaa101 ")
                 ;
         List<Map<String,String>> list =  this.queryForList(sql.toString());
         parseBBSList(list);
@@ -93,7 +100,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
     public boolean comment() throws Exception{
         // todo 获取用户流水号
         Object aaa101 = 0;
-        Object aaa304 = this.get("aaa304");
+        String aaa304 = (String) this.get("aaa304");
         Object aaa305 = this.get("aaa301");
         StringBuilder sql = new StringBuilder()
                 .append("INSERT INTO aa03 ( aaa101, aaa302, aaa304, aaa305 ) ")

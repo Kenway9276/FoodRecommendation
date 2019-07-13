@@ -5,6 +5,17 @@
 <%String path = request.getContextPath(); %>
 <html>
 <head>
+
+    <!--必要样式-->
+    <link rel="stylesheet" href="css/jquery-labelauty.css" />
+
+    <style type="text/css">
+        ul{list-style-type: none;}
+        li{display: inline-block;}
+        li{margin: 10px 0;}
+        input.labelauty + label{font:15px "Microsoft Yahei";}
+    </style>
+
     <title>Insert title here</title>
 
     <script type="text/javascript">
@@ -20,7 +31,7 @@
         function onDel(vaaa201) {
             var vform = document.getElementById("tem");
             vform.action = "<%=path%>/preferenceDelete.html?aaa201=" + vaaa201;
-            alert(vaaa201);
+
             //alert(vform.action);
             vform.submit();
         }
@@ -30,31 +41,31 @@
 </head>
 <body>
 <form id="tem" action="<%=path%>/preferenceAdd.html" method="post">
-    用户名<br>
-    菜系<br>
-    <c:forEach items="${headers }" var="ins" varStatus="vs">
-        <c:if test="${ins.sfcode == 'aaa203'}">
-            <e:checkbox name="aaa203" value="${ins.scode }"/>${ins.sname }
-        </c:if>
-    </c:forEach>
-
-    <br>
-    种类<br>
-    <c:forEach items="${headers }" var="ins" varStatus="vs">
-        <c:if test="${ins.sfcode == 'aaa204'}">
-            <e:checkbox name="aaa204" value="${ins.scode }"/>${ins.sname }
-        </c:if>
-    </c:forEach>
-    <br>
-    口味<br>
-    <c:forEach items="${headers }" var="ins" varStatus="vs">
-        <c:if test="${ins.sfcode == 'aaa202'}">
-            <e:checkbox name="aaa202" value="${ins.scode }"/>${ins.sname }
-        </c:if>
-    </c:forEach>
-    <br>
-    地址
-    <e:text name="aaa206" required="true"/>
+    <h3>菜系</h3>
+    <ul class="dowebok">
+        <c:forEach items="${headers }" var="ins" varStatus="vs">
+            <c:if test="${ins.sfcode == 'aaa203'}">
+                <li><input value="${ins.scode }" type="checkbox" name="aaa203" data-labelauty="${ins.sname }"></li>
+            </c:if>
+        </c:forEach>
+    </ul>
+    <h3>种类</h3>
+    <ul class="dowebok">
+        <c:forEach items="${headers }" var="ins" varStatus="vs">
+            <c:if test="${ins.sfcode == 'aaa204'}">
+                <li><input value="${ins.scode }" type="checkbox" name="aaa204" data-labelauty="${ins.sname }"></li>
+            </c:if>
+        </c:forEach>
+    </ul>
+    <h3>口味</h3>
+    <ul class="dowebok">
+        <c:forEach items="${headers }" var="ins" varStatus="vs">
+            <c:if test="${ins.sfcode == 'aaa202'}">
+                <li><input value="${ins.scode }" type="checkbox" name="aaa202" data-labelauty="${ins.sname }"></li>
+            </c:if>
+        </c:forEach>
+    </ul>
+    <h3>当前地址：</h3>
     <input type="submit" name="next" value="添加到列表">
     <input type="submit" name="next" value="获取餐厅" formaction="recommendGet.html">
 
@@ -78,7 +89,6 @@
                 <td>位置</td>
                 <td>备注</td>
             </tr>
-            ${rows }
             <c:forEach items="${rows }" var="ins" varStatus="vs">
 
 
@@ -103,6 +113,12 @@
         </table>
     </form>
 </div>
-
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="css/jquery-labelauty.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(':input').labelauty();
+    });
+</script>
 </body>
 </html>
