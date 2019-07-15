@@ -42,11 +42,11 @@
 <body>
 
 <form class="blog-slider">
-
+<input type="hidden" name="aaa101" value="1"></input>
     <div class="blog-slider__wrp swiper-wrapper">
         <div class="blog-slider__item swiper-slide">
             <c:forEach items="${rows }" var="row" varStatus="vs">
-
+            
                     <input type="hidden" name="aab104"  value="${row.aab104 }">
                     <input type="hidden" name="aab101" value="${row.aab101 }">
                     <input type="hidden" name="aab207"  value="${row.aab207 }">

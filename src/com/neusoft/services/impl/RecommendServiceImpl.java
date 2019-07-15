@@ -134,8 +134,8 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("WHERE ")
                 .append("	aab101 = ?;")
                 ;
-        int aab101 = Integer.valueOf((String)this.get("aab101"));
-        return this.executeUpdate(sql.toString(), aab101) > 0;
+//        int aab101 = Integer.valueOf((String)this.get("aab101"));
+        return this.executeUpdate(sql.toString(), this.get("aab101")) > 0;
     }
 
     public boolean updateSelectionSubtract() throws Exception {
