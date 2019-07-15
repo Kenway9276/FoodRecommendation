@@ -178,9 +178,8 @@
 				<c:forEach items="${rows }" var="row" varStatus="vs">       	
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="images/featured1.jpg" class="img-fluid" alt="#">
-                                                
+                        <a href="#" onclick="onDetail('${row.aab101}')">                       
+                            <img src="images/${row.aab113}" class="img-fluid" alt="#">             
                             <span class="featured-rating">${row.aab111 }</span>
                             
                             <div class="featured-title-box">

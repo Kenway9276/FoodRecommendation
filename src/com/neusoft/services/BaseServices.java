@@ -82,5 +82,23 @@ public interface BaseServices
     {
    	 return null;
     }
+
+    default List<Map<String,String>> busiQuery()throws Exception
+    {
+   	 return null;
+    }
+    default List<Map<String,String>> busiManageReservation()throws Exception
+    {
+   	 return null;
+    }
+    default List<Map<String,String>> busiReservation()throws Exception
+    {
+    	return null;
+    }
+
+    default List<Map<String,String>> adminForumQuery()throws Exception
+    {
+   	 return null;
+    }
 	
 }

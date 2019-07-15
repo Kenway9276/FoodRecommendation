@@ -59,6 +59,15 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("rows", rows);
 		}
 	}
+	
+	protected final void saveAdminForumPageData()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminForumQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
 
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
@@ -180,6 +189,7 @@ public abstract class ControllerSupport implements BaseController
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
+			this.saveAttribute("msg", "登陆成功!");
 		}
 		else
 		{
@@ -298,13 +308,54 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("msg", "读取菜单信息失败!");
 		}
 	}
-	
+	//删除后获取商家菜单
 	protected final void saveBusiMenuDataForDelete()throws Exception
 	{
 		List<Map<String,String>> rows=this.services.busiDishMenuQuery();
 		if(rows.size()>0)
 		{
 			this.saveAttribute("rows", rows);
+		}
+	}
+	//商家菜单不定条件查询
+	
+	protected final void saveBusiDishQueryData()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.busiQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "数据库不存在该数据或无访问权限!");
+		}
+	}
+	
+	//商家获取未处理订座信息
+	protected final void saveTodoReservationInstance()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.busiManageReservation();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "无待处理的订座信息!");
+		}
+	}
+	//商家获取已处理订座信息
+	protected final void saveReservationInstance()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.busiReservation();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("row", rows);
+		}
+		else
+		{
+			this.saveAttribute("resMsg", "无待处理的订座信息!");
 		}
 	}
 	

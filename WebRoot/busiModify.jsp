@@ -135,8 +135,12 @@
 					 formaction="<%=path%>/busiModify.html">
 				</div>
 				<div class="container-login100-form-btn">
-					<input class="login100-form-btn" type="submit" name="next" value="管理"
+					<input class="login100-form-btn" type="submit" name="next" value="管理菜单"
 					 formaction="<%=path%>/busiMenuManage.html" formnovalidate="formnovalidate">
+				</div>
+				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="用户订座"
+					 formaction="<%=path%>/busiManageReservation.html" formnovalidate="formnovalidate">
 				</div>
 
 			</form>

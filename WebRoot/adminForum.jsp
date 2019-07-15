@@ -10,7 +10,7 @@
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>公告管理</title>
+<title>论坛管理</title>
 <link rel="alternate" type="application/rss+xml" title="egrappler.com" href="feed/index.html">
 <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet"
         type="text/css">
@@ -43,17 +43,17 @@
  	  vdel.disabled=(count==0);
    }
    
-   function onDel(vaac201)
+   function onDel(vaaa301)
    {
  	 var vform = document.getElementById("myform");
- 	 vform.action="<%=path%>/adminDeleteByIdNotice.html?aac201="+vaac201;
+ 	 vform.action="<%=path%>/adminDeleteByIdSingle.html?aaa301="+vaaa301;
  	 vform.submit();
    } 
   
-   function onEdit(vaac201)
+   function onEdit(vaaa301)
    {
    	 var vform = document.getElementById("myform");
-   	 vform.action="<%=path%>/findByIdNotice.html?aac201="+vaac201;
+   	 vform.action="<%=path%>/bBSBrowseSingle.html?aaa301="+vaaa301;
    	 vform.submit();
    }
 </script>
@@ -64,7 +64,7 @@ ${ins }
 <%=request.getSession().getAttribute("ins")%>
 <%=request.getSession().getAttribute("管理员流水号")%>
 <br>
-<form id="myform" action="<%=path %>/adminNotice.html" method="post">
+<form id="myform" action="<%=path %>/adminForum.html" method="post">
 <nav>
   <div class="container">
     <h1>Doc</h1>
@@ -80,7 +80,7 @@ ${ins }
 </nav>
 <header>
   <div class="container">
-    <h2 class="docs-header">快来发布公告吧哈哈哈！</h2>
+    <h2 class="docs-header">煮酒论英雄~！</h2>
   </div>
 </header>
 <section>
@@ -94,7 +94,7 @@ ${ins }
       <li><a href="#license" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
-      <h3 align="center"> 公告管理</h3>
+      <h3 align="center"> 论坛管理</h3>
       <div class="adminNotice">
 	<table width="100%" align="center">
 	  <caption>
@@ -104,35 +104,35 @@ ${ins }
 	  <tr>
 		<td>标题</td>
 	    <td>
-			<e:text name="qaac202" />
+			<e:text name="qaaa303" />
 	    </td>
-	  </tr>
-	  <tr>
-	    <td>发布日期</td>
-	    <td>
-	    	<e:date name="qaac203"/>
-	    </td>
-	    <td>发布人工号</td>
+	    <td>发布人昵称</td>
 	  	<td>
-	  		<e:text name="qaac402"/>
+	  		<e:text name="qaaa103"/>
 	  	</td>
 	  </tr>
 	  <tr>
-	    <td>种类</td>
-	  	<td>
-	  		<e:radio name="qaac206" value="测评文章:1,优惠活动:2,更新维护:3" />
-	 	 </td>
-	 	<td>优先级</td>
+	    <td>发布日期(起)</td>
 	    <td>
-	    	<e:radio name="qaac207" value="普通:0,置顶:1"  />
+	    	<e:date name="baaa302"/>
 	    </td>
+	   	<td>发布日期(止)</td>
+	    <td>
+	    	<e:date name="eaaa302"/>
+	    </td>
+	   </tr>
+	   <tr>
+	    <td>正文</td>
+	  	<td>
+	  		<e:text name="qaaa304"/>
+	 	 </td>
 	  </tr>
 	</table>
 	<br>
 	<br>
-<table  width="90%" align="center">
+<table  width="100%" align="center">
 	<caption>
-		公告列表
+		帖子列表
 		<hr width=160>
 	</caption>
 <!-- 系统自动生成公告流水号（aac201），并将管理员流水号（aac401）（只有管理员才可以发布公告）、 -->
@@ -145,8 +145,7 @@ ${ins }
 		<td>序号</td>
 		<td>发布日期</td>
 		<td>标题</td>
-		<td>种类</td>
-		<td>优先级</td>	
+		<td>昵称</td>
 	</tr>
   <c:choose>
     <c:when test="${rows!=null }">
@@ -158,24 +157,20 @@ ${ins }
 		             onclick="onSelect(this.checked)" >
 		    </td>
 		    <td>${vs.count }</td>
-		    <td>${ins.aac203 }</td>
-		    <td><a href="#" onclick="onEdit('${ins.aac201}')">${ins.aac202 }</a></td>
-		    <td> 
-		    	<c:choose>
-		    		<c:when test="${ins.aac206==1 }">
-		    			测评文章
-		    		</c:when>
-		    		<c:when test="${ins.aac206==2 }">
-		    			优惠活动
-		    		</c:when>
-		    		<c:otherwise>
-		    			更新维护
-		    		</c:otherwise>
-		    	</c:choose>
+		    <td>${ins.aaa302 }</td>
+		    <td style="width:250px">
+			    <c:choose>
+			    	<c:when test="${ins.aaa303!=null }">
+			    		<a href="#" onclick="onEdit('${ins.aaa301}')">${ins.aaa303 }</a>
+			    	</c:when>
+			    	<c:otherwise>
+			    		${ins.aaa304 }
+			    	</c:otherwise>
+			    </c:choose>
 		    </td>
-		    <td>${ins.aac207==1?"置顶":"普通" }</td>
+		    <td>${ins.aaa103 }</td>
 		    <td>
-		      <a href="#" onclick="onDel('${ins.aac201}')">删除</a>
+		      <a href="#" onclick="onDel('${ins.aac301}')">删除</a>
 		    </td>
 		  </tr>
       </c:forEach>
@@ -187,14 +182,12 @@ ${ins }
 	            <td>吃</td>
 	            <td>吃</td>
 	            <td>吃</td>
-	            <td>吃</td>
 	          </tr>
       </c:forEach>
     </c:when>
     <c:otherwise>
        <c:forEach begin="1" step="1" end="15">
           <tr>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -211,9 +204,6 @@ ${ins }
        <button type="submit" name="next">查询</button>
        <button type="submit" id="del" name="next"  
               formaction="<%=path%>/adminDeleteNotice.html"  disabled="disabled">删除</button>
-		<a href="<%=path %>/adminReleaseNotice.jsp">
-		<button class="btn btn-danger btn-block" name="next" >发布</button>
-		</a> 
     </td>
   </tr>
 </table>

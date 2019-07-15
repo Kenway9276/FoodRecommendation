@@ -80,7 +80,7 @@ ${ins }
 </nav>
 <header>
   <div class="container">
-    <h2 class="docs-header">快来发布公告吧哈哈哈！</h2>
+    <h2 class="docs-header">既有消息，广而告之！</h2>
   </div>
 </header>
 <section>

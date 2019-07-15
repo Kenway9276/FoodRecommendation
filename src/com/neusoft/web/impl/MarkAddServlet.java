@@ -8,7 +8,6 @@ public class MarkAddServlet extends MarkControllerSupport
 	public String execute() throws Exception 
 	{
 		this.update("addMark", "添加");
-		//跳转回详情页面再次查询未实现
 		return "shopdetail";
 	}
 }
