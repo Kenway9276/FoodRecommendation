@@ -15,7 +15,33 @@ public class BBSServiceImpl extends JdbcServicesSupport {
 
     @Override
     public List<Map<String, String>> query() throws Exception {
-        return null;
+        // todo 加入用户流水号参数
+        int aaa101  = 0;
+        StringBuilder sql = new StringBuilder()
+                .append("SELECT ")
+                .append("	aaa301, ")
+                .append("	aaa303, ")
+                .append("	aaa304, ")
+                .append("	aaa302, ")
+                .append("	aaa306, ")
+                .append("	aaa103 ")
+                .append("FROM ")
+                .append("	aa03,aa01 ")
+                .append("WHERE ")
+                .append("	(aaa301 != 1  ")
+                .append("	AND aaa305 = 0) ")
+                .append("	and aa01.aaa101 = aa03.aaa101 and aa01.aaa101=?")
+                ;
+        List<Map<String,String>> list =  this.queryForList(sql.toString(), aaa101);
+        parseBBSList(list);
+        parseBBSListForUser(list);
+        return list;
+    }
+
+    private void parseBBSListForUser(List<Map<String, String>> list) {
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).put("isUser", "1");
+        }
     }
 
     /**
@@ -24,7 +50,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
      */
     public boolean post() throws Exception{
         // todo 获取用户id
-        int aaa101 = 0;
+        int aaa101 = 8;
         Object aaa303 = this.get("aaa303");
         Object aaa304 = this.get("aaa304");
         Object aaa306 = this.get("aaa306");
@@ -99,7 +125,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
 
     public boolean comment() throws Exception{
         // todo 获取用户流水号
-        Object aaa101 = 0;
+        Object aaa101 = 8;
         String aaa304 = (String) this.get("aaa304");
         Object aaa305 = this.get("aaa301");
         StringBuilder sql = new StringBuilder()
@@ -108,5 +134,11 @@ public class BBSServiceImpl extends JdbcServicesSupport {
                 .append("	( ?, CURRENT_TIMESTAMP, ?, ? ) ")
                 ;
         return this.executeUpdate(sql.toString(), aaa101, aaa304,aaa305) > 0;
+    }
+
+    public boolean del() throws Exception{
+        int aaa301 = Integer.valueOf((String)this.get("aaa301"));
+        String sql = "delete from aa03 WHERE aaa301 = ?";
+        return this.executeUpdate(sql, aaa301) > 0;
     }
 }

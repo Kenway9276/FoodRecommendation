@@ -45,6 +45,17 @@
 
     <div class="blog-slider__wrp swiper-wrapper">
         <div class="blog-slider__item swiper-slide">
+            <c:if test="${empty rows }">
+                <div class="blog-slider__img">
+                    <img src="/upload/2bff830f-c745-4f00-9751-1989b33405a0.jpg" alt="${row.aab104 }">
+                </div>
+                <div class="blog-slider__content">
+                    <span class="blog-slider__code">2018-08-31</span>
+                    <div class="blog-slider__title">没有找到适合的餐厅哦</div>
+                    <div class="blog-slider__text">请更换口味选择</div>
+                    <input type="submit" formaction="<%=path%>/preferenceIndex.html" class="blog-slider__button" value="返回"></a>
+                </div>
+            </c:if>
             <c:forEach items="${rows }" var="row" varStatus="vs">
 
                     <input type="hidden" name="aab104"  value="${row.aab104 }">
@@ -54,7 +65,7 @@
                     <input type="hidden" name="aaa203"  value="${row.aaa203 }">
                     <input type="hidden" name="aaa204"  value="${row.aaa204 }">
                     <div class="blog-slider__img">
-                        <img src="<%=path%>/img/3.jpg" alt="${row.aab104 }">
+                        <img src="/upload/2bff830f-c745-4f00-9751-1989b33405a0.jpg" alt="${row.aab104 }">
                     </div>
                     <div class="blog-slider__content">
                         <span class="blog-slider__code">2018-08-31</span>
