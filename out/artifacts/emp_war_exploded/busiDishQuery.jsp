@@ -45,7 +45,7 @@ ${msg }
 <br>
 <%=session.getId() %>
 <br>
-<form id="myform" action="<%=path%>/queryEmp.html" method="post">
+<form id="myform" action="<%=path%>/busiQuery.html" method="post">
 <input type="hidden" name="aab101" value="2">
   <!-- 查询条件区 -->
 	<table border="1" width="95%" align="center">
@@ -59,7 +59,7 @@ ${msg }
 	  <tr>
 	   	 <td>菜品名</td>
 	    	<td>
-	      	<e:text name="qaab102"/>
+	      	<e:text name="qaab207"/>
 	    	</td>
 	  </tr>
 	  <tr>
@@ -126,11 +126,11 @@ ${msg }
 				      <!-- #  空锚 -->
 				      <a href="#" onclick="onEdit('${ins.aab201}')">${ins.aab207}</a>
 				    </td>
-				    <td>${ins.aab202 }</td>
-				    <td>${ins.aab203 }</td>
-				    <td>${ins.aab204 }</td>
-				    <td>${ins.aab205 }</td>
-				    <td>${ins.aab206 }</td>
+				    <td>${ins.aab202}</td>
+				    <td>${ins.aab203}</td>
+				    <td>${ins.aab204}</td>
+				    <td>${ins.aab205}</td>
+				    <td>${ins.aab206}</td>
 				    <td>
 				      <a href="#" onclick="onDel('${ins.aab201}')">删除</a>
 				    </td>

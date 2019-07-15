@@ -64,12 +64,14 @@
     <input type="submit" value="这顿吃什么" formaction="<%=path%>/preferenceIndex.html">
     <input type="submit" value="城市排行榜" formaction="<%=path%>/rankingCity.html">
     <input type="submit" value="人气排行榜" formaction="<%=path%>/rankingPopularity.html">
-    <a href="/post.jsp">
+    <a href="post.jsp">
         <button>发布帖子</button>
     </a>
     <input type="submit" value="浏览帖子" formaction="<%=path%>/bBSBrowse.html">
     <input type="text" name="aaa301">
     <input type="submit" value="查看帖子" formaction="<%=path%>/bBSBrowseSingle.html">
+    <input type="submit" value="查看本用户发布的帖子" formaction="<%=path%>/bBSBrowseUser.html">
+    <input type="submit" value="查看本城市的优惠券" formaction="<%=path%>/couponList.html">
 </form>
 </body>
 </html>

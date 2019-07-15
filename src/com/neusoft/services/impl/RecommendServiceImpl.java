@@ -54,7 +54,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("	ab01 ab01")
                 .append("	LEFT JOIN ab02 ON ab02.aab101 = ab01.aab101")
                 .append("	LEFT JOIN ab04 ON ab04.aab101 = ab01.aab101")
-                .append("	LEFT JOIN aa06 ON aa06.aaa101 = 0 ")
+                .append("	LEFT JOIN aa06 ON aa06.aaa101 = 8 ")
                 .append("	AND aa06.aab101 = ab01.aab101 ")
                 .append("WHERE ")
                 .append("TRUE ")
@@ -134,8 +134,8 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("WHERE ")
                 .append("	aab101 = ?;")
                 ;
-//        int aab101 = Integer.valueOf((String)this.get("aab101"));
-        return this.executeUpdate(sql.toString(), this.get("aab101")) > 0;
+        int aab101 = Integer.valueOf((String)this.get("aab101"));
+        return this.executeUpdate(sql.toString(), 8) > 0;
     }
 
     public boolean updateSelectionSubtract() throws Exception {
@@ -145,7 +145,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("SET aaa602 = -1, ")
                 .append("aaa603 = CURRENT_TIMESTAMP ")
                 .append("WHERE ")
-                .append("	aab101 = ?;")
+                .append("	aab101 = ? and aaa101=8;")
                 ;
         String[] tem = (String[])this.get("aab101");
         int aab101 = Integer.valueOf(tem[0]);

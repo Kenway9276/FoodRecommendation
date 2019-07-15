@@ -165,7 +165,7 @@
                 </div>
             </div>
             <div class="col-md-4 d-flex justify-content-center order-md-2 order-1">
-                <a href="index.html"><img src="dw_assets/images/logo.png" alt="" class="img-fluid"></a>
+                <a href="#" onclick="onBack()"><img src="dw_assets/images/logo.png" alt="" class="img-fluid"></a>
             </div>
             <div class="col-md-4 order-md-3 order-3">
                 <div class="footer-cradit text-center text-md-right">
@@ -211,11 +211,15 @@
 
         var path = "<%=path%>/bBSComment.html?aaa304="+aaa304 + "&aaa301="+aaa301
 
-        alert(escape(aaa304))
-        alert(encodeURI(aaa304))
-        alert(encodeURIComponent(aaa304))
-
         vform.action = "<%=path%>/bBSComment.html?aaa304="+encodeURI(aaa304) + "&aaa301="+aaa301;
+        vform.submit();
+    }
+
+    function onBack() {
+        var vform = document.getElementById("comment-form-id");
+        var aaa304 =  document.getElementById('comment-content').value;
+
+        vform.action = "<%=path%>/bBSBrowse.html"
         vform.submit();
     }
 

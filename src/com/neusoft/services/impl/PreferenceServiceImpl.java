@@ -20,7 +20,7 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
      */
     public List<Map<String, String>> query() throws Exception {
         //TODO 登陆后 获取当前用户的流水号
-        String aaa101 = "0";
+        String aaa101 = "8";
 
         //1.编写SQL语句
         StringBuilder sql=new StringBuilder()
@@ -105,7 +105,7 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
     private boolean addPreference()throws Exception
     {
         //TODO 获取当前用户的流水号
-        String aaa101 = "0";
+        String aaa101 = "8";
 
         // TODO 将aaa206(地址)传给许泽松的地图模块解析
 
