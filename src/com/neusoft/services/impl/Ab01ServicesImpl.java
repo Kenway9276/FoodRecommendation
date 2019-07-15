@@ -193,33 +193,29 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 
     private boolean batchDelete()throws Exception
     {
-    	//1.鐎规矮绠烻QL鐠囶厼褰�
     	String sql="delete from ab01 where aab101=?";
-    	//2.閼惧嘲褰囨い鐢告桨idlist閺佹壆绮�
     	String idlist[]=this.getIdList("idlist");
-    	//3.閹笛嗩攽
     	return this.batchUpdate(sql, idlist);
     }
     
     private boolean userHistoryDelete()throws Exception
     {
-    	//1.鐎规矮绠烻QL鐠囶厼褰�
     	String sql="delete from ac01 where aac101=?";
-    	//2.閼惧嘲褰囨い鐢告桨idlist閺佹壆绮�
     	String idlist[]=this.getIdList("idlist");
-    	//3.閹笛嗩攽
     	return this.batchUpdate(sql, idlist);
     }
     
-
-    
     private boolean adminNoticeDelete()throws Exception
     {
-    	//1.鐎规矮绠烻QL鐠囶厼褰�
     	String sql="delete from ac02 where aac201=?";
-    	//2.閼惧嘲褰囨い鐢告桨idlist閺佹壆绮�
     	String idlist[]=this.getIdList("idlist");
-    	//3.閹笛嗩攽
+    	return this.batchUpdate(sql, idlist);
+    }
+    
+    private boolean adminPostDelete()throws Exception
+    {
+    	String sql="delete from aa03 where aaa301=?";
+    	String idlist[]=this.getIdList("idlist");
     	return this.batchUpdate(sql, idlist);
     }
     
@@ -236,6 +232,11 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	return this.executeUpdate(sql, this.get("aac201")) > 0;
     }
     
+    private boolean adminDeleteByIdPost()throws Exception
+    {
+    	String sql="delete from aa03 where aaa301=?";
+    	return this.executeUpdate(sql, this.get("aaa301")) > 0;
+    }
     
     public Map<String, String> adminLogin()throws Exception
     {
@@ -569,7 +570,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append("  from ac02")
 	  				;
 	  		
-	  		sql.append(" order by aac203,aac207 desc");
+	  		sql.append(" order by aac207 desc,aac203 desc");
 	  		//System.out.println(sql.toString());
 	  		return this.queryForList(sql.toString());
 	  }
@@ -699,6 +700,35 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;
 		    }
+		 
+		 private boolean adminPopById()throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("update ac02")
+		    			.append("   set aac207=?")
+		    			.append(" where aac201=?")
+		    			;
+		    	Object args[]={
+		    			"1",
+		    			this.get("aac201")
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;
+		    }
+		 
+		 private boolean adminCancelById()throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("update ac02")
+		    			.append("   set aac207=?")
+		    			.append(" where aac201=?")
+		    			;
+		    	Object args[]={
+		    			"0",
+		    			this.get("aac201")
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;
+		    }
+		 
 		//閸楁洑绶ラ弻銉嚄閸熷棗顔嶉弫鐗堝祦
 		 public Map<String,String> findBusiPopularizeById()throws Exception
 		    {
