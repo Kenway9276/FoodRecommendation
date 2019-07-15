@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//WebRoot/css/gyn.css=UTF-8
 encoding//WebRoot/shopdetail.jsp=UTF-8
+=======
+encoding//WebRoot/shopdetail.jsp=GBK
+>>>>>>> b53ace8c2531bad3df3b9bbfcd119198b4e1caf5
 encoding//src/com/neusoft/services/impl/Ab01ServicesImpl.java=UTF-8

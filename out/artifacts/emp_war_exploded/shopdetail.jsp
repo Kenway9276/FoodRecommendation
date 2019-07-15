@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=GBK"
-    pageEncoding="ISO-8859-1"%>
+<%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%String path=request.getContextPath(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
     <!-- Required meta tags -->
-    <meta charset="gb2312">
+    <meta charset=gb2312 /> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Colorlib">
@@ -34,32 +33,16 @@
     <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
     
     <script>
-	$(function(){
-		//è·å–ç‚¹å‡»äº‹ä»¶çš„å¯¹è±¡
-		$(".nav li").click(function(){
-			//è·å–è¦æ˜¾ç¤ºæˆ–éšè—çš„å¯¹è±¡
-			var divShow = $(".content").children('.list');
-			//åˆ¤æ–­å½“å‰å¯¹è±¡æ˜¯å¦è¢«é€‰ä¸­ï¼Œå¦‚æœæ²¡é€‰ä¸­çš„è¯è¿›å…¥ifå¾ªç¯
-			if (!$(this).hasClass('selected')) {
-				//è·å–å½“å‰å¯¹è±¡çš„ç´¢å¼•
-				var index = $(this).index();
-				//å½“å‰å¯¹è±¡æ·»åŠ é€‰ä¸­æ ·å¼å¹¶ä¸”å…¶åŒèƒç§»é™¤é€‰ä¸­æ ·å¼ï¼›
-				$(this).addClass('selected').siblings('li').removeClass('selected');
-				//ç´¢å¼•å¯¹åº”çš„divå—æ˜¾ç¤º
-				$(divShow[index]).show();
-				//ç´¢å¼•å¯¹åº”çš„divå—çš„åŒèƒéšè—
-				$(divShow[index]).siblings('.list').hide();
-			}
-		});
-	});
 	
+    
+    
 	function onSetMark(vaab101)
     {
-  	  //æ·»åŠ åˆ°æ”¶è—å¤¹
+  	  //Ìí¼Óµ½ÊÕ²Ø¼Ğ
   	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/markAdd.html?aab101="+vaab101;
   	 vform.submit();
-  	 //è¿”å›å•†å®¶è¯¦æƒ…é¡µé¢
+  	//·µ»ØÉÌ¼ÒÏêÇéÒ³Ãæ
   	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
  	 vform.submit();
     }
@@ -67,22 +50,31 @@
 	
 	function onDelMark(vaab101)
     {
-  	  //å–æ¶ˆæ”¶è—
+  	  //È¡ÏûÊÕ²Ø
   	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
   	 vform.submit();
-  	 //è¿”å›å•†å®¶è¯¦æƒ…é¡µé¢
-  	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
- 	 vform.submit();
+  	//·µ»ØÉÌ¼ÒÏêÇéÒ³Ãæ
+ 	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
+	 vform.submit();
     }
 	
-	
+	function onQueryMark(vaab101)
+    {
+  	  //È¡ÏûÊÕ²Ø
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/markQuery.html";
+  	 vform.submit();
+    }
 	
 	
 </script>
 </head>
 
 <body>
+<form id="myform">
+	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input type="hidden" name="aaa101" value="1"></input>
     <!--============================= HEADER =============================-->
     <div class="dark-bg sticky-top">
         <div class="container-fluid">
@@ -129,7 +121,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">About</a>
+                                    <a class="nav-link" onclick="onQueryMark()" href="#">ÊÕ²Ø¼Ğ</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Blog</a>
@@ -147,44 +139,29 @@
     <div>
         <!-- Swiper -->
         <div class="swiper-container">
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <a href="images/reserve-slide2.jpg" class="grid image-link">
-                        <img src="images/reserve-slide2.jpg" class="img-fluid" alt="#">
+        
+        	<div class="swiper-wrapper">
+        	
+        	<c:forEach items="${Address }" var="ad" varStatus="vs">
+        	
+            <div class="swiper-slide">
+            <div style="width:672px;height:300px">
+                    <a href="${ad.address }" class="grid image-link">
+                        <img src="${ad.address }" class="img-fluid" alt="#">
                     </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="images/reserve-slide1.jpg" class="grid image-link">
-                        <img src="images/reserve-slide1.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="images/reserve-slide3.jpg" class="grid image-link">
-                        <img src="images/reserve-slide3.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="images/reserve-slide1.jpg" class="grid image-link">
-                        <img src="images/reserve-slide1.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="images/reserve-slide2.jpg" class="grid image-link">
-                        <img src="images/reserve-slide2.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="images/reserve-slide3.jpg" class="grid image-link">
-                        <img src="images/reserve-slide3.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
             </div>
+            </div>
+            </c:forEach>
+            
+            
+            
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-pagination-white"></div>
             <!-- Add Arrows -->
             <div class="swiper-button-next swiper-button-white"></div>
             <div class="swiper-button-prev swiper-button-white"></div>
+            
+            </div>
         </div>
     </div>
     <!--//END BOOKING -->
@@ -198,17 +175,40 @@
                 <div class="col-md-6">
                     <div class="reserve-seat-block">
                         <div class="reserve-rating">
-                            <span>9.5</span>
+                            <span>${ins.aab111 }</span>
                         </div>
+                        
+                     
+                        
                         <div class="review-btn">
-                            <a href="#" class="btn btn-outline-danger">WRITE A REVIEW</a>
-                            <span>34 reviews</span>
+                            <a href="#" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbspĞ´µãÆÀ&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                            <span><a>${ins.aab114 }</a><a>ÌõµãÆÀ</a></span>
                         </div>
+                        
+                        
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="#" class="btn btn-danger">RESERVE A SEAT</a>
+                                <a href="#" class="btn btn-danger">¶¨×ù</a>
                             </div>
                         </div>
+                        
+                        <c:if test="${empty IsMark }">
+						<div class="reserve-btn">
+                            <div class="featured-btn-wrap" onclick="onSetMark('${ins.aab101}')" >
+                                <a href="#" id="markbtn" onclick="onSetMark('${ins.aab101}')" class="btn btn-danger">ÊÕ²Ø</a>
+                            </div>
+                        </div>
+						</c:if>
+						
+						<c:if test="${!empty IsMark }">
+						<div class="reserve-btn">
+                            <div class="featured-btn-wrap" onclick="onDelMark('${ins.aab101}')" >
+                                <a href="#" id="markbtn" onclick="onDelMark('${ins.aab101}')" class="btn btn-danger">È¡ÏûÊÕ²Ø</a>
+                            </div>
+                        </div>
+						</c:if>                   
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -222,51 +222,47 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                            <p>Tasty Hand-Pulled Noodles is a 1950s style diner located in Madison, Wisconsin. Opened in 1946 by Mickey Weidman, and located just across the street from Camp Randall Stadium, it has become a popular game day tradition amongst
-                                many Badger fans. The diner is well known for its breakfast selections, especially the Scrambler, which is a large mound of potatoes, eggs, cheese, gravy, and a patronsâ€™ choice of other toppings.</p>
-                            <p>Mickies has also been featured on â€œToddâ€™s Taste of the Townâ€ during one of ESPNâ€™s college football broadcasts. We are one of the best Chinese restaurants in the New York, New York area. We have been recognized for our outstanding
-                                Chinese & Asian cuisine, excellent Chinese menu, and great restaurant specials. We are one of the best Chinese restaurants in the New York, New York area. We have been recognized for our outstanding Chinese & Asian cuisine,
-                                excellent Chinese menu, and great restaurant specials.</p>
+                            <p>²Ëµ¥</p>
                             <hr>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
                         <span class="ti-check-box"></span>
-                        <span class="custom-control-description">Bike Parking</span>
+                        <span class="custom-control-description">¿Õµ÷</span>
                       </label> </div>
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
                        <span class="ti-check-box"></span>
-                       <span class="custom-control-description">Wireless Internet  </span>
+                       <span class="custom-control-description">Ï´ÊÖ¼ä</span>
                      </label>
                             </div>
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
                      <span class="ti-check-box"></span>
-                     <span class="custom-control-description">Smoking Allowed  </span>
+                     <span class="custom-control-description">³äµç±¦</span>
                    </label> </div>
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
                     <span class="ti-check-box"></span>
-                    <span class="custom-control-description">Street Parking</span>
+                    <span class="custom-control-description">Í£³µÎ»</span>
                   </label>
                             </div>
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
                    <span class="ti-check-box"></span>
-                   <span class="custom-control-description">Special</span>
+                   <span class="custom-control-description">WIFI</span>
                  </label> </div>
                             <div class="col-md-4">
                                 <label class="custom-checkbox">
                   <span class="ti-check-box"></span>
-                  <span class="custom-control-description">Accepts Credit cards</span>
+                  <span class="custom-control-description">ÎüÑÌÇø</span>
                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="booking-checkbox_wrap mt-4">
-                        <h5>34 Reviews</h5>
+                        <h5><a>${ins.aab114 }</a><a>ÌõµãÆÀ</a></a></h5>
                         <hr>
                         <div class="customer-review_wrap">
                             <div class="customer-img">
@@ -337,22 +333,26 @@
                         <img src="images/map.jpg" class="img-fluid" alt="#">
                         <div class="address">
                             <span class="icon-location-pin"></span>
-                            <p> Doyers St<br> New York, NY 10013<br> b/t Division St & St James Pl <br> Chinatown, Civic Center</p>
+                            <p>${ins.aab106 }</p>
                         </div>
                         <div class="address">
                             <span class="icon-screen-smartphone"></span>
-                            <p> +44 20 7336 8898</p>
+                            <p>${ins.aab107 }</p>
                         </div>
                         <div class="address">
-                            <span class="icon-link"></span>
-                            <p>https://burgerandlobster.com</p>
+                            <c:choose>
+                            <c:when test="${row.aab110=='1' }">
+                            <span class="icon-clock"></span>                         
+                            <div class="open-now">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp½ÓÊÜÔ¤¶¨</div>
+                            </c:when>
+                            <c:otherwise>
+                            <span class="icon-clock"></span>                          
+                            <div class="closed-now">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspÔİ²»½ÓÊÜÔ¤¶¨</div>
+                            </c:otherwise>
+                            </c:choose>
                         </div>
-                        <div class="address">
-                            <span class="icon-clock"></span>
-                            <p>Mon - Sun 09:30 am - 05:30 pm <br>
-                                <span class="open-now">OPEN NOW</span></p>
-                        </div>
-                        <a href="#" class="btn btn-outline-danger btn-contact">SEND A MESSAGE</a>
+                        <br>
+                        <a href="#" class="btn btn-outline-danger btn-contact">²é¿´µØÍ¼ÏêÇé/µ¼º½</a>
                     </div>
                     <div class="follow">
                         <div class="follow-img">
@@ -381,26 +381,6 @@
         </div>
     </section>
     <!--//END BOOKING DETAILS -->
-    <!--============================= FOOTER =============================-->
-    <footer class="main-block dark-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="copyright">
-                        
-                        <p>Copyright &copy; 2018 Listing. All rights reserved | made with Colorlib -  More Templates <a href="http://www.cssmoban.com/" target="_blank" title="æ¨¡æ¿ä¹‹å®¶">æ¨¡æ¿ä¹‹å®¶</a> - Collect from <a href="http://www.cssmoban.com/" title="ç½‘é¡µæ¨¡æ¿" target="_blank">ç½‘é¡µæ¨¡æ¿</a></p>
-                        
-                        <ul>
-                            <li><a href="#"><span class="ti-facebook"></span></a></li>
-                            <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
-                            <li><a href="#"><span class="ti-instagram"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--//END FOOTER -->
 
 
 
@@ -448,6 +428,7 @@
             });
         }
     </script>
+</form>
 </body>
 
 </html>

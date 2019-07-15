@@ -6,13 +6,12 @@
   Time: 11:24
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=utf-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <!-- Document Title -->
     <title>BizBlog</title>
 
@@ -116,6 +115,10 @@
                             </p>
                         </div>
                     </div>
+                    <p><a href="#" onclick="onSelect('${ins.aaa301}')" class="btn btn-primary">view more</a></p>
+                    <c:if test="${ins.isUser == '1'}">
+                        <p><a href="#" onclick="onDel('${ins.aaa301}')" class="btn btn-primary">delete</a></p>
+                    </c:if>
                 </div>
             </div>
             <!-- End of Post -->
@@ -141,7 +144,7 @@
                 </div>
             </div>
             <div class="col-md-4 d-flex justify-content-center order-md-2 order-1">
-                <a href="index.html"><img src="dw_assets/images/logo.png" alt="" class="img-fluid"></a>
+                <a href="/index.jsp"><img src="dw_assets/images/logo.png" alt="" class="img-fluid"></a>
             </div>
             <div class="col-md-4 order-md-3 order-3">
                 <div class="footer-cradit text-center text-md-right">
@@ -187,6 +190,21 @@
         form.action = "<%=path%>/bBSBrowseSingle.html?aaa301=" + aaa301;
         //alert(vform.action);
         form.submit();
+    }
+    function onDel(aaa301) {
+        var form = document.getElementById("tem");
+
+        // todo 加入用户流水号参数
+        form.action = "<%=path%>/bBSDelete.html?aaa301="+aaa301;
+        form.submit();
+    }
+
+    function onBack() {
+        var vform = document.getElementById("comment-form-id");
+        var aaa304 =  document.getElementById('comment-content').value;
+
+        vform.action = "<%=path%>/bBSBrowse.html"
+        vform.submit();
     }
 
 </script>

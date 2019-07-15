@@ -42,11 +42,9 @@
   	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/markAdd.html?aab101="+vaab101;
   	 vform.submit();
-  	document.getElementById("markbtn").innerHTML="取消收藏";
   	//返回商家详情页面
   	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
  	 vform.submit();
- 	document.getElementById("markbtn").innerHTML="取消收藏";
     }
 	
 	
@@ -56,14 +54,19 @@
   	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
   	 vform.submit();
-  	 document.getElementById("markbtn").innerHTML="收藏";
   	//返回商家详情页面
  	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
 	 vform.submit();
-	 document.getElementById("markbtn").innerHTML="收藏";
     }
 	
-
+	function onQueryMark(vaab101)
+    {
+  	  //取消收藏
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/markQuery.html";
+  	 vform.submit();
+    }
+	
 	
 </script>
 </head>
@@ -118,7 +121,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">About</a>
+                                    <a class="nav-link" onclick="onQueryMark()" href="#">收藏夹</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Blog</a>

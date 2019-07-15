@@ -12,7 +12,9 @@
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
-${ins }
+<div style="color:#FFFFFF">
+${msg}
+</div>
 <br>
 <form action="<%=path %>/userRegister.html" method="post">
 <div class="signupform">
@@ -61,11 +63,7 @@ ${ins }
 						<div style="height:40px;vertical-align:middle" class="input-group">
 							<span><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
 							<e:date name="aaa108" required="true" defval="${ins.aaa108}" />
-						</div>
-						<div style="display:${empty ins.aaa101?'none':'show'};height:40px" class="input-group">
-							<span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-							<e:date name="aaa110"  defval="${ins.aaa110}" />
-						</div>        
+						</div>      
 							<input class="btn btn-danger btn-block" type="submit" name="next" value="${empty ins.aaa101?'×¢²á':'ĞŞ¸Ä' }"
         					formaction="<%=path%>/user${empty ins.aaa101?'Register':'Modify' }.html">      
 			</div>
