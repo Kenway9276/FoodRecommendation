@@ -42,7 +42,7 @@
 <body>
 
 <form class="blog-slider">
-
+<input type="hidden" name="aaa101" value="8"/>
     <div class="blog-slider__wrp swiper-wrapper">
         <div class="blog-slider__item swiper-slide">
             <c:if test="${empty rows }">
@@ -56,23 +56,24 @@
                     <input type="submit" formaction="<%=path%>/preferenceIndex.html" class="blog-slider__button" value="返回"></a>
                 </div>
             </c:if>
+            <input type="hidden" name="aab101" value="${rows[0].aab101 }">
+
             <c:forEach items="${rows }" var="row" varStatus="vs">
 
                     <input type="hidden" name="aab104"  value="${row.aab104 }">
-                    <input type="hidden" name="aab101" value="${row.aab101 }">
                     <input type="hidden" name="aab207"  value="${row.aab207 }">
                     <input type="hidden" name="aaa202"  value="${row.aaa202 }">
                     <input type="hidden" name="aaa203"  value="${row.aaa203 }">
                     <input type="hidden" name="aaa204"  value="${row.aaa204 }">
                     <div class="blog-slider__img">
-                        <img src="/upload/2bff830f-c745-4f00-9751-1989b33405a0.jpg" alt="${row.aab104 }">
+                        <img src="/upload/${row.aab113 }" alt="${row.aab104 }">
                     </div>
                     <div class="blog-slider__content">
                         <span class="blog-slider__code">2018-08-31</span>
                         <div class="blog-slider__title">${row.aab104 }</div>
                         <div class="blog-slider__text">这顿吃：${row.aab207 }<br>联系电话：${row.aab107 }<br>地址：${row.aab106 }<br>评分：${row.aab111 }</div>
-                        <input type="submit" formaction="recommendSelect.html" class="blog-slider__button" value="就它了"></a>
-                        <input type="submit" formaction="recommendNext.html" class="blog-slider__button" value="下一个"></a>
+                        <input type="submit" formaction="shopinfoFindById.html" class="blog-slider__button" value="就它了"/></a>
+                        <input type="submit" formaction="recommendNext.html" class="blog-slider__button" value="下一个"/></a>
                     </div>
 
 

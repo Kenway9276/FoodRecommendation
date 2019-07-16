@@ -45,6 +45,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("	ab01.aab106,")
                 .append("	ab01.aab107,")
                 .append("	ab01.aab111,")
+                .append("	ab01.aab113,")
                 .append("	aab207,")
                 .append("	aab205 AS cuisine,")
                 .append("	aab206 AS category,")
@@ -134,8 +135,8 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("WHERE ")
                 .append("	aab101 = ?;")
                 ;
-        int aab101 = Integer.valueOf((String)this.get("aab101"));
-        return this.executeUpdate(sql.toString(), 8) > 0;
+        Object aab101 = getaab101();
+        return this.executeUpdate(sql.toString(), aab101) > 0;
     }
 
     public boolean updateSelectionSubtract() throws Exception {
@@ -150,5 +151,13 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
         String[] tem = (String[])this.get("aab101");
         int aab101 = Integer.valueOf(tem[0]);
         return this.executeUpdate(sql.toString(), aab101) > 0;
+    }
+
+    private Object getaab101(){
+        Object aab101 = this.get("aab101");
+        if(aab101 instanceof String[]){
+            aab101 = ((String[])this.get("aab101"))[0];
+        }
+        return aab101;
     }
 }

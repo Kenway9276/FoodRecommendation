@@ -70,7 +70,7 @@
             <div class="agile-news-grid">
                 <c:forEach items="${rows }" var="ins" varStatus="vs">
                     <div class="col-md-6 agile-news-left">
-                        <div class="col-md-6 news-left-img" style="background: url(images/s4.jpg) no-repeat 0px 0px;background-size: cover;min-height: 200px;">
+                        <div class="col-md-6 news-left-img" style="background: url(upload/${ins.aab113 }) no-repeat 0px 0px;background-size: cover;min-height: 200px;">
 
                         </div>
                         <div class="col-md-6 news-grid-info-bottom">
