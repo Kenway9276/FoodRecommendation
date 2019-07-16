@@ -167,5 +167,19 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		}
 		return AddressList;
 	}
+	
+	//显示商家设施
+	public Map<String,String> saveEquipment()throws Exception
+	{
+		String sql="select aab112 from ab01 where aab101=?";
+		String str=this.queryForMap(sql, this.get("aab101")).get("aab112");
+		String strs[]=str.split(",");
+		Map<String,String> map= new HashMap();
+		for (int i = 0; i <strs.length; i++)
+		{
+			map.put("e"+String.valueOf(i),strs[i]);
+		}
+		return map;
+	}
 
 }

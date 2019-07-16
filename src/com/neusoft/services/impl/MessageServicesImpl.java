@@ -49,7 +49,7 @@ public class MessageServicesImpl extends JdbcServicesSupport
 	
 	
 	//发送消息给用户
-	private boolean addMessageToCust(String MessageText,String CustId)throws Exception
+	public boolean addMessageToCust(String MessageText,String CustId)throws Exception
 	{
 		String DateTime= Tools.getDateTime();
 		String sql="insert into ac03 (aaa101,aac302,aac303,aac304) values (?,?,?,?)";
@@ -59,7 +59,7 @@ public class MessageServicesImpl extends JdbcServicesSupport
 	
 	
 	//发送消息给商家
-	private boolean addMessageToBuss(String MessageText,String BussId)throws Exception
+	public boolean addMessageToBuss(String MessageText,String BussId)throws Exception
 	{
 		String DateTime= Tools.getDateTime();
 		String sql="insert into ac03 (aab101,aac302,aac303,aac304) values (?,?,?,?)";

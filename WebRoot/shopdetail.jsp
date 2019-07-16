@@ -67,6 +67,14 @@
   	 vform.submit();
     }
 	
+	function onMenu(vaab101)
+    {
+  	  //查看菜单
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/shopinfoFindMenu.html?aab101="+vaab101;
+  	 vform.submit();
+    }
+	
 	
 </script>
 </head>
@@ -222,44 +230,157 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                            <p>菜单</p>
+                            <div class="review-btn">
+                            <a href="#" onclick="onMenu(${ins.aab101 })" class="btn btn-outline-danger">查看菜单</a>                          
+                        	</div>
                             <hr>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                        <span class="ti-check-box"></span>
-                        <span class="custom-control-description">空调</span>
-                      </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                       <span class="ti-check-box"></span>
-                       <span class="custom-control-description">洗手间</span>
-                     </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                     <span class="ti-check-box"></span>
-                     <span class="custom-control-description">充电宝</span>
-                   </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                    <span class="ti-check-box"></span>
-                    <span class="custom-control-description">停车位</span>
-                  </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                   <span class="ti-check-box"></span>
-                   <span class="custom-control-description">WIFI</span>
-                 </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                  <span class="ti-check-box"></span>
-                  <span class="custom-control-description">吸烟区</span>
-                </label>
-                            </div>
+                        <div class="row detail-checkbox-wrap">
+                        
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e0=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">空调</span>
+             			</label>
                         </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">空调</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e1=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">WIFI</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">WIFI</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e2=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">充电宝</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">充电宝</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e3=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">洗手间</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">洗手间</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e4=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">停车位</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">停车位</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e5=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">吸烟区</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">吸烟区</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                       
+                        
+                        
+                        
+                        
+
+                        
+                    </div>
                     </div>
                     <div class="booking-checkbox_wrap mt-4">
                         <h5><a>${ins.aab114 }</a><a>条点评</a></a></h5>
@@ -353,29 +474,7 @@
                         </div>
                         <br>
                         <a href="#" class="btn btn-outline-danger btn-contact">查看地图详情/导航</a>
-                    </div>
-                    <div class="follow">
-                        <div class="follow-img">
-                            <img src="images/follow-img.jpg" class="img-fluid" alt="#">
-                            <h6>Christine Evans</h6>
-                            <span>New York</span>
-                        </div>
-                        <ul class="social-counts">
-                            <li>
-                                <h6>26</h6>
-                                <span>Listings</span>
-                            </li>
-                            <li>
-                                <h6>326</h6>
-                                <span>Followers</span>
-                            </li>
-                            <li>
-                                <h6>12</h6>
-                                <span>Followers</span>
-                            </li>
-                        </ul>
-                        <a href="#">FOLLOW</a>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>

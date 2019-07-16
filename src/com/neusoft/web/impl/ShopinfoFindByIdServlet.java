@@ -17,10 +17,10 @@ public class ShopinfoFindByIdServlet extends ShopinfoControllerSupport
 		this.savePageData("IsMark","markJudge");
 		//商家详情
 		this.savePageInstance();
-		//菜单
-		this.savePageData("menus","queryMenu");
 		//环境图
-		this.savePageData("Address", "savePhotoAddress");	
+		this.savePageData("Address", "savePhotoAddress");
+		//设备
+		this.saveMapPageData("Equipment", "saveEquipment");
 		return "shopdetail";	
     }
 }
