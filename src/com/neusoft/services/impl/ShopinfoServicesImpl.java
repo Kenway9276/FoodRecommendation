@@ -96,7 +96,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 				.append(" select aab101, aab102 , aab103 , aab104 , aab105 , aab106 ")
 				.append(" , aab107, aab108 , aab109 , aab110 , aab111 , aab112 ")
 				.append(" , aab113, aab114 from ab01 where aab101 = ? ");
-		return this.queryForMap(sql.toString(), this.get("aab101"));
+		return this.queryForMap(sql.toString(), getaab101());
 	}
 	
 	
@@ -108,16 +108,18 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		/*	aab202--图片    aab203--价格
 		 *  aab207--菜品名
 		 */
+		Object aab101 =  getaab101();
 		String sql = "select aab202 , aab203 , aab207 from ab02 where aab101 = ?";
-		return this.queryForList(sql, this.get("aab101"));
+		return this.queryForList(sql, aab101);
 	}
 	
 	
 	//店铺详情页面判断是否已收藏
 	public List<Map<String,String>> markJudge()throws Exception
 	{
+		Object aab101 =  getaab101();
 		String sql="select aaa401 from aa04 where aaa101=? AND aab101=?";
-		Object args[]={this.get("aaa101"),this.get("aab101")};
+		Object args[]={aab101,this.get("aab101")};
 		return this.queryForList(sql, args);
 	}
 	
@@ -155,7 +157,12 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	public List<Map<String,String>> savePhotoAddress()throws Exception
 	{
 		String sql="select aab109 from ab01 where aab101=? ";
-		String str=this.queryForMap(sql, this.get("aab101")).get("aab109");
+		Object aab101 = this.get("aab101");
+		if(aab101 instanceof String[]){
+			aab101 = ((String[])this.get("aab101"))[0];
+		}
+		System.out.println(aab101);
+		String str=this.queryForMap(sql, aab101).get("aab109");
 		String strs[]=str.split(",");
 		List<Map<String,String>> AddressList=new ArrayList();
 		for (int i = 0; i <strs.length; i++)
@@ -180,6 +187,14 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 			map.put("e"+String.valueOf(i),strs[i]);
 		}
 		return map;
+	}
+
+	private Object getaab101(){
+		Object aab101 = this.get("aab101");
+		if(aab101 instanceof String[]){
+			aab101 = ((String[])this.get("aab101"))[0];
+		}
+		return aab101;
 	}
 
 }

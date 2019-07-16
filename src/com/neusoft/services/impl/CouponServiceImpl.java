@@ -37,15 +37,19 @@ public class CouponServiceImpl extends JdbcServicesSupport {
                 .append("WHERE ")
                 .append("	aab507 LIKE ?  ")
                 .append("	AND aaa101 IS NULL  ")
-                .append("	AND a.aab101 = b.aab101 ");
+                .append("	AND a.aab101 = b.aab101 ")
+                .append("	AND a.aab506 > CURRENT_TIMESTAMP ");
         return this.queryForList(sql.toString(), aab507);
     }
 
     public boolean publish() throws Exception{
+        String tem = (String) this.get("count");
+        int count = Integer.valueOf(tem);
+
         // todo 获取当前商家id，获取当前城市
         int aab101 = 2;
         String aab507 = "天津";
-        Object aab502 = this.get("aab502");
+
         Object aab503 = this.get("aab503");
         Object aab504 = this.get("aab504");
         Object aab505 = this.get("aab505");
@@ -56,18 +60,89 @@ public class CouponServiceImpl extends JdbcServicesSupport {
                 .append("VALUES ")
                 .append("	( ?,?,?,?,?,?,?) ")
                 ;
-        return this.executeUpdate(sql.toString(), aab101, aab502, aab503, aab504, aab505, aab506,aab507) > 0;
+        Object aab502 = null;
+        for (int i = 0; i < count; i++) {
+            aab502 = this.getCode();
+            this.apppendSql(sql.toString(), aab101, aab502, aab503, aab504, aab505, aab506,aab507);
+        }
+        return this.executeTransaction();
     }
 
     private  String getCode(){
         Random r = new Random();
         int i = 0;
         StringBuilder res = new StringBuilder();
-        for (int j = 0; j < 6; j++) {
+        for (int j = 0; j < 12; j++) {
             i = r.nextInt(10);
             res.append(i);
         }
         return res.toString();
     }
 
+    public boolean getCoupon() throws Exception{
+        String sql = "UPDATE ab05 set aaa101 = ? where aab501 = ?";
+        return this.executeUpdate(sql, this.get("aaa101"), this.get("aab501")) > 0;
+    }
+
+    public List<Map<String, String>> queryForUser() throws Exception{
+        //todo 获取当前城市
+        Object aab507 = "%天津%";
+        Object aaa101 = 8;
+        StringBuilder sql = new StringBuilder()
+                .append("SELECT ")
+                .append("	a.aab101,")
+                .append("	aab504, ")
+                .append("	aab503, ")
+                .append("	aab505, ")
+                .append("	aab506, ")
+                .append("	aab104,  ")
+                .append("	aab501  ")
+                .append("FROM ")
+                .append("	ab05 a, ")
+                .append("	ab01 b  ")
+                .append("WHERE ")
+                .append("	aab507 LIKE ?  ")
+                .append("	AND aaa101 = ?  ")
+                .append("	AND a.aab101 = b.aab101 ")
+                .append("	AND a.aab506 > CURRENT_TIMESTAMP ");
+        List<Map<String, String>> list = this.queryForList(sql.toString(), aab507, aaa101);
+        for (Map<String, String> map:list) {
+            map.put("isUser", "1");
+        }
+        return list;
+    }
+
+    public boolean deleteCouponUser() throws Exception{
+        String sql = "DELETE FROM ab05 WHERE aab501 = ?";
+        return this.executeUpdate(sql, this.get("aab501")) > 0;
+    }
+
+    /**
+     * 商家验证优惠券
+     * @return
+     */
+    public Map<String,String> checkCoupon() throws Exception{
+        Object aab502 = this.get("aab502").toString().toLowerCase();
+        StringBuilder sql = new StringBuilder()
+                .append("SELECT ")
+                .append("	aab501, aaa101,aab503,aab504,aab505,aab507,aab502  ")
+                .append("FROM ")
+                .append("	ab05  ")
+                .append("WHERE ")
+                .append("	aaa101 IS NOT NULL  ")
+                .append("	AND aab502 = ? AND CURRENT_DATE < aab506  ")
+                ;
+        return this.queryForMap(sql.toString(),aab502 );
+    }
+
+    /**
+     * 商家验证优惠券之后删除
+     * @return
+     * @throws Exception
+     */
+    public boolean delCoupon() throws Exception{
+        Object aab501 = this.get("aab501");
+        String sql = "delete from ab05 where aab501 = ?";
+        return this.executeUpdate(sql, aab501) > 0;
+    }
 }

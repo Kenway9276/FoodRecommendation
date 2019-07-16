@@ -447,6 +447,15 @@ public abstract class ControllerSupport implements BaseController
 		}
 	}
 	
+	protected final void saveForumPageDataForDelete()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminForumQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
+	
 	protected final void saveNoticePageDataForDelete()throws Exception
 	{
 		List<Map<String,String>> rows=this.services.adminNoticeQuery();
