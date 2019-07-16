@@ -11,25 +11,7 @@ import com.neusoft.system.tools.Tools;
 public class CommentServicesImpl extends JdbcServicesSupport
 {
 	
-	//商家详情页面查看评论
-	public List<Map<String,String>> query()throws Exception
-	{
-		StringBuilder sql=new StringBuilder()
-				.append(" SELECT aab301 , aab101 , ab03.aaa101 , aab303 , aab304 , aab305 ,")
-				.append(" aab306 , aab307 , aaa103 from ab03 LEFT JOIN aa01 on ")
-				.append(" ab03.aaa101 = aa01.aaa101 where aab101= ? ");
-		List<Map<String,String>> rows=this.queryForList(sql.toString(), this.get("aab101"));
-			
-		//过滤评论中用户的昵称,将其变为 X******X
-		for (Map<String, String> row : rows)
-		{ 
-			String starStr=Tools.replaceString2Star(row.get("aaa103"), 1, 1);
-			row.put("aaa103",starStr);
-		}
-		return rows;
-	}
-	
-	
+
 	//用户评分、写点评,同时更新商家的评分
 	private boolean userAddComment()throws Exception
 	{
@@ -91,6 +73,13 @@ public class CommentServicesImpl extends JdbcServicesSupport
 				null
 				};
 		return this.executeUpdate(sql.toString(), args)>0;
+	}
+	
+	//处理评论中的图片和文字
+	public Map<String,String> DealPhoto()throws Exception
+	{
+		String htmlstring=this.get("htmltext").toString();
+		return null;
 	}
 	
 }

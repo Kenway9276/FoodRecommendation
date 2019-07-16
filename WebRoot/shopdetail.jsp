@@ -83,6 +83,7 @@
 <form id="myform">
 	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
+	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
     <!--============================= HEADER =============================-->
     <div class="dark-bg sticky-top">
         <div class="container-fluid">
@@ -382,72 +383,112 @@
                         
                     </div>
                     </div>
+                    
+                                      
                     <div class="booking-checkbox_wrap mt-4">
+                    	<c:choose> 
+                        <c:when test="${rows!=null }">
                         <h5><a>${ins.aab114 }</a><a>条点评</a></a></h5>
                         <hr>
+                        </c:when>
+                        <c:otherwise>
+                       	<h5><a>暂时还没有点评</a></h5>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose> 
+                        <c:when test="${rows!=null }"> 
+                        <c:forEach items="${rows }" var="row" varStatus="vs">
+                        <c:if test="${row.aab305=='0'}">
                         <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
-                                <p>Amanda G</p>
-                                <span>35 Reviews</span>
+                            <div class="customer-img">                           
+                                <p>${row.aaa103 }</p>
                             </div>
                             <div class="customer-content-wrap">
                                 <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h6>Best noodles in the Newyork city</h6>
+	                               	<div class="customer-review">                                      
+                                        
+                                        <c:if test="${row.aab307=='5'}">
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         <span></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>Reviewed 2 days ago</p>
+                                        <span></span>
+                                        </c:if>
+                                        <c:if test="${row.aab307=='4'}">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        </c:if> 
+                                        <c:if test="${row.aab307=='3'}">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        </c:if>
+                                        <c:if test="${row.aab307=='2'}">
+                                        <span></span>
+                                        <span></span>
+                                        </c:if>  
+                                        <c:if test="${row.aab307=='1'}">
+                                        <span></span>
+                                        <span></span>
+                                        </c:if>                                
+                                        <p>${row.aab304 }</p>
                                     </div>
-                                    <div class="customer-rating">8.0</div>
+                                    
+                                    
+                                    
+                                    <div class="customer-rating customer-rating">${row.aab307 }</div>
+                                 
+                                    
+                                    
+                                    
                                 </div>
-                                <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
-                                    hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
-                                    dipped in their chili sauce.
-                                </p>
-                                <p class="customer-text">I love how you can see into the kitchen and watch them make the noodles and you can definitely tell that this is a family run establishment. The prices are are great with one dish maybe being $9. You just have to remember
-                                    to bring cash.
+                                <p class="customer-text">
+                                ${row.aab303 }
                                 </p>
                                 <ul>
                                     <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
                                     <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
                                     <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
                                 </ul>
-                                <span>28 people marked this review as helpful</span>
-                                <a href="#"><span class="icon-like"></span>Helpful</a>
+                                <span>${row.aab308 } 人觉得很赞</span>
+                                <a href="#"><span class="icon-like"></span>赞</a>
+                                
+                                
+                                
+                                
+                                <c:forEach items="${rows }" var="reply" varStatus="vs">
+                                <c:if test="${reply.aab305==row.aab301}">
+                                <br>
+                                <br>
+                                <p class="customer-text">
+                                <a>商家回复:</a>
+                                ${reply.aab303 }
+                                </p>
+                                </c:if>
+                                </c:forEach>
+
+                                
                             </div>
                         </div>
                         <hr>
-                        <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="images/customer-img2.jpg" class="img-fluid" alt="#">
-                                <p>Kevin W</p>
-                                <span>17 Reviews</span>
-                            </div>
-                            <div class="customer-content-wrap">
-                                <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h6>A hole-in-the-wall old school shop.</h6>
-                                        <span class="customer-rating-red"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>Reviewed 3 months ago</p>
-                                    </div>
-                                    <div class="customer-rating customer-rating-red">2.0</div>
-                                </div>
-                                <p class="customer-text">The dumplings were so greasy...the pan-fried shrimp noodles were the same. So much oil and grease it was difficult to eat. The shrimp noodles only come with 3 shrimp (luckily the dish itself is cheap) </p>
-                                <p class="customer-text">The beef noodle soup was okay. I added black vinegar into the broth to give it some extra flavor. The soup has bok choy which I liked - it's a nice textural element. The shop itself is really unclean (which is the case
-                                    in many restaurants in Chinatown) They don't wipe down the tables after customers have eaten. If you peak into the kitchen many of their supplies are on the ground which is unsettling... </p>
-                                <span>10 people marked this review as helpful</span>
-                                <a href="#"><span class="icon-like"></span>Helpful</a>
-                            </div>
-                        </div>
+                        </c:if>
+                        </c:forEach>
+                    	</c:when>
+                    	</c:choose>
+                      
+                      
+                      
+                        
                     </div>
+                    
+                    
+                    
+                    
+                    
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">

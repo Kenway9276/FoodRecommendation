@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.neusoft.services.JdbcServicesSupport;
+import com.neusoft.system.tools.Tools;
 
 //功能点:  搜索、获取餐厅信息
 public class ShopinfoServicesImpl extends JdbcServicesSupport
@@ -189,12 +190,32 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		return map;
 	}
 
+	
 	private Object getaab101(){
 		Object aab101 = this.get("aab101");
 		if(aab101 instanceof String[]){
 			aab101 = ((String[])this.get("aab101"))[0];
 		}
 		return aab101;
+	}
+	
+	
+	//商家详情页面查看评论
+	public List<Map<String,String>> queryComment()throws Exception
+	{
+		StringBuilder sql=new StringBuilder()
+					.append(" SELECT aab301 , aab101 , ab03.aaa101 , aab303 , aab304 , aab305 ,")
+					.append(" aab306 , aab307 , aab308 , aaa103 from ab03 LEFT JOIN aa01 on ")
+					.append(" ab03.aaa101 = aa01.aaa101 where aab101= ? ");
+		List<Map<String,String>> rows=this.queryForList(sql.toString(), this.get("aab101"));
+				
+		//过滤评论中用户的昵称,将其变为 X******X
+		for (Map<String, String> row : rows)
+		{ 
+			String starStr=Tools.replaceString2Star(row.get("aaa103"), 1, 1);
+			row.put("aaa103",starStr);
+		}
+		return rows;
 	}
 
 }

@@ -75,7 +75,7 @@
 <form id="aaa" action="/bBSPost.html" method="post">
     <div id="div1">
     </div>
-    <textarea name="aaa303" id="text1" ></textarea>
+    <textarea name="htmltext" id="text1" ></textarea>
     <textarea name="aaa306" id="text2" ></textarea>
     <input type="submit" value="·¢²¼"></input>
 </form>

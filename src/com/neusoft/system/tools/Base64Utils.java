@@ -7,8 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import Decoder.BASE64Decoder;
+import Decoder.BASE64Encoder;
+
 
 public class Base64Utils {
     /**
@@ -81,9 +82,9 @@ public class Base64Utils {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        String imageStr = Base64Utils.GetImageStr("C:\\Users\\P7XXTMX-G\\Desktop\\2bec78b896dc6cae9d95dfd05f09d53e.jpg");
-        System.out.println(imageStr);
-        Base64Utils.GenerateImage(imageStr, "C:\\Users\\P7XXTMX-G\\Desktop\\Ì«ÀÉ.jpg");
-    }
+//    public static void main(String[] args) throws IOException {
+//        String imageStr = Base64Utils.GetImageStr("C:\\Users\\P7XXTMX-G\\Desktop\\2bec78b896dc6cae9d95dfd05f09d53e.jpg");
+//        System.out.println(imageStr);
+//        Base64Utils.GenerateImage(imageStr, "C:\\Users\\P7XXTMX-G\\Desktop\\Ì«ÀÉ.jpg");
+//    }
 }

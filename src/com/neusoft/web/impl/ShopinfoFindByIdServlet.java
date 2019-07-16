@@ -21,6 +21,9 @@ public class ShopinfoFindByIdServlet extends ShopinfoControllerSupport
 		this.savePageData("Address", "savePhotoAddress");
 		//…Ë±∏
 		this.saveMapPageData("Equipment", "saveEquipment");
+		//∆¿¬€
+		this.savePageData("rows", "queryComment");
+
 		return "shopdetail";	
     }
 }
