@@ -21,20 +21,20 @@ public class RankingServiceImpl extends JdbcServicesSupport {
         String city = "%" + "Ìì½ò" + "%";
 
         StringBuilder sql = new StringBuilder()
-                .append("SELECT")
+                .append("SELECT ")
                 .append("	aab104, ")
                 .append("	aab106, ")
                 .append("	aab113, ")
                 .append("	aab107, ")
-                .append("	aab111 ")
+                .append("	aab111  ")
                 .append("FROM ")
                 .append("	ab01 ab01 ")
-                .append("	LEFT JOIN ab04 ON ab04.aab101 = ab01.aab101 ")
                 .append("WHERE ")
                 .append("	aab106 LIKE ? ")
                 .append("ORDER BY ")
-                .append("	aab111 DESC, aab114 DESC, aab402 DESC")
-                .append("	LIMIT 6")
+                .append("	aab111 DESC, ")
+                .append("	aab114 DESC ")
+                .append("	LIMIT 6 ")
                 ;
         return queryForList(sql.toString(), city);
     }

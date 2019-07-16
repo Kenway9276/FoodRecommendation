@@ -57,6 +57,22 @@
   	 vform.action="<%=path%>/markDeleteById.html?aaa401="+vaaa401;
   	 vform.submit();
     }
+
+    function onGet(aab501)
+    {
+        //取消收藏
+        var vform = document.getElementById("myform");
+        vform.action="<%=path%>/couponGet.html?aab501="+aab501;
+        vform.submit();
+    }
+
+    function onDel(aab501)
+    {
+        //取消收藏
+        var vform = document.getElementById("myform");
+        vform.action="<%=path%>/couponUserDelete.html?aab501="+aab501;
+        vform.submit();
+    }
     
 	</script>
     
@@ -65,8 +81,8 @@
 <body>
 <form id="myform" action="<%=path%>/markQuery.html" method="post">
 	<!-- 暂时 -->
-	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
-	<input type="hidden" name="aaa101" value="1"></input>
+
+	<input type="hidden" name="aaa101" value="8"></input>
     <!--============================= HEADER =============================-->
     <div class="dark-bg sticky-top">
         <div class="container-fluid">
@@ -135,16 +151,8 @@
                     <div class="row detail-filter-wrap">
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
-                                <p><span>我的收藏夹</span></p>
-                                
-                                <c:if test="${rows!=null }">
-			             <!-- 批量删除 -->
-                            <input type="submit" id="del" name="next" value="批量删除"
-                                formaction="<%=path%>/markBatchDelete.html" disabled="disabled">
-                            <!-- 清空收藏夹 -->
-                            <input type="submit" id="dell" name="next" value="清空收藏夹"
-                                formaction="<%=path%>/markDeleteAll.html">
-                                </c:if>
+                                <p><span>优惠券</span></p>
+
 		
                             </div>
                         </div>
@@ -157,19 +165,29 @@
 					<!-- 显示实际查询到的数据 -->
 					<c:forEach items="${rows }" var="row" varStatus="vs">
                     <div style="background-color:F8F8F8" class="row detail-checkbox-wrap">
-                   
-                        
-                        
+
                         <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                         <label class="custom-control custom-checkbox">
                 		<input type="checkbox" name="idlist" value="${row.aab501 }"
                 		onclick="onSelect(this.checked)" class="custom-control-input">
                 		<span class="custom-control-indicator"></span>
                 		<span><a href="#" onclick="onDetail('${row.aab101}')">${row.aab104 }</a></span>
-                		<span>有效日期：${row.aab506 }</span>
-                            <span>满${row.aab505 }</span>
-                            <span>减${row.aab504 }</span>
-                		<span><a href="#" onclick="onDelMark('${row.aaa401}')">领取优惠券</a></span>
+                            <span>${row.aab503 }&nbsp</span>
+                		<span>有效日期：${row.aab506 }&nbsp</span>
+                            <span>满${row.aab505 }&nbsp</span>
+                            <span>减${row.aab504 }&nbsp</span>
+                		<span>
+
+                            <c:choose>
+                                <c:when test="${row.isUser == 1}">
+                                    <a href="#" onclick="onDel('${row.aab501}')">删除</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="#" onclick="onGet('${row.aab501}')">领取优惠券</a>
+                                </c:otherwise>
+                            </c:choose>
+                        </span>
+
               			</label>
              			
                           			
@@ -183,7 +201,7 @@
                     
                     <c:otherwise>
                     <br><br>              
-                    <h4>收藏夹空空如也......</h4>
+                    <h4>没有优惠券......</h4>
                     </c:otherwise>
                     
                     </c:choose>

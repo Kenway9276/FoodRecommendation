@@ -49,6 +49,20 @@
  	 vform.action="<%=path%>/adminDeleteByIdNotice.html?aac201="+vaac201;
  	 vform.submit();
    } 
+   
+   function onPop(vaac201)
+   {
+ 	 var vform = document.getElementById("myform");
+ 	 vform.action="<%=path%>/adminPopByIdNotice.html?aac201="+vaac201;
+ 	 vform.submit();
+   } 
+   
+   function onCancel(vaac201)
+   {
+ 	 var vform = document.getElementById("myform");
+ 	 vform.action="<%=path%>/adminCancelByIdNotice.html?aac201="+vaac201;
+ 	 vform.submit();
+   } 
   
    function onEdit(vaac201)
    {
@@ -141,12 +155,12 @@ ${ins }
 <!-- 优先级用0和1分辨，初始都置为0，表示无优先级，都按日期先后排列。优先级为1的则置顶显示， -->
 <!-- 相同优先级也按日期先后排列。 -->
 	<tr>
-		<td>批量删除</td>
-		<td>序号</td>
+		<td style="width:80px">批量删除</td>
+		<td style="width:40px">序号</td>
 		<td>发布日期</td>
 		<td>标题</td>
 		<td>种类</td>
-		<td>优先级</td>	
+		<td style="width:60px">优先级</td>	
 	</tr>
   <c:choose>
     <c:when test="${rows!=null }">
@@ -160,7 +174,7 @@ ${ins }
 		    <td>${vs.count }</td>
 		    <td>${ins.aac203 }</td>
 		    <td><a href="#" onclick="onEdit('${ins.aac201}')">${ins.aac202 }</a></td>
-		    <td> 
+		    <td style="width:80px"> 
 		    	<c:choose>
 		    		<c:when test="${ins.aac206==1 }">
 		    			测评文章
@@ -174,8 +188,14 @@ ${ins }
 		    	</c:choose>
 		    </td>
 		    <td>${ins.aac207==1?"置顶":"普通" }</td>
-		    <td>
+		    <td style="width:40px">
 		      <a href="#" onclick="onDel('${ins.aac201}')">删除</a>
+		      <c:if test="${ins.aac207 !='1' }">
+		      	<a href="#" onclick="onPop('${ins.aac201}')">置顶</a>
+		      </c:if>
+		      <c:if test="${ins.aac207 =='1' }">
+		      	<a href="#" onclick="onCancel('${ins.aac201}')">取消</a>
+		      </c:if>
 		    </td>
 		  </tr>
       </c:forEach>

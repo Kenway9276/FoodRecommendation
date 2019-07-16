@@ -16,6 +16,7 @@
         type="text/css">
 <link rel="stylesheet" href="<%=path %>/css/style_adminhp.css">
 <link rel="stylesheet" href="<%=path %>/css/prettify.css">
+<link rel="stylesheet" href="<%=path %>/css/gyn.css">
 <style type="text/css">
 	.selected{
 		color:black;
@@ -46,7 +47,7 @@
    function onDel(vaaa301)
    {
  	 var vform = document.getElementById("myform");
- 	 vform.action="<%=path%>/adminDeleteByIdSingle.html?aaa301="+vaaa301;
+ 	 vform.action="<%=path%>/adminDeleteByIdPost.html?aaa301="+vaaa301;
  	 vform.submit();
    } 
   
@@ -153,7 +154,7 @@ ${ins }
      <c:forEach items="${rows }" var="ins" varStatus="vs">
    	   	  <tr>
 		    <td>
-		      <input type="checkbox" name="idlist" value="${ins.aac201 }"
+		      <input type="checkbox" name="idlist" value="${ins.aaa301 }"
 		             onclick="onSelect(this.checked)" >
 		    </td>
 		    <td>${vs.count }</td>
@@ -170,7 +171,7 @@ ${ins }
 		    </td>
 		    <td>${ins.aaa103 }</td>
 		    <td>
-		      <a href="#" onclick="onDel('${ins.aac301}')">É¾³ý</a>
+		      <a href="#" onclick="onDel('${ins.aaa301}')">É¾³ý</a>
 		    </td>
 		  </tr>
       </c:forEach>
@@ -203,7 +204,7 @@ ${ins }
     <td style=" white-space:nowrap;" align="center">
        <button type="submit" name="next">²éÑ¯</button>
        <button type="submit" id="del" name="next"  
-              formaction="<%=path%>/adminDeleteNotice.html"  disabled="disabled">É¾³ý</button>
+              formaction="<%=path%>/adminDeletePost.html"  disabled="disabled">É¾³ý</button>
     </td>
   </tr>
 </table>
