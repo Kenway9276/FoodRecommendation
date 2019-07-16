@@ -131,6 +131,19 @@ public abstract class ControllerSupport implements BaseController
 		}	
 	}
 	
+	protected final void saveAdminCouponPageData() throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminCouponQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+		else
+		{
+			this.saveAttribute("msg", "没有符合条件的数据!");
+		}	
+	}
+	
 	protected final void saveAdminBusiPageData() throws Exception
 	{
 		List<Map<String,String>> rows=this.services.adminBusinessQuery();
@@ -197,16 +210,19 @@ public abstract class ControllerSupport implements BaseController
 		}	
 	}
 	
-	protected final void saveAdminLoginInstance()throws Exception
+
+	protected final boolean saveAdminLoginInstance()throws Exception
 	{
 		Map<String,String> ins=this.services.adminLogin();
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
+			return true;
 		}
 		else
 		{
 			this.saveAttribute("msg", "提示:用户名或密码不相符!");
+			return false;
 		}	
 	}
 	
@@ -441,6 +457,15 @@ public abstract class ControllerSupport implements BaseController
 	protected final void saveHistoryPageDataForDelete()throws Exception
 	{
 		List<Map<String,String>> rows=this.services.userHistoryQuery();
+		if(rows.size()>0)
+		{
+			this.saveAttribute("rows", rows);
+		}
+	}
+	
+	protected final void saveAdminCouponPageDataForDelete()throws Exception
+	{
+		List<Map<String,String>> rows=this.services.adminCouponQuery();
 		if(rows.size()>0)
 		{
 			this.saveAttribute("rows", rows);

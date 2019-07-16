@@ -21,6 +21,16 @@
 	{
 	background:#f33131;
 	}
+	button{
+	display:inline-block;
+	border:none;
+	background-color:#f33131;
+	color:#FFFFFF;
+	padding: 8px 16px;
+    text-align: center;
+    font-size: 16px;
+    border-radius:6px;
+	}
 </style>
 <script type="text/javascript">
    var count=0;
@@ -41,8 +51,7 @@
 </script>
 </head>
 <body>
-${msg }
-<br>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/userHistory.html" method="post">
 <section id="pricing">
 	<div class="container">
@@ -75,7 +84,6 @@ ${msg }
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位置&nbsp;&nbsp;&nbsp;<e:text name="qaaa206"/></a>
 						</li>
 					</ul>
-				
 					<h4>查询结果将显示在这里。</h4>
 	<table border="1px;solid" width="100%" align="center">
 <!-- 	内容包括:用户名（aaa102）、商家名（aab102）、订座日期（aac102）、 -->
@@ -84,18 +92,18 @@ ${msg }
 <!-- 	种类（aab204）、设备（aab205）、位置（aab206）。 -->
 	<tr>
 		<td></td>
-		<td style="color:#FFFFFF">序号</td>
-		<td	style="color:#FFFFFF">订座日期</td>
-		<td	style="color:#FFFFFF">商家名</td>
-		<td	style="color:#FFFFFF">用餐日期</td>
-		<td	style="color:#FFFFFF">人数</td>
-		<td	style="color:#FFFFFF">订座号</td>
-		<td	style="color:#FFFFFF">口味</td>
-		<td	style="color:#FFFFFF">菜系</td>
-		<td	style="color:#FFFFFF">种类</td>
-		<td	style="color:#FFFFFF">设备</td>
-		<td	style="color:#FFFFFF">位置</td>
-		<td	style="color:#FFFFFF">备注</td>		
+		<td style="color:#FFFFFF;width:40px;text-align:center">序号</td>
+		<td	style="color:#FFFFFF;text-align:center">订座日期</td>
+		<td	style="color:#FFFFFF;width:80px;text-align:center">商家名</td>
+		<td	style="color:#FFFFFF;text-align:center">用餐日期</td>
+		<td	style="color:#FFFFFF;width:40px;text-align:center">人数</td>
+		<td	style="color:#FFFFFF;text-align:center">订座号</td>
+		<td	style="color:#FFFFFF;width:40px;text-align:center">口味</td>
+		<td	style="color:#FFFFFF;width:60px;text-align:center">菜系</td>
+		<td	style="color:#FFFFFF;width:40px;text-align:center">种类</td>
+		<td	style="color:#FFFFFF;width:40px;text-align:center">设备</td>
+		<td	style="color:#FFFFFF;width:40px;text-align:center">位置</td>
+		<td	style="color:#FFFFFF;width:40px;text-align:center">备注</td>		
 	</tr>
   <c:choose>
     <c:when test="${rows!=null }">
@@ -106,18 +114,18 @@ ${msg }
 		      <input type="checkbox" name="idlist" value="${ins.aac101 }"
 		             onclick="onSelect(this.checked)" >
 		    </td>
-		    <td	style="color:#FFFFFF">${vs.count }</td>
-		    <td	style="color:#FFFFFF">${ins.aac102 }</td>
-		    <td	style="color:#FFFFFF">${ins.aab104 }</td>
-		    <td	style="color:#FFFFFF">${ins.aac103 }</td>
-		    <td	style="color:#FFFFFF">${ins.aac104 }</td>
-		    <td	style="color:#FFFFFF">${ins.aac105 }</td>
-		    <td	style="color:#FFFFFF">${ins.aaa202 }</td>
-		    <td	style="color:#FFFFFF">${ins.aaa203 }</td>
-		    <td	style="color:#FFFFFF">${ins.aaa204 }</td>
-		    <td	style="color:#FFFFFF">${ins.aaa205 }</td>
-		    <td	style="color:#FFFFFF">${ins.aaa206 }</td>
-		    <td	style="color:#FFFFFF">${ins.aaa207 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${vs.count }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aac102 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aab104 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aac103 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aac104 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aac105 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa202 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa203 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa204 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa205 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa206 }</td>
+		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa207 }</td>
 		    <td>
 		      <a style="color:#FFFFFF" href="#" onclick="onDel('${ins.aac101}')">删除</a>
 		    </td>
@@ -128,17 +136,17 @@ ${msg }
 	          <tr>
 	            <td></td>
 	            <td></td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
-	            <td	style="color:#FFFFFF">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td	style="color:#FFFFFF;text-align:center">吃</td>
 	          </tr>
       </c:forEach>
     </c:when>
@@ -167,9 +175,9 @@ ${msg }
 <table border="1" width="100%" align="center">
   <tr>
     <td align="center">
-       <input type="submit" name="next" value="查询">
-       <input type="submit" id="del" name="next" value="删除" 
-              formaction="<%=path%>/userDeleteHistory.html"  disabled="disabled">
+       <button type="submit" name="next">查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="submit" id="del" name="next"  
+              formaction="<%=path%>/userDeleteHistory.html"  disabled="disabled">删除</button>
     </td>
   </tr>
 </table>
