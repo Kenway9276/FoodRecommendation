@@ -51,6 +51,7 @@ if(map != null){
 <%=request.getSession().getAttribute("管理员流水号")%>
 <%request.getSession().setAttribute("ins", map); %>
 <br>
+${msg }
 <form action="<%=path %>/adminInfo.html" method="post">
 <nav>
   <div class="container">

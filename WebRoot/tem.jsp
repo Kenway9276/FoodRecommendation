@@ -42,7 +42,9 @@
 <body>
 
 <form class="blog-slider">
+
 <input type="hidden" name="aaa101" value="8"/>
+
     <div class="blog-slider__wrp swiper-wrapper">
         <div class="blog-slider__item swiper-slide">
             <c:if test="${empty rows }">
@@ -59,7 +61,7 @@
             <input type="hidden" name="aab101" value="${rows[0].aab101 }">
 
             <c:forEach items="${rows }" var="row" varStatus="vs">
-
+            
                     <input type="hidden" name="aab104"  value="${row.aab104 }">
                     <input type="hidden" name="aab207"  value="${row.aab207 }">
                     <input type="hidden" name="aaa202"  value="${row.aaa202 }">
