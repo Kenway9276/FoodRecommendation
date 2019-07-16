@@ -20,6 +20,7 @@ public class CouponServiceImpl extends JdbcServicesSupport {
      */
     @Override
     public List<Map<String, String>> query() throws Exception {
+        // todo 用户已经领取的优惠券不会再出现，同样的优惠券不会重复出现
         //todo 获取当前城市
         Object aab507 = "%天津%";
         StringBuilder sql = new StringBuilder()

@@ -19,6 +19,8 @@
     </div>
     <textarea name="aaa304" id="text1" ></textarea>
     <textarea name="aaa306" id="text2" ></textarea>
+    <% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
+    <input type="hidden" name="filePath" value="<%=filePath%>">
     <input type="submit" value="·¢²¼"></input>
 </form>
 

@@ -1,14 +1,10 @@
 package com.neusoft.system.tools;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 
 import Decoder.BASE64Decoder;
 import Decoder.BASE64Encoder;
+
 
 
 public class Base64Utils {
@@ -82,9 +78,45 @@ public class Base64Utils {
         }
     }
 
+<<<<<<< HEAD
 //    public static void main(String[] args) throws IOException {
 //        String imageStr = Base64Utils.GetImageStr("C:\\Users\\P7XXTMX-G\\Desktop\\2bec78b896dc6cae9d95dfd05f09d53e.jpg");
 //        System.out.println(imageStr);
 //        Base64Utils.GenerateImage(imageStr, "C:\\Users\\P7XXTMX-G\\Desktop\\太郎.jpg");
 //    }
+=======
+    public static void main(String[] args) throws IOException {
+        //String imageStr = Base64Utils.GetImageStr("C:\\Users\\P7XXTMX-G\\Desktop\\2bec78b896dc6cae9d95dfd05f09d53e.jpg");
+        String imageStr = getStr();
+        System.out.println(imageStr);
+        Base64Utils.GenerateImage(imageStr, "C:\\Users\\P7XXTMX-G\\Desktop\\8f3f65f8-7da2-46d0-b25d-717add88e4b6.jpg");
+    }
+
+    private static String getStr(){
+        StringBuilder res = new StringBuilder();
+        BufferedInputStream in = null;
+        try {
+            //读取文件(缓存字节流)
+            in = new BufferedInputStream(new FileInputStream("C:\\Users\\P7XXTMX-G\\Desktop\\a.txt"));
+            //读取数据
+            //一次性取多少字节
+            byte[] bytes = new byte[2048];
+            //接受读取的内容(n就代表的相关数据，只不过是数字的形式)
+            int n = -1;
+            //循环取出数据
+            while ((n = in.read(bytes,0,bytes.length)) != -1) {
+                //转换成字符串
+                String str = new String(bytes,0,n,"GBK");
+                res.append(str);
+            }
+            //关闭流
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res.toString();
+    }
+
+
+>>>>>>> 39ea75f83120fd57d36aae8c8414688f3fd71fa3
 }

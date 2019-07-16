@@ -1,11 +1,17 @@
 package com.neusoft.services.impl;
 
 import com.neusoft.services.JdbcServicesSupport;
+import com.neusoft.system.tools.BBSTools;
+import com.neusoft.system.tools.Base64Utils;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BBSServiceImpl extends JdbcServicesSupport {
     @Override
@@ -52,14 +58,23 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         // todo 获取用户id
         int aaa101 = 8;
         Object aaa303 = this.get("aaa303");
+
         Object aaa304 = this.get("aaa304");
+
+        /*
+        解析正文，把base64转为路径
+         */
+        String text = (String) this.get("aaa304");
+
+        text = BBSTools.parseBBSText(text, this.get("filePath") + "\\");
+
         Object aaa306 = this.get("aaa306");
         StringBuilder sql = new StringBuilder()
                 .append("INSERT INTO aa03 ( aaa101, aaa302, aaa303, aaa304, aaa305, aaa306 )")
                 .append("VALUES")
                 .append("	( ?, CURRENT_TIMESTAMP, ?, ?, 0 ,?)")
                 ;
-        return this.executeUpdate(sql.toString(),aaa101,aaa303,aaa304,aaa306) > 0;
+        return this.executeUpdate(sql.toString(),aaa101,aaa303,text,aaa306) > 0;
     }
 
     /**
