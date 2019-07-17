@@ -100,5 +100,10 @@ public interface BaseServices
     {
    	 return null;
     }
+    
+    default List<Map<String,String>> adminCouponQuery()throws Exception
+    {
+   	 return null;
+    }
 	
 }

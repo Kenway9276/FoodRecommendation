@@ -212,6 +212,13 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	return this.batchUpdate(sql, idlist);
     }
     
+    private boolean adminCouponDelete()throws Exception
+    {
+    	String sql="delete from ab05 where aab501=?";
+    	String idlist[]=this.getIdList("idlist");
+    	return this.batchUpdate(sql, idlist);
+    }
+    
     private boolean adminPostDelete()throws Exception
     {
     	String sql="delete from aa03 where aaa301=?";
@@ -236,6 +243,12 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     {
     	String sql="delete from aa03 where aaa301=?";
     	return this.executeUpdate(sql, this.get("aaa301")) > 0;
+    }
+    
+    private boolean adminDeleteByIdCoupon()throws Exception
+    {
+    	String sql="delete from ab05 where aab501=?";
+    	return this.executeUpdate(sql, this.get("aab501")) > 0;
     }
     
     public Map<String, String> adminLogin()throws Exception
@@ -469,8 +482,8 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		Object aac402=this.get("qaac402");     	//閸欐垵绔锋禍鍝勪紣閸欙拷
 	  		Object aac202=this.get("qaac202");     	//閺嶅洭顣�
 	  		Object aac206=this.get("qaac206");     	//缁夊秶琚�
-	  		Object aac207=this.get("qaac206");     	//娴兼ê鍘涚痪锟�
-	  		
+	  		Object aac207=this.get("qaac207");     	//娴兼ê鍘涚痪锟�
+	  		System.out.println(aac206);
 	  		//鐎规矮绠烻QL娑撹缍�
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
@@ -511,7 +524,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		}
 	  		
 	  		sql.append(" order by a.aac203");
-	  		//System.out.println(sql.toString());
+//	  		System.out.println(sql.toString());
 	  		return this.queryForList(sql.toString(), paramList.toArray());
 	  }
 	  
@@ -559,6 +572,58 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  			paramList.add("%"+aaa103+"%");
 	  		}
 	  		sql.append(" order by a.aaa301");
+	  		//System.out.println(sql.toString());
+	  		return this.queryForList(sql.toString(), paramList.toArray());
+	  }
+	  
+	  public List<Map<String,String>> adminCouponQuery()throws Exception
+	  {
+	  		Object aab104=this.get("qaab104");		
+	  		Object aab502=this.get("qaab502");	
+	  		Object aab503=this.get("qaab503");     	
+	  		Object aab504=this.get("qaab504");     	   	
+	  		Object aab505=this.get("qaab505");   
+	  		Object aab506=this.get("qaab506"); 
+	  		
+	  		StringBuilder sql=new StringBuilder()
+	  				.append("select a.aab502,a.aab503,a.aab504,a.aab505,a.aab506,")
+	  				.append("       b.aab104,b.aab101,a.aab501")
+	  				.append("  from ab05 a,ab01 b")
+	  				.append(" where a.aaa101 is null and a.aab101=b.aab101")
+	  				;
+	  		
+	  		List<Object> paramList=new ArrayList<>();
+	  		if(this.isNotNull(aab506))
+	  		{
+	  			sql.append(" and a.aab506<=?");
+	  			paramList.add(aab506);
+	  		}
+	  		if(this.isNotNull(aab104))
+	  		{
+	  			sql.append(" and b.aab104 like ?");
+	  			paramList.add("%"+aab104+"%");
+	  		}
+	  		if(this.isNotNull(aab502))
+	  		{
+	  			sql.append(" and a.aab502=?");
+	  			paramList.add(aab502);
+	  		}
+	  		if(this.isNotNull(aab503))
+	  		{
+	  			sql.append(" and a.aab503 like ?");
+	  			paramList.add("%"+aab503+"%");
+	  		}
+	  		if(this.isNotNull(aab504))
+	  		{
+	  			sql.append(" and a.aab504=?");
+	  			paramList.add(aab504);
+	  		}
+	  		if(this.isNotNull(aab505))
+	  		{
+	  			sql.append(" and a.aab505 like ?");
+	  			paramList.add(aab505);
+	  		}
+	  		sql.append(" order by a.aab501");
 	  		//System.out.println(sql.toString());
 	  		return this.queryForList(sql.toString(), paramList.toArray());
 	  }

@@ -42,30 +42,28 @@
 </style>
 </head>
 <body >
-<br>
 <%Map map=(Map)request.getAttribute("ins") ;
 if(map != null){
 	request.getSession().setAttribute("管理员流水号", map.get("aac401"));
 }
  %>
-<%=request.getSession().getAttribute("管理员流水号")%>
+<%request.getSession().getAttribute("管理员流水号");%>
 <%request.getSession().setAttribute("ins", map); %>
-<br>
-${msg }
+<%@ include file="navigate.jsp" %>
 <form action="<%=path %>/adminInfo.html" method="post">
-<nav>
-  <div class="container">
-    <h1>Doc</h1>
-    <div id="menu">
-      <ul class="toplinks">
-        <li><a href="#">Opineo Website </a></li>
-        <li><a href="http://www.egrappler.com/">eGrappler</a></li>
-        <li><a href="../doc-template/docs.jsp">Blue Theme</a></li>
-        <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li>
-      </ul>
-    </div>
-    <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div>
-</nav>
+<!-- <nav> -->
+<!--   <div class="container"> -->
+<!--     <h1>Doc</h1> -->
+<!--     <div id="menu"> -->
+<!--       <ul class="toplinks"> -->
+<!--         <li><a href="#">Opineo Website </a></li> -->
+<!--         <li><a href="http://www.egrappler.com/">eGrappler</a></li> -->
+<!--         <li><a href="../doc-template/docs.jsp">Blue Theme</a></li> -->
+<!--         <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li> -->
+<!--       </ul> -->
+<!--     </div> -->
+<!--     <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div> -->
+<!-- </nav> -->
 <header>
   <div class="container">
     <h2 class="docs-header">知己知彼，百战不殆！</h2>
@@ -79,12 +77,13 @@ ${msg }
       <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
       <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
       <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
-      <li><a href="#license" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <div class="adminInfo">
-        <p style="background-color:#DCDCDC;width:35%;margin:0 auto" align="center"> 你的个人信息</p>
-      <table align="center";>
+        <p style="background-color:#DCDCDC;width:35%;height:50px;line-height:50px;margin:0 auto;align:center" align="center"> 你的个人信息</p>
+        <br>
+      <table style="margin:0 auto";>
 	<tr>
 		<td style="color:#FFFFFF">
 		流水号

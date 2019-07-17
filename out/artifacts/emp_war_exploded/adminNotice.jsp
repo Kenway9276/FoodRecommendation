@@ -73,25 +73,10 @@
 </script>
 </head>
 <body >
-${ins }
-<br>
-<%=request.getSession().getAttribute("ins")%>
-<%=request.getSession().getAttribute("管理员流水号")%>
-<br>
+<%request.getSession().getAttribute("ins");%>
+<%request.getSession().getAttribute("管理员流水号");%>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/adminNotice.html" method="post">
-<nav>
-  <div class="container">
-    <h1>Doc</h1>
-    <div id="menu">
-      <ul class="toplinks">
-        <li><a href="#">Opineo Website </a></li>
-        <li><a href="http://www.egrappler.com/">eGrappler</a></li>
-        <li><a href="../doc-template/docs.jsp">Blue Theme</a></li>
-        <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li>
-      </ul>
-    </div>
-    <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div>
-</nav>
 <header>
   <div class="container">
     <h2 class="docs-header">既有消息，广而告之！</h2>
@@ -105,7 +90,7 @@ ${ins }
       <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
       <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
       <li><a href="<%=path %>/adminNotice.jsp" class="selected">公告管理  √</a></li>
-      <li><a href="#license" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <h3 align="center"> 公告管理</h3>
@@ -144,7 +129,7 @@ ${ins }
 	</table>
 	<br>
 	<br>
-<table  width="90%" align="center">
+<table  width="90%" style="margin:0 auto">
 	<caption>
 		公告列表
 		<hr width=160>
@@ -155,26 +140,26 @@ ${ins }
 <!-- 优先级用0和1分辨，初始都置为0，表示无优先级，都按日期先后排列。优先级为1的则置顶显示， -->
 <!-- 相同优先级也按日期先后排列。 -->
 	<tr>
-		<td style="width:80px">批量删除</td>
-		<td style="width:40px">序号</td>
-		<td>发布日期</td>
-		<td>标题</td>
-		<td>种类</td>
-		<td style="width:60px">优先级</td>	
+		<td style="width:80px;text-align:center">批量删除</td>
+		<td style="width:40px;text-align:center">序号</td>
+		<td style="text-align:center">发布日期</td>
+		<td style="width:40px;text-align:center">标题</td>
+		<td style="width:40px;text-align:center">种类</td>
+		<td style="width:60px;text-align:center">优先级</td>	
 	</tr>
   <c:choose>
     <c:when test="${rows!=null }">
         <!-- 显示实际查询到的数据 -->
      <c:forEach items="${rows }" var="ins" varStatus="vs">
    	   	  <tr>
-		    <td>
+		    <td style="text-align:center">
 		      <input type="checkbox" name="idlist" value="${ins.aac201 }"
 		             onclick="onSelect(this.checked)" >
 		    </td>
-		    <td>${vs.count }</td>
-		    <td>${ins.aac203 }</td>
-		    <td><a href="#" onclick="onEdit('${ins.aac201}')">${ins.aac202 }</a></td>
-		    <td style="width:80px"> 
+		    <td style="text-align:center">${vs.count }</td>
+		    <td style="text-align:center">${ins.aac203 }</td>
+		    <td style="width:150px"><a href="#" onclick="onEdit('${ins.aac201}')">${ins.aac202 }</a></td>
+		    <td style="width:80px;text-align:center"> 
 		    	<c:choose>
 		    		<c:when test="${ins.aac206==1 }">
 		    			测评文章
@@ -187,8 +172,8 @@ ${ins }
 		    		</c:otherwise>
 		    	</c:choose>
 		    </td>
-		    <td>${ins.aac207==1?"置顶":"普通" }</td>
-		    <td style="width:40px">
+		    <td style="text-align:center">${ins.aac207==1?"置顶":"普通" }</td>
+		    <td style="width:40px;text-align:center">
 		      <a href="#" onclick="onDel('${ins.aac201}')">删除</a>
 		      <c:if test="${ins.aac207 !='1' }">
 		      	<a href="#" onclick="onPop('${ins.aac201}')">置顶</a>
@@ -204,10 +189,10 @@ ${ins }
 	          <tr>
 	            <td></td>
 	            <td></td>
+	            <td style="text-align:center">吃</td>
 	            <td>吃</td>
-	            <td>吃</td>
-	            <td>吃</td>
-	            <td>吃</td>
+	            <td style="text-align:center">吃</td>
+	            <td style="text-align:center">吃</td>
 	          </tr>
       </c:forEach>
     </c:when>
@@ -225,7 +210,7 @@ ${ins }
     </c:otherwise>
   </c:choose>
 </table>
-<table border="0" width="25%" align="center">
+<table border="0" width="25%" style="margin:0 auto">
   <tr>
     <td style=" white-space:nowrap;" align="center">
        <button type="submit" name="next">查询</button>

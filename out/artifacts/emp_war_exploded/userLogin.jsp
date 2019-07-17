@@ -45,6 +45,14 @@ ${msg}
 						<a href="<%=path %>/userRegister.jsp">
 						<input class="btn btn-danger btn-block" type="button" name="next" value="注册">
 						</a> 
+						<div style="display:inline">
+						<a href="<%=path %>/busiLogin.jsp">
+						<input style="width:49%" class="btn btn-danger btn-block" type="button" name="next" value="商家入口">
+						</a> 
+						<a href="<%=path %>/adminLogin.jsp">
+						<input style="width:49%" class="btn btn-danger btn-block" type="button" name="next" value="管理员入口">
+						</a> 
+						</div>
 			</div>
 									</div>
 			<div class="clear"></div>
