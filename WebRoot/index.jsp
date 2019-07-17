@@ -74,6 +74,7 @@
     <input type="submit" value="查看本城市的优惠券" formaction="<%=path%>/couponList.html">
     <input type="submit" value="查看我领取的优惠券" formaction="<%=path%>/couponUserList.html">
     <input type="submit" value="发布优惠券" formaction="<%=path%>/couponUserList.html">
+
 </form>
 </body>
 </html>

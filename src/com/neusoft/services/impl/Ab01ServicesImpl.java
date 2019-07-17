@@ -630,6 +630,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  
 	  public List<Map<String,String>> userNoticeQuery()throws Exception
 	  {
+	  		Object aaa101 = this.get("userID");
 	  		StringBuilder sql=new StringBuilder()
 	  				.append("select aac201,aac203,aac202,aac206,aac207")
 	  				.append("  from ac02")

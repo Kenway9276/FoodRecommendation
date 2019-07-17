@@ -12,6 +12,9 @@
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
+<div style="color:#FFFFFF">
+${msg}
+</div>
 <form action="<%=path %>/adminLogin.html" method="post">
 <div class="signupform">
 <h1></h1>
