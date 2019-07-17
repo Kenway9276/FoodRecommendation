@@ -196,16 +196,11 @@
     </c:otherwise>
   </c:choose>
 </table>
-<table border="0" width="25%" style="margin:0 auto">
-  <tr>
-    <td style=" white-space:nowrap;" align="center">
+<div style="text-align:center">
        <button type="submit" name="next">²éÑ¯</button>
        <button type="submit" id="del" name="next"  
               formaction="<%=path%>/adminDeleteCoupon.html"  disabled="disabled">É¾³ý</button>
-    </td>
-  </tr>
-</table>
-
+</div>
 </div>
 </div>
 </div>

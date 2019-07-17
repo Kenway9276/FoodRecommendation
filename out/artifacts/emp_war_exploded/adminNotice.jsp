@@ -32,6 +32,7 @@
     text-align: center;
     font-size: 16px;
     border-radius:6px;
+
 	}
 </style>
 <script type="text/javascript">
@@ -143,7 +144,7 @@
 		<td style="width:80px;text-align:center">批量删除</td>
 		<td style="width:40px;text-align:center">序号</td>
 		<td style="text-align:center">发布日期</td>
-		<td style="width:40px;text-align:center">标题</td>
+		<td style="text-align:center">标题</td>
 		<td style="width:40px;text-align:center">种类</td>
 		<td style="width:60px;text-align:center">优先级</td>	
 	</tr>
@@ -210,16 +211,12 @@
     </c:otherwise>
   </c:choose>
 </table>
-<table border="0" width="25%" style="margin:0 auto">
-  <tr>
-    <td style=" white-space:nowrap;" align="center">
+<div style="text-align:center">
        <button type="submit" name="next">查询</button>
        <button type="submit" id="del" name="next"  
               formaction="<%=path%>/adminDeleteNotice.html"  disabled="disabled">删除</button>
 		<button formaction="<%=path %>/adminReleaseNotice.jsp" name="next" >发布</button>
-    </td>
-  </tr>
-</table>
+</div>
 
 </div>
 </div>
