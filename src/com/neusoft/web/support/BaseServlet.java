@@ -78,6 +78,20 @@ public class BaseServlet extends HttpServlet
      		//织入属性处理切片
      		this.parseRueqestAttribute(request, rueqestAttribute);
 
+     		if(controllerFirstName.contains("UserLogin")){
+				//织入session处理切片
+				Object userID =  ((Map<String, String>)request.getAttribute("ins")).get("aaa101");
+				request.getSession().setAttribute("busiID", null);
+				request.getSession().setAttribute("userID", userID);
+			}
+     		else if(controllerFirstName.contains("BusiLogin")){
+				Object busiID =  ((Map<String, String>)request.getAttribute("ins")).get("aab101");
+				request.getSession().setAttribute("userID", null);
+				request.getSession().setAttribute("busiID", busiID);
+			}
+     		else if(controllerFirstName.contains("AdminLogin")){
+
+			}
          }	
          catch(Exception ex)
          {
@@ -87,6 +101,7 @@ public class BaseServlet extends HttpServlet
          }
 		request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
 	}
+
 
 
 	/**

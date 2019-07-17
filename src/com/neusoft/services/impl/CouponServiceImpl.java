@@ -20,7 +20,6 @@ public class CouponServiceImpl extends JdbcServicesSupport {
      */
     @Override
     public List<Map<String, String>> query() throws Exception {
-        // todo 用户已经领取的优惠券不会再出现，同样的优惠券不会重复出现
         //todo 获取当前城市
         Object aab507 = "%天津%";
         StringBuilder sql = new StringBuilder()
@@ -87,8 +86,7 @@ public class CouponServiceImpl extends JdbcServicesSupport {
     }
 
     public boolean getCoupon() throws Exception{
-        // todo 用户流水号
-        String aaa101 = "8";
+        Object aaa101 = this.get("userID");
         String sql = "select aab501,aaa101 from ab05 where aab101 = ? and aab503 = ? and aab506 = ? and aab504 = ? and aab505 = ?";
         Object aab101 = this.get("aab101");
         Object aab503 = this.get("aab503");
@@ -113,7 +111,7 @@ public class CouponServiceImpl extends JdbcServicesSupport {
     public List<Map<String, String>> queryForUser() throws Exception{
         //todo 获取当前城市
         Object aab507 = "%天津%";
-        Object aaa101 = 8;
+        Object aaa101 = this.get("userID");
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
                 .append("	a.aab101,")

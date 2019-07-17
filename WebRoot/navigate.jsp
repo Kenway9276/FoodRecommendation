@@ -14,18 +14,17 @@
 		<div class="flexItem">
 			吃
 		</div>
-	
 		<div class="flexItem show">
 			<ul>
-				<li><a href="${empty ins.aaa101?userLogin.jsp:userInfo.html}">${empty ins.aaa101?'登录':'个人信息'}</a></li>
+				<li><a href="${empty sessionScope.userID?'userLogin.jsp':'userInfo.html'}">${empty sessionScope.userID?'登录':'个人信息'}</a></li>
 				<li><a href="#">搜索</a></li>
 				<li><a href="#">推荐</a></li>
 				<li><a href="#">收藏</a></li>
 				<li><a href="#">排行榜</a></li>
-				<li><a href="#">论坛</a></li>
+				<li><a href="bBSBrowse.html">论坛</a></li>
 				<li><a href="userHistory.jsp">历史订单</a></li>
 				<li><a href="userNotice.html">公告</a></li>
-				<li><a href="#">优惠券</a></li>
+				<li><a href="couponUserList.html">我的优惠券</a></li>
 				<li><a href="#">消息</a></li>
 				<li><a href="userNotice.html">公告</a></li>
 			</ul>

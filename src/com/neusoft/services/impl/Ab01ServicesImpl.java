@@ -643,6 +643,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  
 	  public Map<String,String> userInfoQuery()throws Exception
 	  {
+
 	  		StringBuilder sql=new StringBuilder()
 	  				.append("select aaa101,aaa102,aaa103,aaa104,aaa105,aaa106,aaa107,aaa108,aaa110")
 	  				.append("  from aa01")
