@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.neusoft.services.JdbcServicesSupport;
+import com.neusoft.system.tools.BBSTools;
 import com.neusoft.system.tools.Tools;
 
 //评论功能:用户评论、商家回复评论
@@ -18,16 +19,17 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		//添加评论和评分
 		StringBuilder sql1=new StringBuilder()
     			.append(" insert into ab03(aaa101 , aab101 , aab303 , aab304 , ")
-    			.append(" aab305 , aab306 , aab307) values(?,?,?,?,?,?,?) ");
+    			.append(" aab305 , aab306 , aab307, aab308) values(?,?,?,?,?,?,?,?) ");
 		String Date = Tools.getDate();
 		Object args1[]={
 				this.get("aaa101"),
 				this.get("aab101"),
-				this.get("CommentText"),
+				DealText(),
 				Date,
-				'0',
-				this.get("PhotoAddress"),
-				this.get("Score")
+				0,
+				DealPhoto(),
+				this.get("aab307"),
+				0
 				};
 		
 		//更新商家评分
@@ -36,12 +38,20 @@ public class CommentServicesImpl extends JdbcServicesSupport
     			.append(" aab101=? AND aab305='0') where ab01.aab101= ?  ");
 		Object args2[]={this.get("aab101"),this.get("aab101")};
 		
+		System.out.println(this.get("aab307"));
+		
+		//更新商家评论数
+		String sql3="UPDATE ab01 set aab114 = (select COUNT(aab301) FROM ab03 where aab305='0') where aab101=?";
+		Object args3[]={this.get("aab101")};
 		
 		//先添加评论
 		boolean flag= this.executeUpdate(sql1.toString(), args1)>0;
 		
 		//计算并更新商家评分
 		this.executeUpdate(sql2.toString(), args2);
+		
+		//更新商家评论数
+		this.executeUpdate(sql3, args3);
 		
 		return flag; 		
 	}
@@ -75,11 +85,19 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		return this.executeUpdate(sql.toString(), args)>0;
 	}
 	
-	//处理评论中的图片和文字
-	public Map<String,String> DealPhoto()throws Exception
+	
+	//从编辑器中处理图片
+	public String DealText()throws Exception
+	{
+		String CommentText=this.get("aab306").toString();
+		return CommentText;
+	}
+	//从编辑器中处理图片并保存
+	public String DealPhoto()throws Exception
 	{
 		String htmlstring=this.get("htmltext").toString();
-		return null;
+		String imgpath=BBSTools.getImgFromText(htmlstring, this.get("filePath") + "\\");
+		return imgpath;
 	}
 	
 }

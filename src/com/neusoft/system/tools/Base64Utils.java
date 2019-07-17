@@ -78,13 +78,7 @@ public class Base64Utils {
         }
     }
 
-<<<<<<< HEAD
-//    public static void main(String[] args) throws IOException {
-//        String imageStr = Base64Utils.GetImageStr("C:\\Users\\P7XXTMX-G\\Desktop\\2bec78b896dc6cae9d95dfd05f09d53e.jpg");
-//        System.out.println(imageStr);
-//        Base64Utils.GenerateImage(imageStr, "C:\\Users\\P7XXTMX-G\\Desktop\\Ì«ÀÉ.jpg");
-//    }
-=======
+
     public static void main(String[] args) throws IOException {
         //String imageStr = Base64Utils.GetImageStr("C:\\Users\\P7XXTMX-G\\Desktop\\2bec78b896dc6cae9d95dfd05f09d53e.jpg");
         String imageStr = getStr();
@@ -118,5 +112,5 @@ public class Base64Utils {
     }
 
 
->>>>>>> 39ea75f83120fd57d36aae8c8414688f3fd71fa3
+
 }

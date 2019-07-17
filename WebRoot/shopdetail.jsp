@@ -1,6 +1,7 @@
 <%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%String path=request.getContextPath(); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -72,6 +73,14 @@
   	  //查看菜单
   	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/shopinfoFindMenu.html?aab101="+vaab101;
+  	 vform.submit();
+    }
+	
+	function onAddComment(vaab101)
+    {
+  	  //写点评
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/commentToDo.html?aab101="+vaab101;
   	 vform.submit();
     }
 	
@@ -155,8 +164,8 @@
         	
             <div class="swiper-slide">
             <div style="width:672px;height:300px">
-                    <a href="${ad.address }" class="grid image-link">
-                        <img src="${ad.address }" class="img-fluid" alt="#">
+                    <a href="upload/${ad.address }" class="grid image-link">
+                        <img src="upload/${ad.address }" class="img-fluid" alt="#">
                     </a>
             </div>
             </div>
@@ -189,17 +198,37 @@
                         
                      
                         
+                        <c:if test="${empty IsComment }">
                         <div class="review-btn">
-                            <a href="#" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbsp写点评&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                            <a href="#" onclick="onAddComment(${ins.aab101 })" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbsp写点评&nbsp&nbsp&nbsp&nbsp&nbsp</a>
                             <span><a>${ins.aab114 }</a><a>条点评</a></span>
                         </div>
+                        </c:if>
+                        
+                        <c:if test="${!empty IsComment }">
+                        <div class="review-btn">
+                            <a style="color:grey" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbsp已点评&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                            <span><a>${ins.aab114 }</a><a>条点评</a></span>
+                        </div>
+                        </c:if>
                         
                         
+                        <c:choose>
+                        <c:when test="${ins.aab110=='1' }"> 
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="#" class="btn btn-danger">定座</a>
+                                <a href="#" class="btn btn-danger">订座</a>
                             </div>
                         </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a style="color:white" class="btn btn-danger">订座</a>
+                            </div>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
                         
                         <c:if test="${empty IsMark }">
 						<div class="reserve-btn">
@@ -449,27 +478,88 @@
                                 <p class="customer-text">
                                 ${row.aab303 }
                                 </p>
+                                
+                                
+                                <c:if test="${CommentPhoto!=null}">
+                                
                                 <ul>
-                                    <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
+                                
+                                
+                                <c:forEach items="${CommentPhoto }" var="cp" varStatus="vss">                              
+                                	<c:if test="${cp.aab301==row.aab301}">
+                                	
+                                	<ul>
+                                	
+                                	
+                                	<c:if test="${cp.c0!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c0 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c0 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c1!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c1 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c1 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c2!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c2 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c2 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c3!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c3 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c3 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c4!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c4 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c4 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c5!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c5 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c5 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    
+                                    
+                                    </ul>
+                                    
+                                    </c:if>                            
+                                </c:forEach>
+                                
+                                
                                 </ul>
-                                <span>${row.aab308 } 人觉得很赞</span>
-                                <a href="#"><span class="icon-like"></span>赞</a>
+                                </c:if>
+                                
+                                
                                 
                                 
                                 
                                 
                                 <c:forEach items="${rows }" var="reply" varStatus="vs">
                                 <c:if test="${reply.aab305==row.aab301}">
-                                <br>
-                                <br>
                                 <p class="customer-text">
                                 <a>商家回复:</a>
                                 ${reply.aab303 }
                                 </p>
                                 </c:if>
                                 </c:forEach>
+                                
+                                <span>${row.aab308 } 人觉得很赞</span>
+                                <a href="#"><span class="icon-like"></span>赞</a>
 
                                 
                             </div>
@@ -503,7 +593,7 @@
                         </div>
                         <div class="address">
                             <c:choose>
-                            <c:when test="${row.aab110=='1' }">
+                            <c:when test="${ins.aab110=='1' }">
                             <span class="icon-clock"></span>                         
                             <div class="open-now">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp接受预定</div>
                             </c:when>

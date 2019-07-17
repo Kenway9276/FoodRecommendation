@@ -120,7 +120,17 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	{
 		Object aab101 =  getaab101();
 		String sql="select aaa401 from aa04 where aaa101=? AND aab101=?";
-		Object args[]={aab101,this.get("aab101")};
+		Object args[]={this.get("aaa101"),aab101};
+		return this.queryForList(sql, args);
+	}
+	
+	
+	//店铺详情页面判断用户是否已点评
+	public List<Map<String,String>> commentJudge()throws Exception
+	{
+		Object aab101 =  getaab101();
+		String sql="select aab301 from ab03 where aaa101=? AND aab101=?";
+		Object args[]={this.get("aaa101"),aab101};
 		return this.queryForList(sql, args);
 	}
 	
@@ -155,26 +165,44 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	
 	
 	//分割商家环境图的地址(xxx.jpg,xxx.jpg,.......)
-	public List<Map<String,String>> savePhotoAddress()throws Exception
+	public List<Map<String,String>> saveEnPhotoAddress()throws Exception
 	{
 		String sql="select aab109 from ab01 where aab101=? ";
 		Object aab101 = this.get("aab101");
 		if(aab101 instanceof String[]){
 			aab101 = ((String[])this.get("aab101"))[0];
 		}
-		System.out.println(aab101);
 		String str=this.queryForMap(sql, aab101).get("aab109");
-		String strs[]=str.split(",");
-		List<Map<String,String>> AddressList=new ArrayList();
-		for (int i = 0; i <strs.length; i++)
-		{
-			Map<String,String> map= new HashMap();
-			strs[i]="images/"+strs[i];
-			map.put("address",strs[i]);
-			AddressList.add(map);
-		}
-		return AddressList;
+		return spiltPhotoAddress(str);
 	}
+	
+	
+	//分割商家评论图的地址(xxx.jpg,xxx.jpg,.......)
+	public List<Map<String,String>> saveCmPhotoAddress()throws Exception
+	{
+		String sql="select aab306 , aab301 from ab03 where aab101=? ";
+		Object aab101 = this.get("aab101");
+		if(aab101 instanceof String[]){
+			aab101 = ((String[])this.get("aab101"))[0];
+		}
+		List<Map<String,String>> list= this.queryForList(sql, aab101);
+		for(Map map:list)
+		{
+			if(map.get("aab306")==null)
+				continue;
+			
+			String str=map.get("aab306").toString();
+			String strs[]=str.split(",");
+			for (int i = 0; i <strs.length; i++)
+			{
+				map.put("c"+String.valueOf(i),strs[i]);			
+			}
+			map.put("count", strs.length);
+		}
+		return list;
+	}
+	
+	
 	
 	//显示商家设施
 	public Map<String,String> saveEquipment()throws Exception
@@ -184,21 +212,11 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		String strs[]=str.split(",");
 		Map<String,String> map= new HashMap();
 		for (int i = 0; i <strs.length; i++)
-		{
+		{		
 			map.put("e"+String.valueOf(i),strs[i]);
 		}
 		return map;
 	}
-
-	
-	private Object getaab101(){
-		Object aab101 = this.get("aab101");
-		if(aab101 instanceof String[]){
-			aab101 = ((String[])this.get("aab101"))[0];
-		}
-		return aab101;
-	}
-	
 	
 	//商家详情页面查看评论
 	public List<Map<String,String>> queryComment()throws Exception
@@ -217,5 +235,27 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		}
 		return rows;
 	}
-
+	
+	//分割图片地址
+	public List<Map<String , String>> spiltPhotoAddress(String str)
+	{
+		String strs[]=str.split(",");
+		List<Map<String,String>> AddressList=new ArrayList();
+		for (int i = 0; i <strs.length; i++)
+		{
+			Map<String,String> map= new HashMap();
+			map.put("address",strs[i]);
+			AddressList.add(map);
+		}
+		return AddressList;
+	}
+	
+	
+	private Object getaab101(){
+		Object aab101 = this.get("aab101");
+		if(aab101 instanceof String[]){
+			aab101 = ((String[])this.get("aab101"))[0];
+		}
+		return aab101;
+	}
 }

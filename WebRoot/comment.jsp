@@ -1,5 +1,7 @@
 <%@ taglib prefix="e" uri="http://org.wangxg/jsp/extl" %>
 <%@ page contentType="text/html;charset=GBK" language="java" %>
+
+<%String path=request.getContextPath(); %>
 <html>
 <head>
     <title>Title</title>
@@ -47,10 +49,14 @@
     </style>
 </head>
 <body>
-<div class="col-md-5 p-lg-5 mx-auto my-5">
-		            <h3>评分</h3>
+<form id="myform" action="<%=path%>/commentAdd.html" method="post">
+
+					<br>
+					<br>
+					
+		            <h3 align="center">评分</h3>
 		            <div class="rating-stars block" id="rating">
-		                <input type="hidden" readonly class="form-control rating-value" name="rating-stars-value" id="rating-stars-value">
+		                <input type="hidden" readonly class="form-control rating-value" name="aab307" id="rating-stars-value">
 		                <div class="rating-stars-container">
 		                    <div class="rating-star">
 		                        <i class="fa fa-star"></i>
@@ -69,15 +75,26 @@
 		                    </div>
 		                </div>
 		            </div>
-		            <br />
-		            <br />		            
-</div>
-<form id="aaa" action="/bBSPost.html" method="post">
-    <div id="div1">
+		            <br>
+		            <br>	            
+	<h3 align="center">点评内容</h3>
+    <div id="div1" style="width:60%;height:50%;margin:0 auto;">
     </div>
-    <textarea name="htmltext" id="text1" ></textarea>
-    <textarea name="aaa306" id="text2" ></textarea>
-    <input type="submit" value="发布"></input>
+    <div style="display:none">
+    <textarea  name="htmltext" id="text1" ></textarea>
+    <textarea  name="aab306" id="text2" ></textarea>
+    </div>
+    
+    <input type="hidden" name="aaa101" value="1"></input>
+    <input type="hidden" name="aab101" value="1"></input>
+    
+    <% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
+    
+	<input type="hidden" name="filePath" value="<%=filePath%>">
+	<br>
+	<div align="center">
+    <input type="submit" value="提交"></input>
+    </div>
 </form>
 
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
