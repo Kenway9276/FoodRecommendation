@@ -68,6 +68,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
 
         text = BBSTools.parseBBSText(text, this.get("filePath") + "\\");
 
+
         Object aaa306 = this.get("aaa306");
         StringBuilder sql = new StringBuilder()
                 .append("INSERT INTO aa03 ( aaa101, aaa302, aaa303, aaa304, aaa305, aaa306 )")

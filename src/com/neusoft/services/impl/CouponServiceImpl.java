@@ -25,21 +25,27 @@ public class CouponServiceImpl extends JdbcServicesSupport {
         Object aab507 = "%Ìì½ò%";
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
-                .append("	a.aab101,")
-                .append("	aab504, ")
+                .append("	count( aab501 ) as remain, ")
                 .append("	aab503, ")
                 .append("	aab505, ")
+                .append("	aab504, ")
                 .append("	aab506, ")
-                .append("	aab104,  ")
-                .append("	aab501  ")
+                .append("	aab104 ,ab05.aab101  ")
                 .append("FROM ")
-                .append("	ab05 a, ")
-                .append("	ab01 b  ")
+                .append("	ab05, ")
+                .append("	ab01  ")
                 .append("WHERE ")
-                .append("	aab507 LIKE ?  ")
+                .append("	ab05.aab101 = ab01.aab101  ")
                 .append("	AND aaa101 IS NULL  ")
-                .append("	AND a.aab101 = b.aab101 ")
-                .append("	AND a.aab506 > CURRENT_TIMESTAMP ");
+                .append("	AND aab506 > CURRENT_TIMESTAMP  ")
+                .append("	AND aab507 LIKE ?  ")
+                .append("GROUP BY ")
+                .append("	aab503, ")
+                .append("	aab505, ")
+                .append("	aab504, ")
+                .append("	aab104, ")
+                .append("	aab506 ,aab101")
+                ;
         return this.queryForList(sql.toString(), aab507);
     }
 
@@ -81,7 +87,7 @@ public class CouponServiceImpl extends JdbcServicesSupport {
     }
 
     public boolean getCoupon() throws Exception{
-        String sql = "UPDATE ab05 set aaa101 = ? where aab501 = ?";
+        String sql = "UPDATE ab05 set aaa101 = ? where aab501 = ? and aab503 = ? and aab50";
         return this.executeUpdate(sql, this.get("aaa101"), this.get("aab501")) > 0;
     }
 
