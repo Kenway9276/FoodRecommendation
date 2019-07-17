@@ -640,6 +640,18 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		return this.queryForList(sql.toString());
 	  }
 	  
+	  public Map<String,String> userInfoQuery()throws Exception
+	  {
+	  		StringBuilder sql=new StringBuilder()
+	  				.append("select aaa101,aaa102,aaa103,aaa104,aaa105,aaa106,aaa107,aaa108,aaa110")
+	  				.append("  from aa01")
+	  				.append(" where aaa101=?")
+	  				;
+	  		
+	  		//System.out.println(sql.toString());
+	  		return this.queryForMap(sql.toString(),this.get("aaa101"));
+	  }
+	  
 	  public List<Map<String,String>> adminBusinessQuery()throws Exception
 	  {
 	  		StringBuilder sql=new StringBuilder()

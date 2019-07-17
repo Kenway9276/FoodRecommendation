@@ -106,4 +106,8 @@ public interface BaseServices
    	 return null;
     }
 	
+    default Map<String,String> userInfoQuery()throws Exception
+    {
+   	 return null;
+    }
 }
