@@ -110,4 +110,9 @@ public interface BaseServices
     {
    	 return null;
     }
+    
+    default Map<String,String> adminInfoQuery()throws Exception
+    {
+   	 return null;
+    }
 }

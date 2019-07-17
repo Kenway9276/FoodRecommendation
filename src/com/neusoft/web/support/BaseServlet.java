@@ -83,14 +83,19 @@ public class BaseServlet extends HttpServlet
 				Object userID =  ((Map<String, String>)request.getAttribute("ins")).get("aaa101");
 				request.getSession().setAttribute("busiID", null);
 				request.getSession().setAttribute("userID", userID);
+				request.getSession().setAttribute("adminID", null);
 			}
      		else if(controllerFirstName.contains("BusiLogin")){
 				Object busiID =  ((Map<String, String>)request.getAttribute("ins")).get("aab101");
 				request.getSession().setAttribute("userID", null);
 				request.getSession().setAttribute("busiID", busiID);
+				request.getSession().setAttribute("adminID", null);
 			}
      		else if(controllerFirstName.contains("AdminLogin")){
-
+     			Object adminID =  ((Map<String, String>)request.getAttribute("ins")).get("aac401");
+     			request.getSession().setAttribute("adminID", adminID);
+				request.getSession().setAttribute("userID", null);
+				request.getSession().setAttribute("busiID", null);
 			}
          }	
          catch(Exception ex)

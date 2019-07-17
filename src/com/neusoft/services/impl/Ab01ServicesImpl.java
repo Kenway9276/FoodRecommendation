@@ -253,7 +253,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     public Map<String, String> adminLogin()throws Exception
     {
-		StringBuilder sql=new StringBuilder("select * from ac04 where aac403=? and aac404=?");
+		StringBuilder sql=new StringBuilder("select aac401,aac402,aac403,aac404,aac405,aac406 from ac04 where aac403=? and aac404=?");
     	Object args[]={
     			this.get("aac403"),
     			Tools.getMd5(this.get("aac404")),
@@ -642,13 +642,27 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  {
 		  	Object aaa101=this.get("userID");
 	  		StringBuilder sql=new StringBuilder()
-	  				.append("select aaa101,aaa102,aaa103,aaa104,aaa105,aaa106,aaa107,aaa108,aaa110")
+	  				.append("select aaa102,aaa103,aaa104,aaa105,aaa106,aaa107,aaa108,aaa110")
 	  				.append("  from aa01")
 	  				.append(" where aaa101=?")
 	  				;
 	  		
 	  		//System.out.println(sql.toString());
 	  		return this.queryForMap(sql.toString(),aaa101);
+	  }
+	  
+	  public Map<String,String> adminInfoQuery()throws Exception
+	  {
+		  	Object aac401=this.get("adminID");
+		  	System.out.println(this.get("adminID"));
+	  		StringBuilder sql=new StringBuilder()
+	  				.append("select aac402,aac403,aac404,aac405,aac406")
+	  				.append("  from ac04")
+	  				.append(" where aac401=?")
+	  				;
+	  		
+	  		//System.out.println(sql.toString());
+	  		return this.queryForMap(sql.toString(),aac401);
 	  }
 	  
 	  public List<Map<String,String>> adminBusinessQuery()throws Exception
