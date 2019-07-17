@@ -70,9 +70,6 @@
 					<h4>请在下表输入查询条件。</h4>
 					<ul class="menuPrice">
 						<li>
-							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;用户名&nbsp;&nbsp;&nbsp;<e:text name="qaaa102" readonly="true" defval="${ins.aaa102 }" /></a>
-						</li>
-						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;订餐日期&nbsp;&nbsp;&nbsp;<e:date name="qaac102"/>&nbsp;&nbsp;&nbsp;
 							商家名&nbsp;&nbsp;&nbsp;<e:text name="qaab104"/>&nbsp;&nbsp;&nbsp;
 							用餐日期&nbsp;&nbsp;&nbsp;<e:date name="qaac103"/></a>

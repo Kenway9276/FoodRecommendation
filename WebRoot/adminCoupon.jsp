@@ -132,7 +132,7 @@
 	</table>
 	<br>
 	<br>
-<table  width="90%" align="center">
+<table  width="90%" style="margin:0 auto">
 	<caption>
 		”≈ª›»Ø¡–±Ì
 		<hr width=160>
