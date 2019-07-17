@@ -20,7 +20,9 @@ public class ShopinfoFindByIdServlet extends ShopinfoControllerSupport
 		//菜单
 		this.savePageData("menus","queryMenu");
 		//环境图
-		this.savePageData("Address", "savePhotoAddress");	
+		this.savePageData("Address", "savePhotoAddress");
+		//更新用户选择表
+		this.update("updateSelectionPlus","更新");
 		return "shopdetail";	
     }
 }

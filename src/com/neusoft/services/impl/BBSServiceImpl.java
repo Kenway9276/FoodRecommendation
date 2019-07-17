@@ -21,7 +21,6 @@ public class BBSServiceImpl extends JdbcServicesSupport {
 
     @Override
     public List<Map<String, String>> query() throws Exception {
-        // todo 加入用户流水号参数
         Object aaa101  = this.get("userID");
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
@@ -55,8 +54,8 @@ public class BBSServiceImpl extends JdbcServicesSupport {
      * @return
      */
     public boolean post() throws Exception{
-        // todo 获取用户id
-        int aaa101 = 8;
+
+        Object aaa101 = this.get("userID");
         Object aaa303 = this.get("aaa303");
 
         Object aaa304 = this.get("aaa304");
@@ -140,8 +139,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
     }
 
     public boolean comment() throws Exception{
-        // todo 获取用户流水号
-        Object aaa101 = 8;
+        Object aaa101 = this.get("userID");
         String aaa304 = (String) this.get("aaa304");
         Object aaa305 = this.get("aaa301");
         StringBuilder sql = new StringBuilder()

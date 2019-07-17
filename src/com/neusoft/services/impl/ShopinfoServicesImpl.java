@@ -183,4 +183,16 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		return aab101;
 	}
 
+	public boolean updateSelectionPlus() throws Exception {
+		Object aaa101 = this.get("userID");
+		StringBuilder sql = new StringBuilder()
+				.append("UPDATE aa06 ")
+				.append("SET aaa602 = aaa602 + 1, ")
+				.append("aaa603 = CURRENT_TIMESTAMP ")
+				.append("WHERE ")
+				.append("	aab101 = ? and aaa101 = ?;")
+				;
+		Object aab101 = getaab101();
+		return this.executeUpdate(sql.toString(), aab101,aaa101) > 0;
+	}
 }
