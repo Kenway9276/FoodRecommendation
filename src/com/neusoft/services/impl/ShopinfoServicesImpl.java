@@ -129,7 +129,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	public List<Map<String,String>> commentJudge()throws Exception
 	{
 		Object aab101 =  getaab101();
-		String sql="select aab301 from ab03 where aaa101=? AND aab101=?";
+		String sql="select aab301 from ab03 where aaa101=? AND aab101=? AND aab305='0'";
 		Object args[]={this.get("aaa101"),aab101};
 		return this.queryForList(sql, args);
 	}
@@ -208,7 +208,9 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	public Map<String,String> saveEquipment()throws Exception
 	{
 		String sql="select aab112 from ab01 where aab101=?";
-		String str=this.queryForMap(sql, this.get("aab101")).get("aab112");
+		System.out.println(this.get("aab101"));
+		System.out.println(this.queryForMap(sql, this.get("aab101")));
+		String str=this.queryForMap(sql, this.get("aab101").toString()).get("aab112");
 		String strs[]=str.split(",");
 		Map<String,String> map= new HashMap();
 		for (int i = 0; i <strs.length; i++)

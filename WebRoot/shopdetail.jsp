@@ -40,7 +40,7 @@
 	function onSetMark(vaab101)
     {
   	  //添加到收藏夹
-  	 var vform = document.getElementById("myform");
+  	 var vform = document.getElementById("vform");
   	 vform.action="<%=path%>/markAdd.html?aab101="+vaab101;
   	 vform.submit();
   	//返回商家详情页面
@@ -52,7 +52,7 @@
 	function onDelMark(vaab101)
     {
   	  //取消收藏
-  	 var vform = document.getElementById("myform");
+  	 var vform = document.getElementById("vform");
   	 vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
   	 vform.submit();
   	//返回商家详情页面
@@ -62,8 +62,8 @@
 	
 	function onQueryMark(vaab101)
     {
-  	  //取消收藏
-  	 var vform = document.getElementById("myform");
+  	  //查看收藏
+  	 var vform = document.getElementById("vform");
   	 vform.action="<%=path%>/markQuery.html";
   	 vform.submit();
     }
@@ -84,15 +84,54 @@
   	 vform.submit();
     }
 	
+	function onShowReply(vaab301)
+    {
+		//点击回复弹出文本域
+		document.getElementById("ReplyText"+vaab301).style="display:block";
+		document.getElementById("replybtn"+vaab301).style="display:none";
+		document.getElementById("closebtn"+vaab301).style="display:block";
+    }
+	
+	function onCloseReply(vaab301)
+    {
+		//点击关闭弹出文本域
+		document.getElementById("ReplyText"+vaab301).style="display:none";
+		document.getElementById("replybtn"+vaab301).style="display:block";
+		document.getElementById("closebtn"+vaab301).style="display:none";
+    }
+	
+	function onAddReply(vaab301)
+	{
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301;
+	  	vform.submit();
+	}
+	
+	function onDelCommentById(vaab301)
+	{
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/commentDelById.html?aab301="+vaab301;
+	  	vform.submit();
+	}
+	
+	
+
+	
 	
 </script>
 </head>
 
 <body>
-<form id="myform">
+<form id="vform">
 	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
+</form>
+<form id="myform" method="post" >	
+	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input type="hidden" name="aaa101" value="1"></input>
+	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
+
     <!--============================= HEADER =============================-->
     <div class="dark-bg sticky-top">
         <div class="container-fluid">
@@ -558,8 +597,44 @@
                                 </c:if>
                                 </c:forEach>
                                 
+                                
+                                
+                                
                                 <span>${row.aab308 } 人觉得很赞</span>
                                 <a href="#"><span class="icon-like"></span>赞</a>
+                                
+                                
+                                
+                                
+                                <span>
+                                <div id="replybtn${row.aab301 }">
+                                <span><a href="javascript:void(0)" onclick="onShowReply(${row.aab301 })">回复</a></span>
+                                </div>
+                                <div id="closebtn${row.aab301 }" style="display:none">
+                                <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">关闭</a></span>
+                                </div>             
+                                </span>
+                                
+                                
+                                
+                                <span>
+                                <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 })">
+                                <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">删除</a></span>
+                                </div>
+                                </span>
+                                
+                                
+                                
+                                
+                                                           
+                                <br>
+                                <br>
+                                <div style="display:none" id="ReplyText${row.aab301 }">                           
+                                <textarea style="width:300px; height:50px" name="ReplyText${row.aab301 }" ></textarea>
+                                <a href="#" onclick="onAddReply(${row.aab301 })">提交</a>
+                                </div>
+                                
+                                
 
                                 
                             </div>
