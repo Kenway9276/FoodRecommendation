@@ -58,11 +58,12 @@
   	 vform.submit();
     }
 
-    function onGet(aab503,aab506,aab101)
+    function onGet(aab503,aab506,aab101,aab504,aab505)
     {
+
         //取消收藏
         var vform = document.getElementById("myform");
-        vform.action="<%=path%>/couponGet.html?aab503="+aab503 + "&aab506" + aab506 + "&aab101" + aab101;
+        vform.action="<%=path%>/couponGet.html?aab503="+encodeURI(aab503) + "&aab506=" + aab506 + "&aab101=" + aab101 + "&aab504=" + aab504 + "&aab505=" + aab505;
         vform.submit();
     }
 
@@ -176,7 +177,10 @@
                 		<span>有效日期：${row.aab506 }&nbsp</span>
                             <span>满${row.aab505 }&nbsp</span>
                             <span>减${row.aab504 }&nbsp</span>
-                            <span>剩余：${row.remain }&nbsp</span>
+                            <c:if test="${row.isUser != 1}">
+                                <span>剩余：${row.remain }&nbsp</span>
+                            </c:if>
+
                 		<span>
 
                             <c:choose>
@@ -184,7 +188,7 @@
                                     <a href="#" onclick="onDel('${row.aab501}')">删除</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="#" onclick="onGet('${row.aab503 }','${row.aab506 }','${row.aab101}')">领取优惠券</a>
+                                    <a href="#" onclick="onGet('${row.aab503 }','${row.aab506 }','${row.aab101}','${row.aab504}','${row.aab505}')">领取优惠券</a>
                                 </c:otherwise>
                             </c:choose>
                         </span>

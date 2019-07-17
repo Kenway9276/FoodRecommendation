@@ -26,6 +26,7 @@
 				<li><a href="userHistory.jsp">历史订单</a></li>
 				<li><a href="#">优惠券</a></li>
 				<li><a href="#">消息</a></li>
+				<li><a href="userNotice.html">公告</a></li>
 			</ul>
 		</div>
 	</div>

@@ -87,8 +87,27 @@ public class CouponServiceImpl extends JdbcServicesSupport {
     }
 
     public boolean getCoupon() throws Exception{
-        String sql = "UPDATE ab05 set aaa101 = ? where aab501 = ? and aab503 = ? and aab50";
-        return this.executeUpdate(sql, this.get("aaa101"), this.get("aab501")) > 0;
+        // todo 用户流水号
+        String aaa101 = "8";
+        String sql = "select aab501,aaa101 from ab05 where aab101 = ? and aab503 = ? and aab506 = ? and aab504 = ? and aab505 = ?";
+        Object aab101 = this.get("aab101");
+        Object aab503 = this.get("aab503");
+        Object aab506 = this.get("aab506");
+        Object aab504 = this.get("aab504");
+        Object aab505 = this.get("aab505");
+
+        List<Map<String, String>> list = this.queryForList(sql, aab101,aab503,aab506,aab504,aab505);
+        String aab501 = list.get(0).get("aab501");
+        for(Map<String, String> map : list){
+            if (map.get("aaa101") == null){
+                continue;
+            }
+            if(map.get("aaa101").equals(aaa101) || map.get("aaa101") == aaa101){
+                return false;
+            }
+        }
+        String sql2 = "UPDATE ab05 set aaa101 = ? where aab501 = ? ";
+        return this.executeUpdate(sql2, aaa101, aab501) > 0;
     }
 
     public List<Map<String, String>> queryForUser() throws Exception{
