@@ -50,13 +50,12 @@ function onEdit(vaac201)
 </script>
 </head>
 <body>
-${msg }
-<br>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/userNotice.html" method="post">
 <div class="section-header">
 	<h2 class="section-title wow fadeInDown">公    告</h2>
 </div>
-<table border="1px;solid" width="60%" align="center">
+<table border="1px;solid" width="60%" style="margin:0 auto">
 	<tr>
 		<td>标题</td>
 		<td>发布日期</td>

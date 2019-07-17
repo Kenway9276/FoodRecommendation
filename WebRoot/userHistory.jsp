@@ -4,13 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%String path=request.getContextPath();%>
-<%
 
-	Map<String,String> map = (Map<String,String>)request.getAttribute("ins");
-	if(map != null){
-		request.getSession().setAttribute("userID", map.get("aaa101"));
-	}
-	%>
 <html>
 <head>
 <title>历史记录管理</title>

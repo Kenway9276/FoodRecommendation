@@ -118,16 +118,12 @@
 	</table>
 	<br>
 	<br>
-<table border="0" width="25%" style="margin:0 auto">
-  <tr>
-    <td align="center">
+<div style="text-align:center">
        <button type="submit" name="next">发布</button>
 		<a href="<%=path %>/adminNotice.jsp">
 		<button class="btn btn-danger btn-block" name="next">管理</button>
 		</a> 
-    </td>
-  </tr>
-</table>
+</div>
 
 </div>
 </div>
