@@ -20,12 +20,17 @@
 				<li><a href="#">搜索</a></li>
 				<li><a href="preferenceIndex.html">推荐</a></li>
 				<li><a href="#">收藏</a></li>
+<<<<<<< HEAD
 				<li><a href="bBSBrowse.html">论坛</a></li>
 				<li><a href="userHistory.jsp">历史订单</a></li>
+=======
+				<li><a href="#">排行榜</a></li>
+				<li><a href="#">论坛</a></li>
+				<li><a href="userHistory.html">历史订单</a></li>
+>>>>>>> c2aba739c5d11b32d64728e18267ae4b497acea4
 				<li><a href="userNotice.html">公告</a></li>
 				<li><a href="couponList.html">优惠券</a></li>
 				<li><a href="#">消息</a></li>
-				<li><a href="userNotice.html">公告</a></li>
 			</ul>
 		</div>
 	</div>

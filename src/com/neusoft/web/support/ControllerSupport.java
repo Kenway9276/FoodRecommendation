@@ -210,6 +210,19 @@ public abstract class ControllerSupport implements BaseController
 		}	
 	}
 	
+	protected final void saveadminInfoInstance()throws Exception
+	{
+		Map<String,String> ins=this.services.adminInfoQuery();
+		if(ins!=null)
+		{
+			this.saveAttribute("ins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "提示:信息已删除!");
+		}	
+	}
+	
 	protected final void saveUserInfoInstance()throws Exception
 	{
 		Map<String,String> ins=this.services.userInfoQuery();

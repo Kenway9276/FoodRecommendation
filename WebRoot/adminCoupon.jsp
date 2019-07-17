@@ -85,7 +85,7 @@
   <div class="container">
     <ul class="docs-nav" id="menu-left">
       <li><strong>请开始你的管理！</strong></li>
-      <li><a href="<%=path %>/adminInfo.jsp" class=" ">个人信息</a></li>
+      <li><a href="<%=path %>/adminInfo.html" class=" ">个人信息</a></li>
       <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
       <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
       <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
@@ -132,7 +132,7 @@
 	</table>
 	<br>
 	<br>
-<table  width="90%" align="center">
+<table  width="90%" style="margin:0 auto">
 	<caption>
 		优惠券列表
 		<hr width=160>
