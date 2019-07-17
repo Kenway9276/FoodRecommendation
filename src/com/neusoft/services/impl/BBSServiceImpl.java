@@ -22,7 +22,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
     @Override
     public List<Map<String, String>> query() throws Exception {
         // todo 加入用户流水号参数
-        int aaa101  = 0;
+        Object aaa101  = this.get("userID");
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
                 .append("	aaa301, ")
@@ -67,6 +67,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         String text = (String) this.get("aaa304");
 
         text = BBSTools.parseBBSText(text, this.get("filePath") + "\\");
+
 
         Object aaa306 = this.get("aaa306");
         StringBuilder sql = new StringBuilder()

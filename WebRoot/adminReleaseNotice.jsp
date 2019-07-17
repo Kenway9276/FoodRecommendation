@@ -24,30 +24,39 @@
 	.adminNotice table{
 	border:1px solid;
 	}
+		button{
+	display:inline-block;
+	border:none;
+	background-color:#ff8040;
+	color:#FFFFFF;
+	padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    border-radius:6px;
+	}
 </style>
 <script type="text/javascript">
 
 </script>
 </head>
 <body >
-<br>
-<%=request.getSession().getAttribute("ins")%>
-<%=request.getSession().getAttribute("管理员流水号")%>
-<br>
+<%request.getSession().getAttribute("ins");%>
+<%request.getSession().getAttribute("管理员流水号");%>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/adminReleaseNotice.html" enctype="multipart/form-data" method="post">
-<nav>
-  <div class="container">
-    <h1>Doc</h1>
-    <div id="menu">
-      <ul class="toplinks">
-        <li><a href="#">Opineo Website </a></li>
-        <li><a href="http://www.egrappler.com/">eGrappler</a></li>
-        <li><a href="../doc-template/docs.jsp">Blue Theme</a></li>
-        <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li>
-      </ul>
-    </div>
-    <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div>
-</nav>
+<!-- <nav> -->
+<!--   <div class="container"> -->
+<!--     <h1>Doc</h1> -->
+<!--     <div id="menu"> -->
+<!--       <ul class="toplinks"> -->
+<!--         <li><a href="#">Opineo Website </a></li> -->
+<!--         <li><a href="http://www.egrappler.com/">eGrappler</a></li> -->
+<!--         <li><a href="../doc-template/docs.jsp">Blue Theme</a></li> -->
+<!--         <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li> -->
+<!--       </ul> -->
+<!--     </div> -->
+<!--     <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div> -->
+<!-- </nav> -->
 <header>
   <div class="container">
     <h2 class="docs-header">既有消息，广而告之！</h2>
@@ -61,12 +70,12 @@
       <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
       <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
       <li><a href="<%=path %>/adminNotice.jsp" class="selected">公告管理  √</a></li>
-      <li><a href="#license" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <h3 align="center"> 公告管理</h3>
       <div class="adminNotice">
-	<table width="90%" align="center">
+	<table width="90%" style="margin:0 auto">
 	  <caption>
 	              发布公告
 	    <hr width="160">
@@ -109,16 +118,12 @@
 	</table>
 	<br>
 	<br>
-<table border="1" width="25%" align="center">
-  <tr>
-    <td align="center">
-       <input type="submit" name="next" value="发布">
+<div style="text-align:center">
+       <button type="submit" name="next">发布</button>
 		<a href="<%=path %>/adminNotice.jsp">
-		<input class="btn btn-danger btn-block" type="button" name="next" value="管理">
+		<button class="btn btn-danger btn-block" name="next">管理</button>
 		</a> 
-    </td>
-  </tr>
-</table>
+</div>
 
 </div>
 </div>

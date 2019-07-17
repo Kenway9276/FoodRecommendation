@@ -60,25 +60,10 @@
 </script>
 </head>
 <body >
-${ins }
-<br>
-<%=request.getSession().getAttribute("ins")%>
-<%=request.getSession().getAttribute("管理员流水号")%>
-<br>
+<%request.getSession().getAttribute("ins");%>
+<%request.getSession().getAttribute("管理员流水号");%>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/adminForum.html" method="post">
-<nav>
-  <div class="container">
-    <h1>Doc</h1>
-    <div id="menu">
-      <ul class="toplinks">
-        <li><a href="#">Opineo Website </a></li>
-        <li><a href="http://www.egrappler.com/">eGrappler</a></li>
-        <li><a href="../doc-template/docs.jsp">Blue Theme</a></li>
-        <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li>
-      </ul>
-    </div>
-    <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div>
-</nav>
 <header>
   <div class="container">
     <h2 class="docs-header">煮酒论英雄~！</h2>
@@ -92,7 +77,7 @@ ${ins }
       <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
       <li><a href="<%=path %>/adminForum.jsp" class="selected">论坛管理  √</a></li>
       <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
-      <li><a href="#license" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <h3 align="center"> 论坛管理</h3>
@@ -142,23 +127,23 @@ ${ins }
 <!-- 优先级用0和1分辨，初始都置为0，表示无优先级，都按日期先后排列。优先级为1的则置顶显示， -->
 <!-- 相同优先级也按日期先后排列。 -->
 	<tr>
-		<td>批量删除</td>
-		<td>序号</td>
-		<td>发布日期</td>
-		<td>标题</td>
-		<td>昵称</td>
+		<td style="text-align:center">批量删除</td>
+		<td style="text-align:center">序号</td>
+		<td style="text-align:center">发布日期</td>
+		<td style="text-align:center">标题</td>
+		<td style="text-align:center">昵称</td>
 	</tr>
   <c:choose>
     <c:when test="${rows!=null }">
         <!-- 显示实际查询到的数据 -->
      <c:forEach items="${rows }" var="ins" varStatus="vs">
    	   	  <tr>
-		    <td>
+		    <td style="text-align:center">
 		      <input type="checkbox" name="idlist" value="${ins.aaa301 }"
 		             onclick="onSelect(this.checked)" >
 		    </td>
-		    <td>${vs.count }</td>
-		    <td>${ins.aaa302 }</td>
+		    <td style="text-align:center">${vs.count }</td>
+		    <td style="text-align:center">${ins.aaa302 }</td>
 		    <td style="width:250px">
 			    <c:choose>
 			    	<c:when test="${ins.aaa303!=null }">
@@ -169,8 +154,8 @@ ${ins }
 			    	</c:otherwise>
 			    </c:choose>
 		    </td>
-		    <td>${ins.aaa103 }</td>
-		    <td>
+		    <td style="text-align:center">${ins.aaa103 }</td>
+		    <td style="text-align:center">
 		      <a href="#" onclick="onDel('${ins.aaa301}')">删除</a>
 		    </td>
 		  </tr>
@@ -199,7 +184,7 @@ ${ins }
     </c:otherwise>
   </c:choose>
 </table>
-<table border="0" width="25%" align="center">
+<table border="0" width="20%" style="margin:0 auto">
   <tr>
     <td style=" white-space:nowrap;" align="center">
        <button type="submit" name="next">查询</button>
