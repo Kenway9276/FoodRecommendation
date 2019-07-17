@@ -67,7 +67,7 @@ ${msg}
 							<input class="btn btn-danger btn-block" type="submit" name="next" value="${empty ins.aaa101?'注册':'修改' }"
         					formaction="<%=path%>/user${empty ins.aaa101?'Register':'Modify' }.html">      
 							<a href="<%=path %>/userLogin.jsp">
-							<input class="btn btn-danger btn-block" type="button" name="next" value="已有账号，马上登录">
+							<input class="btn btn-danger btn-block" type="button" name="next" value="${empty ins.aaa101?'已有账号，马上登录':'退出登录' }">
 							</a> 
 			</div>
 			<div class="clear"></div>

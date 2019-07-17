@@ -21,11 +21,10 @@
 				<li><a href="preferenceIndex.html">推荐</a></li>
 				<li><a href="#">收藏</a></li>
 				<li><a href="bBSBrowse.html">论坛</a></li>
-				<li><a href="userHistory.jsp">历史订单</a></li>
+				<li><a href="userHistory.html">历史订单</a></li>
 				<li><a href="userNotice.html">公告</a></li>
 				<li><a href="couponList.html">优惠券</a></li>
 				<li><a href="#">消息</a></li>
-				<li><a href="userNotice.html">公告</a></li>
 			</ul>
 		</div>
 	</div>

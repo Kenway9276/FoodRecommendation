@@ -188,7 +188,10 @@ public class BaseServlet extends HttpServlet
 	private  Map<String,Object> createDto(HttpServletRequest request)
 	{
 		//获取session的用户流水号
-		String id = (String) request.getSession().getAttribute("userID");
+		String userID = (String) request.getSession().getAttribute("userID");
+		String busiID = (String) request.getSession().getAttribute("busiID");
+		String adminID = (String) request.getSession().getAttribute("adminID");
+
 
 		//1.获取页面数据
 		Map<String,String[]> tem=request.getParameterMap();
@@ -220,7 +223,9 @@ public class BaseServlet extends HttpServlet
 			}	
 		}
 		//System.out.println(dto);
-		dto.put("userID", id);
+		dto.put("userID", userID);
+		dto.put("busiID", busiID);
+		dto.put("adminID", adminID);
 		return dto;
 	}
 
