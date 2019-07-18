@@ -1,6 +1,7 @@
 <%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%String path=request.getContextPath(); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -11,6 +12,7 @@
     <meta name="author" content="Colorlib">
     <meta name="description" content="#">
     <meta name="keywords" content="#">
+    <link rel="stylesheet" type="text/css" href="<%=path%>/css/xzs_jquery.datetimepicker.css"/>
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
@@ -39,39 +41,118 @@
 	function onSetMark(vaab101)
     {
   	  //添加到收藏夹
-  	 var vform = document.getElementById("myform");
+  	 var vform = document.getElementById("vform");
   	 vform.action="<%=path%>/markAdd.html?aab101="+vaab101;
   	 vform.submit();
-  	document.getElementById("markbtn").innerHTML="取消收藏";
   	//返回商家详情页面
   	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
  	 vform.submit();
- 	document.getElementById("markbtn").innerHTML="取消收藏";
     }
 	
 	
 	function onDelMark(vaab101)
     {
   	  //取消收藏
-  	 var vform = document.getElementById("myform");
+  	 var vform = document.getElementById("vform");
   	 vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
   	 vform.submit();
-  	 document.getElementById("markbtn").innerHTML="收藏";
   	//返回商家详情页面
  	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
 	 vform.submit();
-	 document.getElementById("markbtn").innerHTML="收藏";
     }
 	
+	function onQueryMark(vaab101)
+    {
+  	  //查看收藏
+  	 var vform = document.getElementById("vform");
+  	 vform.action="<%=path%>/markQuery.html";
+  	 vform.submit();
+    }
+	
+	function onMenu(vaab101)
+    {
+  	  //查看菜单
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/shopinfoFindMenu.html?aab101="+vaab101;
+  	 vform.submit();
+    }
+	
+	function onAddComment(vaab101)
+    {
+  	  //写点评
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/commentToDo.html?aab101="+vaab101;
+  	 vform.submit();
+    }
+	
+	function onShowReply(vaab301)
+    {
+		//点击回复弹出文本域
+		document.getElementById("ReplyText"+vaab301).style="display:block";
+		document.getElementById("replybtn"+vaab301).style="display:none";
+		document.getElementById("closebtn"+vaab301).style="display:block";
+    }
+	
+	function onCloseReply(vaab301)
+    {
+		//点击关闭弹出文本域
+		document.getElementById("ReplyText"+vaab301).style="display:none";
+		document.getElementById("replybtn"+vaab301).style="display:block";
+		document.getElementById("closebtn"+vaab301).style="display:none";
+    }
+	
+	function onAddReply(vaab301)
+	{
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301;
+	  	vform.submit();
+	}
+	
+	function onDelCommentById(vaab301)
+	{
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/commentDelById.html?aab301="+vaab301;
+	  	vform.submit();
+	}
+	
+	function onShowReserveTable()
+    {
+		//点击弹出预定表单
+		document.getElementById("reserveDiv").style="display:block";
+    }
+	
+	function onCloseReserveTable()
+    {
+		//点击收起预定表单
+		document.getElementById("reserveDiv").style="display:none";
+    }
+	
+	function onSubmitReserveTable()
+	{
+		//提交预定表单
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/ReserveAdd.html";
+	  	vform.submit();
+	}
+	
+	
 
+	
 	
 </script>
 </head>
 
 <body>
-<form id="myform">
+<form id="vform">
 	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
+	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
+</form>
+<form id="myform" method="post" >	
+	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input type="hidden" name="aaa101" value="1"></input>
+	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
+
     <!--============================= HEADER =============================-->
     <div class="dark-bg sticky-top">
         <div class="container-fluid">
@@ -118,7 +199,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">About</a>
+                                    <a class="nav-link" onclick="onQueryMark()" href="#">收藏夹</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Blog</a>
@@ -143,8 +224,8 @@
         	
             <div class="swiper-slide">
             <div style="width:672px;height:300px">
-                    <a href="${ad.address }" class="grid image-link">
-                        <img src="${ad.address }" class="img-fluid" alt="#">
+                    <a href="upload/${ad.address }" class="grid image-link">
+                        <img src="upload/${ad.address }" class="img-fluid" alt="#">
                     </a>
             </div>
             </div>
@@ -177,17 +258,37 @@
                         
                      
                         
+                        <c:if test="${empty IsComment }">
                         <div class="review-btn">
-                            <a href="#" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbsp写点评&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                            <a href="#" onclick="onAddComment(${ins.aab101 })" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbsp写点评&nbsp&nbsp&nbsp&nbsp&nbsp</a>
                             <span><a>${ins.aab114 }</a><a>条点评</a></span>
                         </div>
+                        </c:if>
+                        
+                        <c:if test="${!empty IsComment }">
+                        <div class="review-btn">
+                            <a style="color:grey" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbsp已点评&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                            <span><a>${ins.aab114 }</a><a>条点评</a></span>
+                        </div>
+                        </c:if>
                         
                         
+                        <c:choose>
+                        <c:when test="${ins.aab110=='1' }"> 
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="#" class="btn btn-danger">定座</a>
+                                <a href="javascript:void(0)" onclick="onShowReserveTable()" class="btn btn-danger">订座</a>
                             </div>
                         </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a style="color:white" class="btn btn-danger">订座</a>
+                            </div>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
                         
                         <c:if test="${empty IsMark }">
 						<div class="reserve-btn">
@@ -203,7 +304,25 @@
                                 <a href="#" id="markbtn" onclick="onDelMark('${ins.aab101}')" class="btn btn-danger">取消收藏</a>
                             </div>
                         </div>
-						</c:if>                   
+						</c:if> 
+						
+						
+						<div id="reserveDiv" style="display:none">
+						<br>
+						<br>
+						<span>预定时间</span>
+						<span><input type="text" name="aac103" value="" id="datetimepicker_mask"/></span>
+						<span>用餐人数</span>
+						<span><input type="number" name="aac104" min="1" max="15" /></span>
+						
+						<input type="hidden" name="aaa201" value='65'>						 
+						<br>
+						<br>
+						<button  type="button" id="dell" name="next" class="btn btn-outline-danger" 
+						onclick="onCloseReserveTable()" >取消</button>
+						<button  type="button" id="dell" name="next" class="btn btn-outline-danger" 
+						onclick="onSubmitReserveTable()">提交</button>
+						</div>
                         
                         
                     </div>
@@ -219,111 +338,361 @@
                 <div class="col-md-8 responsive-wrap">
                     <div class="booking-checkbox_wrap">
                         <div class="booking-checkbox">
-                            <p>菜单</p>
+                            <div class="review-btn">
+                            <a href="#" onclick="onMenu(${ins.aab101 })" class="btn btn-outline-danger">查看菜单</a>                          
+                        	</div>
                             <hr>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                        <span class="ti-check-box"></span>
-                        <span class="custom-control-description">空调</span>
-                      </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                       <span class="ti-check-box"></span>
-                       <span class="custom-control-description">洗手间</span>
-                     </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                     <span class="ti-check-box"></span>
-                     <span class="custom-control-description">充电宝</span>
-                   </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                    <span class="ti-check-box"></span>
-                    <span class="custom-control-description">停车位</span>
-                  </label>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                   <span class="ti-check-box"></span>
-                   <span class="custom-control-description">WIFI</span>
-                 </label> </div>
-                            <div class="col-md-4">
-                                <label class="custom-checkbox">
-                  <span class="ti-check-box"></span>
-                  <span class="custom-control-description">吸烟区</span>
-                </label>
-                            </div>
+                        <div class="row detail-checkbox-wrap">
+                        
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e0=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">空调</span>
+             			</label>
                         </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">空调</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e1=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">WIFI</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">WIFI</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e2=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">充电宝</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">充电宝</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e3=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">洗手间</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">洗手间</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e4=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">停车位</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">停车位</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        
+                        <c:choose>
+                        <c:when test="${Equipment.e5=='1' }">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" checked="checked" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">吸烟区</span>
+             			</label>
+                        </div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <label class="custom-control custom-checkbox">
+                		<input type="checkbox" onclick="return false;" class="custom-control-input">
+                		<span class="custom-control-indicator"></span>
+                		<span class="custom-control-description">吸烟区</span>
+              			</label>
+                        </div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                       
+                        
+                        
+                        
+                        
+
+                        
                     </div>
+                    </div>
+                    
+                                      
                     <div class="booking-checkbox_wrap mt-4">
+                    	<c:choose> 
+                        <c:when test="${rows!=null }">
                         <h5><a>${ins.aab114 }</a><a>条点评</a></a></h5>
                         <hr>
+                        </c:when>
+                        <c:otherwise>
+                       	<h5><a>暂时还没有点评</a></h5>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        
+                        <c:choose> 
+                        <c:when test="${rows!=null }"> 
+                        <c:forEach items="${rows }" var="row" varStatus="vs">
+                        <c:if test="${row.aab305=='0'}">
                         <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
-                                <p>Amanda G</p>
-                                <span>35 Reviews</span>
+                            <div class="customer-img">                           
+                                <p>${row.aaa103 }</p>
                             </div>
                             <div class="customer-content-wrap">
                                 <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h6>Best noodles in the Newyork city</h6>
+	                               	<div class="customer-review">                                      
+                                        
+                                        <c:if test="${row.aab307=='5'}">
                                         <span></span>
                                         <span></span>
                                         <span></span>
                                         <span></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>Reviewed 2 days ago</p>
+                                        <span></span>
+                                        </c:if>
+                                        <c:if test="${row.aab307=='4'}">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        </c:if> 
+                                        <c:if test="${row.aab307=='3'}">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        </c:if>
+                                        <c:if test="${row.aab307=='2'}">
+                                        <span></span>
+                                        <span></span>
+                                        </c:if>  
+                                        <c:if test="${row.aab307=='1'}">
+                                        <span></span>
+                                        <span></span>
+                                        </c:if>                                
+                                        <p>${row.aab304 }</p>
                                     </div>
-                                    <div class="customer-rating">8.0</div>
+                                    
+                                    
+                                    
+                                    <div class="customer-rating customer-rating">${row.aab307 }</div>
+                                 
+                                    
+                                    
+                                    
                                 </div>
-                                <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
-                                    hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
-                                    dipped in their chili sauce.
+                                <p class="customer-text">
+                                ${row.aab303 }
                                 </p>
-                                <p class="customer-text">I love how you can see into the kitchen and watch them make the noodles and you can definitely tell that this is a family run establishment. The prices are are great with one dish maybe being $9. You just have to remember
-                                    to bring cash.
-                                </p>
+                                
+                                
+                                <c:if test="${CommentPhoto!=null}">
+                                
                                 <ul>
-                                    <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
-                                    <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
+                                
+                                
+                                <c:forEach items="${CommentPhoto }" var="cp" varStatus="vss">                              
+                                	<c:if test="${cp.aab301==row.aab301}">
+                                	
+                                	<ul>
+                                	
+                                	
+                                	<c:if test="${cp.c0!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c0 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c0 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c1!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c1 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c1 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c2!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c2 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c2 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c3!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c3 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c3 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c4!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c4 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c4 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    <c:if test="${cp.c5!=null}">              	
+                                    <li>
+                                    <div href="upload/${cp.c5 }"  class="grid image-link">
+                                    <img width="100px" height="100px" src="upload/${cp.c5 }" class="img-fluid" alt="#">
+                                    </div>
+                                    </li>
+                                    </c:if>
+                                    
+                                    
+                                    </ul>
+                                    
+                                    </c:if>                            
+                                </c:forEach>
+                                
+                                
                                 </ul>
-                                <span>28 people marked this review as helpful</span>
-                                <a href="#"><span class="icon-like"></span>Helpful</a>
+                                </c:if>
+                                
+                                
+                                
+                                
+                                
+                                
+                                <c:forEach items="${rows }" var="reply" varStatus="vs">
+                                <c:if test="${reply.aab305==row.aab301}">
+                                <p class="customer-text">
+                                <a>商家回复:</a>
+                                ${reply.aab303 }
+                                </p>
+                                </c:if>
+                                </c:forEach>
+                                
+                                
+                                
+                                
+                                <span>${row.aab308 } 人觉得很赞</span>
+                                <a href="#"><span class="icon-like"></span>赞</a>
+                                
+                                
+                                
+                                
+                                <span>
+                                <div id="replybtn${row.aab301 }">
+                                <span><a href="javascript:void(0)" onclick="onShowReply(${row.aab301 })">回复</a></span>
+                                </div>
+                                <div id="closebtn${row.aab301 }" style="display:none">
+                                <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">关闭</a></span>
+                                </div>             
+                                </span>
+                                
+                                
+                                
+                                <span>
+                                <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 })">
+                                <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">删除</a></span>
+                                </div>
+                                </span>
+                                
+                                
+                                
+                                
+                                                           
+                                <br>
+                                <br>
+                                <div style="display:none" id="ReplyText${row.aab301 }">                           
+                                <textarea style="width:300px; height:50px" name="ReplyText${row.aab301 }" ></textarea>
+                                <a href="#" onclick="onAddReply(${row.aab301 })">提交</a>
+                                </div>
+                                
+                                
+
+                                
                             </div>
                         </div>
                         <hr>
-                        <div class="customer-review_wrap">
-                            <div class="customer-img">
-                                <img src="images/customer-img2.jpg" class="img-fluid" alt="#">
-                                <p>Kevin W</p>
-                                <span>17 Reviews</span>
-                            </div>
-                            <div class="customer-content-wrap">
-                                <div class="customer-content">
-                                    <div class="customer-review">
-                                        <h6>A hole-in-the-wall old school shop.</h6>
-                                        <span class="customer-rating-red"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <span class="round-icon-blank"></span>
-                                        <p>Reviewed 3 months ago</p>
-                                    </div>
-                                    <div class="customer-rating customer-rating-red">2.0</div>
-                                </div>
-                                <p class="customer-text">The dumplings were so greasy...the pan-fried shrimp noodles were the same. So much oil and grease it was difficult to eat. The shrimp noodles only come with 3 shrimp (luckily the dish itself is cheap) </p>
-                                <p class="customer-text">The beef noodle soup was okay. I added black vinegar into the broth to give it some extra flavor. The soup has bok choy which I liked - it's a nice textural element. The shop itself is really unclean (which is the case
-                                    in many restaurants in Chinatown) They don't wipe down the tables after customers have eaten. If you peak into the kitchen many of their supplies are on the ground which is unsettling... </p>
-                                <span>10 people marked this review as helpful</span>
-                                <a href="#"><span class="icon-like"></span>Helpful</a>
-                            </div>
-                        </div>
+                        </c:if>
+                        </c:forEach>
+                    	</c:when>
+                    	</c:choose>
+                      
+                      
+                      
+                        
                     </div>
+                    
+                    
+                    
+                    
+                    
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
@@ -338,7 +707,7 @@
                         </div>
                         <div class="address">
                             <c:choose>
-                            <c:when test="${row.aab110=='1' }">
+                            <c:when test="${ins.aab110=='1' }">
                             <span class="icon-clock"></span>                         
                             <div class="open-now">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp接受预定</div>
                             </c:when>
@@ -350,29 +719,7 @@
                         </div>
                         <br>
                         <a href="#" class="btn btn-outline-danger btn-contact">查看地图详情/导航</a>
-                    </div>
-                    <div class="follow">
-                        <div class="follow-img">
-                            <img src="images/follow-img.jpg" class="img-fluid" alt="#">
-                            <h6>Christine Evans</h6>
-                            <span>New York</span>
-                        </div>
-                        <ul class="social-counts">
-                            <li>
-                                <h6>26</h6>
-                                <span>Listings</span>
-                            </li>
-                            <li>
-                                <h6>326</h6>
-                                <span>Followers</span>
-                            </li>
-                            <li>
-                                <h6>12</h6>
-                                <span>Followers</span>
-                            </li>
-                        </ul>
-                        <a href="#">FOLLOW</a>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -384,6 +731,13 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="<%=path%>/js/xzs03_jquery.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/xzs03_jquery.datetimepicker.js"></script>
+	<script type="text/javascript">
+	$('#datetimepicker_mask').datetimepicker({
+	mask:'9999/19/39 29:59'
+	});
+	</script>
     <script src=" <%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
     <script src=" <%=path%>/js/xzs_popper.min.js"></script>
     <script src=" <%=path%>/js/xzs_bootstrap.min.js"></script>

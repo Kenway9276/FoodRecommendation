@@ -24,49 +24,60 @@
 	.adminNotice table{
 	border:1px solid;
 	}
+		button{
+	display:inline-block;
+	border:none;
+	background-color:#ff8040;
+	color:#FFFFFF;
+	padding: 12px 28px;
+    text-align: center;
+    font-size: 16px;
+    border-radius:6px;
+	}
+	td div {
+	width:650px;
+}
 </style>
 <script type="text/javascript">
-
 </script>
 </head>
 <body >
-<br>
-<%=request.getSession().getAttribute("ins")%>
-<%=request.getSession().getAttribute("管理员流水号")%>
-<br>
+<%request.getSession().getAttribute("ins");%>
+<%request.getSession().getAttribute("管理员流水号");%>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/adminReleaseNotice.html" enctype="multipart/form-data" method="post">
-<nav>
-  <div class="container">
-    <h1>Doc</h1>
-    <div id="menu">
-      <ul class="toplinks">
-        <li><a href="#">Opineo Website </a></li>
-        <li><a href="http://www.egrappler.com/">eGrappler</a></li>
-        <li><a href="../doc-template/docs.jsp">Blue Theme</a></li>
-        <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li>
-      </ul>
-    </div>
-    <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div>
-</nav>
+<!-- <nav> -->
+<!--   <div class="container"> -->
+<!--     <h1>Doc</h1> -->
+<!--     <div id="menu"> -->
+<!--       <ul class="toplinks"> -->
+<!--         <li><a href="#">Opineo Website </a></li> -->
+<!--         <li><a href="http://www.egrappler.com/">eGrappler</a></li> -->
+<!--         <li><a href="../doc-template/docs.jsp">Blue Theme</a></li> -->
+<!--         <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li> -->
+<!--       </ul> -->
+<!--     </div> -->
+<!--     <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div> -->
+<!-- </nav> -->
 <header>
   <div class="container">
-    <h2 class="docs-header">快来发布公告吧哈哈哈！</h2>
+    <h2 class="docs-header">既有消息，广而告之！</h2>
   </div>
 </header>
 <section>
   <div class="container">
     <ul class="docs-nav" id="menu-left">
       <li><strong>请开始你的管理！</strong></li>
-      <li><a href="<%=path %>/adminInfo.jsp" class=" ">个人信息</a></li>
+      <li><a href="<%=path %>/adminInfo.html" class=" ">个人信息</a></li>
       <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
       <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
       <li><a href="<%=path %>/adminNotice.jsp" class="selected">公告管理  √</a></li>
-      <li><a href="#license" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <h3 align="center"> 公告管理</h3>
       <div class="adminNotice">
-	<table width="90%" align="center">
+	<table width="90%" style="margin:0 auto">
 	  <caption>
 	              发布公告
 	    <hr width="160">
@@ -77,31 +88,54 @@
 	  	</td>
 	  </tr>
 	  <tr>
-  	    <td>标题</td>
+  	    <td width=60px>标题</td>
 	  	<td>
 	  		<e:text name="aac202" required="true"/>
 	  	</td>
 	  </tr>
 	  <tr>
-	    <td>图片</td>
+	    <td style="width:60px">封面</td>
 	    <td>
-	    <input type="file" name="aac204">
+	    <input type="file" name="aac204" id="myfile">
+	    <br>
+		<img src="" id="show" width="200">
+		<script type="text/javascript">
+			$(function() {
+ 
+				$("#myfile").change(function() {
+					var readFile = new FileReader();
+					var mfile = $("#myfile")[0].files[0];  //注意这里必须时$("#myfile")[0]，document.getElementById('file')等价与$("#myfile")[0]
+					readFile.readAsDataURL(mfile);
+					readFile.onload = function() {
+						var img = $("#show");
+						img.attr("src", this.result);
+					}
+ 
+				});
+ 
+			})
+		</script>
 	    </td>
 	   </tr>
 	   <tr>
-	    <td>正文</td>
+	    <td style="width:60px">正文</td>
 	  	<td>
-	  		<e:textarea cols="40" rows="5" name="aac205" required="true"/>
+	  		<div id="div1">
+    			<p>这里输入正文</p>
+   			</div>
+   			 <textarea name="aac205" id="text1" style="display:none"></textarea>
+    		<% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
+    		<input type="hidden" name="filePath" value="<%=filePath%>">
 	  	</td>
 	  </tr>
 	  <tr>
-	    <td>优先级</td>
+	    <td style="width:60px">优先级</td>
 	    <td>
 	  		<e:radio name="aac207" value="普通:0,置顶:1" required="true" />
 	    </td>
 	   </tr>
 	   <tr>
-	    <td>种类</td>
+	    <td style="width:60px">种类</td>
 	  	<td>
 	  		<e:radio name="aac206" value="测评文章:1,优惠活动:2,更新维护:3" required="true" />
 	 	 </td>
@@ -109,22 +143,55 @@
 	</table>
 	<br>
 	<br>
-<table border="1" width="25%" align="center">
-  <tr>
-    <td align="center">
-       <input type="submit" name="next" value="发布">
+<div style="text-align:center">
+       <button type="submit" name="next">发布</button>
 		<a href="<%=path %>/adminNotice.jsp">
-		<input class="btn btn-danger btn-block" type="button" name="next" value="管理">
+		<button class="btn btn-danger btn-block" name="next">管理</button>
 		</a> 
-    </td>
-  </tr>
-</table>
+</div>
 
 </div>
 </div>
 </div>
 </section>
- 
+ <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/wangEditor.js"></script>
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.customConfig.uploadImgShowBase64 = true
+    var $text1 = $('#text1')
+    var $text2 = $('#text2')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+        $text2.val(editor.txt.text())
+    }
+    editor.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'quote',  // 引用
+        'emoticon',  // 表情
+        'image',  // 插入图片
+        'table',  // 表格
+    ]
+    editor.create()
+    // 初始化 textarea 的值
+    $text1.val(editor.txt.html())
+    $text2.val(editor.txt.text())
+
+
+</script>
 
 </form>
 </body>

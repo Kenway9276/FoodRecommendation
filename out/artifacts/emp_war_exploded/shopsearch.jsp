@@ -113,6 +113,8 @@
 										<input type="hidden" name="CurrentKeywords" value="${ins.CurrentKeywords }"/>
 										<input type="hidden" name="CurrentCityName" value="${ins.CurrentCityName }"/>
 										
+										<!-- 临时用户流水号,获取暂未实现获取 -->
+										<input type="hidden" name="aaa101" value="1"> <br>
 										
                                     	<input id="cityName" name="cityName" type="text" placeholder="当前定位: " class="btn-group2">
                                         <input type="text" name="keywords" placeholder="搜索餐厅名或菜品名"  class="btn-group1" />
@@ -134,8 +136,7 @@
     
 
 
-		<!-- 临时用户流水号,获取暂未实现获取 -->
-		<input type="hidden" name="aaa101" value="1"> <br> 
+		 
 		
 		
     <!--//END FIND PLACES -->
@@ -178,9 +179,8 @@
 				<c:forEach items="${rows }" var="row" varStatus="vs">       	
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
-                            <img src="images/featured1.jpg" class="img-fluid" alt="#">
-                                                
+                        <a href="#" onclick="onDetail('${row.aab101}')">                       
+                            <img src="upload/${row.aab113}" class="img-fluid" alt="#">             
                             <span class="featured-rating">${row.aab111 }</span>
                             
                             <div class="featured-title-box">

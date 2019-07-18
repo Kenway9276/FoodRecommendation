@@ -1,5 +1,6 @@
 package com.neusoft.web.support;
 
+import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -78,6 +79,26 @@ public class BaseServlet extends HttpServlet
      		//织入属性处理切片
      		this.parseRueqestAttribute(request, rueqestAttribute);
 
+     		if(controllerFirstName.contains("UserLogin")){
+				//织入session处理切片
+				Object userID =  ((Map<String, String>)request.getAttribute("ins")).get("aaa101");
+				request.getSession().setAttribute("busiID", null);
+				request.getSession().setAttribute("userID", userID);
+				request.getSession().setAttribute("adminID", null);
+			}
+     		else if(controllerFirstName.contains("BusiLogin")){
+				Object busiID =  ((Map<String, String>)request.getAttribute("ins")).get("aab101");
+				request.getSession().setAttribute("userID", null);
+				request.getSession().setAttribute("busiID", busiID);
+				request.getSession().setAttribute("adminID", null);
+			}
+     		else if(controllerFirstName.contains("AdminLogin")){
+     			Object adminID =  ((Map<String, String>)request.getAttribute("ins")).get("aac401");
+     			request.getSession().setAttribute("adminID", adminID);
+				request.getSession().setAttribute("userID", null);
+				request.getSession().setAttribute("busiID", null);
+			}
+
          }	
          catch(Exception ex)
          {
@@ -85,8 +106,23 @@ public class BaseServlet extends HttpServlet
         	 toPath="Error";
         	 ex.printStackTrace();
          }
-		request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
+
+		if(toPath.equals("ajax")){
+			//String data = (String)request.getAttribute("data");
+			//String tem_data = "{\"data\":" + data + "}";
+			//response.getWriter().append(data);
+			response.setContentType("text/html;charset=GBK");
+			response.getWriter().append("{\"success\":true, \"msg\":\"你好你好你好\"}");
+		}
+		else {
+			request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
+		}
+
+
+
 	}
+
+
 
 	/**
 	 * 前端传来图片时创建的dto
@@ -162,6 +198,9 @@ public class BaseServlet extends HttpServlet
 		{
 			//3.将map的每个键值对,转换成request的属性
 			request.setAttribute(entry.getKey(), entry.getValue());
+			Gson gson = new Gson();
+			String json =  gson.toJson(entry.getValue());
+			request.setAttribute("data", json);
 		}
 		//清除所有的request级属性数据
 		rueqestAttribute.clear();
@@ -176,7 +215,10 @@ public class BaseServlet extends HttpServlet
 	private  Map<String,Object> createDto(HttpServletRequest request)
 	{
 		//获取session的用户流水号
-		String id = (String) request.getSession().getAttribute("userID");
+		String userID = (String) request.getSession().getAttribute("userID");
+		String busiID = (String) request.getSession().getAttribute("busiID");
+		String adminID = (String) request.getSession().getAttribute("adminID");
+
 
 		//1.获取页面数据
 		Map<String,String[]> tem=request.getParameterMap();
@@ -208,7 +250,9 @@ public class BaseServlet extends HttpServlet
 			}	
 		}
 		//System.out.println(dto);
-		dto.put("userID", id);
+		dto.put("userID", userID);
+		dto.put("busiID", busiID);
+		dto.put("adminID", adminID);
 		return dto;
 	}
 

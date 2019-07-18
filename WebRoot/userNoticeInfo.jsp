@@ -40,17 +40,19 @@ ${msg }
 					<h4>请务必仔细阅读哦。</h4>
 					<ul class="menuPrice">
 						<li>
-							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<e:text name="aac202" readonly="true" defval="${ins.aac202 }"/></a>
+							<a style="text-decoration:none;text-align:center;font-weight:bold" href="#">${ins.aac202 }</a>
 						</li>
 						<li>
-							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;发布日期&nbsp;&nbsp;&nbsp;<e:text name="aac203" readonly="true" defval="${ins.aac203 }"/></a>
+							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;发布日期&nbsp;&nbsp;&nbsp;${ins.aac203 }</a>
 						</li>
 						<li>
-							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;封面图片&nbsp;&nbsp;&nbsp;<img src="${ins.aac204 }"></a>
+							<a style="text-decoration:none;text-align:center" href="#"><img height=300px src="${ins.aac204 }"></a>
 						</li>
 						<li>
-							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<e:textarea cols="50" rows="10" name="aac205" readonly="true" defval="${ins.aac205 }"/></a>
+							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;正文</a>
+						</li>
+						<li>
+							<a style="text-decoration:none;text-align:center" href="#">${ins.aac205 }</a>
 						</li>
 						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;公告类型&nbsp;&nbsp;

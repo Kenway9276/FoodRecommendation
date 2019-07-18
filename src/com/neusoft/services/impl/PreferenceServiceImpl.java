@@ -19,8 +19,7 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
      * 在添加用户偏好页面上展示偏好列表
      */
     public List<Map<String, String>> query() throws Exception {
-        //TODO 登陆后 获取当前用户的流水号
-        String aaa101 = "0";
+        Object aaa101 = this.get("userID");
 
         //1.编写SQL语句
         StringBuilder sql=new StringBuilder()
@@ -70,7 +69,7 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
      * @param labelName 列名如aaa203
      * @throws Exception
      */
-    private void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
+    public void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
         String[] elements = tem.get(labelName).split(",");
         for(int i = 0; i < elements.length; i++){
             elements[i] = convertCodeToName(elements[i], labelName);
@@ -104,8 +103,7 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
      */
     private boolean addPreference()throws Exception
     {
-        //TODO 获取当前用户的流水号
-        String aaa101 = "0";
+        Object aaa101 = this.get("userID");
 
         // TODO 将aaa206(地址)传给许泽松的地图模块解析
 

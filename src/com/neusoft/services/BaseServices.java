@@ -119,4 +119,19 @@ public interface BaseServices
     {
     	return null;
     }
+    
+    default List<Map<String,String>> adminCouponQuery()throws Exception
+    {
+   	 return null;
+    }
+	
+    default Map<String,String> userInfoQuery()throws Exception
+    {
+   	 return null;
+    }
+    
+    default Map<String,String> adminInfoQuery()throws Exception
+    {
+   	 return null;
+    }
 }

@@ -50,32 +50,37 @@ function onPass(vaab101)
 	 //alert(vform.action);
 	 vform.submit();
 } 
+function onEdit(vaab101)
+{
+	 var vform = document.getElementById("myform");
+	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
+	 vform.submit();
+}
 </script>
 </head>
 <body >
-<br>
 <%Map map=(Map)request.getAttribute("ins") ;
 if(map != null){
 	request.getSession().setAttribute("管理员流水号", map.get("aac401"));
 }
  %>
-<%=request.getSession().getAttribute("管理员流水号")%>
+<%request.getSession().getAttribute("管理员流水号");%>
 <%request.getSession().setAttribute("ins", map); %>
-<br>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/adminBusiness.html" method="post">
-<nav>
-  <div class="container">
-    <h1>Doc</h1>
-    <div id="menu">
-      <ul class="toplinks">
-        <li><a href="#">Opineo Website </a></li>
-        <li><a href="http://www.egrappler.com/">eGrappler</a></li>
-        <li><a href="../doc-template/docs.jsp">Blue Theme</a></li>
-        <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li>
-      </ul>
-    </div>
-    <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div>
-</nav>
+<!-- <nav> -->
+<!--   <div class="container"> -->
+<!--     <h1>Doc</h1> -->
+<!--     <div id="menu"> -->
+<!--       <ul class="toplinks"> -->
+<!--         <li><a href="#">Opineo Website </a></li> -->
+<!--         <li><a href="http://www.egrappler.com/">eGrappler</a></li> -->
+<!--         <li><a href="../doc-template/docs.jsp">Blue Theme</a></li> -->
+<!--         <li><a href="../doc-template-red/docs.jsp">Red Theme</a></li> -->
+<!--       </ul> -->
+<!--     </div> -->
+<!--     <a id="menu-toggle" href="#" class=" ">&#9776;</a> </div> -->
+<!-- </nav> -->
 <header>
   <div class="container">
     <h2 class="docs-header">不以规矩，不成方圆！</h2>
@@ -85,11 +90,11 @@ if(map != null){
   <div class="container">
     <ul class="docs-nav" id="menu-left">
       <li><strong>请开始你的管理！</strong></li>
-      <li><a href="<%=path %>/adminInfo.jsp" class=" ">个人信息</a></li>
+      <li><a href="<%=path %>/adminInfo.html" class=" ">个人信息</a></li>
       <li><a href="<%=path %>/adminBusiness.jsp" class="selected">商家管理  √</a></li>
       <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
       <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
-      <li><a href="#license" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <div class="adminInfo">
@@ -98,21 +103,21 @@ if(map != null){
         <c:choose>
         	<c:when test="${rows!=null }">
         <c:forEach items="${rows }" var="ins" varStatus="vs">
-		 <table id="${ins.aab101 }" align="center";>
+		 <table id="${ins.aab101 }" style="margin:0 auto" width=50%>
 			<tr>
-				<td style="color:#FFFFFF">
+				<td style="color:#FFFFFF;width:50%">
 				商家用户名
 				</td>
-				<td style="color:#FFFFFF">
-				<e:text name="aab102" readonly="true" defval="${ins.aab102}" />
+				<td style="color:#FFFFFF;text-align:center">
+					${ins.aab102 }
 				</td>
 			</tr>
 			<tr>
 				<td style="color:#FFFFFF">
 				商家店名
 				</td>
-				<td style="color:#FFFFFF">
-				<e:text name="aab104" readonly="true" defval="${ins.aab104}"/>
+				<td style="text-align:center">
+					<a style="color:#FFFFFF;text-decoration: none" href="#" onclick="onEdit('${ins.aab101}')">${ins.aab104 }</a>
 				</td>
 			</tr>
 				<tr>
@@ -120,7 +125,7 @@ if(map != null){
 				资质证明
 				</td>
 				<td style="color:#FFFFFF">
-				<e:text name="aab108" readonly="true" defval="${ins.aab108}"/>
+				<img src="${ins.aab108 }">
 				</td>
 			</tr>
 			<tr>

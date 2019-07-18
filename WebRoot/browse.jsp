@@ -6,13 +6,12 @@
   Time: 11:24
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=utf-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <!-- Document Title -->
     <title>BizBlog</title>
 
@@ -49,6 +48,7 @@
     <link rel="stylesheet" href="dw_assets/css/custom.css">
 </head>
 <body>
+<%@ include file="navigate.jsp" %>
 <!-- Preloader -->
 <div class="preloader">
     <div class="preload-img">
@@ -116,6 +116,11 @@
                             </p>
                         </div>
                     </div>
+                    <p><a href="#" id="view-more" class="btn btn-primary">view more</a></p>
+                    <input type="hidden" id="hidden-title" value="${ins.aaa301}">
+                    <c:if test="${ins.isUser == '1'}">
+                        <p><a href="#"  onclick="onDel('${ins.aaa301}')" class="btn btn-primary">delete</a></p>
+                    </c:if>
                 </div>
             </div>
             <!-- End of Post -->
@@ -127,32 +132,6 @@
 
 
 
-<!-- Footer -->
-<footer class="footer-container d-flex align-items-center">
-    <div class="container">
-        <div class="row align-items-center footer">
-            <div class="col-md-4 text-center text-md-left order-md-1 order-2">
-                <div class="footer-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center order-md-2 order-1">
-                <a href="index.html"><img src="dw_assets/images/logo.png" alt="" class="img-fluid"></a>
-            </div>
-            <div class="col-md-4 order-md-3 order-3">
-                <div class="footer-cradit text-center text-md-right">
-                    <p>© 2019 <a href="http://www.17sucai.com">Themelooks.</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- End of Footer -->
-
 <!-- Back to Top Button -->
 <div class="back-to-top d-flex align-items-center justify-content-center">
     <span><i class="fa fa-long-arrow-up"></i></span>
@@ -160,6 +139,9 @@
 <!-- End of Back to Top Button -->
 
 <!-- JS Files -->
+
+<!-- ==== ajax ==== -->
+<script src="ajax_js/BBS_ajax.js"></script>
 
 <!-- ==== JQuery 1.12.1 js file ==== -->
 <script src="dw_assets/js/jquery-1.12.1.min.js"></script>
@@ -185,12 +167,28 @@
     function onSelect(aaa301) {
         var form = document.getElementById("tem");
         form.action = "<%=path%>/bBSBrowseSingle.html?aaa301=" + aaa301;
-        //alert(vform.action);
+        alert('aaaaa');
         form.submit();
+
+    }
+    function onDel(aaa301) {
+        var form = document.getElementById("tem");
+
+        // todo 加入用户流水号参数
+        form.action = "<%=path%>/bBSDelete.html?aaa301="+aaa301;
+        form.submit();
+    }
+
+    function onBack() {
+        var vform = document.getElementById("comment-form-id");
+        var aaa304 =  document.getElementById('comment-content').value;
+
+        vform.action = "<%=path%>/bBSBrowse.html"
+        vform.submit();
     }
 
 </script>
 
-
+<p id="tem-data"></p>
 </body>
 </html>

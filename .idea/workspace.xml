@@ -9,18 +9,154 @@
     <list default="true" id="e3e3a9c7-120b-468e-a34d-20e9d4705f3a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/browse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/browse.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/preference.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/preference.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/single.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/single.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/navigate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/navigate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/basic/DateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/basic/DateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/BaseServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/BaseServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/PstmMetaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/PstmMetaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/Ab01ServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/Ab01ServicesImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/BBSServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/BBSServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/CommentServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/CommentServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/CouponServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/CouponServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/MarkServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/MarkServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/MessageServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/MessageServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/RankingServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/RankingServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/ShopinfoServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/ShopinfoServicesImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/TestServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/TestServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/UserStoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/UserStoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/system/db/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/system/db/DBUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/system/db/RedisUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/system/db/RedisUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/BBSTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/BBSTools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/Base64Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/Base64Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/CodeFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/CodeFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/ConnectionFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/ConnectionFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/system/tools/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminBusinessServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminBusinessServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminCancelByIdNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminCancelByIdNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminCouponServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminCouponServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteByIdCouponServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteByIdCouponServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteByIdNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteByIdNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteByIdPostServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteByIdPostServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteCouponServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteCouponServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeleteNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeletePostServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminDeletePostServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminForumServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminForumServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminLoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminLoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminModifyInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminModifyInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminPopByIdNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminPopByIdNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminReleaseNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/AdminReleaseNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSBrowseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSBrowseServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSBrowseSingleServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSBrowseSingleServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSBrowseUserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSBrowseUserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSCommentServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSCommentServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSDeleteServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSDeleteServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSPostServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BBSPostServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiAccessReservationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiAccessReservationServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiAddDishServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiAddDishServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiDelDishByIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiDelDishByIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiLoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiLoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiManageReservationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiManageReservationServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiMenuManageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiMenuManageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiModifyServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiModifyServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiPassServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiPassServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiPopularizeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiPopularizeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiQueryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiQueryServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiRefuseReservationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiRefuseReservationServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiRegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiRegisterServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiReturnMenuManageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiReturnMenuManageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiToAddDishPageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiToAddDishPageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponCheckServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponCheckServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponDeleteServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponDeleteServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponGetServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponGetServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponPublishServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponPublishServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponUserDeleteServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponUserDeleteServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponUserListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/CouponUserListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/FindByIdNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/FindByIdNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkAddServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkAddServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkBatchDeleteServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkBatchDeleteServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkDeleteAllServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkDeleteAllServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkDeleteByIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkDeleteByIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkDeleteInShopDetailServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkDeleteInShopDetailServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkQueryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MarkQueryServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageDelByIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageDelByIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageDeleteAllServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageDeleteAllServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageReadServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageReadServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSearchReadServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSearchReadServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSearchUnReadServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSearchUnReadServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSetAllReadServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSetAllReadServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSetReadServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/MessageSetReadServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PhotoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PhotoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceAddServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceAddServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceDeleteServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceDeleteServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceIndexServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceIndexServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceSelectServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/PreferenceSelectServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RankingCityServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RankingCityServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RankingControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RankingControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RankingPopularityServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RankingPopularityServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendGetServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendGetServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendIndexServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendIndexServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendNextServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendNextServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendSelectServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/RecommendSelectServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoFindByIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoFindByIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoFindServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoFindServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoSortByCommentCountServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoSortByCommentCountServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoSortByScoreServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/ShopinfoSortByScoreServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserAssembleApplyServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserAssembleApplyServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserAssembleServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserAssembleServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserDeleteByIdHistoryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserDeleteByIdHistoryServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserDeleteHistoryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserDeleteHistoryServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserHistoryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserHistoryServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserLoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserLoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserModifyServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserModifyServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserNoticeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserNoticeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserRegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UserRegisterServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UsernameAlreadyExistServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/UsernameAlreadyExistServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/support/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/support/BaseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/support/BaseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/support/BaseServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/BBSServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/BBSServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/TestServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/TestServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/support/ControllerSupport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/support/ControllerSupport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/META-INF/emp.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/basic/DateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/basic/DateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/PstmMetaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/PstmMetaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/Ab01ServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/Ab01ServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/CommentServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/CommentServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/MessageServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/MessageServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/ShopinfoServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/services/impl/ShopinfoServicesImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/db/DBUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/db/DBUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/db/RedisUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/db/RedisUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/tools/CodeFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/tools/CodeFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/tools/ConnectionFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/tools/ConnectionFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/tools/Tools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/system/tools/Tools.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/impl/PhotoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/impl/PhotoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/impl/ShopinfoFindByIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/impl/ShopinfoFindByIdServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/support/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/support/BaseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/support/BaseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/classes/com/neusoft/web/support/BaseServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/adminReleaseNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/adminReleaseNotice.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/browse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/browse.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/single.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/single.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neusoft/services/impl/BBSServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neusoft/services/impl/BBSServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neusoft/services/impl/TestServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neusoft/services/impl/TestServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/recommend_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/recommend_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/xzs_set1.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/xzs_set1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/xzs_simple-line-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/xzs_simple-line-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/navigate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/navigate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/shopdetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/shopdetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/shopsearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/shopsearch.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/userNoticeInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/emp_war_exploded/userNoticeInfo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neusoft/system/tools/CodeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neusoft/system/tools/CodeFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseSingleServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseSingleServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -39,83 +175,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/ajax_js/BBS_ajax.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/browse.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="101" column="75" selection-start-line="101" selection-start-column="69" selection-end-line="101" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="112" column="48" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebRoot/preference.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="89" column="27" lean-forward="true" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/properties.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="285" selection-start-line="285" selection-end-line="285" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceDeleteServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceAddServlet.java">
+        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseSingleServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="192">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/css/jquery-labelauty.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/jquery-labelauty.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-672" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/css/jquery-labelauty.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/jquery-labelauty.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1152" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendGetServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -128,6 +219,7 @@
         <option value="jsf" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -136,6 +228,12 @@
       <find>html</find>
       <find>news</find>
       <find>assets</find>
+      <find>pstmList</find>
+      <find>userLo</find>
+      <find>userNoticeQuery</find>
+      <find>userInfo</find>
+      <find>map</find>
+      <find>response</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,54 +242,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceControllerSupport.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceEditServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceAddServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/index.xhtml" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceDeleteServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendControllerSupport.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/system/db/RedisUtils.java" />
-        <option value="$PROJECT_DIR$/WebRoot/queryEmp.jsp" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RankingControllerSupport.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RankingCityServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/css/style.css" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RankingPopularityServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/RankingServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceSelectServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/test.jsp" />
-        <option value="$PROJECT_DIR$/WebRoot/properties.jsp" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendIndexServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/aaa.jsp" />
-        <option value="$PROJECT_DIR$/WebRoot/bbb.jsp" />
-        <option value="$PROJECT_DIR$/src/DBOptions.properties" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponListServlet.java" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendSelectServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceIndexServlet.java" />
         <option value="$PROJECT_DIR$/WebRoot/recommend.jsp" />
-        <option value="$PROJECT_DIR$/WebRoot/recommend_template.jsp" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendGetServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSControllerSupport.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/support/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/support/ControllerSupport.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendNextServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceIndexServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponGetServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponUserListServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponUserDeleteServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/RankingServiceImpl.java" />
         <option value="$PROJECT_DIR$/WebRoot/ranking.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponPostServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponPublishServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponCheckServlet.java" />
+        <option value="$PROJECT_DIR$/WebRoot/checkCoupon.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponDeleteServlet.java" />
         <option value="$PROJECT_DIR$/WebRoot/tem.jsp" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/system/tools/CodeFilter.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/PreferenceServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSPostServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/BBSSingle.jsp" />
-        <option value="$PROJECT_DIR$/WebRoot/index.jsp" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseSingleServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSCommentServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java" />
+        <option value="$PROJECT_DIR$/WebRoot/publishCoupon.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/post.jsp" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/TestServicesImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/browse.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/system/tools/Base64Utils.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/system/tools/BBSTools.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/UserStrotyServiceImpl.java" />
         <option value="$PROJECT_DIR$/WebRoot/single.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/CouponServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/support/LoginServlet.java" />
+        <option value="$PROJECT_DIR$/WebRoot/userHistory.jsp" />
+        <option value="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/style_nav.css" />
+        <option value="$PROJECT_DIR$/WebRoot/css/style_nav.css" />
         <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/BBSServiceImpl.java" />
-        <option value="$PROJECT_DIR$/WebRoot/preference.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/TestServicesImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/ShopinfoServicesImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/ShopinfoFindByIdServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/UserStoryControllerSupport.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/UserStoryServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/system/tools/SyscodeTools.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/JdbcServicesSupport.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/PreferenceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/UserStoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/WebRoot/story.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java" />
+        <option value="$PROJECT_DIR$/WebRoot/markquery2.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/navigate.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/system/tools/CodeFilter.java" />
+        <option value="$PROJECT_DIR$/WebRoot/ajax_js/coupon_ajax.js" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/AjaxTestServlet.java" />
+        <option value="$PROJECT_DIR$/WebRoot/ajax_js/preference_ajax.js" />
+        <option value="$PROJECT_DIR$/WebRoot/index.jsp" />
+        <option value="$PROJECT_DIR$/out/artifacts/emp_war_exploded/ajax_js/BBS_ajax.js" />
+        <option value="$PROJECT_DIR$/WebRoot/browse.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/ajax_js/BBS_ajax.js" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseSingleServlet.java" />
       </list>
     </option>
   </component>
@@ -253,6 +354,29 @@
               <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -266,7 +390,21 @@
             <path>
               <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="support" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
               <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="ajax_js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -280,7 +418,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/emp_war_exploded/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -290,11 +428,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\out\artifacts\emp_war_exploded\css" />
-      <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\WebRoot\css" />
+      <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\WebRoot\WEB-INF\lib" />
+      <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\out\artifacts\emp_war_exploded\upload" />
       <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\out\artifacts\emp_war_exploded" />
       <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\WebRoot" />
-      <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\WebRoot\assets" />
+      <recent name="C:\Users\P7XXTMX-G\Desktop\food\FoodRecommendation\out\artifacts\emp_war_exploded\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -310,19 +448,44 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.38">
+    <configuration name="Base64Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.neusoft.system.tools.Base64Utils" />
+      <module name="emp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.neusoft.system.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CouponServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.neusoft.services.impl.CouponServiceImpl" />
+      <module name="emp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.neusoft.services.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="markquery2.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/markquery2.jsp">
+      <method v="2" />
+    </configuration>
     <configuration name="preference.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/preference.jsp">
       <method v="2" />
     </configuration>
-    <configuration name="queryEmp.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/emp_war_exploded/queryEmp.jsp">
-      <method v="2" />
-    </configuration>
-    <configuration name="recommend.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/emp_war_exploded/recommend.jsp">
+    <configuration name="shopsearch.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/shopsearch.jsp">
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 8.5.38" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="emp:war exploded">
           <settings>
@@ -393,99 +556,21 @@
         </option>
       </method>
     </configuration>
-    <configuration name="recommend_template.jsp (1)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/recommend_template.jsp" />
-      <deployment>
-        <artifact name="emp:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/emp_war_exploded" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="recommend_template_jsp_(1)_FoodRecommendation" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="emp:war exploded" />
-        </option>
-      </method>
-    </configuration>
-    <configuration name="recommend_template.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/recommend_template.jsp" />
-      <deployment>
-        <artifact name="emp:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/emp_war_exploded" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="recommend_template_jsp_FoodRecommendation" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="emp:war exploded" />
-        </option>
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JavaScript Debug.queryEmp.jsp" />
-      <item itemvalue="JavaScript Debug.recommend.jsp" />
+      <item itemvalue="Application.CouponServiceImpl" />
+      <item itemvalue="Application.Base64Utils" />
       <item itemvalue="JavaScript Debug.preference.jsp" />
+      <item itemvalue="JavaScript Debug.markquery2.jsp" />
+      <item itemvalue="JavaScript Debug.shopsearch.jsp" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.38" />
-      <item itemvalue="Tomcat Server.recommend_template.jsp" />
-      <item itemvalue="Tomcat Server.recommend_template.jsp (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Base64Utils" />
+        <item itemvalue="JavaScript Debug.shopsearch.jsp" />
+        <item itemvalue="JavaScript Debug.markquery2.jsp" />
+        <item itemvalue="Application.CouponServiceImpl" />
         <item itemvalue="JavaScript Debug.preference.jsp" />
-        <item itemvalue="Tomcat Server.recommend_template.jsp (1)" />
-        <item itemvalue="Tomcat Server.recommend_template.jsp" />
-        <item itemvalue="JavaScript Debug.recommend.jsp" />
-        <item itemvalue="JavaScript Debug.queryEmp.jsp" />
       </list>
     </recent_temporary>
   </component>
@@ -511,11 +596,19 @@
       <workItem from="1562893213740" duration="9305000" />
       <workItem from="1562911846518" duration="13648000" />
       <workItem from="1562978042771" duration="599000" />
+      <workItem from="1562998156034" duration="8857000" />
+      <workItem from="1563024960735" duration="161000" />
+      <workItem from="1563151182306" duration="20479000" />
+      <workItem from="1563237685837" duration="9622000" />
+      <workItem from="1563257272798" duration="10833000" />
+      <workItem from="1563324693794" duration="21874000" />
+      <workItem from="1563411350047" duration="8998000" />
+      <workItem from="1563428035241" duration="1844000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136250000" />
+    <option name="totallyTimeSpent" value="220126000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -528,27 +621,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49457702" visible="true" weight="0.19029851" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49310344" visible="true" weight="0.23827292" />
+      <window_info id="Structure" order="1" sideWeight="0.50689656" side_tool="true" weight="0.23560767" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Web" order="6" sideWeight="0.505423" side_tool="true" weight="0.19029851" />
+      <window_info id="Web" order="6" sideWeight="0.5043384" side_tool="true" weight="0.23294243" />
       <window_info id="Favorites" order="7" sideWeight="0.5051546" side_tool="true" weight="0.20628998" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2505423" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.10737527" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.23752712" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.37093276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3264642" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3470716" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.7169197" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.30694142" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
       <window_info anchor="bottom" id="Version Control" order="14" />
@@ -570,322 +664,360 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/neusoft/services/impl/PreferenceServiceImpl.java</url>
-          <line>21</line>
+          <url>file://$PROJECT_DIR$/src/com/neusoft/web/impl/CouponUserDeleteServlet.java</url>
+          <line>5</line>
           <properties />
-          <option name="timeStamp" value="35" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebRoot/queryEmp.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/CouponServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
-          <folding>
-            <element signature="n#c:forEach#1;n#c:when#0;n#c:choose#0;n#jsp:root#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/recommend.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/ControllerSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="829">
-          <caret line="209" selection-start-line="209" selection-end-line="209" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/JdbcServicesSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4764">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#1555#1556#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/RankingServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2912">
-          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        <state relative-caret-position="-1056">
+          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSPostServlet.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/userLogin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/tem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/PreferenceServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/post.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/tools/CodeFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/tools/ConnectionFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/tools/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="47" column="83" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/addEmp.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1856">
-          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/MarkServicesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1216">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/shopdetail.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/2bff830f-c745-4f00-9751-1989b33405a0.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/shopsearch.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/adminNotice.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="209" column="52" lean-forward="true" selection-start-line="209" selection-start-column="52" selection-end-line="209" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/d4a5e6d5-c0f1-4440-b410-9deec2c99b84.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34136">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        <state relative-caret-position="613">
+          <caret line="43" column="98" selection-start-line="43" selection-start-column="98" selection-end-line="43" selection-end-column="98" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="128">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/38459571-0624-41cd-9e79-6d03ab6078b3.jpg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/LoginServlet.java" />
+    <entry file="file://$PROJECT_DIR$/WebRoot/userHistory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1344">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/a73191ff-7a06-4111-9d9f-7a70b0b8136a.jpg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/UserInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/b7abdae6-15b3-44a1-9f5b-897166181d05.jpg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/style_nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="55" column="1" lean-forward="true" selection-start-line="41" selection-end-line="55" selection-end-column="1" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/cfe8c4f4-aeb2-4e42-8fec-0fb20181a2ed.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/fad293c1-4bc4-48ac-ad3d-c6ba195a58b1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/9cf1e090-b568-4d22-9a4b-0f2d9599ab40.jpeg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/WebRoot/css/style_nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="46" column="41" lean-forward="true" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/TestServicesImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
+        <state relative-caret-position="365">
           <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/ShopinfoControllerSupport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-          <folding>
-            <element signature="docComment;method#createDtoForFile#0;class#BaseServlet#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/dw_assets/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/dw_assets/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
+        <state relative-caret-position="128">
           <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/upload/3eb23b83-41a5-4519-8a91-5c1af5acae07.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/browse.jsp">
+    <entry file="file://$PROJECT_DIR$/WebRoot/tem.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="185" column="50" selection-start-line="185" selection-start-column="50" selection-end-line="185" selection-end-column="50" />
+        <state relative-caret-position="-611">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSCommentServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/ShopinfoServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/ShopinfoFindByIdServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="10" column="71" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/UserStoryControllerSupport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#199#200#0" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/single.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/tools/BBSTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/BBSServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        <state relative-caret-position="64">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/RankingPopularityServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/UserStoryServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="192">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/single.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2391">
+          <caret line="120" column="73" selection-start-line="120" selection-start-column="73" selection-end-line="120" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/couponList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/post.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/BBSServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/tools/SyscodeTools.java" />
+    <entry file="file://$PROJECT_DIR$/WebRoot/story.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="832">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/UserStoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2368">
+          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/PreferenceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2112">
+          <caret line="71" column="10" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendGetServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/markquery2.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="1839">
+          <caret line="109" column="49" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/navigate.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/shopsearch1.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/shopsearch.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="429" column="13" lean-forward="true" selection-start-line="429" selection-start-column="13" selection-end-line="429" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/tools/CodeFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/js/xzs1_move-top.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/css/jquery-labelauty.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/jquery-labelauty.js">
+    <entry file="file://$PROJECT_DIR$/WebRoot/js/xzs1_lightbox-plus-jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1152" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/css/jquery-labelauty.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/css/jquery-labelauty.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-672" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceAddServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceDeleteServlet.java">
+    <entry file="file://$PROJECT_DIR$/WebRoot/js/swiper.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/js/layout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="448">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/properties.jsp">
+    <entry file="file://$PROJECT_DIR$/WebRoot/ajax_js/coupon_ajax.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/ajax_js/coupon_ajax.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="285" selection-start-line="285" selection-end-line="285" />
+        <state relative-caret-position="335">
+          <caret line="77" column="34" lean-forward="true" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/preference.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="89" column="27" lean-forward="true" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
+        <state relative-caret-position="-2491" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/ajax_js/preference_ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="78" selection-start-line="78" selection-end-line="78" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/ControllerSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="505" column="36" selection-start-line="505" selection-start-column="32" selection-end-line="505" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/AjaxTestServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/AdminDeleteByIdNoticeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/JdbcServicesSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="431" column="46" selection-start-line="431" selection-start-column="46" selection-end-line="431" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/ajax_js/BBS_ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/WebRoot/WEB-INF/lib/catalina.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-777">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/browse.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="101" column="75" selection-start-line="101" selection-start-column="69" selection-end-line="101" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/ajax_js/BBS_ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="112" column="48" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseSingleServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>

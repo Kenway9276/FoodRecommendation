@@ -4,8 +4,13 @@ public class AdminLoginServlet extends UserControllerSupport {
 
 	@Override
 	public String execute() throws Exception {
-		this.saveAdminLoginInstance();
-		return "adminInfo";
+		if(this.saveAdminLoginInstance())
+		{
+			return "adminInfo";
+		}
+		else
+		{
+			return "adminLogin";
+		}
 	}
-
 }

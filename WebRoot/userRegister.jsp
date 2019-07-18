@@ -66,6 +66,9 @@ ${msg}
 						</div>      
 							<input class="btn btn-danger btn-block" type="submit" name="next" value="${empty ins.aaa101?'×¢²á':'ÐÞ¸Ä' }"
         					formaction="<%=path%>/user${empty ins.aaa101?'Register':'Modify' }.html">      
+							<a href="<%=path %>/userLogin.jsp">
+							<input class="btn btn-danger btn-block" type="button" name="next" value="${empty ins.aaa101?'ÒÑÓÐÕËºÅ£¬ÂíÉÏµÇÂ¼':'ÍË³öµÇÂ¼' }">
+							</a> 
 			</div>
 			<div class="clear"></div>
 			</div>

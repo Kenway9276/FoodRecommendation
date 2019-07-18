@@ -12,7 +12,9 @@
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
+<div style="color:#FFFFFF">
 ${msg}
+</div>
 <br>
 <form action="<%=path %>/userLogin.html" method="post">
 <div class="signupform">.
@@ -43,6 +45,14 @@ ${msg}
 						<a href="<%=path %>/userRegister.jsp">
 						<input class="btn btn-danger btn-block" type="button" name="next" value="注册">
 						</a> 
+						<div style="display:inline">
+						<a href="<%=path %>/busiLogin.jsp">
+						<input style="width:49%" class="btn btn-danger btn-block" type="button" name="next" value="商家入口">
+						</a> 
+						<a href="<%=path %>/adminLogin.jsp">
+						<input style="width:49%" class="btn btn-danger btn-block" type="button" name="next" value="管理员入口">
+						</a> 
+						</div>
 			</div>
 									</div>
 			<div class="clear"></div>

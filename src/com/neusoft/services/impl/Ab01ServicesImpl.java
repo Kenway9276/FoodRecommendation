@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 
 import com.neusoft.services.JdbcServicesSupport;
+import com.neusoft.system.tools.BBSTools;
 import com.neusoft.system.tools.Tools;
 import com.neusoft.web.impl.UserLoginServlet;
 
@@ -106,18 +107,20 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     private boolean adminReleaseNotice()throws Exception
     {
     	Object aac204 ="upload/" + this.get("imgPath");
-    	//1.缂傚倹鐗曢崯鎻漄L閻犲浂鍘艰ぐ锟�
+
+        String text = (String) this.get("aac205");
+        text = BBSTools.parseBBSText(text, this.get("filePath") + "\\");
     	StringBuilder sql=new StringBuilder()
     			.append("insert into ac02(aac202,aac203,aac204,aac205,aac206,")
     			.append("                 aac207,aac401)")
     			.append("          values(?,CURRENT_TIMESTAMP,?,?,?,")
     			.append("                 ?,?)")
     			;
-    	//2.缂傚倸鍊归悧鏇㈠疮閹捐鐭楅柛灞剧♁濞堝爼鏌℃担鐟邦棆缂侇噯鎷�
+
     	Object args[]={
     			this.get("aac202"),
     			aac204,
-    			this.get("aac205"),
+    			text,
     			this.get("aac206"),
     			this.get("aac207"),
     			this.get("aac401"),
@@ -194,33 +197,36 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 
     private boolean batchDelete()throws Exception
     {
-    	//1.闁诲氦顫夐惌顔剧不閻戠睍L闁荤姴娴傞崢鑹般亹閿燂拷
     	String sql="delete from ab01 where aab101=?";
-    	//2.闂佸吋鍎抽崲鑼躲亹閸ャ劊浜滈柣銏犳啞濡椻暐dlist闂佽桨鐒︽竟鍡欏垝閿燂拷
     	String idlist[]=this.getIdList("idlist");
-    	//3.闂佸湱鐟抽崱鈺傛杸
     	return this.batchUpdate(sql, idlist);
     }
     
     private boolean userHistoryDelete()throws Exception
     {
-    	//1.闁诲氦顫夐惌顔剧不閻戠睍L闁荤姴娴傞崢鑹般亹閿燂拷
     	String sql="delete from ac01 where aac101=?";
-    	//2.闂佸吋鍎抽崲鑼躲亹閸ャ劊浜滈柣銏犳啞濡椻暐dlist闂佽桨鐒︽竟鍡欏垝閿燂拷
     	String idlist[]=this.getIdList("idlist");
-    	//3.闂佸湱鐟抽崱鈺傛杸
     	return this.batchUpdate(sql, idlist);
     }
     
-
-    
     private boolean adminNoticeDelete()throws Exception
     {
-    	//1.闁诲氦顫夐惌顔剧不閻戠睍L闁荤姴娴傞崢鑹般亹閿燂拷
     	String sql="delete from ac02 where aac201=?";
-    	//2.闂佸吋鍎抽崲鑼躲亹閸ャ劊浜滈柣銏犳啞濡椻暐dlist闂佽桨鐒︽竟鍡欏垝閿燂拷
     	String idlist[]=this.getIdList("idlist");
-    	//3.闂佸湱鐟抽崱鈺傛杸
+    	return this.batchUpdate(sql, idlist);
+    }
+    
+    private boolean adminCouponDelete()throws Exception
+    {
+    	String sql="delete from ab05 where aab501=?";
+    	String idlist[]=this.getIdList("idlist");
+    	return this.batchUpdate(sql, idlist);
+    }
+    
+    private boolean adminPostDelete()throws Exception
+    {
+    	String sql="delete from aa03 where aaa301=?";
+    	String idlist[]=this.getIdList("idlist");
     	return this.batchUpdate(sql, idlist);
     }
     
@@ -237,10 +243,21 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	return this.executeUpdate(sql, this.get("aac201")) > 0;
     }
     
+    private boolean adminDeleteByIdPost()throws Exception
+    {
+    	String sql="delete from aa03 where aaa301=?";
+    	return this.executeUpdate(sql, this.get("aaa301")) > 0;
+    }
+    
+    private boolean adminDeleteByIdCoupon()throws Exception
+    {
+    	String sql="delete from ab05 where aab501=?";
+    	return this.executeUpdate(sql, this.get("aab501")) > 0;
+    }
     
     public Map<String, String> adminLogin()throws Exception
     {
-		StringBuilder sql=new StringBuilder("select * from ac04 where aac403=? and aac404=?");
+		StringBuilder sql=new StringBuilder("select aac401,aac402,aac403,aac404,aac405,aac406 from ac04 where aac403=? and aac404=?");
     	Object args[]={
     			this.get("aac403"),
     			Tools.getMd5(this.get("aac404")),
@@ -339,19 +356,17 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
 	  public List<Map<String,String>> userHistoryQuery()throws Exception
 	  {
-	  		//闁哄鏅滈敋閻㈩垼鍋呴妵鍕偨閸涘﹥銆冮梺鍝勮閸庢挳顢氬Δ鍛骇闁炽儱寮堕锟�
-	  		Object aab104=this.get("qaab104");		//闂佸摜鍠庡Λ妤咁敊瀹ュ瑙﹂柨鐕傛嫹
-	  		Object aac102=this.get("qaac102");     	//闁荤姳闄嶉崹瑙勵殽閸ヮ剙绫嶉柕澶涢檮閸╋拷
-	  		Object aac103=this.get("qaac103");     	//闂佺儵鍋撻崝鎴λ囬悽绋跨睄闁靛闄勯崺锟�
-	  		Object aac104=this.get("qaac104");     	//婵炲瓨绮庨崕銈夊汲閿燂拷
-	  		Object aac105=this.get("qaac105");     	//闁荤姳闄嶉崹瑙勵殽閸ヮ剙鐭楅柨鐕傛嫹
-	  		Object aaa202=this.get("qaaa202");     	//闂佸憡鐟辩徊浠嬪箠閿燂拷
-	  		Object aaa203=this.get("qaaa203");     	//闂佸吋瀵х划搴ㄦ焾閿燂拷
-	  		Object aaa204=this.get("qaaa204");     	//缂備礁顦粔鍓佹偖閿燂拷
-	  		Object aaa205=this.get("qaaa205");     	//闁荤姳鐒﹂崕鎶剿囬敓锟�
-	  		Object aaa206=this.get("qaaa206");     	//婵炶揪绲界粔鍫曟偪閿燂拷
-	  		
-	  		//闁诲氦顫夐惌顔剧不閻戠睍L婵炴垶鎹侀濠勭礊閿燂拷
+		  	Object aaa101=this.get("userID");
+	  		Object aab104=this.get("qaab104");		
+	  		Object aac102=this.get("qaac102");     	
+	  		Object aac103=this.get("qaac103");     	
+	  		Object aac104=this.get("qaac104");     	
+	  		Object aac105=this.get("qaac105");     	
+	  		Object aaa202=this.get("qaaa202");     	
+	  		Object aaa203=this.get("qaaa203");     	
+	  		Object aaa204=this.get("qaaa204");     	
+	  		Object aaa205=this.get("qaaa205");     	
+	  		Object aaa206=this.get("qaaa206");     		  		
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
@@ -364,9 +379,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append("   and c.aaa201=d.aaa201 and a.aaa101=d.aaa101") 
 	  				;
 	  		
-	  		//闂佸憡鐟ラ崐褰掑汲閻旂厧绀嗘俊銈呭閿熸枻鎷�
 	  		List<Object> paramList=new ArrayList<>();
-	  		//闂備緡鍋呴崝鎺旂博閹绢喖绀嗛柕鍫濇閻掍粙鏌＄仦璇插姤妞ゆ洘顨婂鍫曞灳閸欏鍋ㄩ梺鍝勫閸ㄤ即骞嗘担濮愪汗闁哄洨鍋涘锟�,闂佺懓鍢查崥瀣暜绾板尒D闂佸搫顦敓钘夊级椤愶拷
 	  		if(this.isNotNull(aac102))
 	  		{
 	  			sql.append(" and c.aac102=?");
@@ -435,7 +448,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		return tems;
 	  }
 	    
-	    private void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
+	    public void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
 	        String[] elements = tem.get(labelName).split(",");
 	        for(int i = 0; i < elements.length; i++){
 	            elements[i] = convertCodeToName(elements[i], labelName);
@@ -464,14 +477,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  
 	  public List<Map<String,String>> adminNoticeQuery()throws Exception
 	  {
-	  		//闁哄鏅滈敋閻㈩垼鍋呴妵鍕偨閸涘﹥銆冮梺鍝勮閸庢挳顢氬Δ鍛骇闁炽儱寮堕锟�
-	  		Object aac203=this.get("qaac203");		//闂佸憡鐟﹂崹鐢电博閻戣棄绫嶉柕澶涢檮閸╋拷
-	  		Object aac402=this.get("qaac402");     	//闂佸憡鐟﹂崹鐢电博闁垮顩查柛婵嗗缁憋綁鏌涘▎娆愬
-	  		Object aac202=this.get("qaac202");     	//闂佸搫绉村ú顓€�傞敓锟�
-	  		Object aac206=this.get("qaac206");     	//缂備礁顦粔鍓佹偖閿燂拷
-	  		Object aac207=this.get("qaac206");     	//婵炴潙鍚嬮敋闁告ɑ绋撻惀顏堟晸閿燂拷
-	  		
-	  		//闁诲氦顫夐惌顔剧不閻戠睍L婵炴垶鎹侀濠勭礊閿燂拷
+	  		//鏉╂ê甯い鐢告桨閺屻儴顕楅弶鈥叉
+	  		Object aac203=this.get("qaac203");		//閸欐垵绔烽弮銉︽埂
+	  		Object aac402=this.get("qaac402");     	//閸欐垵绔锋禍鍝勪紣閸欙拷
+	  		Object aac202=this.get("qaac202");     	//閺嶅洭顣�
+	  		Object aac206=this.get("qaac206");     	//缁夊秶琚�
+	  		Object aac207=this.get("qaac207");     	//娴兼ê鍘涚痪锟�
+	  		System.out.println(aac206);
+	  		//鐎规矮绠烻QL娑撹缍�
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
@@ -511,7 +524,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		}
 	  		
 	  		sql.append(" order by a.aac203");
-	  		//System.out.println(sql.toString());
+//	  		System.out.println(sql.toString());
 	  		return this.queryForList(sql.toString(), paramList.toArray());
 	  }
 	  
@@ -563,16 +576,96 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		return this.queryForList(sql.toString(), paramList.toArray());
 	  }
 	  
+	  public List<Map<String,String>> adminCouponQuery()throws Exception
+	  {
+	  		Object aab104=this.get("qaab104");		
+	  		Object aab502=this.get("qaab502");	
+	  		Object aab503=this.get("qaab503");     	
+	  		Object aab504=this.get("qaab504");     	   	
+	  		Object aab505=this.get("qaab505");   
+	  		Object aab506=this.get("qaab506"); 
+	  		
+	  		StringBuilder sql=new StringBuilder()
+	  				.append("select a.aab502,a.aab503,a.aab504,a.aab505,a.aab506,")
+	  				.append("       b.aab104,b.aab101,a.aab501")
+	  				.append("  from ab05 a,ab01 b")
+	  				.append(" where a.aaa101 is null and a.aab101=b.aab101")
+	  				;
+	  		
+	  		List<Object> paramList=new ArrayList<>();
+	  		if(this.isNotNull(aab506))
+	  		{
+	  			sql.append(" and a.aab506<=?");
+	  			paramList.add(aab506);
+	  		}
+	  		if(this.isNotNull(aab104))
+	  		{
+	  			sql.append(" and b.aab104 like ?");
+	  			paramList.add("%"+aab104+"%");
+	  		}
+	  		if(this.isNotNull(aab502))
+	  		{
+	  			sql.append(" and a.aab502=?");
+	  			paramList.add(aab502);
+	  		}
+	  		if(this.isNotNull(aab503))
+	  		{
+	  			sql.append(" and a.aab503 like ?");
+	  			paramList.add("%"+aab503+"%");
+	  		}
+	  		if(this.isNotNull(aab504))
+	  		{
+	  			sql.append(" and a.aab504=?");
+	  			paramList.add(aab504);
+	  		}
+	  		if(this.isNotNull(aab505))
+	  		{
+	  			sql.append(" and a.aab505 like ?");
+	  			paramList.add(aab505);
+	  		}
+	  		sql.append(" order by a.aab501");
+	  		//System.out.println(sql.toString());
+	  		return this.queryForList(sql.toString(), paramList.toArray());
+	  }
+	  
 	  public List<Map<String,String>> userNoticeQuery()throws Exception
 	  {
+	  		Object aaa101 = this.get("userID");
 	  		StringBuilder sql=new StringBuilder()
 	  				.append("select aac201,aac203,aac202,aac206,aac207")
 	  				.append("  from ac02")
 	  				;
 	  		
-	  		sql.append(" order by aac203,aac207 desc");
+	  		sql.append(" order by aac207 desc,aac203 desc");
 	  		//System.out.println(sql.toString());
 	  		return this.queryForList(sql.toString());
+	  }
+	  
+	  public Map<String,String> userInfoQuery()throws Exception
+	  {
+		  	Object aaa101=this.get("userID");
+	  		StringBuilder sql=new StringBuilder()
+	  				.append("select aaa101,aaa102,aaa103,aaa104,aaa105,aaa106,aaa107,aaa108,aaa110")
+	  				.append("  from aa01")
+	  				.append(" where aaa101=?")
+	  				;
+	  		
+	  		//System.out.println(sql.toString());
+	  		return this.queryForMap(sql.toString(),aaa101);
+	  }
+	  
+	  public Map<String,String> adminInfoQuery()throws Exception
+	  {
+		  	Object aac401=this.get("adminID");
+		  	System.out.println(this.get("adminID"));
+	  		StringBuilder sql=new StringBuilder()
+	  				.append("select aac401,aac402,aac403,aac404,aac405,aac406")
+	  				.append("  from ac04")
+	  				.append(" where aac401=?")
+	  				;
+	  		
+	  		//System.out.println(sql.toString());
+	  		return this.queryForMap(sql.toString(),aac401);
 	  }
 	  
 	  public List<Map<String,String>> adminBusinessQuery()throws Exception
@@ -700,7 +793,36 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;
 		    }
-		//闂佸憡顨嗗ú鎴犳閵夆晛钃熼柕澶樼厛閸ゅ嫰鏌涢悢閿嬵棞妞ゆ柨绉瑰顐︽偋閸繄銈�
+		 
+		 private boolean adminPopById()throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("update ac02")
+		    			.append("   set aac207=?")
+		    			.append(" where aac201=?")
+		    			;
+		    	Object args[]={
+		    			"1",
+		    			this.get("aac201")
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;
+		    }
+		 
+		 private boolean adminCancelById()throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("update ac02")
+		    			.append("   set aac207=?")
+		    			.append(" where aac201=?")
+		    			;
+		    	Object args[]={
+		    			"0",
+		    			this.get("aac201")
+		    	};
+		    	return this.executeUpdate(sql.toString(), args)>0;
+		    }
+		 
+		//閸楁洑绶ラ弻銉嚄閸熷棗顔嶉弫鐗堝祦
 		 public Map<String,String> findBusiPopularizeById()throws Exception
 		    {
 		    	
