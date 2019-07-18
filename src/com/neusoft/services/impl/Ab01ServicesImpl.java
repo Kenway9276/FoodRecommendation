@@ -81,16 +81,41 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	
     }
     
+    private boolean adminNoticeModify()throws Exception
+    {
+    	System.out.println(this.get("aac201"));
+    	System.out.println(this.get("aac202"));
+    	System.out.println(this.get("aac203"));
+    	System.out.println(this.get("aac204"));
+    	System.out.println(this.get("aac205"));
+    	System.out.println(this.get("aac206"));
+    	StringBuilder sql=new StringBuilder()
+    			.append("update ac02")
+    			.append("   set aac202=?,aac204=?,aac205=?,aac206=?,aac207=?")
+    			.append(" where aac201=?")
+    			;
+    	Object args[]={
+    			this.get("aac202"),
+    			this.get("aac204"),
+    			this.get("aac205"),
+    			this.get("aac206"),
+    			this.get("aac207"),
+    			this.get("aac201")
+    	};
+    	return this.executeUpdate(sql.toString(), args)>0;
+    	
+    }
+    
     private boolean userRegister()throws Exception
     {
-    	//1.缂傛牕鍟揝QL鐠囶厼褰�
+    	//1.缂傚倸鍊归悧鏇㈠疮閹绘紕L闁荤姴娴傞崢鑹般亹閿燂拷
     	StringBuilder sql=new StringBuilder()
     			.append("insert into aa01(aaa102,aaa103,aaa104,aaa105,aaa106,")
     			.append("                 aaa107,aaa108,aaa110)")
     			.append("          values(?,?,?,?,?,")
     			.append("                 ?,?,CURRENT_DATE)")
     			;
-    	//2.缂傛牕鍟撻崣鍌涙殶閺佹壆绮�
+    	//2.缂傚倸鍊归悧鏇㈠疮閹捐鐭楅柛灞剧♁濞堝爼鏌℃担鐟邦棆缂侇噯鎷�
     	Object args[]={
     			this.get("aaa102"),
        			this.get("aaa103"),
@@ -160,12 +185,12 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean addEmp()throws Exception
     {
-    	//閼惧嘲褰囪ぐ鎾冲閸涙ê浼愮紓鏍у娇
+    	//闂佸吋鍎抽崲鑼躲亹閸ヮ亗浜归柟鎯у暱椤ゅ懘鏌涘☉娅亝瀵奸幇顔剧＝闁哄诞鍐ㄢ枏
     	String aab103=Tools.getEmpNumber();
-    	//閸氭厪TO濞ｈ濮為崨妯轰紣缂傛牕褰�
+    	//闂佸憡纰嶉崢鐚匫濠电儑缍�椤曆勬叏閻愬搫宸濇俊顖濇〃缁憋絿绱撻崒娑氬ⅹ鐟滃府鎷�
     	this.put("aab103", aab103);
     	
-    	//1.缂傛牕鍟揝QL鐠囶厼褰�
+    	//1.缂傚倸鍊归悧鏇㈠疮閹绘紕L闁荤姴娴傞崢鑹般亹閿燂拷
     	StringBuilder sql=new StringBuilder()
     			.append("insert into ab01(aab102,aab103,aab104,aab105,aab106,")
     			.append("                 aab107,aab108,aab109,aab110,aab111,")
@@ -174,7 +199,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			.append("                 ?,?,?,?,?,")
     			.append("                 ?,?)")
     			;
-    	//2.缂傛牕鍟撻崣鍌涙殶閺佹壆绮�
+    	//2.缂傚倸鍊归悧鏇㈠疮閹捐鐭楅柛灞剧♁濞堝爼鏌℃担鐟邦棆缂侇噯鎷�
     	Object args[]={
     			this.get("aab102"),
     			aab103,
@@ -264,7 +289,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     public Map<String,String> findById()throws Exception
     {
-    	//1.缂傛牕鍟揝QL鐠囶厼褰�
+    	//1.缂傚倸鍊归悧鏇㈠疮閹绘紕L闁荤姴娴傞崢鑹般亹閿燂拷
     	StringBuilder sql=new StringBuilder()
     			.append("select a.aab102,a.aab103,a.aab104,a.aab105,a.aab106,")
     			.append("       a.aab107,a.aab108,a.aab109,a.aab110,a.aab111,")
@@ -272,39 +297,37 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			.append("  from ab01 a")
     			.append(" where a.aab101=?")
     			;
-    	//閹笛嗩攽閺屻儴顕�
+    	//闂佸湱鐟抽崱鈺傛杸闂佸搫琚崕鎾敋閿燂拷
     	return this.queryForMap(sql.toString(), this.get("aab101"));
     }
     public Map<String,String> findByIdNotice()throws Exception
     {
-    	//1.缂傛牕鍟揝QL鐠囶厼褰�
     	StringBuilder sql=new StringBuilder()
-    			.append("select aac202,aac203,aac204,aac205,")
+    			.append("select aac201,aac202,aac203,aac204,aac205,")
     			.append("       aac206,aac207")
     			.append("  from ac02")
     			.append(" where aac201=?")
     			;
-    	//閹笛嗩攽閺屻儴顕�
     	return this.queryForMap(sql.toString(), this.get("aac201"));
     }
     
     
       /**
-       * 娑撳秴鐣鹃弶鈥叉閺屻儴顕�
+       * 婵炴垶鎸哥粔鎾偩妤ｅ啫绾ч柍銉ュ级椤愪粙鏌＄仦璇插姤妞ゆ洩鎷�
        * @return
        * @throws Exception
        */
 	  public List<Map<String,String>> query()throws Exception
 	  {
-	  		//鏉╂ê甯い鐢告桨閺屻儴顕楅弶鈥叉
-	  		Object aab102=this.get("qaab102");     //婵挸鎮�  濡紕纭﹂弻銉嚄
-	  		Object aab103=this.get("qaab103");     //缂傛牕褰�
-	  		Object aab105=this.get("qaab105");     //閹冨焼
-	  		Object aab106=this.get("qaab106");     //濮樻垶妫�
-	  		Object baab104=this.get("baab104");    //閻㈢喐妫〣
-	  		Object eaab104=this.get("eaab104");    //閻㈢喐妫〦
+	  		//闁哄鏅滈敋閻㈩垼鍋呴妵鍕偨閸涘﹥銆冮梺鍝勮閸庢挳顢氬Δ鍛骇闁炽儱寮堕锟�
+	  		Object aab102=this.get("qaab102");     //婵犳鍠楅幐鎼佸箖閿燂拷  濠碘槅鍨界槐鏇犳兜閿曞倸钃熼柕澶樼厛閸わ拷
+	  		Object aab103=this.get("qaab103");     //缂傚倸鍊归悧鏇°亹閿燂拷
+	  		Object aab105=this.get("qaab105");     //闂佽鍎搁崘銊у姸
+	  		Object aab106=this.get("qaab106");     //濠殿喗蓱閸ㄨ泛螞閿燂拷
+	  		Object baab104=this.get("baab104");    //闂佹眹鍨婚崰鎰涢妴锟�
+	  		Object eaab104=this.get("eaab104");    //闂佹眹鍨婚崰鎰涢妴锟�
 	  		
-	  		//鐎规矮绠烻QL娑撹缍�
+	  		//闁诲氦顫夐惌顔剧不閻戠睍L婵炴垶鎹侀濠勭礊閿燂拷
 	  		StringBuilder sql=new StringBuilder()
 	  				.append("select x.aab101,x.aab102,x.aab103,x.aab104,a.fvalue cnaab105,")
 	  				.append("       b.fvalue cnaab106,x.aab108,x.aab109")
@@ -313,9 +336,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append("   and x.aab106=b.fcode and b.fname='aab106'") 
 	  				;
 	  		
-	  		//閸欏倹鏆熼崚妤勩��
+	  		//闂佸憡鐟ラ崐褰掑汲閻旂厧绀嗘俊銈呭閿熸枻鎷�
 	  		List<Object> paramList=new ArrayList<>();
-	  		//闁劒绔撮崚銈嗘焽閺屻儴顕楅弶鈥叉閺勵垰鎯佽ぐ鏇炲弳,閹峰吋甯碅ND閺夆�叉
+	  		//闂備緡鍋呴崝鎺旂博閹绢喖绀嗛柕鍫濇閻掍粙鏌＄仦璇插姤妞ゆ洘顨婂鍫曞灳閸欏鍋ㄩ梺鍝勫閸ㄤ即骞嗘担濮愪汗闁哄洨鍋涘锟�,闂佺懓鍢查崥瀣暜绾板尒D闂佸搫顦敓钘夊级椤愶拷
 	  		if(this.isNotNull(aab102))
 	  		{
 	  			sql.append(" and x.aab102 like ?");
@@ -364,20 +387,23 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		Object aaa204=this.get("qaaa204");     	
 	  		Object aaa205=this.get("qaaa205");     	
 	  		Object aaa206=this.get("qaaa206");     	
-	  		
+	  		System.out.println(this.get("userID"));
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
 	  		StringBuilder sql=new StringBuilder()
-	  				.append("select aaa102,aaa103,aab104,aac101,aac102,")
-	  				.append("       aac103,aac104,aac105,aaa202,aaa203,")
-	  				.append("       aaa204,aaa205,aaa206,aaa207")
+	  				.append("select a.aaa102,a.aaa103,b.aab104,c.aac101,c.aac102,")
+	  				.append("       c.aac103,c.aac104,c.aac105,d.aaa202,d.aaa203,")
+	  				.append("       d.aaa204,d.aaa205,d.aaa206,d.aaa207,c.aac101")
 	  				.append("  from aa01 a,ab01 b,ac01 c,aa02 d")
 	  				.append(" where a.aaa101=c.aaa101 and b.aab101=c.aab101")
 	  				.append("   and c.aaa201=d.aaa201 and a.aaa101=d.aaa101") 
+	  				.append("   and c.aaa101=? and aac106=?") 
 	  				;
 	  		
 	  		List<Object> paramList=new ArrayList<>();
+	  		paramList.add(aaa101);
+	  		paramList.add("1");
 	  		if(this.isNotNull(aac102))
 	  		{
 	  			sql.append(" and c.aac102=?");
@@ -429,7 +455,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  			paramList.add("%"+aaa206+"%");
 	  		}
 	  		
-	  		sql.append(" order by c.aac102");
+	  		sql.append(" order by c.aac102;");
 	  		//System.out.println(sql.toString());
 	  		List<Map<String, String>> tems = this.queryForList(sql.toString(), paramList.toArray());
 	  		
@@ -437,7 +463,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	            tems.get(i).put("qaaa204", tems.get(i).get("aaa204"));
 	            tems.get(i).put("qaaa202", tems.get(i).get("aaa202"));
 	            tems.get(i).put("qaaa203", tems.get(i).get("aaa203"));
-	            //获取一条偏好并把代码替换为中文
+	            //閼惧嘲褰囨稉锟介弶鈥充焊婵傝棄鑻熼幎濠佸敩閻焦娴涢幑顫礋娑擃厽鏋�
 	            parseCodeList(tems.get(i),"aaa204");
 	            parseCodeList(tems.get(i),"aaa202");
 	            parseCodeList(tems.get(i),"aaa203");
@@ -455,8 +481,8 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	    }
 
 	    /**
-	     * 获取syscode中代码对应的中文
-	     * 比如aaa203中1对应私房菜
+	     * 閼惧嘲褰噑yscode娑擃厺鍞惍浣割嚠鎼存梻娈戞稉顓熸瀮
+	     * 濮ｆ柨顩aa203娑擄拷1鐎电懓绨茬粔浣瑰煣閼匡拷
 	     * @param code
 	     * @param labelName
 	     * @return
@@ -475,14 +501,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  
 	  public List<Map<String,String>> adminNoticeQuery()throws Exception
 	  {
-	  		//鏉╂ê甯い鐢告桨閺屻儴顕楅弶鈥叉
-	  		Object aac203=this.get("qaac203");		//閸欐垵绔烽弮銉︽埂
-	  		Object aac402=this.get("qaac402");     	//閸欐垵绔锋禍鍝勪紣閸欙拷
-	  		Object aac202=this.get("qaac202");     	//閺嶅洭顣�
-	  		Object aac206=this.get("qaac206");     	//缁夊秶琚�
-	  		Object aac207=this.get("qaac207");     	//娴兼ê鍘涚痪锟�
+	  		//闁哄鏅滈敋閻㈩垼鍋呴妵鍕偨閸涘﹥銆冮梺鍝勮閸庢挳顢氬Δ鍛骇闁炽儱寮堕锟�
+	  		Object aac203=this.get("qaac203");		//闂佸憡鐟﹂崹鐢电博閻戣棄绫嶉柕澶涢檮閸╋拷
+	  		Object aac402=this.get("qaac402");     	//闂佸憡鐟﹂崹鐢电博闁垮顩查柛婵嗗缁憋綁鏌涘▎娆愬
+	  		Object aac202=this.get("qaac202");     	//闂佸搫绉村ú顓€�傞敓锟�
+	  		Object aac206=this.get("qaac206");     	//缂備礁顦粔鍓佹偖閿燂拷
+	  		Object aac207=this.get("qaac207");     	//婵炴潙鍚嬮敋闁告ɑ绋撻惀顏堟晸閿燂拷
 	  		System.out.println(aac206);
-	  		//鐎规矮绠烻QL娑撹缍�
+	  		//闁诲氦顫夐惌顔剧不閻戠睍L婵炴垶鎹侀濠勭礊閿燂拷
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
@@ -492,9 +518,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append(" where a.aac401=b.aac401")
 	  				;
 	  		
-	  		//閸欏倹鏆熼崚妤勩��
+	  		//闂佸憡鐟ラ崐褰掑汲閻旂厧绀嗘俊銈呭閿熸枻鎷�
 	  		List<Object> paramList=new ArrayList<>();
-	  		//闁劒绔撮崚銈嗘焽閺屻儴顕楅弶鈥叉閺勵垰鎯佽ぐ鏇炲弳,閹峰吋甯碅ND閺夆�叉
+	  		//闂備緡鍋呴崝鎺旂博閹绢喖绀嗛柕鍫濇閻掍粙鏌＄仦璇插姤妞ゆ洘顨婂鍫曞灳閸欏鍋ㄩ梺鍝勫閸ㄤ即骞嗘担濮愪汗闁哄洨鍋涘锟�,闂佺懓鍢查崥瀣暜绾板尒D闂佸搫顦敓钘夊级椤愶拷
 	  		if(this.isNotNull(aac203))
 	  		{
 	  			sql.append(" and a.aac203=?");
@@ -679,7 +705,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		return this.queryForList(sql.toString());
 	  }
 	  /*
-	     * 閿熸暀纭锋嫹閿熺煫浼欐嫹閿熸枻鎷峰綍
+	     * 闂佽法鍠愰弳锟界痪顓㈡敱鐎氬綊鏌ㄩ悢铏瑰彄濞村吋鐟︾�氬綊鏌ㄩ悢鍛婄伄闁瑰嘲鍢茬紞锟�
 	     * (non-Javadoc)
 	     * @see com.neusoft.services.BaseServices#busiLogin()
 	     */
@@ -701,10 +727,10 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		        return this.queryForMap(sql.toString(), args);	
 		   }
-		 //閿熸暀纭锋嫹娉ㄩ敓鏂ゆ嫹
+		 //闂佽法鍠愰弳锟界痪顓㈡敱鐎氱懓鈻旈妸鈺傛櫢闁哄倶鍊栫�氾拷
 		 private boolean busiRegister()throws Exception
 		 {
-		    //1.閿熸枻鎷峰啓SQL閿熸枻鎷烽敓锟�
+		    //1.闂佽法鍠愰弸濠氬箯瀹勬澘鏅窼QL闂佽法鍠愰弸濠氬箯閻戣姤鏅搁柨鐕傛嫹
 			 	StringBuilder sql=new StringBuilder()
 		    		.append("insert into ab01(aab102,aab103,aab104,aab105,aab106,")
 		    		.append("                 aab107,aab108,aab109,aab110,aab111,")
@@ -713,7 +739,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		   			.append("                 ?,?,?,?,?,")
 		   			.append("                 ?,?,?)")
 		   			;
-		  	//2.閿熸枻鎷峰啓閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹
+		  	//2.闂佽法鍠愰弸濠氬箯瀹勬澘鏅搁梺璺ㄥ枑閺嬪骞忛悜鑺ユ櫢闁哄倶鍊栫�氬綊鏌ㄩ悢鍛婄伄闁归鍏橀弫鎾诲棘閵堝棗顏�
 		    	Object args[]=
 		    	{
 		    		this.get("aab102"),
@@ -732,7 +758,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
-		 //閿熸暀纭锋嫹娉ㄩ敓鏂ゆ嫹閿熺殕璁规嫹閿熻緝杈炬嫹閿熸枻鎷锋伅閿熸枻鎷穉a06(閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷�)
+		 //闂佽法鍠愰弳锟界痪顓㈡敱鐎氱懓鈻旈妸鈺傛櫢闁哄倶鍊栫�氬綊鏌ㄩ悢鐑樼暦閻犱浇顫夌�氬綊鏌ㄩ悢鑽ょ獩閺夊牏鍋撶�氬綊鏌ㄩ悢鍛婄伄闁圭兘鏀辨导鍛存煥閻斿憡鐏柟椋庮煣a06(闂佽法鍠愰弸濠氬箯閻戣姤鏅搁柡鍌樺�栫�氬綊鏌ㄩ悢鍛婄伄闁瑰嚖鎷�)
 		 private boolean insertAa06()throws Exception
 		 {
 			 	StringBuilder sql=new StringBuilder()
@@ -748,7 +774,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
-		 //閿熸暀纭锋嫹娉ㄩ敓鏂ゆ嫹閿熺殕璁规嫹閿熻緝杈炬嫹閿熸枻鎷穉b04(閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷�)
+		 //闂佽法鍠愰弳锟界痪顓㈡敱鐎氱懓鈻旈妸鈺傛櫢闁哄倶鍊栫�氬綊鏌ㄩ悢鐑樼暦閻犱浇顫夌�氬綊鏌ㄩ悢鑽ょ獩閺夊牏鍋撶�氬綊鏌ㄩ悢鍛婄伄闁归顭04(闂佽法鍠愰弸濠氬箯閻戣姤鏅搁柡鍌樺�栫�氬綊鏌ㄩ悢鍛婄伄闁瑰嚖鎷�)
 		 private boolean insertAb04()throws Exception
 		 {
 			 	StringBuilder sql=new StringBuilder()
@@ -764,7 +790,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
-		 //閸熷棗顔嶆穱顔芥暭娣団剝浼�
+		 //闂佸摜鍠庡Λ妤咁敊瀹ュ棛鈹嶆い鏃囧Г閺嗩厼菐閸ワ絽澧插ù纭锋嫹
 		 private boolean busiModify()throws Exception
 		    {
 		    	StringBuilder sql=new StringBuilder()
@@ -820,7 +846,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	return this.executeUpdate(sql.toString(), args)>0;
 		    }
 		 
-		//閸楁洑绶ラ弻銉嚄閸熷棗顔嶉弫鐗堝祦
+		//闂佸憡顨嗗ú鎴犳閵夆晛钃熼柕澶樼厛閸ゅ嫰鏌涢悢閿嬵棞妞ゆ柨绉瑰顐︽偋閸繄銈�
 		 public Map<String,String> findBusiPopularizeById()throws Exception
 		    {
 		    	
@@ -831,7 +857,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			;
 		    	return this.queryForMap(sql.toString(), this.get("aab101"));
 		    }
-		 //閸熷棗顔嶉幒銊ョ畭1(aab402=0)
+		 //闂佸摜鍠庡Λ妤咁敊瀹ュ绠抽柕濞垮劤閻ｏ拷1(aab402=0)
 		 private boolean busiPopularize()throws Exception
 		 {
 			
@@ -846,7 +872,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		};
 			return this.executeUpdate(sql.toString(), args)>0;
 		 }
-		 //閸熷棗顔嶉幒銊ョ畭(aab402=1)
+		 //闂佸摜鍠庡Λ妤咁敊瀹ュ绠抽柕濞垮劤閻ｏ拷(aab402=1)
 		 private boolean busiContinuePopularize()throws Exception
 		 {
 			
@@ -861,17 +887,17 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		};
 			return this.executeUpdate(sql.toString(), args)>0;
 		 }
-		 //閸熷棗顔嶅ǎ璇插閼挎粌宕�
+		 //闂佸摜鍠庡Λ妤咁敊瀹ュ惓搴ｆ嫚閹绘帩娼遍梺鍏煎缁苯鐣烽敓锟�
 		 private boolean busiAddDish()throws Exception
 		 {
-		    //1.鐎规矮绠焥ql鐠囶厼褰�
+		    //1.闁诲氦顫夐惌顔剧不閻掝櫡l闁荤姴娴傞崢鑹般亹閿燂拷
 			 	StringBuilder sql=new StringBuilder()
 		    		.append("insert into ab02(aab101,aab202,aab207,aab203,aab204,")
 		    		.append("				  aab205,aab206)")
 		   			.append("          values(?,?,?,?,?,")
 		   			.append("                 ?,?)")
 		   			;
-		  	//2.鐎规矮绠熼弫鎵矋
+		  	//2.闁诲氦顫夐惌顔剧不閻旂厧鏋侀柟娈垮枤閻拷
 		    	Object args[]=
 		    	{
 		    		this.get("aab101"),
@@ -884,7 +910,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
-		 //闁秴宸籹yscode
+		 //闂備緡鍓欑粔鏉戭啅缁畨scode
 		 public List<Map<String,String>> getSysco()throws Exception
 		 {
 			 StringBuilder sql=new StringBuilder()
@@ -893,7 +919,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 					 ;
 			 return this.queryForList(sql.toString());
 		 }
-		 //閸熷棗顔嶉弻銉嚄閼奉亜绻侀惃鍕綅閸楋拷
+		 //闂佸摜鍠庡Λ妤咁敊瀹ュ钃熼柕澶樼厛閸ゅ嫰鏌ゆ總澶夌盎缂佽绶氶幆鍐礋椤旇偐绉撮梺鍛婎殣閹凤拷
 		 public List<Map<String,String>> busiDishMenuQuery()throws Exception
 		 {
 			 StringBuilder sql=new StringBuilder()
@@ -907,14 +933,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			        tems.get(i).put("qaab204", tems.get(i).get("aab204"));
 			        tems.get(i).put("qaab205", tems.get(i).get("aab205"));
 			        tems.get(i).put("qaab206", tems.get(i).get("aab206"));
-			        //閼惧嘲褰囨稉锟介弶鈥冲經閸涘啿鑻熼幎濠佸敩閻焦娴涢幑顫礋娑擃厽鏋�
+			        //闂佸吋鍎抽崲鑼躲亹閸ャ劎鈻旈柨鐔剁矙瀵爼鍨鹃崘鑼▔闂佸憡绋戦崯鍧楁嚐閻旂厧绠┑鐘辩閺佲晠鏌ｉ鑽ゅ妽婵炲瓨鐩獮鎴︼綖椤擄紕顦版繛鎴炴惄閸樹粙寮搁敓锟�
 			        parseBusiCodeList(tems.get(i),"aab204");
 			        parseBusiCodeList(tems.get(i),"aab205");
 			        parseBusiCodeList(tems.get(i),"aab206");
 			    }
 			    return tems;
 		 }
-		 //鐏忓棗鏅㈢�规儼褰嶉崫浣疯厬閻ㄥ嫬褰涢崨锟�,閼挎粎閮撮悽杈╃椽閸欑柉娴嗛崠鏍﹁礋閸氬秶袨
+		 //闁诲繐绻愬Λ妤呭疾閵忣澁鎷风憴鍕姸鐟滄澘绉瑰畷顐ｆ媴閻ゎ垰骞�闂佹眹鍔岀�氼剝銇愬☉銏犲窛闁跨噦鎷�,闂佸吋瀵х划搴ㄦ焾閹绢喗鍋ㄩ弶鍫氭櫇濡炰粙鏌涘▎鎴炵効婵炴潙妫濆畷鐘诲冀閿曚胶顦伴梺鍛婅壘缁夋儼鈪�
 		 private String convertBusiCodeToName(String code, String labelName) throws Exception
 		 {
 			    String sql = "select sname from syscode where sfcode='"+labelName+"' and scode = '"+code+"'";
@@ -929,7 +955,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			    }
 		 }
 		 
-		 //鐏忓棙鏆熺紒鍕厬閻ㄥ嫮绱惍浣芥祮閹诡澀璐熼崥宥囆�
+		 //闁诲繐绻愬Λ娆撳汲閻旇櫣纾奸柛鏇ㄤ海閸橆剟鏌ｉ妸銉ヮ伀缂侀硸浜幆宥嗘媴閼恒儳銈梺纭咁嚃濠拷閻犳劗鍠栧畷銉ヮ吋閸ュ棴鎷�
 		 private void parseBusiCodeList(Map<String, String> tem, String labelName)throws Exception 
 		 {
 		    String[] elements = tem.get(labelName).split(",");
@@ -939,7 +965,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    }
 		    tem.put(labelName, Tools.joinArray(elements)) ;
 		 }
-		 //閺嶈宓乤ab201閸楁洑绶ラ崚鐘绘珟閼挎粌宕�
+		 //闂佸搫绉烽～澶婄暤娑旑槆b201闂佸憡顨嗗ú鎴犳閵夆晛绀嗛柣妯肩帛閻濈喖鏌ら幐搴ｇ煀鐎规洩鎷�
 		 private boolean busiDelDishById()throws Exception
 		    {
 		    	String sql="delete from ab02 where aab201=?";
@@ -949,14 +975,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		 
 		 private boolean userAssembleApply()throws Exception
 		 {
-		    //1.缂傛牕鍟揝QL鐠囶厼褰�
+		    //1.缂傚倸鍊归悧鏇㈠疮閹绘紕L闁荤姴娴傞崢鑹般亹閿燂拷
 			 	StringBuilder sql=new StringBuilder()
 		    		.append("insert into aa05(aaa101,aab101,aaa502,aaa503,aaa504,")
 		    		.append("                 aaa505)")
 		   			.append("          values(?,?,?,?,?,")
 		   			.append("                 ?)")
 		   			;
-		  	//2.缂傛牕鍟撻崣鍌涙殶閺佹壆绮�
+		  	//2.缂傚倸鍊归悧鏇㈠疮閹捐鐭楅柛灞剧♁濞堝爼鏌℃担鐟邦棆缂侇噯鎷�
 		    	Object args[]=
 		    	{
 		    		this.get("aaa101"),
@@ -968,17 +994,17 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
-		 //閹风厧楠囬弻銉嚄
+		 //闂佸綊顥撻崢褎顨ラ崶顒�钃熼柕澶樼厛閸わ拷
 		 public List<Map<String,String>> userAssemble()throws Exception
 		  {
-		  		//鏉╂ê甯い鐢告桨閺屻儴顕楅弶鈥叉
-		  		Object aab104=this.get("qaab104");     //鎼存鎽甸崥锟� 濡紕纭﹂弻銉嚄
-		  		Object aaa103=this.get("qaaa103");     //閹风厧楠囬崣鎴ｆ崳娴滐拷 濡紕纭﹂弻銉嚄
-		  		Object aaa504=this.get("qaaa504");     //閹风厧楠囨禍鐑樻殶
-		  		Object aaa502=this.get("qaaa502");     //閹风厧楠囧锟芥慨瀣闂傦拷
-		  		Object aaa503=this.get("qaaa503");     //閹风厧楠囩紒鎾存将閺冨爼妫�
+		  		//闁哄鏅滈敋閻㈩垼鍋呴妵鍕偨閸涘﹥銆冮梺鍝勮閸庢挳顢氬Δ鍛骇闁炽儱寮堕锟�
+		  		Object aab104=this.get("qaab104");     //闁圭厧鐡ㄩ〃濠囧箺閻㈢瑙﹂柨鐕傛嫹 濠碘槅鍨界槐鏇犳兜閿曞倸钃熼柕澶樼厛閸わ拷
+		  		Object aaa103=this.get("qaaa103");     //闂佸綊顥撻崢褎顨ラ崶顒�鐭楅柟杈剧稻瀹曞啿霉濠婃劖瀚� 濠碘槅鍨界槐鏇犳兜閿曞倸钃熼柕澶樼厛閸わ拷
+		  		Object aaa504=this.get("qaaa504");     //闂佸綊顥撻崢褎顨ラ崶銊ь洸闁绘垶蓱濞堬拷
+		  		Object aaa502=this.get("qaaa502");     //闂佸綊顥撻崢褎顨ラ崶褜鍤曢柨鐔诲Г閹便劎锟斤綆鍋呴ˇ褔姊婚崒锔藉
+		  		Object aaa503=this.get("qaaa503");     //闂佸綊顥撻崢褎顨ラ崶鈺冪＜闁规儳鐡ㄧ亸鍡涙煛閸愩劎鍩ｆ俊顐嫹
 		  		
-		  		//鐎规矮绠烻QL娑撹缍�
+		  		//闁诲氦顫夐惌顔剧不閻戠睍L婵炴垶鎹侀濠勭礊閿燂拷
 		  		StringBuilder sql=new StringBuilder()
 		  				.append("select	a.aab101,a.aab104,a.aab105,b.aaa101,b.aab101,")
 		  				.append("		b.aaa502,b.aaa503,b.aaa504,b.aaa505,c.aaa101,")
@@ -987,9 +1013,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  				.append(" where	a.aab101=b.aab101 and c.aaa101=b.aaa101")
 		  				;
 		  		
-		  		//閸欏倹鏆熼崚妤勩��
+		  		//闂佸憡鐟ラ崐褰掑汲閻旂厧绀嗘俊銈呭閿熸枻鎷�
 		  		List<Object> paramList=new ArrayList<>();
-		  		//闁劒绔撮崚銈嗘焽閺屻儴顕楅弶鈥叉閺勵垰鎯佽ぐ鏇炲弳,閹峰吋甯碅ND閺夆�叉
+		  		//闂備緡鍋呴崝鎺旂博閹绢喖绀嗛柕鍫濇閻掍粙鏌＄仦璇插姤妞ゆ洘顨婂鍫曞灳閸欏鍋ㄩ梺鍝勫閸ㄤ即骞嗘担濮愪汗闁哄洨鍋涘锟�,闂佺懓鍢查崥瀣暜绾板尒D闂佸搫顦敓钘夊级椤愶拷
 		  		if(this.isNotNull(aab104))
 		  		{
 		  			sql.append(" and a.aab104 like ?");
@@ -1022,7 +1048,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		 
 		 
 		 
-		 //閸熷棗顔嶉懣婊冨礋閺夆�叉閺屻儴顕�
+		 //闂佸摜鍠庡Λ妤咁敊瀹ュ鍤曟繝濠傚暙缁�瀣煛婢跺棴鎷烽崣澶樺仺闂佸搫琚崕鎾敋閿燂拷
 		 public List<Map<String,String>> busiQuery()throws Exception
 		  {
 		  		//
@@ -1073,14 +1099,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				        tems.get(i).put("qaab204", tems.get(i).get("aab204"));
 				        tems.get(i).put("qaab205", tems.get(i).get("aab205"));
 				        tems.get(i).put("qaab206", tems.get(i).get("aab206"));
-				        //获取一条口味并把代码替换为中文
+				        //閼惧嘲褰囨稉锟介弶鈥冲經閸涘啿鑻熼幎濠佸敩閻焦娴涢幑顫礋娑擃厽鏋�
 				        parseBusiCodeList(tems.get(i),"aab204");
 				        parseBusiCodeList(tems.get(i),"aab205");
 				        parseBusiCodeList(tems.get(i),"aab206");
 				    }
 				    return tems;
 		  }
-		 //商家查看订座信息(未处理)
+		 //閸熷棗顔嶉弻銉ф箙鐠併垹楠囨穱鈩冧紖(閺堫亜顦╅悶锟�)
 		 public List<Map<String,String>> busiManageReservation()throws Exception
 		    {
 		    	StringBuilder sql=new StringBuilder()
@@ -1099,7 +1125,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			    	};
 		    	return this.queryForList(sql.toString(), args);
 		    }
-		 //商家查看订座信息
+		 //閸熷棗顔嶉弻銉ф箙鐠併垹楠囨穱鈩冧紖
 		 public List<Map<String,String>> busiReservation()throws Exception
 		    {
 		    	StringBuilder sql=new StringBuilder()
@@ -1118,7 +1144,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			    	};
 		    	return this.queryForList(sql.toString(), args);
 		    }
-		 //商家通过订座信息
+		 //閸熷棗顔嶉柅姘崇箖鐠併垹楠囨穱鈩冧紖
 		 private boolean busiAccessReservation()throws Exception
 		 {
 			
@@ -1133,7 +1159,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		};
 			return this.executeUpdate(sql.toString(), args)>0;
 		 }
-		//商家拒绝订座信息
+		//閸熷棗顔嶉幏鎺旂卜鐠併垹楠囨穱鈩冧紖
 		 private boolean busiRefuseReservation()throws Exception
 		 {
 			
