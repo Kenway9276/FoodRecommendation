@@ -108,11 +108,12 @@ public class BaseServlet extends HttpServlet
          }
 
 		if(toPath.equals("ajax")){
-			//String data = (String)request.getAttribute("data");
-			//String tem_data = "{\"data\":" + data + "}";
-			//response.getWriter().append(data);
 			response.setContentType("text/html;charset=GBK");
-			response.getWriter().append("{\"success\":true, \"msg\":\"ÄãºÃÄãºÃÄãºÃ\"}");
+			String data = (String)request.getAttribute("data");
+			//String tem_data = "{\"data\":" + data + "}";
+			response.getWriter().append(data);
+
+
 		}
 		else {
 			request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);

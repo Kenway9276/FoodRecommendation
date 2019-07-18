@@ -1,17 +1,17 @@
 $(function() {
     //点击帖子标题获取帖子内容
-    $("#view-more").click(function() {
-        var hidden_title = $("#hidden-title")
-        var title = hidden_title.val()
+    $("#book-btn").click(function() {
+        var shop_id = $("#shop_id")
+        var aab101 = shop_id.val()
+        var form = $("#myform")
+        console.log(form.serializeArray())
         $.ajax({
             type:"post",
-            url:"bBSBrowseSingle.html?aaa301="+ title,
-            data:{},
-            dataType:"json",//返回的
+            url:"reserveAdd.html?aab101="+ aab101,
+            data:form.serializeArray(),
             scriptCharset:"utf-8",
             success:function(data) {
-                alert(data)
-                $("#tem-data").html(data[0].aaa301)
+                alert("提交成功")
             },
             error:function(jqXHR,textStatus,errorThrown,data) {
                 console.log(data)

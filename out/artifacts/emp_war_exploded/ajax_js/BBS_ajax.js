@@ -10,8 +10,8 @@ $(function() {
             dataType:"json",//·µ»ØµÄ
             scriptCharset:"utf-8",
             success:function(data) {
-                alert(data.msg)
-                $("#tem-data").html(data.msg)
+                alert(data)
+                $("#tem-data").html(data[0].aaa301)
             },
             error:function(jqXHR,textStatus,errorThrown,data) {
                 console.log(data)

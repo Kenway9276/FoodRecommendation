@@ -12,6 +12,7 @@
     <meta name="author" content="Colorlib">
     <meta name="description" content="#">
     <meta name="keywords" content="#">
+    <link rel="stylesheet" type="text/css" href="<%=path%>/css/xzs_jquery.datetimepicker.css"/>
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
@@ -114,6 +115,26 @@
 	  	vform.submit();
 	}
 	
+	function onShowReserveTable()
+    {
+		//点击弹出预定表单
+		document.getElementById("reserveDiv").style="display:block";
+    }
+	
+	function onCloseReserveTable()
+    {
+		//点击收起预定表单
+		document.getElementById("reserveDiv").style="display:none";
+    }
+	
+	function onSubmitReserveTable()
+	{
+		//提交预定表单
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/ReserveAdd.html";
+	  	vform.submit();
+	}
+	
 	
 
 	
@@ -123,12 +144,12 @@
 
 <body>
 <form id="vform">
-	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input  type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
 </form>
 <form id="myform" method="post" >	
-	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input id="shop_id" type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
 
@@ -256,7 +277,7 @@
                         <c:when test="${ins.aab110=='1' }"> 
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="#" class="btn btn-danger">订座</a>
+                                <a href="javascript:void(0)" onclick="onShowReserveTable()" class="btn btn-danger">订座</a>
                             </div>
                         </div>
                         </c:when>
@@ -283,7 +304,27 @@
                                 <a href="#" id="markbtn" onclick="onDelMark('${ins.aab101}')" class="btn btn-danger">取消收藏</a>
                             </div>
                         </div>
-						</c:if>                   
+						</c:if> 
+						
+						
+						<div id="reserveDiv" style="display:none">
+						<br>
+						<br>
+						<span>预定时间</span>
+						<span><input type="text" name="aac103" value="" id="datetimepicker_mask"/></span>
+						<span>用餐人数</span>
+						<span><input type="number" name="aac104" min="1" max="15" /></span>
+						
+						<input type="hidden" name="aaa201" value='65'>						 
+						<br>
+						<br>
+						<button  type="button" id="dell" name="next" class="btn btn-outline-danger" 
+						onclick="onCloseReserveTable()" >取消</button>
+						<!--<button  type="button" id="book-btn" name="next" class="btn btn-outline-danger"
+						onclick="onSubmitReserveTable()">提交</button>-->
+                            <button  type="button" id="book-btn" name="next" class="btn btn-outline-danger">提交</button>
+						</div>
+
                         
                         
                     </div>
@@ -456,7 +497,7 @@
                     <div class="booking-checkbox_wrap mt-4">
                     	<c:choose> 
                         <c:when test="${rows!=null }">
-                        <h5><a>${ins.aab114 }</a><a>条点评</a></a></h5>
+                        <h5><a>${ins.aab114 }</a><a>条点评</a></h5>
                         <hr>
                         </c:when>
                         <c:otherwise>
@@ -692,6 +733,13 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="<%=path%>/js/xzs03_jquery.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/xzs03_jquery.datetimepicker.js"></script>
+	<script type="text/javascript">
+	$('#datetimepicker_mask').datetimepicker({
+	mask:'9999/19/39 29:59'
+	});
+	</script>
     <script src=" <%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
     <script src=" <%=path%>/js/xzs_popper.min.js"></script>
     <script src=" <%=path%>/js/xzs_bootstrap.min.js"></script>
@@ -733,6 +781,9 @@
             });
         }
     </script>
+
+    <!-- ==== ajax ==== -->
+    <script src="ajax_js/shop_detail_ajax.js"></script>
 </form>
 </body>
 

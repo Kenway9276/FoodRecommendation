@@ -4,6 +4,6 @@ public class BBSBrowseSingleServlet extends BBSControllerSupport {
     @Override
     public String execute() throws Exception {
         savePageData("rows", "queryForSingle");
-        return "ajax";
+        return "single";
     }
 }

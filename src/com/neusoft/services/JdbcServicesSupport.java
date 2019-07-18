@@ -1,12 +1,10 @@
 package com.neusoft.services;
 
+import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.neusoft.system.db.DBUtils;
 import com.neusoft.system.tools.Tools;
@@ -73,6 +71,14 @@ public abstract class JdbcServicesSupport  implements BaseServices
      */
     protected final Object get(String key)
     {
+    	Object res = this.dto.get(key);
+    	if(res == null){
+    		return null;
+		}
+    	if(res.getClass().isArray()){
+    		Object[] res2 = (Object[]) res;
+    		return res2[0];
+		}
     	return this.dto.get(key);
     }
     /**

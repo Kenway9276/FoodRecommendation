@@ -85,6 +85,11 @@
         <ul class="nav">
             <li>分享你的故事</li>
         </ul>
+        <ul class="nav">
+            <li><a href="#">返回首页</a></li>
+            <li><a href="post.jsp">发布帖子</a></li>
+            <li><a href="bBSBrowseUser.html">查看我发布的帖子</a></li>
+        </ul>
     </div>
 </div>
 <!-- End of Page title -->
@@ -125,7 +130,12 @@
             </div>
             <!-- End of Post -->
         </c:forEach>
-
+        <div class="post-pagination d-flex justify-content-center">
+            <span class="current">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fa fa-angle-right"></i></a>
+        </div>
     </div>
 
 </div>
@@ -140,8 +150,6 @@
 
 <!-- JS Files -->
 
-<!-- ==== ajax ==== -->
-<script src="ajax_js/BBS_ajax.js"></script>
 
 <!-- ==== JQuery 1.12.1 js file ==== -->
 <script src="dw_assets/js/jquery-1.12.1.min.js"></script>
@@ -167,7 +175,6 @@
     function onSelect(aaa301) {
         var form = document.getElementById("tem");
         form.action = "<%=path%>/bBSBrowseSingle.html?aaa301=" + aaa301;
-        alert('aaaaa');
         form.submit();
 
     }
@@ -189,6 +196,5 @@
 
 </script>
 
-<p id="tem-data"></p>
 </body>
 </html>
