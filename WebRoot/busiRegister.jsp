@@ -19,6 +19,29 @@
 	<!--主要样式-->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/nevigation_style.css">
+	
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		function check_username(val)
+		{
+			$.ajax({  
+     		  type: "POST",      
+      		  url: "check", //看下面xml的配置     
+      		  data: "aab102="+val,   //形成一对key-value，提交对象可以通过request.getParameter("username");获得val值
+       		 success: function(data){  //提交成功后调用的方法
+      		  if(data=="false"){//后台返回表示重名
+        	$("#span").html("X");
+      		  }
+      		  else if(data=="true"){
+        			$("#span").html("√");
+  
+       		 }   
+       		 }
+	  		  //error://提交失败将调用的方法
+     		   });  
+		}
+</script>
+	
 </head>
 
 <body>

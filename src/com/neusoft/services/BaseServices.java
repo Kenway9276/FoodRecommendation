@@ -10,7 +10,7 @@ public interface BaseServices
      void setMapDto(Map<String,Object> dto);
      
      /**
-      * 接口的默认实现
+      * 锟接口碉拷默锟斤拷实锟斤拷
       * @return
       * @throws Exception
       */
@@ -75,7 +75,7 @@ public interface BaseServices
     
     default boolean busiPopularize(String aab403,String aab404)throws Exception
     {
-   	 return (Boolean) null;
+   	 return true;
     }
     
     default List<Map<String,String>> busiDishMenuQuery()throws Exception
@@ -95,10 +95,29 @@ public interface BaseServices
     {
     	return null;
     }
-
     default List<Map<String,String>> adminForumQuery()throws Exception
     {
    	 return null;
+    }
+    default Map<String,String> busiFindDishById()throws Exception
+    {
+   	 return null;
+    }
+    default Map<String,String> busiFindPopularizeById()throws Exception
+    {
+    	return null;
+    }
+    default Map<String, String> busiCheckName(String aab102)throws Exception
+    {
+    	return null;
+    }
+    default Map<String,String> busiToCertificatePage()throws Exception
+    {
+    	return null;
+    }
+    default List<Map<String,String>> saveBusiDishPicAddress()throws Exception
+    {
+    	return null;
     }
     
     default List<Map<String,String>> adminCouponQuery()throws Exception

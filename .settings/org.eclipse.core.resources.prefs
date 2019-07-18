@@ -1,7 +1,16 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=b53ace8c2531bad3df3b9bbfcd119198b4e1caf5
+>>>>>>>=0c9da9439d3bd171358aee19d42364ecb250eff4
 eclipse.preferences.version=1
 encoding//WebRoot/css/gyn.css=UTF-8
 encoding//WebRoot/navigate.jsp=UTF-8
 encoding//WebRoot/shopdetail.jsp=GBK
+encoding//src/com/neusoft/services/JdbcServicesSupport.java=GBK
+encoding//src/com/neusoft/services/impl/Ab01ServicesImpl.java=UTF-8
+encoding//src/com/neusoft/services/impl/ShopinfoServicesImpl.java=GBK
+encoding//src/com/neusoft/services/impl/UserStoryServiceImpl.java=GBK
+encoding//src/com/neusoft/system/tools/Tools.java=GBK
+encoding//src/com/neusoft/web/impl/AdminReleaseNoticeServlet.java=GBK
+encoding//src/com/neusoft/web/impl/ShopinfoFindByIdServlet.java=GBK
+encoding//src/com/neusoft/web/support/BaseServlet.java=GBK
+encoding//src/com/neusoft/web/support/ControllerSupport.java=GBK

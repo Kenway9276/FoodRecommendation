@@ -2,7 +2,6 @@ package com.neusoft.services.impl;
 
 import com.neusoft.services.JdbcServicesSupport;
 import com.neusoft.system.tools.Tools;
-import sun.security.krb5.internal.crypto.Aes128;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -11,5 +11,4 @@ public class BusiAddDishServlet extends BusiControllerSupport
 		this.saveBusiMenuInstance();
 		return "busiDishQuery";
 	}
-
 }
