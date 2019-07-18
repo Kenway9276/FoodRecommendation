@@ -358,7 +358,47 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("resMsg", "无待处理的订座信息!");
 		}
 	}
-	
+	//通过菜品流水号获取获取单例菜品信息
+	protected final void busiFindDishById()throws Exception
+	{
+		Map<String,String> ins=this.services.busiFindDishById();
+		if(ins!=null)
+		{
+			this.saveAttribute("dins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "查询失败!");
+		}
+	}
+	//获取商家资质证明信息图
+	protected final void busiToCertificatePage()throws Exception
+	{
+		Map<String,String> ins=this.services.busiToCertificatePage();
+		if(ins!=null)
+		{
+			this.saveAttribute("ins",  ins);
+		}
+		else
+		{
+			this.saveAttribute("msg", "查询失败!");
+		}
+	}
+	//ajax存储用户名是否重复信息
+	protected final boolean busiCheckName(String aab102)throws Exception
+	{	
+		boolean a;
+		Map<String, String> tmp=this.services.busiCheckName(aab102);
+		if(tmp.isEmpty())
+		{
+			a = false;
+		}
+		else
+		{
+			a = true;
+		}
+		return a;
+	}
 	/**
 	 * 通过反射执行更新方法
 	 * @param methodName

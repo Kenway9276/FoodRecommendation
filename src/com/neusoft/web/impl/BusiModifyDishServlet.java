@@ -1,14 +1,15 @@
 package com.neusoft.web.impl;
 
-public class BusiAddDishServlet extends BusiControllerSupport 
+public class BusiModifyDishServlet extends BusiControllerSupport 
 {
 
 	@Override
 	public String execute() throws Exception 
 	{
-		update("busiAddDish", "添加");
+		this.update("busiModfyDish", "修改");
 		this.saveSyscodeInstance();
 		this.saveBusiMenuInstance();
 		return "busiDishQuery";
 	}
+
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface BaseController 
 {
-	//ÎªÒµÎñ¿ØÖÆÆ÷Ìî³äDTO
+	//ÎªÒµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DTO
 	void setMapDto(Map<String,Object> dto);
 	
     String execute()throws Exception;

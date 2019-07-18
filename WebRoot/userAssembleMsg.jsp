@@ -5,7 +5,7 @@
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-<title>ฦดื๙ษ๊ว๋</title>
+<title>ฦดื๙ฯ๊ว้</title>
 </head>
 <body>
 ${ins}

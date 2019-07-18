@@ -21,7 +21,7 @@ ${rows }
         µêÃû£º${row.aab104 }<br>
         ²ËÃû£º${row.aab207 }<br>
         <input type="hidden" name="aab104"  value="${row.aab104 }">
-        <input type="hidden" name="aab101" value="${row.aab101 }">
+        <input type="hidden" name="aab101"  value="${row.aab101 }">
         <input type="hidden" name="aab207"  value="${row.aab207 }">
         <input type="hidden" name="aaa202"  value="${row.aaa202 }">
         <input type="hidden" name="aaa203"  value="${row.aaa203 }">
