@@ -9,8 +9,8 @@ public class ReserveServicesImpl extends JdbcServicesSupport
     {
     	//Ìá½»¶©×ùÉêÇë
 		StringBuilder sql=new StringBuilder()
-    			.append("insert into ac01(aaa101,aab101,aac102,aac103,aac104,aac106")
-    			.append("          values(?,?,?,?,?,?");
+    			.append("insert into ac01(aaa101,aab101,aac102,aac103,aac104,aac106,aaa201)")
+    			.append("          values(?,?,?,?,?,?,?)");
 		Object args[]=
 			{
 					this.get("aaa101"),
@@ -18,7 +18,8 @@ public class ReserveServicesImpl extends JdbcServicesSupport
 					Tools.getDateTime(),
 					this.get("aac103"),
 					this.get("aac104"),
-					'0'				
+					0,
+					this.get("aaa201")
 			};
         return this.executeUpdate(sql.toString(), args)>0;	
     }
