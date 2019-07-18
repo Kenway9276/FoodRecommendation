@@ -17,7 +17,7 @@
 		<div class="flexItem show">
 			<ul>
 				<li><a href="${empty sessionScope.userID?'userLogin.jsp':'userInfo.html'}">${empty sessionScope.userID?'登录':'个人信息'}</a></li>
-				<li><a href="#">搜索</a></li>
+				<li><a href="shopsearch.jsp">搜索</a></li>
 				<li><a href="preferenceIndex.html">推荐</a></li>
 				<li><a href="#">收藏</a></li>
 				<li><a href="bBSBrowse.html">论坛</a></li>
@@ -26,6 +26,7 @@
 				<li><a href="couponList.html">优惠券</a></li>
 				<li><a href="#">消息</a></li>
 				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
+				<li><a href="userStory.html">关于你</a></li>
 			</ul>
 		</div>
 	</div>

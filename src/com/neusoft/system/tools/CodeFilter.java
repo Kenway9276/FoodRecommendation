@@ -17,6 +17,7 @@ public class CodeFilter extends HttpServlet implements Filter
 	{
 		
 		request.setCharacterEncoding("GBK");
+
 		chain.doFilter(request, response);
 	}
 

@@ -4,8 +4,8 @@ public class BusiModifyServlet extends BusiControllerSupport {
 
 	@Override
 	public String execute() throws Exception {
-		this.update("busiModify", "ÐÞ¸Ä");
+		this.update("busiModify", "ä¿®æ”¹");
+		this.saveBusiLoginInstance();
 		return "busiModify";
 	}
-
 }

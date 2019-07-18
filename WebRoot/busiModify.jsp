@@ -26,22 +26,18 @@
 	<div class="container-login100">
 		<div class="wrap-login100">
 			<div class="login100-pic js-tilt" data-tilt>
-				<img src="images/img-01.png" alt="IMG">
+				<img src="${ins.aab113}" alt="IMG">
 			</div>
 
 			<form class="login100-form validate-form" >
 				<span class="login100-form-title">
 					商家信息
 				</span>
-				<input type="hidden" name="aab101" value="2">
 				<div class="wrap-input100 validate-input">
-					<img class="input100" name="aab113" src="${ins.aab113}" >
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
+					<input class="login100-form-btn" type="submit" name="next" value="修改用户头像"
+					 formaction="<%=path%>/busiToAddProfilPicturePage.html" formnovalidate="formnovalidate">
 				</div>
-				
+				<input type="hidden" name="aab101" value="2">
 				<div class="wrap-input100 validate-input">
 					<input type="text" class="input100" name="aab102" required="required" readonly="readonly" value="${ins.aab102}" />
 					<span class="focus-input100"></span>
@@ -83,19 +79,13 @@
 				</div>
 				
 				<div class="wrap-input100 validate-input">
-					<img class="input100" src="${ins.aab108 }" >
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
+					<input class="login100-form-btn" type="submit" name="next" value="资质证明"
+					 formaction="<%=path%>/busiToCertificatePage.html" formnovalidate="formnovalidate">
 				</div>
 				
 				<div class="wrap-input100 validate-input">
-					<img class="input100" src="${ins.aab109 }" >
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
+					<input class="login100-form-btn" type="submit" name="next" value="环境图"
+					 formaction="<%=path%>/busiToEnvironmentPage.html" formnovalidate="formnovalidate">
 				</div>
 				
 				<div class="wrap-input100 validate-input">
@@ -107,32 +97,21 @@
 				</div>
 				
 				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab112" required="required" value="${ins.aab12}" />
+					<input type="text" class="input100" name="aab112" required="required" value="${ins.aab112}" />
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<i class="fa fa-lock" aria-hidden="true"></i>
 					</span>
 				</div>
 				
-				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab112" required="required" value="${ins.aab12}" />
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab112" required="required" value="${ins.aab12}" />
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
-				</div>
 				
 				<div class="container-login100-form-btn">
 					<input class="login100-form-btn" type="submit" name="next" value="修改"
 					 formaction="<%=path%>/busiModify.html">
+				</div>
+				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="推广"
+					 formaction="<%=path%>/busiToPopularize.html">
 				</div>
 				<div class="container-login100-form-btn">
 					<input class="login100-form-btn" type="submit" name="next" value="管理菜单"

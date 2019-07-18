@@ -76,5 +76,6 @@
     <input type="submit" value="发布优惠券" formaction="<%=path%>/couponUserList.html">
 
 </form>
+<p id="tem-data"></p>
 </body>
 </html>
