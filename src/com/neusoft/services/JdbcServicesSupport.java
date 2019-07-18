@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.neusoft.system.db.DBUtils;
+import com.neusoft.system.tools.Tools;
 
 /**
  *抽象类:可以包含抽象方法的类 
@@ -579,6 +580,39 @@ public abstract class JdbcServicesSupport  implements BaseServices
 		finally
 		{
 			DBUtils.close(pstm);
+		}
+	}
+
+	/**
+	 * 把形如:"1，2，3"解析成"川菜，粤菜"这样的类型
+	 * @param tem   dto
+	 * @param labelName 列名如aaa203
+	 * @throws Exception
+	 */
+	public void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
+		String[] elements = tem.get(labelName).split(",");
+		for(int i = 0; i < elements.length; i++){
+			elements[i] = convertCodeToName(elements[i], labelName);
+		}
+		tem.put(labelName, Tools.joinArray(elements)) ;
+	}
+
+	/**
+	 * 获取syscode中代码对应的中文
+	 * 比如aaa203中1对应私房菜
+	 * @param code
+	 * @param labelName
+	 * @return
+	 * @throws Exception
+	 */
+	private String convertCodeToName(String code, String labelName) throws Exception{
+		String sql = "select sname from syscode where sfcode='"+labelName+"' and scode = '"+code+"'";
+		List<Map<String,String>> list =  this.queryForList(sql);
+		if(list.size() > 0){
+			return list.get(0).get("sname");
+		}
+		else {
+			return "";
 		}
 	}
 }

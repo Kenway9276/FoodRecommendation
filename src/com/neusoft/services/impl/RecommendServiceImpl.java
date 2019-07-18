@@ -20,6 +20,8 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
      */
     @Override
     public List<Map<String, String>> query() throws Exception {
+
+
         List<Map<String,String>> res = null;
 
         // 优先推荐没有被选择过的
@@ -32,6 +34,10 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
         Object aaa204 = this.get("aaa204");
         Object aaa202 = this.get("aaa202");
         Object aaa101 = this.get("userID");
+
+        // 根据口味获取口味流水号，如果为空则插入到口味列表
+        getPreferenceID(aaa203, aaa204, aaa202);
+
         if(aaa203 instanceof String[]){
             aaa203 = ((String[])aaa203)[0];
         }
@@ -103,7 +109,22 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 tem.put("aaa204", (String)aaa204);
             }
         }
+        res.get(0).put("aaa202",(String) aaa202);
+        res.get(0).put("aaa203",(String) aaa203);
+        res.get(0).put("aaa204",(String) aaa204);
         return res;
+    }
+
+    private void getPreferenceID(Object aaa203, Object aaa204, Object aaa202) throws Exception{
+        // todo 获取当前城市
+        Object aaa206 = "%天津%";
+        Object aaa101 = this.get("userID");
+        String sql = "select aaa201 from aa02 where aaa203 = ? and aaa204 = ? and aaa202 = ?";
+        List list =  this.queryForList(sql, aaa203, aaa204, aaa202);
+        if(list.size() == 0){
+            sql = "insert into aa02 (aaa101,aaa202,aaa203,aaa204,aaa206) values (?,?,?,?,?)";
+            this.executeUpdate(sql, aaa101,aaa202,aaa203,aaa204,aaa206);
+        }
     }
 
     private List<Map<String, String>> queryForNew() {

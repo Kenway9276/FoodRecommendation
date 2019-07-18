@@ -445,7 +445,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		return tems;
 	  }
 	    
-	    private void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
+	    public void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
 	        String[] elements = tem.get(labelName).split(",");
 	        for(int i = 0; i < elements.length; i++){
 	            elements[i] = convertCodeToName(elements[i], labelName);

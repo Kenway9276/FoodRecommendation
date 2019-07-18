@@ -155,11 +155,7 @@
                     
                 </div>
                 <div class="col-md-5 responsive-wrap map-wrap">
-                    <div class="map-fix">
-                        <!-- data-toggle="affix" -->
-                        <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
-                        <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="14"></div>
-                    </div>
+
                 </div>
             </div>
         </div>

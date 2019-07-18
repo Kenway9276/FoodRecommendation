@@ -25,6 +25,7 @@
 				<li><a href="userNotice.html">公告</a></li>
 				<li><a href="couponList.html">优惠券</a></li>
 				<li><a href="#">消息</a></li>
+				<li><a href="userStory.html">关于你</a></li>
 			</ul>
 		</div>
 	</div>
