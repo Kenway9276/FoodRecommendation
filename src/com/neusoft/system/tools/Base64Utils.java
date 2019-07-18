@@ -2,8 +2,9 @@ package com.neusoft.system.tools;
 
 import java.io.*;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import Decoder.BASE64Decoder;
+import Decoder.BASE64Encoder;
+
 
 
 public class Base64Utils {
@@ -77,6 +78,7 @@ public class Base64Utils {
         }
     }
 
+
     public static void main(String[] args) throws IOException {
         //String imageStr = Base64Utils.GetImageStr("C:\\Users\\P7XXTMX-G\\Desktop\\2bec78b896dc6cae9d95dfd05f09d53e.jpg");
         String imageStr = getStr();
@@ -108,6 +110,7 @@ public class Base64Utils {
         }
         return res.toString();
     }
+
 
 
 }

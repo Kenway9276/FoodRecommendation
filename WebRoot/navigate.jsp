@@ -12,7 +12,7 @@
 <div class="c-nav">
 	<div class="container navFlex">
 		<div class="flexItem">
-			吃
+		吃
 		</div>
 		<div class="flexItem show">
 			<ul>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 
 import com.neusoft.services.JdbcServicesSupport;
+import com.neusoft.system.tools.BBSTools;
 import com.neusoft.system.tools.Tools;
 import com.neusoft.web.impl.UserLoginServlet;
 
@@ -105,18 +106,18 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     private boolean adminReleaseNotice()throws Exception
     {
     	Object aac204 ="upload/" + this.get("imgPath");
-    	//1.缂栧啓SQL璇彞
+        String text = (String) this.get("aac205");
+        text = BBSTools.parseBBSText(text, this.get("filePath") + "\\");
     	StringBuilder sql=new StringBuilder()
     			.append("insert into ac02(aac202,aac203,aac204,aac205,aac206,")
     			.append("                 aac207,aac401)")
     			.append("          values(?,CURRENT_TIMESTAMP,?,?,?,")
     			.append("                 ?,?)")
     			;
-    	//2.缂傛牕鍟撻崣鍌涙殶閺佹壆绮�
     	Object args[]={
     			this.get("aac202"),
     			aac204,
-    			this.get("aac205"),
+    			text,
     			this.get("aac206"),
     			this.get("aac207"),
     			this.get("aac401"),
@@ -642,7 +643,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  {
 		  	Object aaa101=this.get("userID");
 	  		StringBuilder sql=new StringBuilder()
-	  				.append("select aaa102,aaa103,aaa104,aaa105,aaa106,aaa107,aaa108,aaa110")
+	  				.append("select aaa101,aaa102,aaa103,aaa104,aaa105,aaa106,aaa107,aaa108,aaa110")
 	  				.append("  from aa01")
 	  				.append(" where aaa101=?")
 	  				;
@@ -656,7 +657,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  	Object aac401=this.get("adminID");
 		  	System.out.println(this.get("adminID"));
 	  		StringBuilder sql=new StringBuilder()
-	  				.append("select aac402,aac403,aac404,aac405,aac406")
+	  				.append("select aac401,aac402,aac403,aac404,aac405,aac406")
 	  				.append("  from ac04")
 	  				.append(" where aac401=?")
 	  				;
