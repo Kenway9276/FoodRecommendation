@@ -1,5 +1,6 @@
 package com.neusoft.web.support;
 
+import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -97,6 +98,7 @@ public class BaseServlet extends HttpServlet
 				request.getSession().setAttribute("userID", null);
 				request.getSession().setAttribute("busiID", null);
 			}
+
          }	
          catch(Exception ex)
          {
@@ -104,7 +106,20 @@ public class BaseServlet extends HttpServlet
         	 toPath="Error";
         	 ex.printStackTrace();
          }
-		request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
+
+		if(toPath.equals("ajax")){
+			//String data = (String)request.getAttribute("data");
+			//String tem_data = "{\"data\":" + data + "}";
+			//response.getWriter().append(data);
+			response.setContentType("text/html;charset=GBK");
+			response.getWriter().append("{\"success\":true, \"msg\":\"你好你好你好\"}");
+		}
+		else {
+			request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
+		}
+
+
+
 	}
 
 
@@ -174,6 +189,9 @@ public class BaseServlet extends HttpServlet
 		{
 			//3.将map的每个键值对,转换成request的属性
 			request.setAttribute(entry.getKey(), entry.getValue());
+			Gson gson = new Gson();
+			String json =  gson.toJson(entry.getValue());
+			request.setAttribute("data", json);
 		}
 		//清除所有的request级属性数据
 		rueqestAttribute.clear();

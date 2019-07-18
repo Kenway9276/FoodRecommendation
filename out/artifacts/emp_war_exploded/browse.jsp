@@ -116,9 +116,10 @@
                             </p>
                         </div>
                     </div>
-                    <p><a href="#" onclick="onSelect('${ins.aaa301}')" class="btn btn-primary">view more</a></p>
+                    <p><a href="#" id="view-more" class="btn btn-primary">view more</a></p>
+                    <input type="hidden" id="hidden-title" value="${ins.aaa301}">
                     <c:if test="${ins.isUser == '1'}">
-                        <p><a href="#" onclick="onDel('${ins.aaa301}')" class="btn btn-primary">delete</a></p>
+                        <p><a href="#"  onclick="onDel('${ins.aaa301}')" class="btn btn-primary">delete</a></p>
                     </c:if>
                 </div>
             </div>
@@ -138,6 +139,9 @@
 <!-- End of Back to Top Button -->
 
 <!-- JS Files -->
+
+<!-- ==== ajax ==== -->
+<script src="ajax_js/BBS_ajax.js"></script>
 
 <!-- ==== JQuery 1.12.1 js file ==== -->
 <script src="dw_assets/js/jquery-1.12.1.min.js"></script>
@@ -163,8 +167,9 @@
     function onSelect(aaa301) {
         var form = document.getElementById("tem");
         form.action = "<%=path%>/bBSBrowseSingle.html?aaa301=" + aaa301;
-        //alert(vform.action);
+        alert('aaaaa');
         form.submit();
+
     }
     function onDel(aaa301) {
         var form = document.getElementById("tem");
@@ -184,6 +189,6 @@
 
 </script>
 
-
+<p id="tem-data"></p>
 </body>
 </html>

@@ -34,9 +34,11 @@
     font-size: 16px;
     border-radius:6px;
 	}
+	td div {
+	width:650px;
+}
 </style>
 <script type="text/javascript">
-
 </script>
 </head>
 <body >
@@ -86,31 +88,54 @@
 	  	</td>
 	  </tr>
 	  <tr>
-  	    <td>标题</td>
+  	    <td width=60px>标题</td>
 	  	<td>
 	  		<e:text name="aac202" required="true"/>
 	  	</td>
 	  </tr>
 	  <tr>
-	    <td>图片</td>
+	    <td style="width:60px">封面</td>
 	    <td>
-	    <input type="file" name="aac204">
+	    <input type="file" name="aac204" id="myfile">
+	    <br>
+		<img src="" id="show" width="200">
+		<script type="text/javascript">
+			$(function() {
+ 
+				$("#myfile").change(function() {
+					var readFile = new FileReader();
+					var mfile = $("#myfile")[0].files[0];  //注意这里必须时$("#myfile")[0]，document.getElementById('file')等价与$("#myfile")[0]
+					readFile.readAsDataURL(mfile);
+					readFile.onload = function() {
+						var img = $("#show");
+						img.attr("src", this.result);
+					}
+ 
+				});
+ 
+			})
+		</script>
 	    </td>
 	   </tr>
 	   <tr>
-	    <td>正文</td>
+	    <td style="width:60px">正文</td>
 	  	<td>
-	  		<e:textarea cols="40" rows="5" name="aac205" required="true"/>
+	  		<div id="div1">
+    			<p>这里输入正文</p>
+   			</div>
+   			 <textarea name="aac205" id="text1" style="display:none"></textarea>
+    		<% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
+    		<input type="hidden" name="filePath" value="<%=filePath%>">
 	  	</td>
 	  </tr>
 	  <tr>
-	    <td>优先级</td>
+	    <td style="width:60px">优先级</td>
 	    <td>
 	  		<e:radio name="aac207" value="普通:0,置顶:1" required="true" />
 	    </td>
 	   </tr>
 	   <tr>
-	    <td>种类</td>
+	    <td style="width:60px">种类</td>
 	  	<td>
 	  		<e:radio name="aac206" value="测评文章:1,优惠活动:2,更新维护:3" required="true" />
 	 	 </td>
@@ -129,7 +154,44 @@
 </div>
 </div>
 </section>
- 
+ <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/wangEditor.js"></script>
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#div1')
+    editor.customConfig.uploadImgShowBase64 = true
+    var $text1 = $('#text1')
+    var $text2 = $('#text2')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+        $text2.val(editor.txt.text())
+    }
+    editor.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'quote',  // 引用
+        'emoticon',  // 表情
+        'image',  // 插入图片
+        'table',  // 表格
+    ]
+    editor.create()
+    // 初始化 textarea 的值
+    $text1.val(editor.txt.html())
+    $text2.val(editor.txt.text())
+
+
+</script>
 
 </form>
 </body>
