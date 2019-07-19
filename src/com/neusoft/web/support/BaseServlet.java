@@ -56,7 +56,7 @@ public class BaseServlet extends HttpServlet
 
 
 
-     		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("NoticeModify")||controllerFirstName.contains("Certificate"))
+     		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("AdminNoticeModify")||controllerFirstName.contains("Certificate"))
      		{
      			controller.setMapDtoForFile(this.createDtoForFile(request));
      		}
@@ -81,22 +81,32 @@ public class BaseServlet extends HttpServlet
 
      		if(controllerFirstName.contains("UserLogin")){
 				//织入session处理切片
-				Object userID =  ((Map<String, String>)request.getAttribute("ins")).get("aaa101");
-				request.getSession().setAttribute("busiID", null);
-				request.getSession().setAttribute("userID", userID);
-				request.getSession().setAttribute("adminID", null);
+     			if ( ((Map<String, String>)request.getAttribute("ins")) !=null ) 
+     			{
+    				Object userID =  ((Map<String, String>)request.getAttribute("ins")).get("aaa101");
+    				request.getSession().setAttribute("busiID", null);
+    				request.getSession().setAttribute("userID", userID);
+    				request.getSession().setAttribute("adminID", null);
+				}
+
 			}
      		else if(controllerFirstName.contains("BusiLogin")){
+     			if ( ((Map<String, String>)request.getAttribute("ins")) !=null ) 
+     			{
 				Object busiID =  ((Map<String, String>)request.getAttribute("ins")).get("aab101");
 				request.getSession().setAttribute("userID", null);
 				request.getSession().setAttribute("busiID", busiID);
 				request.getSession().setAttribute("adminID", null);
-			}
+     			}			
+     		}
      		else if(controllerFirstName.contains("AdminLogin")){
+     			if ( ((Map<String, String>)request.getAttribute("ins")) !=null ) 
+     			{
      			Object adminID =  ((Map<String, String>)request.getAttribute("ins")).get("aac401");
      			request.getSession().setAttribute("adminID", adminID);
 				request.getSession().setAttribute("userID", null);
 				request.getSession().setAttribute("busiID", null);
+     			}
 			}
 
          }	
