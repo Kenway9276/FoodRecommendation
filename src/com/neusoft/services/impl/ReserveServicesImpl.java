@@ -7,13 +7,14 @@ public class ReserveServicesImpl extends JdbcServicesSupport
 {
 	private boolean addReserve()throws Exception
     {
+
     	//Ã·Ωª∂©◊˘…Í«Î
 		StringBuilder sql=new StringBuilder()
     			.append("insert into ac01(aaa101,aab101,aac102,aac103,aac104,aac106,aaa201)")
     			.append("          values(?,?,?,?,?,?,?)");
 		Object args[]=
 			{
-					this.get("aaa101"),
+					this.get("userID"),
 					this.get("aab101"),
 					Tools.getDateTime(),
 					this.get("aac103"),

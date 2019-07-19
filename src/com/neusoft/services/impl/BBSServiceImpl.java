@@ -1,6 +1,7 @@
 package com.neusoft.services.impl;
 
 import com.neusoft.services.JdbcServicesSupport;
+import com.neusoft.system.db.RedisUtils;
 import com.neusoft.system.tools.BBSTools;
 import com.neusoft.system.tools.Base64Utils;
 
@@ -19,8 +20,14 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         return null;
     }
 
+    /**
+     * 获取帖子列表for用户
+     * @return
+     * @throws Exception
+     */
     @Override
     public List<Map<String, String>> query() throws Exception {
+        // todo 帖子列表分页查询
         Object aaa101  = this.get("userID");
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
@@ -40,7 +47,54 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         List<Map<String,String>> list =  this.queryForList(sql.toString(), aaa101);
         parseBBSList(list);
         parseBBSListForUser(list);
+
         return list;
+    }
+
+    /**
+     * 获取当前页的帖子列表
+     * @return
+     * @throws Exception
+     */
+    public List<Map<String, String>> queryForPage() throws Exception {
+        // 当前页码
+        int page = 1;
+        if(this.get("page") != null){
+            page = (int)this.get("page");
+        }
+
+
+        // 当前页数第一个帖子在list中的索引
+        int begin = (page - 1) * 12;
+        // 当前页数最后第一个帖子在list中的索引
+        int end = begin + 12;
+        end = end > getBBSCount() ? getBBSCount() : end;
+        System.out.println("begin: "+begin);
+        System.out.println("end: "+end);
+
+        List<Map<String,String>> list = (List<Map<String,String>>)RedisUtils.SerializableGet("list");
+        System.out.println(list);
+        return list.subList(begin, end);
+    }
+
+    /**
+     * 获取总帖子数
+     * @return
+     */
+    public int getBBSCount() throws Exception{
+        return ((List)RedisUtils.SerializableGet("list")).size();
+    }
+
+    /**
+     * 获取总页数
+     * 一页展示12个帖子
+     * @return
+     * @throws Exception
+     */
+    public int getPageCount() throws Exception{
+        int res = ((List)RedisUtils.SerializableGet("list")).size();
+        res = res / 12;
+        return res > 0 ? res: 1;
     }
 
     private void parseBBSListForUser(List<Map<String, String>> list) {
@@ -99,6 +153,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
                 ;
         List<Map<String,String>> list =  this.queryForList(sql.toString());
         parseBBSList(list);
+        RedisUtils.SerializableSet("list", list);
         return list;
     }
 

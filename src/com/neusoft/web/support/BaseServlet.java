@@ -1,5 +1,6 @@
 package com.neusoft.web.support;
 
+import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -55,7 +56,7 @@ public class BaseServlet extends HttpServlet
 
 
 
-     		if(controllerFirstName.contains("ReleaseNotice"))
+     		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("NoticeModify")||controllerFirstName.contains("Certificate"))
      		{
      			controller.setMapDtoForFile(this.createDtoForFile(request));
      		}
@@ -97,6 +98,7 @@ public class BaseServlet extends HttpServlet
 				request.getSession().setAttribute("userID", null);
 				request.getSession().setAttribute("busiID", null);
 			}
+
          }	
          catch(Exception ex)
          {
@@ -104,7 +106,21 @@ public class BaseServlet extends HttpServlet
         	 toPath="Error";
         	 ex.printStackTrace();
          }
-		request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
+
+		if(toPath.equals("ajax")){
+			response.setContentType("text/html;charset=GBK");
+			String data = (String)request.getAttribute("data");
+			//String tem_data = "{\"data\":" + data + "}";
+			response.getWriter().append(data);
+
+
+		}
+		else {
+			request.getRequestDispatcher("/"+toPath+".jsp").forward(request, response);
+		}
+
+
+
 	}
 
 
@@ -143,7 +159,16 @@ public class BaseServlet extends HttpServlet
 
 					//获取文件上传目录路径，在项目部署路径下的upload目录里。若想让浏览器不能直接访问到图片，可以放在WEB-INF下
 					String uploadPath=request.getSession().getServletContext().getRealPath("/upload");
-					dto.put("imgPath",uuid+suffix);
+					if(dto.get("imgPath")==null)
+					{
+						dto.put("imgPath",uuid+suffix);
+					}
+					else if(dto.get("imgPath")!=null)
+					{
+						String tmpImgPath = (String) dto.get("imgPath");
+						String imgPath = tmpImgPath + "," + "upload/" + uuid + suffix;
+						dto.put("imgPath",imgPath);
+					}
 					File file=new File(uploadPath);
 					file.mkdirs();
 					//写入文件到磁盘，该行执行完毕后，若有该临时文件，将会自动删除
@@ -174,6 +199,9 @@ public class BaseServlet extends HttpServlet
 		{
 			//3.将map的每个键值对,转换成request的属性
 			request.setAttribute(entry.getKey(), entry.getValue());
+			Gson gson = new Gson();
+			String json =  gson.toJson(entry.getValue());
+			request.setAttribute("data", json);
 		}
 		//清除所有的request级属性数据
 		rueqestAttribute.clear();

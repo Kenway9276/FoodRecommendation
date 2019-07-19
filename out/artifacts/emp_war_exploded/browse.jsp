@@ -85,6 +85,11 @@
         <ul class="nav">
             <li>分享你的故事</li>
         </ul>
+        <ul class="nav">
+            <li><a href="#">返回首页</a></li>
+            <li><a href="post.jsp">发布帖子</a></li>
+            <li><a href="bBSBrowseUser.html">查看我发布的帖子</a></li>
+        </ul>
     </div>
 </div>
 <!-- End of Page title -->
@@ -116,15 +121,21 @@
                             </p>
                         </div>
                     </div>
-                    <p><a href="#" onclick="onSelect('${ins.aaa301}')" class="btn btn-primary">view more</a></p>
+                    <p><a href="#" id="view-more" class="btn btn-primary">view more</a></p>
+                    <input type="hidden" id="hidden-title" value="${ins.aaa301}">
                     <c:if test="${ins.isUser == '1'}">
-                        <p><a href="#" onclick="onDel('${ins.aaa301}')" class="btn btn-primary">delete</a></p>
+                        <p><a href="#"  onclick="onDel('${ins.aaa301}')" class="btn btn-primary">delete</a></p>
                     </c:if>
                 </div>
             </div>
             <!-- End of Post -->
         </c:forEach>
-
+        <div class="post-pagination d-flex justify-content-center">
+            <span class="current">1</span>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fa fa-angle-right"></i></a>
+        </div>
     </div>
 
 </div>
@@ -138,6 +149,7 @@
 <!-- End of Back to Top Button -->
 
 <!-- JS Files -->
+
 
 <!-- ==== JQuery 1.12.1 js file ==== -->
 <script src="dw_assets/js/jquery-1.12.1.min.js"></script>
@@ -163,8 +175,8 @@
     function onSelect(aaa301) {
         var form = document.getElementById("tem");
         form.action = "<%=path%>/bBSBrowseSingle.html?aaa301=" + aaa301;
-        //alert(vform.action);
         form.submit();
+
     }
     function onDel(aaa301) {
         var form = document.getElementById("tem");
@@ -183,7 +195,6 @@
     }
 
 </script>
-
 
 </body>
 </html>

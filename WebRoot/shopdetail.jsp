@@ -167,13 +167,13 @@
 
 <body>
 <form id="vform">
-	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input  type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
 	<input type="hidden" id="MapAd" value="${ins.aab106 }"></input>
 </form>
 <form id="myform" method="post" >	
-	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input id="shop_id" type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
 
@@ -344,9 +344,11 @@
 						<br>
 						<button  type="button" id="dell" name="next" class="btn btn-outline-danger" 
 						onclick="onCloseReserveTable()" >取消</button>
-						<button  type="button" id="dell" name="next" class="btn btn-outline-danger" 
-						onclick="onSubmitReserveTable()">提交</button>
+						<!--<button  type="button" id="book-btn" name="next" class="btn btn-outline-danger"
+						onclick="onSubmitReserveTable()">提交</button>-->
+                            <button  type="button" id="book-btn" name="next" class="btn btn-outline-danger">提交</button>
 						</div>
+
                         
                         
                     </div>
@@ -519,7 +521,7 @@
                     <div class="booking-checkbox_wrap mt-4">
                     	<c:choose> 
                         <c:when test="${rows!=null }">
-                        <h5><a>${ins.aab114 }</a><a>条点评</a></a></h5>
+                        <h5><a>${ins.aab114 }</a><a>条点评</a></h5>
                         <hr>
                         </c:when>
                         <c:otherwise>
@@ -804,6 +806,9 @@
             });
         }
     </script>
+
+    <!-- ==== ajax ==== -->
+    <script src="ajax_js/shop_detail_ajax.js"></script>
 </form>
 </body>
 

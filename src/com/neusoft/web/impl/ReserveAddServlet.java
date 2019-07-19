@@ -14,6 +14,6 @@ public class ReserveAddServlet extends ReserveControllerSupport
 	public String execute() throws Exception
 	{
 		this.executeUpdateMethod("addReserve");
-		return "shopdetail";
+		return "ajax";
     }
 }
