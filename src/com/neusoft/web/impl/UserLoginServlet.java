@@ -3,7 +3,13 @@ public class UserLoginServlet extends UserControllerSupport
 {
 	public String execute() throws Exception 
 	{
-		this.saveUserLoginInstance();
-		return "userHistory";
+		if(this.saveUserLoginInstance())
+		{
+			return "userHistory";
+		}
+		else
+		{
+			return "userLogin";
+		}
 	}
 }

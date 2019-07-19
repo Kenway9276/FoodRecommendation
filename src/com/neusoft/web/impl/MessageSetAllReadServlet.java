@@ -14,7 +14,7 @@ public class MessageSetAllReadServlet extends MessageControllerSupport {
     public String execute() throws Exception
 	{
 		this.update("setAllMessageRead", "ря╤а");
-		return "message";		
+		return "messagequery";		
     }
 
 }

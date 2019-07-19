@@ -14,7 +14,7 @@ public class MessageSearchReadServlet extends MessageControllerSupport {
     public String execute() throws Exception
 	{
 		this.savePageData("rows", "queryRead");
-		return "message";		
+		return "messagequery";		
     }
 
 }

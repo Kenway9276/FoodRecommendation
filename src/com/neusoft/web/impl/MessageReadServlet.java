@@ -7,7 +7,7 @@ public class MessageReadServlet extends MessageControllerSupport{
 	{
 		this.update("setMessageRead", "ÐÞ¸Ä");
 		this.savePageData();
-		return "message";
+		return "messagequery";
     }
 
 }

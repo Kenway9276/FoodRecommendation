@@ -206,17 +206,19 @@ public abstract class ControllerSupport implements BaseController
 		}
 	}
 	
-	protected final void saveUserLoginInstance()throws Exception
+	protected final boolean saveUserLoginInstance()throws Exception
 	{
 		Map<String,String> ins=this.services.userLogin();
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
 			this.saveAttribute("msg", "登陆成功!");
+			return true;
 		}
 		else
 		{
 			this.saveAttribute("msg", "提示:用户名或密码不相符!");
+			return false;
 		}	
 	}
 	
