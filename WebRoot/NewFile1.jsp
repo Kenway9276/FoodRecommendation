@@ -30,10 +30,10 @@
             <ul class="slides clearfix list" style="width: 2600%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
-                        <h3>2017</h3>
+                        <h3>TIME</h3>
                         <div class="desc">
                             <p>
-                            公司进行大项目组改制，深化管理层次，确定项目组责任制与分红制，集团凝聚力更上新的台阶。
+                            	我们已陪你走过${rows[0].days}天
                             </p>
                         </div>
                     </div>
