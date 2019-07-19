@@ -12,6 +12,9 @@
     <meta name="author" content="Colorlib">
     <meta name="description" content="#">
     <meta name="keywords" content="#">
+    
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    
     <link rel="stylesheet" type="text/css" href="<%=path%>/css/xzs_jquery.datetimepicker.css"/>
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
@@ -34,10 +37,10 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
     
+    
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
+    
     <script>
-	
-    
-    
 	function onSetMark(vaab101)
     {
   	  //添加到收藏夹
@@ -61,13 +64,23 @@
 	 vform.submit();
     }
 	
-	function onQueryMark(vaab101)
+	function onQueryMark()
     {
   	  //查看收藏
   	 var vform = document.getElementById("vform");
   	 vform.action="<%=path%>/markQuery.html";
   	 vform.submit();
     }
+	
+	
+	function onQueryMessage()
+    {
+  	  //查看收藏
+  	 var vform = document.getElementById("vform");
+  	 vform.action="<%=path%>/messageSearchUnRead.html";
+  	 vform.submit();
+    }
+	
 	
 	function onMenu(vaab101)
     {
@@ -135,6 +148,16 @@
 	  	vform.submit();
 	}
 	
+	function onMapGuide(vaab106)
+	{
+		//地图导航
+		var vform = document.getElementById("myform");
+
+		//中文编码再传递
+	  	vform.action="<%=path%>/mapGuide.html?aab106="+encodeURI(vaab106);
+	  	vform.submit();
+	}
+	
 	
 
 	
@@ -147,6 +170,7 @@
 	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
+	<input type="hidden" id="MapAd" value="${ins.aab106 }"></input>
 </form>
 <form id="myform" method="post" >	
 	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
@@ -202,7 +226,7 @@
                                     <a class="nav-link" onclick="onQueryMark()" href="#">收藏夹</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" onclick="onQueryMessage()" href="#">我的消息</a>
                                 </li>
                                 <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
                             </ul>
@@ -696,7 +720,7 @@
                 </div>
                 <div class="col-md-4 responsive-wrap">
                     <div class="contact-info">
-                        <img src="images/map.jpg" class="img-fluid" alt="#">
+                        <div id="allmap" style="width:350px;height:350px"></div>
                         <div class="address">
                             <span class="icon-location-pin"></span>
                             <p>${ins.aab106 }</p>
@@ -718,7 +742,8 @@
                             </c:choose>
                         </div>
                         <br>
-                        <a href="#" class="btn btn-outline-danger btn-contact">查看地图详情/导航</a>
+                        <a href="#" onclick="onMapGuide('${ins.aab106 }')" class="btn btn-outline-danger btn-contact">查看地图详情/导航</a>
+                        
                     </div>                    
                 </div>
             </div>
@@ -783,3 +808,26 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
+	map.addControl(new BMap.NavigationControl());    
+	map.addControl(new BMap.ScaleControl());    
+	map.addControl(new BMap.OverviewMapControl());    
+	map.addControl(new BMap.MapTypeControl());
+	// 创建地址解析器实例
+	var myGeo = new BMap.Geocoder();
+	// 将地址解析结果显示在地图上,并调整地图视野
+	var address= document.getElementById("MapAd").value;
+	myGeo.getPoint(address, function(point){
+		if (point) {
+			map.centerAndZoom(point, 16);
+			map.addOverlay(new BMap.Marker(point));
+		}else{
+			alert("该商家地址暂时没有地图解析结果!");
+		}
+	}, "天津市");
+</script>

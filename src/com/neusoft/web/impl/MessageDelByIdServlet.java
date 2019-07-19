@@ -15,7 +15,7 @@ public class MessageDelByIdServlet extends MessageControllerSupport {
 	{
 		this.update("deleteMessageById", "É¾³ý");
 		this.savePageData("rows", "queryRead");
-		return "message";		
+		return "messagequery";		
     }
 
 }

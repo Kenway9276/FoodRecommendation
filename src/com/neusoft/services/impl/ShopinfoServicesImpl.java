@@ -247,6 +247,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		{
 			Map<String,String> map= new HashMap();
 			map.put("address",strs[i]);
+			
 			AddressList.add(map);
 		}
 		return AddressList;
