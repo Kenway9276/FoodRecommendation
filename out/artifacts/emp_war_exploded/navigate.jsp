@@ -25,6 +25,7 @@
 				<li><a href="userNotice.html">公告</a></li>
 				<li><a href="couponList.html">优惠券</a></li>
 				<li><a href="#">消息</a></li>
+				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
 				<li><a href="userStory.html">关于你</a></li>
 			</ul>
 		</div>
@@ -32,6 +33,7 @@
 </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="ajax_js/BBS_ajax.js"></script>
 <script type="text/javascript">
 var toggle = true;
 

@@ -69,6 +69,16 @@ public abstract class ControllerSupport implements BaseController
 		}
 	}
 
+	protected final void saveOtherPageData(String key, String methodName)throws Exception{
+		//1.获取需要调用的方法对象
+		Method method=this.services.getClass().getDeclaredMethod(methodName);
+		method.setAccessible(true);
+		//2.调用方法
+		Object tem = method.invoke(services);
+		this.saveAttribute(key, tem);
+
+	}
+
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
 		//1.获取需要调用的方法对象
@@ -196,17 +206,19 @@ public abstract class ControllerSupport implements BaseController
 		}
 	}
 	
-	protected final void saveUserLoginInstance()throws Exception
+	protected final boolean saveUserLoginInstance()throws Exception
 	{
 		Map<String,String> ins=this.services.userLogin();
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
 			this.saveAttribute("msg", "登陆成功!");
+			return true;
 		}
 		else
 		{
 			this.saveAttribute("msg", "提示:用户名或密码不相符!");
+			return false;
 		}	
 	}
 	

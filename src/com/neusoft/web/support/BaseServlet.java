@@ -56,7 +56,7 @@ public class BaseServlet extends HttpServlet
 
 
 
-     		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("NoticeModify")||controllerFirstName.contains("Certificate"))
+     		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("AdminNoticeModify")||controllerFirstName.contains("Certificate"))
      		{
      			controller.setMapDtoForFile(this.createDtoForFile(request));
      		}
@@ -75,28 +75,38 @@ public class BaseServlet extends HttpServlet
      		 *                      处理控制器向页面输出的数据     o
      		 ***********************************************************/
      		//解析属性
-     		Map<String,Object> rueqestAttribute=controller.getAttribute();
+     		Map<String,Object> requestAttribute=controller.getAttribute();
      		//织入属性处理切片
-     		this.parseRueqestAttribute(request, rueqestAttribute);
+     		this.parseRueqestAttribute(request, requestAttribute);
 
      		if(controllerFirstName.contains("UserLogin")){
 				//织入session处理切片
-				Object userID =  ((Map<String, String>)request.getAttribute("ins")).get("aaa101");
-				request.getSession().setAttribute("busiID", null);
-				request.getSession().setAttribute("userID", userID);
-				request.getSession().setAttribute("adminID", null);
+     			if ( ((Map<String, String>)request.getAttribute("ins")) !=null ) 
+     			{
+    				Object userID =  ((Map<String, String>)request.getAttribute("ins")).get("aaa101");
+    				request.getSession().setAttribute("busiID", null);
+    				request.getSession().setAttribute("userID", userID);
+    				request.getSession().setAttribute("adminID", null);
+				}
+
 			}
      		else if(controllerFirstName.contains("BusiLogin")){
+     			if ( ((Map<String, String>)request.getAttribute("ins")) !=null ) 
+     			{
 				Object busiID =  ((Map<String, String>)request.getAttribute("ins")).get("aab101");
 				request.getSession().setAttribute("userID", null);
 				request.getSession().setAttribute("busiID", busiID);
 				request.getSession().setAttribute("adminID", null);
-			}
+     			}			
+     		}
      		else if(controllerFirstName.contains("AdminLogin")){
+     			if ( ((Map<String, String>)request.getAttribute("ins")) !=null ) 
+     			{
      			Object adminID =  ((Map<String, String>)request.getAttribute("ins")).get("aac401");
      			request.getSession().setAttribute("adminID", adminID);
 				request.getSession().setAttribute("userID", null);
 				request.getSession().setAttribute("busiID", null);
+     			}
 			}
 
          }	
@@ -190,10 +200,10 @@ public class BaseServlet extends HttpServlet
 	}
 
 
-	private void parseRueqestAttribute(HttpServletRequest request,Map<String,Object> rueqestAttribute)
+	private void parseRueqestAttribute(HttpServletRequest request,Map<String,Object> requestAttribute)
 	{
 		//1.还原所有的键值对,形成集合
-		Set<Map.Entry<String, Object>> entrySet=rueqestAttribute.entrySet();
+		Set<Map.Entry<String, Object>> entrySet=requestAttribute.entrySet();
 		//2.循环集合
 		for(Map.Entry<String, Object> entry:entrySet)
 		{
@@ -204,7 +214,7 @@ public class BaseServlet extends HttpServlet
 			request.setAttribute("data", json);
 		}
 		//清除所有的request级属性数据
-		rueqestAttribute.clear();
+		requestAttribute.clear();
 	}
 	
 	

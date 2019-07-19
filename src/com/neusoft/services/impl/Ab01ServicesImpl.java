@@ -66,6 +66,21 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	
     }
     
+    private boolean busiNotPass()throws Exception
+    {
+    	StringBuilder sql=new StringBuilder()
+    			.append("update ab01")
+    			.append("   set aab105=?")
+    			.append(" where aab101=?")
+    			;
+    	Object args[]={
+    			"0",
+    			this.get("aab101"),
+    	};
+    	return this.executeUpdate(sql.toString(), args)>0;
+    	
+    }
+    
     private boolean adminModify()throws Exception
     {
     	StringBuilder sql=new StringBuilder()
@@ -84,39 +99,36 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean adminNoticeModify()throws Exception
     {
-    	System.out.println(this.get("aac201"));
-    	System.out.println(this.get("aac202"));
-    	System.out.println(this.get("aac203"));
-    	System.out.println(this.get("aac204"));
-    	System.out.println(this.get("aac205"));
-    	System.out.println(this.get("aac206"));
+	   	Object imgPath =this.get("imgPath");
     	StringBuilder sql=new StringBuilder()
     			.append("update ac02")
-    			.append("   set aac202=?,aac204=?,aac205=?,aac206=?,aac207=?")
-    			.append(" where aac201=?")
+    			.append("   set aac202=?,aac205=?,aac206=?,aac207=?")
     			;
-    	Object args[]={
-    			this.get("aac202"),
-    			this.get("aac204"),
-    			this.get("aac205"),
-    			this.get("aac206"),
-    			this.get("aac207"),
-    			this.get("aac201")
-    	};
-    	return this.executeUpdate(sql.toString(), args)>0;
+    	List<Object> arr=new ArrayList<>();
+    	arr.add(this.get("aac202"));
+    	arr.add(this.get("aac205"));
+    	arr.add(this.get("aac206"));
+    	arr.add(this.get("aac207"));
+    	if (imgPath != null) 
+    	{
+    		sql.append(",aac204=?");
+    		Object aac204 ="upload/" + imgPath;
+    	   	arr.add(aac204);
+    	}
+		sql.append(" where aac201=?");
+    	arr.add(this.get("aac201"));
+    	return this.executeUpdate(sql.toString(), arr.toArray())>0;
     	
     }
     
     private boolean userRegister()throws Exception
     {
-    	//1.缂傚倸鍊搁崐褰掓偋閺囥垹鐤柟缁樼磿L闂佽崵濮村ù鍌炲储閼硅埇浜归柨鐕傛嫹
     	StringBuilder sql=new StringBuilder()
     			.append("insert into aa01(aaa102,aaa103,aaa104,aaa105,aaa106,")
     			.append("                 aaa107,aaa108,aaa110)")
     			.append("          values(?,?,?,?,?,")
     			.append("                 ?,?,CURRENT_DATE)")
     			;
-    	//2.缂傚倸鍊搁崐褰掓偋閺囥垹鐤柟鎹愵嚙閻鏌涚仦鍓р檨婵炲牆鐖奸弻鈩冩媴閻熼偊妫嗙紓渚囧櫙閹凤拷
     	Object args[]={
     			this.get("aaa102"),
        			this.get("aaa103"),
@@ -127,6 +139,15 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			this.get("aaa108"),
     	};
         return this.executeUpdate(sql.toString(), args)>0;	
+    }
+    
+    private boolean userNameCheck() throws Exception
+    {
+    	StringBuilder sql=new StringBuilder()
+    			.append("select aaa103 from aa01")
+    			.append("where  aaa103=?")
+    			;
+    	return this.queryForMap(sql.toString(), this.get("aaa103"))==null;
     }
     
     private boolean adminReleaseNotice()throws Exception
@@ -158,7 +179,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	StringBuilder sql=new StringBuilder()
     			.append("update aa01")
     			.append("   set aaa103=?,aaa104=?,aaa105=?,aaa106=?,")
-    			.append("       aaa107=?,aaa108=?,aaa110=?")
+    			.append("       aaa107=?,aaa108=?")
     			.append(" where aaa102=? and aaa105=?")
     			;
     	Object args[]={
@@ -168,7 +189,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			this.get("aaa106"),
     			this.get("aaa107"),
     			this.get("aaa108"),
-    			this.get("aaa110"),
     			this.get("aaa102"),
     			Tools.getMd5(this.get("aaa105"))
     	};

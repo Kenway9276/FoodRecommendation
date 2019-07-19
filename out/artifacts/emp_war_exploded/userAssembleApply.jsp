@@ -12,6 +12,8 @@ ${ins}
 ${msg}
 
 <form id="busiRegisterForm" action="<%=path%>/userAssmbleApply.html" method="post">
+<input type="hidden" name="aaa101" value="1">
+<input type="hidden" name="aab101" value="2">
 <table border="1" align="center" width="45%">
 	<tr>
      	<td colspan="2" align="center">拼座申请</td>
@@ -25,15 +27,15 @@ ${msg}
    	<tr>
      	<td>拼座开始时间</td>
      	<td>
-     		<e:date name="aaa502" required="true"/>
-<!--        		<input type="datetime" name="aaa502" required="required" />  -->
+<%--      		<e:date name="aaa502" required="true"/> --%>
+       		<input type="datetime-local" name="aaa502" required="required" /> 
      	</td>
    	</tr>
   	<tr>
      	<td>拼座结束时间</td>
      	<td>
-     	<e:date name="aaa503" required="true"/>
-<!--        		<input type="datetime" name="aaa503" required="required"/> -->
+<%--      	<e:date name="aaa503" required="true"/> --%>
+       		<input type="datetime-local" name="aaa503" required="required"/>
      	</td>
    	</tr>
 
