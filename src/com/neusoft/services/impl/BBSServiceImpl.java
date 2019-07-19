@@ -7,10 +7,7 @@ import com.neusoft.system.tools.Base64Utils;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Base64;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,8 +43,12 @@ public class BBSServiceImpl extends JdbcServicesSupport {
                 ;
         List<Map<String,String>> list =  this.queryForList(sql.toString(), aaa101);
         parseBBSList(list);
-        parseBBSListForUser(list);
 
+        Map<String,String> map = new HashMap<>();
+        map.put("currentPage", Integer.toString(getCurrentPage()));
+        map.put("totalPages",Integer.toString(getPageCount()));
+        list.add(map);
+        parseBBSListForUser(list);
         return list;
     }
 
@@ -58,10 +59,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
      */
     public List<Map<String, String>> queryForPage() throws Exception {
         // 当前页码
-        int page = 1;
-        if(this.get("page") != null){
-            page = (int)this.get("page");
-        }
+        int page = this.getCurrentPage();
 
 
         // 当前页数第一个帖子在list中的索引
@@ -74,7 +72,12 @@ public class BBSServiceImpl extends JdbcServicesSupport {
 
         List<Map<String,String>> list = (List<Map<String,String>>)RedisUtils.SerializableGet("list");
         System.out.println(list);
-        return list.subList(begin, end);
+        list = list.subList(begin, end);
+        Map<String,String> map = new HashMap<>();
+        map.put("currentPage", Integer.toString(getCurrentPage()));
+        map.put("totalPages",Integer.toString(getPageCount()));
+        list.add(map);
+        return list;
     }
 
     /**
@@ -93,14 +96,22 @@ public class BBSServiceImpl extends JdbcServicesSupport {
      */
     public int getPageCount() throws Exception{
         int res = ((List)RedisUtils.SerializableGet("list")).size();
-        res = res / 12;
-        return res > 0 ? res: 1;
+        res = res / 12 + 1;
+        return res;
     }
 
     private void parseBBSListForUser(List<Map<String, String>> list) {
         for (int i = 0; i < list.size(); i++) {
             list.get(i).put("isUser", "1");
         }
+    }
+
+    /**
+     * 获取当前页码
+     * @return
+     */
+    public int getCurrentPage() throws Exception{
+        return this.get("currentPage") == null ? 1 : Integer.valueOf((String)this.get("currentPage")) ;
     }
 
     /**
@@ -154,6 +165,10 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         List<Map<String,String>> list =  this.queryForList(sql.toString());
         parseBBSList(list);
         RedisUtils.SerializableSet("list", list);
+        Map<String,String> map = new HashMap<>();
+        map.put("currentPage", Integer.toString(getCurrentPage()));
+        map.put("totalPages",Integer.toString(getPageCount()));
+        list.add(map);
         return list;
     }
 

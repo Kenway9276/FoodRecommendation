@@ -90,7 +90,7 @@ ${msg }
 				  </tr>
 		      </c:forEach>
 		      <!-- ²¹³ä¿ÕÐÐ -->
-		      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">
+		      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="1">
 			          <tr>
 			            <td></td>
 			            <td></td>
@@ -152,7 +152,7 @@ ${msg }
 				  </tr>
 		      </c:forEach>
 		      <!-- ²¹³ä¿ÕÐÐ -->
-		      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">
+		      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="10">
 			          <tr>
 			            <td></td>
 			            <td></td>

@@ -75,9 +75,9 @@ public class BaseServlet extends HttpServlet
      		 *                      处理控制器向页面输出的数据     o
      		 ***********************************************************/
      		//解析属性
-     		Map<String,Object> rueqestAttribute=controller.getAttribute();
+     		Map<String,Object> requestAttribute=controller.getAttribute();
      		//织入属性处理切片
-     		this.parseRueqestAttribute(request, rueqestAttribute);
+     		this.parseRueqestAttribute(request, requestAttribute);
 
      		if(controllerFirstName.contains("UserLogin")){
 				//织入session处理切片
@@ -200,10 +200,10 @@ public class BaseServlet extends HttpServlet
 	}
 
 
-	private void parseRueqestAttribute(HttpServletRequest request,Map<String,Object> rueqestAttribute)
+	private void parseRueqestAttribute(HttpServletRequest request,Map<String,Object> requestAttribute)
 	{
 		//1.还原所有的键值对,形成集合
-		Set<Map.Entry<String, Object>> entrySet=rueqestAttribute.entrySet();
+		Set<Map.Entry<String, Object>> entrySet=requestAttribute.entrySet();
 		//2.循环集合
 		for(Map.Entry<String, Object> entry:entrySet)
 		{
@@ -214,7 +214,7 @@ public class BaseServlet extends HttpServlet
 			request.setAttribute("data", json);
 		}
 		//清除所有的request级属性数据
-		rueqestAttribute.clear();
+		requestAttribute.clear();
 	}
 	
 	
