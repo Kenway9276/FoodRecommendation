@@ -25,6 +25,8 @@ public class ShopinfoFindByIdServlet extends ShopinfoControllerSupport
 		this.saveMapPageData("Equipment", "saveEquipment");
 		//显示评论
 		this.savePageData("rows", "queryComment");
+		//评论统计
+		this.saveMapPageData("Cal", "calComment");
 		//评论图片
 		this.savePageData("CommentPhoto","saveCmPhotoAddress" );
 		//更新用户选择表
