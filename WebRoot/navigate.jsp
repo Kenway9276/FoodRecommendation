@@ -33,6 +33,7 @@
 </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="ajax_js/BBS_ajax.js"></script>
 <script type="text/javascript">
 var toggle = true;
 

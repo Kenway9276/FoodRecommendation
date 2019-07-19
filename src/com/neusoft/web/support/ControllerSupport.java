@@ -69,6 +69,16 @@ public abstract class ControllerSupport implements BaseController
 		}
 	}
 
+	protected final void saveOtherPageData(String key, String methodName)throws Exception{
+		//1.获取需要调用的方法对象
+		Method method=this.services.getClass().getDeclaredMethod(methodName);
+		method.setAccessible(true);
+		//2.调用方法
+		Object tem = method.invoke(services);
+		this.saveAttribute(key, tem);
+
+	}
+
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
 		//1.获取需要调用的方法对象

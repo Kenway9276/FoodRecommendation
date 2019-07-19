@@ -26,11 +26,17 @@
 	}
 </style>
 <script type="text/javascript">
+function onEdit(vaac201)
+{
+	 var vform = document.getElementById("myform");
+	 vform.action="<%=path%>/adminBeforeNoticeModify.html?aac201="+vaac201;
+	 vform.submit();
+} 
 </script>
 </head>
 <body>
-${msg }
-<br>
+<%request.getSession().getAttribute("ins");%>
+<form id="myform" action="<%=path %>/userNoticeInfo.html" enctype="multipart/form-data" method="post">
 <section id="pricing">
 	<div class="container">
 		<div class="section-header">
@@ -52,7 +58,7 @@ ${msg }
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;正文</a>
 						</li>
 						<li>
-							<a style="text-decoration:none;text-align:center" href="#">${ins.aac205 }</a>
+							<div style="background-color: #FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ins.aac205 }</div>
 						</li>
 						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;公告类型&nbsp;&nbsp;
@@ -69,7 +75,7 @@ ${msg }
 					    		</c:choose>
 							</a>
 						</li>
-												<li>
+						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;优先级别&nbsp;&nbsp;
 								${ins.aac207==1?"置顶":"普通" }
 							</a>
@@ -82,12 +88,13 @@ ${msg }
 		<a href="<%=path %>/userNotice.html">
 		<button name="next">返回</button>
 		</a> 
+		<button  name="next" onclick="onEdit('${ins.aac201 }')">编辑</button>
     </td>
   </tr>
 </table>
 			</div>
 	</div>
 </section>
-
+</form>
 </body>
 </html>

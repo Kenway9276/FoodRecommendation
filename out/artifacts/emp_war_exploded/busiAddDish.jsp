@@ -21,6 +21,7 @@ ${msg}
 <br>
 <form action="<%=path%>/busiAddDish.html" method="post">
 <input type = "hidden" name="aab101" value="2">
+<input type = "hidden" name="aab201" value="${dins.aab201}">
 <table  border="1" align="center" width="45%">
     <caption>
        	${empty param.aab201?'添加':'修改'}菜品
@@ -32,19 +33,19 @@ ${msg}
    <tr>
      <td>菜品名</td>
      <td>
-       <e:text name="aab207" required="true" autofocus="true" defval="${ins.aab207 }"/> 
+       <e:text name="aab207" required="true" autofocus="true" defval="${dins.aab207 }"/> 
      </td>
    </tr>
    <tr>
      <td>菜品图片</td>
      <td>
-       <e:text name="aab202"  required="true" defval="${ins.aab202 }"/>
+       <e:text name="aab202"  required="true" defval="${dins.aab202 }"/>
      </td>
    </tr>
    <tr>
      <td>菜品价格</td>
      <td>
-       <e:text name="aab203"  required="true" defval="${ins.aab203 }"/>
+       <e:text name="aab203"  required="true" defval="${dins.aab203 }"/>
      </td>
    </tr>
    <tr>
