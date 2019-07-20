@@ -7,6 +7,7 @@ public class BusiReturnMenuManageServlet extends BusiControllerSupport {
 	{
 		this.saveSyscodeInstance();
 		this.saveBusiMenuInstance();
+		this.busiConvertBusiId();
 		return "busiDishQuery";
 	}
 

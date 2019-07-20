@@ -9,6 +9,6 @@ public class BusiRegisterServlet extends BusiControllerSupport
 		this.update("busiRegister", "注册");
 		this.update("insertAa06", "注册");
 		this.update("insertAb04", "注册");
-		return "busiRegister";
+		return "busiLogin";
 	}
 }

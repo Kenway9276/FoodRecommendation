@@ -9,6 +9,7 @@ public class BusiAccessReservationServlet extends BusiControllerSupport
 		this.update("busiAccessReservation", "通过");
 		this.saveTodoReservationInstance();
 		this.saveReservationInstance();
+		this.busiConvertBusiId();
 		return "busiManageReservation";
 	}
 

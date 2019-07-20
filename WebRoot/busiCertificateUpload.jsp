@@ -76,14 +76,16 @@
 ${msg}
 <form enctype="multipart/form-data" method="post">
 <div id="preview" style="height:50%;width:50%;margin:0 auto;margin-top:10%" >
-    <img id="imghead" src="${ins.aab108 }" border=0 style="height:auto;width:auto;margin" width="400px" height="400px" />
+    <img id="imghead" src="${ins.aab108}" border=0 style="height:auto;width:auto;margin" width="400px" height="400px" />
 </div>
-<input type="hidden" name="aab101" value="2">
+<input type="hidden" name="aab101" value="${ins.aab101}">
 <input type="file" name="aab108" onchange="previewImage(this)" required="required" />
-	       	<input type="submit" name="next" value="上传资质信息图片"
-	              formaction="<%=path%>/busiAddCertificate.html">
-	       	<a href="<%=path%>/busiModify.jsp">
-				<input type="button" name="next" value="返回">
+<input type="submit" name="next" value="上传资质信息图片"
+	   formaction="<%=path%>/busiAddCertificate.html">
+<div class="container-login100-form-btn">
+	<input class="login100-form-btn" type="submit" name="next" value="返回"
+	 formaction="<%=path%>/busiReturn.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
+</div>
 </form>
 </body>     
 </html>

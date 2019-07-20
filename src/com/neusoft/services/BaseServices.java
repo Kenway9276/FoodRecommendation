@@ -134,4 +134,20 @@ public interface BaseServices
     {
    	 return null;
     }
+    default Map<String,String> busiConvertDishId()throws Exception
+    {
+   	 return null;
+    }
+    default Map<String,String> busiConvertBusiId()throws Exception
+    {
+   	 return null;
+    }
+    default Map<String,String> busiReturnInfo()throws Exception
+    {
+    	return null;
+    }
+    default Map<String, String> busiToPortraitPage()throws Exception
+    {
+    	return null;
+    }
 }

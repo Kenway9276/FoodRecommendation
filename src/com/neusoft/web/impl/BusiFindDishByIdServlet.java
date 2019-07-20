@@ -7,7 +7,7 @@ public class BusiFindDishByIdServlet extends BusiControllerSupport
 	{
 		this.busiFindDishById();
 		this.saveSyscodeInstance();
+		this.busiConvertBusiId();
 		return "busiAddDish";
 	}
-
 }

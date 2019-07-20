@@ -9,6 +9,7 @@ public class BusiAddDishServlet extends BusiControllerSupport
 		update("busiAddDish", "添加");
 		this.saveSyscodeInstance();
 		this.saveBusiMenuInstance();
+		this.busiConvertBusiId();
 		return "busiDishQuery";
 	}
 }

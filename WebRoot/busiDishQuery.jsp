@@ -24,6 +24,13 @@
     	 //alert(vform.action);
     	 vform.submit();
       }
+      function onEditPic(vaab201)
+      {
+    	 var vform = document.getElementById("myform");
+    	 vform.action="<%=path%>/busiDishPic.html?aab201="+vaab201;
+    	 //alert(vform.action);
+    	 vform.submit();
+      }
       
       function onDel(vaab201)
       {
@@ -171,7 +178,7 @@ h2{
 <h2>≤À∆∑π‹¿Ì</h2>
 <div class="table-wrapper">
 <form id="myform" action="<%=path%>/busiQuery.html" method="post">
-<input type="hidden" name="aab101" value="2">
+<input type="hidden" name="aab101" value="${ins.aab101}">
     <table class="fl-table">
         <thead>
         <tr>
@@ -246,7 +253,9 @@ h2{
 				      <!-- #  ø’√™ -->
 				      <a href="#" onclick="onEdit('${ins.aab201}')">${ins.aab207}</a>
 				    </td>
-				    <td>${ins.aab202}</td>
+				    <td>
+				  		<a href="#" onclick="onEditPic('${ins.aab201}')">–ﬁ∏ƒÕº∆¨</a>
+				    </td>
 				    <td>${ins.aab203}</td>
 				    <td>${ins.aab204}</td>
 				    <td>${ins.aab205}</td>
@@ -298,9 +307,9 @@ h2{
 	              formaction="<%=path%>/busiToAddDishPage.html">
 	       <input type="submit" id="del" name="next" value="…æ≥˝" 
 	              formaction="<%=path%>/busiBatchDelDish.html"  disabled="disabled">
-	       <a href="<%=path%>/busiModify.jsp">
-				<input type="button" name="next" value="∑µªÿ">
-		</a>
+           <input type="submit" id="del" name="next" value="∑µªÿ" 
+           formaction="<%=path%>/busiReturn.html">
+	       
 	    </td>
         </tr>
         <tbody>

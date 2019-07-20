@@ -8,6 +8,7 @@ public class BusiQueryServlet extends BusiControllerSupport
 	{
 		this.saveBusiDishQueryData();
 		this.saveSyscodeInstance();
+		this.busiConvertBusiId();
 		return "busiDishQuery";
 	}
 
