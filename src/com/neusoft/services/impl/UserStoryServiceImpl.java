@@ -75,7 +75,10 @@ public class UserStoryServiceImpl extends JdbcServicesSupport {
         List<Map<String, String>> list = new ArrayList<>();
         list.add(dayCount());
         list.get(0).putAll(preferenceCount());
-        list.get(0).putAll(bookCount());
+        if(bookCount()!=null)
+        {
+        	list.get(0).putAll(bookCount());	
+        }
         list.get(0).putAll(cityCount());
         list.get(0).putAll(tasteFavorite());
         return list;
