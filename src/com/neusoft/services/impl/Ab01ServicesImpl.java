@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 
 import com.neusoft.services.JdbcServicesSupport;
@@ -141,13 +142,29 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
         return this.executeUpdate(sql.toString(), args)>0;	
     }
     
-    private boolean userNameCheck() throws Exception
+    private String userNameCheck() throws Exception
     {
     	StringBuilder sql=new StringBuilder()
-    			.append("select aaa103 from aa01")
-    			.append("where  aaa103=?")
+    			.append("select aaa102 from aa01 ")
+    			.append("where  aaa102=?")
     			;
-    	return this.queryForMap(sql.toString(), this.get("aaa103"))==null;
+    	Gson gson = new Gson();
+    	if(this.queryForMap(sql.toString(), this.get("aaa102"))==null){
+    		String msg = "{\"msg\":1}";
+    		Map<String, String> map = new HashMap<>();
+    		map.put("msg", "1");
+    		String json = gson.toJson(map);
+			System.out.println(json);
+    		return json;
+		}
+    	else {
+			String msg = "{\"msg\":0}";
+			Map<String, String> map = new HashMap<>();
+			map.put("msg", "0");
+			String json = gson.toJson(map);
+			System.out.println(json);
+			return json;
+		}
     }
     
     private boolean adminReleaseNotice()throws Exception

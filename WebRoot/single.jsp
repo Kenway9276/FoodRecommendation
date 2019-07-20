@@ -8,7 +8,7 @@
   Time: 14:56
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=GBK" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%String path = request.getContextPath(); %>
 <html >
 <head>
@@ -51,16 +51,7 @@
     <link rel="stylesheet" href="dw_assets/css/custom.css">
 </head>
 <body>
-<!-- Preloader -->
-<div class="preloader">
-    <div class="preload-img">
-        <div class="spinnerBounce">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-        </div>
-    </div>
-</div>
-<!-- End of Preloader -->
+
 
 <!-- Nav Search Box -->
 <div class="nav-search-box">
@@ -86,6 +77,12 @@
         <h2>${rows[0].aaa303}</h2>
         <ul class="nav">
             <li>${rows[0].aaa302}</li>
+        </ul>
+        <ul class="nav">
+            <li><a href="bBSBrowse.html">返回首页</a></li>
+            <li><a href="post.jsp">发布帖子</a></li>
+            <li><a href="bBSBrowseUser.html">查看我发布的帖子</a></li>
+        </ul>
         </ul>
     </div>
 </div>

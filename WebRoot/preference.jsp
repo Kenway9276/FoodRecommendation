@@ -170,7 +170,7 @@ h2{
 
     <script type="text/javascript">
 
-        function onSelect(vaaa203,vaaa202,vaaa204) {
+        function onSelect22(vaaa203,vaaa202,vaaa204) {
             var vform = document.getElementById("selectForm");
 
             vform.action = "<%=path%>/recommendGet.html?aaa203=" + vaaa203 + "&aaa204=" + vaaa204 + "&aaa202="+ vaaa202;
@@ -179,7 +179,7 @@ h2{
         }
 
         function onDel(vaaa201) {
-            var vform = document.getElementById("tem");
+            var vform = document.getElementById("selectForm");
             vform.action = "<%=path%>/preferenceDelete.html?aaa201=" + vaaa201;
 
             //alert(vform.action);
@@ -191,11 +191,10 @@ h2{
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
-<form id="tem" action="<%=path%>/preferenceAdd.html" method="post">
 
 <h2>我的口味列表</h2>
 <div class="table-wrapper">
-<form id="selectForm">
+    <form id="selectForm" method="post">
     <table class="fl-table">
         <thead>
         <tr>
@@ -208,7 +207,8 @@ h2{
             <th></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="preference-list-body">
+
          <c:forEach items="${rows }" var="ins" varStatus="vs">
            <tr>
                <td>${ins.aaa202 }</td>
@@ -223,7 +223,7 @@ h2{
                <e:hidden name="aaa201" value="${ins.aaa201 }"/>
                <td>
                    <a href="#" onclick="onDel('${ins.aaa201}')"><button class="forSelect">删除</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <a href="#" onclick="onSelect('${ins.qaaa203 }','${ins.qaaa202 }','${ins.qaaa204 }')"><button class="forSelect">选择</button></a>
+                   <a id="get-recommend-btn" href="#" onclick="onSelect22('${ins.qaaa203 }','${ins.qaaa202 }','${ins.qaaa204 }')"><button class="forSelect">选择</button></a>
                </td>
            </tr>
           </c:forEach>
@@ -231,6 +231,9 @@ h2{
     </table>
     </form>
 </div>
+<form id="tem" method="post">
+
+
 <h2>想尝试新口味吗？赶紧选择吧！</h2>
     <h3>&nbsp;&nbsp;&nbsp;菜系</h3>
     <ul class="dowebok">
@@ -259,7 +262,7 @@ h2{
     <h3>&nbsp;&nbsp;&nbsp;当前地址：</h3>
     <br>
     <div style="text-align:center">
-    <button type="submit" name="next" class="forSubmit" >添加到列表</button>
+    <button formaction="preferenceAdd.html" name="next" class="forSubmit" >添加到列表</button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button type="submit" name="next" formaction="recommendGet.html" class="forSubmit">获取推荐</button>
     </div>
@@ -267,8 +270,10 @@ h2{
 
 </form>
 
-<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<!-- ==== JQuery 1.12.1 js file ==== -->
+<script src="dw_assets/js/jquery-1.12.1.min.js"></script>
 <script type="text/javascript" src="css/jquery-labelauty.js"></script>
+
 <script type="text/javascript">
     $(function(){
         $(':input').labelauty();

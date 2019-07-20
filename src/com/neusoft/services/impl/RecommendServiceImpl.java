@@ -108,10 +108,11 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
             if(this.isNotNull(aaa204)){
                 tem.put("aaa204", (String)aaa204);
             }
+            res.get(0).put("aaa202",(String) aaa202);
+            res.get(0).put("aaa203",(String) aaa203);
+            res.get(0).put("aaa204",(String) aaa204);
         }
-        res.get(0).put("aaa202",(String) aaa202);
-        res.get(0).put("aaa203",(String) aaa203);
-        res.get(0).put("aaa204",(String) aaa204);
+
         return res;
     }
 

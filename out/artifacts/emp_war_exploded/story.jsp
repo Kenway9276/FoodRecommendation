@@ -19,7 +19,7 @@ ${rows}
 <p>进行了${rows[0].books}次订座</p>
 <p>走过了${rows[0].cities}个城市</p>
 
-<p>盛宴饕餮你最中意——${rows[0].aaa203}</p>
+<p>盛宴饕餮，你最中意——${rows[0].aaa203}</p>
 <p>金樽清酒、玉盘珍馐，你却独爱——${rows[0].aaa204}</p>
 <span>口味万千，你最喜欢——${rows[0].aaa202}</span>
 </body>

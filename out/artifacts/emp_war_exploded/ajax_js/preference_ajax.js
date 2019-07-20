@@ -1,21 +1,74 @@
 $(function() {
-    //点击帖子标题获取帖子内容
-    $("#view-more").click(function() {
-        var hidden_title = $("#hidden-title")
-        var title = hidden_title.val()
-        alert("dddddd")
+    $("div").delegate("#add-to-preference","click",function() {
         $.ajax({
             type:"post",
-            url:"ajaxTest.html",
-            data:{title:title},
+            url:"preferenceAdd.html",
+            data:$("#tem").serializeArray(),
+            dataType:"text",//返回的
             scriptCharset:"utf-8",
             success:function(data) {
-                window.location.href = "single.jsp";
-                alert("success")
+                var json = $.parseJSON(data)
+                console.log("data: " + json)
+                showAll(json)
             },
             error:function(msg) {
                 alert("error")
+                console.log("error")
             }
         });
     });
 });
+
+function showAll(json) {
+    var preference_list = $("#preference-list-body")
+    preference_list.html("")
+    $.each(json,function (index,obj) {
+        var tr = "<tr>\n" +
+            "               <td>" +
+            obj.aaa202 +
+            "</td>\n" +
+            "               <td>" +
+            obj.aaa203  +
+            "</td>\n" +
+            "               <td>" +
+            obj.aaa204 +
+            "</td>\n" +
+            "               <td>" +
+            obj.aaa205 +
+            "</td>\n" +
+            "               <td>" +
+            obj.aaa206 +
+            "</td>\n" +
+            "               <td>" +
+            obj.aaa207 +
+            "</td>\n" +
+            "               <e:hidden name=\"qaaa204\" value=\"" +
+            obj.qaaa204 +
+            "\"/>\n" +
+            "               <e:hidden name=\"qaaa202\" value=\"" +
+            obj.qaaa202 +
+            "\"/>\n" +
+            "               <e:hidden name=\"qaaa203\" value=\"" +
+            obj.qaaa203 +
+            "\"/>\n" +
+            "               <e:hidden name=\"aaa201\" value=\"" +
+            obj.qaaa201 +
+            "\"/>\n" +
+            "               <td>\n" +
+            "                   <a href=\"#\" onclick=\"onDel('" +
+            obj.aaa201 +
+            "')\"><button class=\"forSelect\">删除</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                   <a href=\"#\" onclick=\"onSelect('" +
+            obj.qaaa203 +
+            "','" +
+            obj.qaaa202 +
+            "','" +
+            obj.qaaa204 +
+            "')\"><button class=\"forSelect\">选择</button></a>\n" +
+            "               </td>\n" +
+            "           </tr>"
+        preference_list.append(tr)
+    })
+    console.log(preference_list)
+
+}
