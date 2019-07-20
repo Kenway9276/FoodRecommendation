@@ -61,6 +61,7 @@
     <![endif]-->
 </head>
 <body>
+<%@ include file="navigate.jsp" %>
 <div class="news" id="news">
     <div class="container">
         <div class="w3-welcome-heading">
