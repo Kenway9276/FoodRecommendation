@@ -20,8 +20,6 @@ $(function() {
 });
 
 $(function() {
-
-
     //获取当前页码的帖子列表
     $("div").delegate("#selectable-page","click",function() {
         var currentPage = $(this).html()

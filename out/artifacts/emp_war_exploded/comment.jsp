@@ -84,9 +84,7 @@
     <textarea  name="htmltext" id="text1" ></textarea>
     <textarea  name="aab306" id="text2" ></textarea>
     </div>
-    
-    <input type="hidden" name="aaa101" value="1"></input>
-    <input type="hidden" name="aab101" value="1"></input>
+    <input type="hidden" name="aab101" value="${ins.aab101 }">
     
     <% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
     

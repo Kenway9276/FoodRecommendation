@@ -4,8 +4,9 @@ public class UserNameCheckServlet extends UserControllerSupport {
 
 	@Override
 	public String execute() throws Exception {
-		update("userNameCheck","用户名查重");
-		return "userRegister";
+		//update("userNameCheck","用户名查重");
+		this.saveOtherPageData("data", "userNameCheck");
+		return "ajax";
 	}
 
 }

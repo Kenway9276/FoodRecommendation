@@ -50,16 +50,7 @@
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
-<!-- Preloader -->
-<div class="preloader">
-    <div class="preload-img">
-        <div class="spinnerBounce">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-        </div>
-    </div>
-</div>
-<!-- End of Preloader -->
+
 
 <!-- Nav Search Box -->
 <div class="nav-search-box">

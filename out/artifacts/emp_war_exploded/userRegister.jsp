@@ -34,7 +34,8 @@ ${msg}
 				<p>¸Ï½ô${empty ins.aaa101?'×¢²á':'ÐÞ¸Ä' }³ôµÜµÜ</p>
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
-							<e:text placeholder="ÇëÊäÈëÓÃ»§Ãû" name="aaa102" required="true" readonly="${empty ins.aaa101 ?false:true}" autofocus="true" defval="${ins.aaa102}"/>
+							<e:text id="username-input-text" placeholder="ÇëÊäÈëÓÃ»§Ãû" name="aaa102" required="true" readonly="${empty ins.aaa101 ?false:true}" autofocus="true" defval="${ins.aaa102}"/>
+							<p id="username-msg"></p>
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-star" aria-hidden="true"></i></span>
@@ -64,7 +65,7 @@ ${msg}
 							<span><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
 							<e:date name="aaa108" required="true" defval="${ins.aaa108}" />
 						</div>      
-							<input class="btn btn-danger btn-block" type="submit" name="next" value="${empty ins.aaa101?'×¢²á':'ÐÞ¸Ä' }"
+							<input id="submit-btn" class="btn btn-danger btn-block" type="submit" name="next" value="${empty ins.aaa101?'×¢²á':'ÐÞ¸Ä' }"
         					formaction="<%=path%>/user${empty ins.aaa101?'Register':'Modify' }.html">      
 							<a href="<%=path %>/userLogin.jsp">
 							<input class="btn btn-danger btn-block" type="button" name="next" value="${empty ins.aaa101?'ÒÑÓÐÕËºÅ£¬ÂíÉÏµÇÂ¼':'ÍË³öµÇÂ¼' }">
@@ -78,5 +79,9 @@ ${msg}
  </div>
 	</div>
 	</form>
+<!-- ==== JQuery 1.12.1 js file ==== -->
+<script src="dw_assets/js/jquery-1.12.1.min.js"></script>
+<script src="ajax_js/register_ajax.js"></script>
+
 	</body>
 </html>
