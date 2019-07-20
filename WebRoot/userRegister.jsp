@@ -27,6 +27,12 @@ ${msg}
 					<h3>Welcome !</h3>
 					<h4>我们的美食网站是最好的美食网站。</h4>
 					<p> Our food website is one of the best.</p>
+					<br><br>
+					<div style="display:${empty ins.aaa101?'none':''};margin-left:30%">
+						<input class="btn btn-danger btn-clock"
+						type="button" name="next" onclick="javascript:history.back(-1);" value="返回">
+					</div>
+
 				</div>
 			</div>
 			<div class="w3_info">
