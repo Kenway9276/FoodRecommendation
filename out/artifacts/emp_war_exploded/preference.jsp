@@ -167,7 +167,8 @@ h2{
     </style>
 
     <title>推荐</title>
-
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
     <script type="text/javascript">
 
         function onSelect22(vaaa203,vaaa202,vaaa204) {
@@ -191,7 +192,6 @@ h2{
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
-
 <h2>我的口味列表</h2>
 <div class="table-wrapper">
     <form id="selectForm" method="post">
@@ -221,6 +221,10 @@ h2{
                <e:hidden name="qaaa202" value="${ins.qaaa202 }"/>
                <e:hidden name="qaaa203" value="${ins.qaaa203 }"/>
                <e:hidden name="aaa201" value="${ins.aaa201 }"/>
+               <div class="hidden-city-name">
+
+               </div>
+
                <td>
                    <a href="#" onclick="onDel('${ins.aaa201}')"><button class="forSelect">删除</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    <a href="#" onclick="onSelect22('${ins.qaaa203 }','${ins.qaaa202 }','${ins.qaaa204 }')"><button class="forSelect">选择</button></a>
@@ -233,7 +237,9 @@ h2{
 </div>
 <form id="tem" method="post">
 
+    <div class="hidden-city-name">
 
+    </div>
 <h2>想尝试新口味吗？赶紧选择吧！</h2>
     <h3>&nbsp;&nbsp;&nbsp;菜系</h3>
     <ul class="dowebok">
@@ -259,9 +265,11 @@ h2{
             </c:if>
         </c:forEach>
     </ul>
-    <h3>&nbsp;&nbsp;&nbsp;当前地址：</h3>
+    <div id="current-city">
+    <h3>&nbsp;&nbsp;&nbsp;当前地址：</h3></div>
     <br>
     <div style="text-align:center">
+        <input class="hidden-city-name" name="currentCity" type="hidden" value=""/>
     <button formaction="preferenceAdd.html" name="next" class="forSubmit" >添加到列表</button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button type="submit" name="next" formaction="recommendGet.html" class="forSubmit">获取推荐</button>
@@ -269,7 +277,8 @@ h2{
     <br>
 
 </form>
-
+<div id="allmap">
+</div>
 <!-- ==== JQuery 1.12.1 js file ==== -->
 <script src="dw_assets/js/jquery-1.12.1.min.js"></script>
 <script type="text/javascript" src="css/jquery-labelauty.js"></script>
@@ -278,6 +287,23 @@ h2{
     $(function(){
         $(':input').labelauty();
     });
+</script>
+<!-- 百度地图api获取当前城市 -->
+<script type="text/javascript">
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,12);
+
+    function myFun(result){
+        var cityName = result.name;
+        //document.getElementById("city").innerHTML="当前位置: "+cityName;
+        //document.getElementById("cityName").placeholder="当前定位: "+cityName;
+        //document.getElementById("localcity").value=cityName;
+        $("#current-city").html("<h3>&nbsp;&nbsp;&nbsp;当前地址：" + cityName + "</h3>")
+        $(".hidden-city-name").html("<input name=\"currentCity\" type=\"hidden\" value=\"" + cityName +  "\"/>")
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
 </script>
 </body>
 </html>

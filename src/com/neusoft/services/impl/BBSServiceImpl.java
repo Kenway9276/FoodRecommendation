@@ -24,7 +24,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
      */
     @Override
     public List<Map<String, String>> query() throws Exception {
-        // todo 帖子列表分页查询
+
         Object aaa101  = this.get("userID");
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")

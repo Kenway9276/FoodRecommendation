@@ -17,8 +17,7 @@ public class RankingServiceImpl extends JdbcServicesSupport {
     }
 
     public List<Map<String, String>> queryForCity() throws Exception {
-        // todo 从前端获取当前的城市
-        String city = "%" + "天津" + "%";
+        String city = "%" + this.get("currentCity") + "%";
 
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
@@ -40,8 +39,7 @@ public class RankingServiceImpl extends JdbcServicesSupport {
     }
 
     public List<Map<String, String>> queryForPopularity() throws Exception {
-        // todo 从前端获取当前的城市
-        String city = "%" + "天津" + "%";
+        String city = "%" + this.get("currentCity") + "%";
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
                 .append("	COUNT( ac01.aab101 ) AS p, ")

@@ -224,7 +224,7 @@ public class Tools
 		//空值拦截
 		if(element==null || element.equals(""))
 		{
-			return "";
+			return null;
 		}
 		
 		//判断element到底是什么?是字符串还是字符串数组

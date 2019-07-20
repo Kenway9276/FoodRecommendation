@@ -115,7 +115,7 @@
                                 </p>
                             </div>
                         </div>
-                        <p><a href="#" id="view-more" class="btn btn-primary">view more</a></p>
+                        <p><a href="#" id="view-more" onclick="onSelect('${rows[vs.count - 1].aaa301}')" class="btn btn-primary">more</a></p>
                         <input type="hidden" id="hidden-title" value="${rows[vs.count - 1].aaa301}">
                         <c:if test="${rows[vs.count - 1].isUser == '1'}">
                             <p><a href="#"  onclick="onDel('${rows[vs.count - 1].aaa301}')" class="btn btn-primary">delete</a></p>
@@ -197,7 +197,6 @@
     function onDel(aaa301) {
         var form = document.getElementById("tem");
 
-        // todo 加入用户流水号参数
         form.action = "<%=path%>/bBSDelete.html?aaa301="+aaa301;
         form.submit();
     }

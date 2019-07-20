@@ -84,7 +84,7 @@ function showAll(BBS_list) {
                 "                    </div>\n" +
                 "                    <p><a href=\"#\" onclick=\"onSelect('" +
                 obj.aaa301 +
-                "                                                           ')\" id=\"view-more\" class=\"btn btn-primary\">view more</a></p>\n" +
+                "                                                           ')\" id=\"view-more\" class=\"btn btn-primary\">more</a></p>\n" +
                 "                    <input type=\"hidden\" id=\"hidden-title\" value=\"" +
                 obj.aaa301 +
                 "                                                                       \">\n"

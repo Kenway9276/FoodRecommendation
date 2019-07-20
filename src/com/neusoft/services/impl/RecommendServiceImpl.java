@@ -4,6 +4,7 @@ import com.neusoft.services.JdbcServicesSupport;
 import com.neusoft.system.db.RedisUtils;
 import org.apache.taglibs.standard.util.EscapeXML;
 
+
 import java.util.*;
 
 public class RecommendServiceImpl extends JdbcServicesSupport {
@@ -50,7 +51,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
         }
 
 
-        // todo 在sql语句中设置用户位置的参数
+
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ab01.aab101, ")
                 .append("	ab01.aab104,")
@@ -118,8 +119,8 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
     }
 
     private void getPreferenceID(Object aaa203, Object aaa204, Object aaa202) throws Exception{
-        // todo 获取当前城市
-        Object aaa206 = "天津";
+
+        Object aaa206 = this.get("currentCity");
         Object aaa101 = this.get("userID");
         String sql = "select aaa201 from aa02 where aaa203 = ? and aaa204 = ? and aaa202 = ?";
         List list =  this.queryForList(sql, aaa203, aaa204, aaa202);
@@ -308,7 +309,9 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
     }
 
     private List<Map<String, String>> getFlavorList() throws Exception {
-        // todo 当前城市
+
+        Object currentCity = "%" + this.get("currentCity") +"%";
+        System.out.println(currentCity);
         // 定义sql语句
         Object aaa203 = this.get("aaa203");
         Object aaa204 = this.get("aaa204");
@@ -337,12 +340,12 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("WHERE ")
                 .append("	aa06.aab101 = ab01.aab101  ")
                 .append("	AND ab01.aab105 = 1  ")
-                .append("	AND aab207 IS NOT NULL  ")
+                .append("	AND aab207 IS NOT NULL  and ab01.aab106 like ?")
 
                 ;
         //参数列表
         List<Object> paramList=new ArrayList<>();
-
+        paramList.add(currentCity);
         //逐一判断查询条件是否录入,拼接AND条件
         if(this.isNotNull(aaa202))
         {
