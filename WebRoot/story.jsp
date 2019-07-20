@@ -40,6 +40,7 @@
     <div class="about-history-list wow zoomIn" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: zoomIn;">		
         <div class="flex-viewport" style="overflow: hidden; position: relative;">
             <ul class="slides clearfix list" style="width: 2600%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>TIME</h3>
@@ -52,6 +53,7 @@
                         </div>
                     </div>
                 </li>
+                <c:if test="${!empty rows[0].preferences}">
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>LOVE</h3>
@@ -64,6 +66,8 @@
                         </div>
                     </div>
                 </li>
+                </c:if>
+                <c:if test="${!empty rows[0].books}">
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>RESERVATION</h3>
@@ -76,6 +80,8 @@
                         </div>
                     </div>
                 </li>
+                </c:if>
+                <c:if test="${!empty rows[0].cities}">
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>DESTINATION</h3>
@@ -88,19 +94,22 @@
                         </div>
                     </div>
                 </li>
+                </c:if>
+                <c:if test="${(!empty rows[0].aaa202) || (!empty rows[0].aaa203) || (!empty rows[0].aaa204)}">
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>TASTE</h3>
                         <div class="desc">
                             <p>
-                            	口味万千，你最喜欢——${rows[0].aaa202}<br>
-                            	盛宴饕餮，你最中意——${rows[0].aaa203}<br>
-								金樽清酒、玉盘珍馐，你却独爱——${rows[0].aaa204}<br>
+                                <c:if test="${!empty rows[0].aaa202}">口味万千，你最喜欢——${rows[0].aaa202}<br></c:if>
+                                <c:if test="${!empty rows[0].aaa202}">盛宴饕餮，你最中意——${rows[0].aaa203}<br></c:if>
+                                <c:if test="${!empty rows[0].aaa202}">金樽清酒、玉盘珍馐，你却独爱——${rows[0].aaa204}<br></c:if>
 								我们会记得你的每个一见钟情，每道心头朱砂。
                             </p>
                         </div>
                     </div>
                 </li>
+                </c:if>
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>待定</h3>

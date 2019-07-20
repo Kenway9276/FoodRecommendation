@@ -31,6 +31,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
     
+    
     <script type="text/javascript">
 
 	
@@ -131,8 +132,7 @@
     <!--// SLIDER -->
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
-    
-    
+
 
 
 		 
@@ -173,6 +173,7 @@
                 </div>
                 
             </div>
+
             <div class="row">
 		        <c:if test="${rows!=null }">           	
 				<c:forEach items="${rows }" var="row" varStatus="vs">       	
@@ -258,6 +259,7 @@
             };
         });
     </script>
+
 </body>
 </html>
 

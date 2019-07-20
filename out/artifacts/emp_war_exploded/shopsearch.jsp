@@ -31,6 +31,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
     
+    
     <script type="text/javascript">
 
 	
@@ -85,11 +86,12 @@
           }
       }
 	</script>
-    
 </head>
 
 <body>
-    
+
+    <%@ include file="navigate.jsp" %>
+	
     <!-- SLIDER -->
         <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
         <section class="slider d-flex align-items-center">
@@ -112,12 +114,10 @@
 										<!-- 隐藏:当前搜索关键词 -->
 										<input type="hidden" name="CurrentKeywords" value="${ins.CurrentKeywords }"/>
 										<input type="hidden" name="CurrentCityName" value="${ins.CurrentCityName }"/>
-										
-										<!-- 临时用户流水号,获取暂未实现获取 -->
-										<input type="hidden" name="aaa101" value="1"> <br>
+																			
 										
                                     	<input id="cityName" name="cityName" type="text" placeholder="当前定位: " class="btn-group2">
-                                        <input type="text" name="keywords" placeholder="搜索餐厅名或菜品名"  class="btn-group1" />
+                                        <input type="text" name="keywords" placeholder="搜索餐厅名或菜品名" required="required" class="btn-group1" />
                                         <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>搜索<i class="pe-7s-angle-right"></i></button>
                                         
                                     </div>
@@ -132,8 +132,7 @@
     <!--// SLIDER -->
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
-    
-    
+
 
 
 		 
@@ -174,6 +173,7 @@
                 </div>
                 
             </div>
+
             <div class="row">
 		        <c:if test="${rows!=null }">           	
 				<c:forEach items="${rows }" var="row" varStatus="vs">       	
@@ -259,6 +259,7 @@
             };
         });
     </script>
+
 </body>
 </html>
 

@@ -9,19 +9,23 @@
 <%@ page contentType="text/html;charset=GBK" language="java" %>
 <html>
 <head>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
+<%@ include file="navigate.jsp" %>
 <form id="aaa" action="/bBSPost.html" method="post">
-    标题<input type="text" name="aaa303"><br>
-    正文<div id="div1">
+    <br>
+    <p align="center">标题 &nbsp;&nbsp;<input type="text" name="aaa303"></p><br>
+    <div id="div1" style="width:60%;height:40%;margin:0 auto;">
     <p>这里输入正文</p>
     </div>
-    <textarea name="aaa304" id="text1" ></textarea>
-    <textarea name="aaa306" id="text2" ></textarea>
+    <textarea name="aaa304" id="text1" style="display: none"></textarea>
+    <textarea name="aaa306" id="text2" style="display: none"></textarea>
     <% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
     <input type="hidden" name="filePath" value="<%=filePath%>">
-    <input type="submit" value="发布"></input>
+    <p align="center"><button class="btn btn-outline-danger" type="submit" value="发布">发布</button></p>
 </form>
 
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>

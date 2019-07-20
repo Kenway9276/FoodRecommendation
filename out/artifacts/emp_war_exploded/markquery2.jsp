@@ -95,8 +95,8 @@
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
                                 <p><span>优惠券</span></p>
-
-		
+                                <p><span><a href="couponUserList.html">我的优惠券</a></span></p>
+                                <p><span>${msg.msg }</span></p>
                             </div>
                         </div>
                         <div class="col-md-8 featured-responsive">
@@ -119,6 +119,7 @@
                 		<span>有效日期：${row.aab506 }&nbsp</span>
                             <span>满${row.aab505 }&nbsp</span>
                             <span>减${row.aab504 }&nbsp</span>
+
                             <c:if test="${row.isUser != 1}">
                                 <span>剩余：${row.remain }&nbsp</span>
                             </c:if>
@@ -127,6 +128,7 @@
 
                             <c:choose>
                                 <c:when test="${row.isUser == 1}">
+                                    <span>优惠券码：${row.aab502 }&nbsp</span>
                                     <a href="#" onclick="onDel('${row.aab501}')">删除</a>
                                 </c:when>
                                 <c:otherwise>

@@ -168,6 +168,7 @@ h2{
 </style>
 </head>
 <body>
+${Msg }
 <%=session.getId() %>
 <h2>推广申请</h2>
 <div class="table-wrapper">
@@ -185,7 +186,7 @@ h2{
 	    	<td>
 	      	<c:if test="${ins.aab402=='0'}">推广未生效
        		</c:if>
-       		<c:if test="${ins.aab402=='1'}">${ins.aab404}
+       		<c:if test="${ins.aab402=='1'}"><input type="text" readonly="readonly" name="aab404" value="${ins.aab404}">
        		</c:if>
 	    	</td>
         </tr>
@@ -199,9 +200,8 @@ h2{
             <td colspan="3" align="center">
      		<input type="submit" name="next" value="申请"
      		 formaction="<%=path%>/busiPopularize.html">
-			<a href="<%=path%>/busiModify.jsp">
-				<input type="button" name="next" value="返回">
-			</a>
+			<input class="login100-form-btn" type="submit" name="next" value="返回"
+	 			formaction="<%=path%>/busiReturn.html" formnovalidate="formnovalidate">
      	</td>
         </tr>
         <tbody>

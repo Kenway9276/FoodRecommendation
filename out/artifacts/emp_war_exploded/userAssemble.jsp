@@ -1,4 +1,5 @@
 <%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -41,6 +42,13 @@
 <body>
 ${msg }
 <br>
+
+<%
+		Date d = new Date();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String now = df.format(d);
+%>
+
 <%=session.getId() %>
 <br>
 <form id="myform" action="<%=path%>/userAssemble.html" method="post">
@@ -99,17 +107,19 @@ ${msg }
 	     <c:when test="${rows!=null}">
 	         <!-- 显示实际查询到的数据 -->
 		     <c:forEach items="${rows}" var="ins" varStatus="vs">
+		     	<c:if test="${ins.aaa503>now }">
 	    	   	  <tr>
 				    <td>${vs.count}</td>
 				    <td>${ins.aab104 }</td>
 				    <td>${ins.aaa103 }</td>
 				    <td>${ins.aaa504 }</td>
 				    <td>${ins.aaa502 }</td>
-				    <td>${ins.aaa503 }</td>
+				    <td>${ins.aaa503 }</td>	
 				    <td>
 				      <a href="#" onclick="onApply('${ins.aaa501}')"><button>申请拼座</button></a>
 				    </td>
 				  </tr>
+				  </c:if>
 		      </c:forEach>
 		      <!-- 补充空行 -->
 		      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">

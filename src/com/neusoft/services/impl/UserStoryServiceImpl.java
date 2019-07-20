@@ -64,20 +64,31 @@ public class UserStoryServiceImpl extends JdbcServicesSupport {
         Map<String, String> map = new HashMap<>();
         map = this.queryForMap(sql, aaa101);
         //解析：把数字转换成中文
-        parseCodeList(map, "aaa202");
-        parseCodeList(map, "aaa203");
-        parseCodeList(map, "aaa204");
-        return map;
+        if(map != null){
+            parseCodeList(map, "aaa202");
+            parseCodeList(map, "aaa203");
+            parseCodeList(map, "aaa204");
+        }
+
+        return null;
     }
 
     @Override
     public List<Map<String, String>> query() throws Exception {
         List<Map<String, String>> list = new ArrayList<>();
         list.add(dayCount());
-        list.get(0).putAll(preferenceCount());
-        list.get(0).putAll(bookCount());
-        list.get(0).putAll(cityCount());
-        list.get(0).putAll(tasteFavorite());
+        if(preferenceCount() != null){
+            list.get(0).putAll(preferenceCount());
+        }
+        if(bookCount() != null){
+            list.get(0).putAll(bookCount());
+        }
+        if(cityCount() != null){
+            list.get(0).putAll(cityCount());
+        }
+        if(tasteFavorite() != null){
+            list.get(0).putAll(tasteFavorite());
+        }
         return list;
     }
 
