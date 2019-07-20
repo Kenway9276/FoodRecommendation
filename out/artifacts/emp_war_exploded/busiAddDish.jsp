@@ -37,12 +37,6 @@ ${msg}
      </td>
    </tr>
    <tr>
-     <td>菜品图片</td>
-     <td>
-       <e:text name="aab202"  required="true" defval="${dins.aab202 }"/>
-     </td>
-   </tr>
-   <tr>
      <td>菜品价格</td>
      <td>
        <e:text name="aab203"  required="true" defval="${dins.aab203 }"/>

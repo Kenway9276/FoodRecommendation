@@ -1,6 +1,6 @@
 <%@ taglib prefix="e" uri="http://org.wangxg/jsp/extl" %>
 <%@ page contentType="text/html;charset=GBK" language="java" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
@@ -9,6 +9,7 @@
    <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome core CSS -->
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <meta charset=gb2312 /> 
     <style>
         a {
@@ -47,10 +48,24 @@
             color: #555555;
         }
     </style>
+    
+<script type="text/javascript">
+function backto(vaab101)
+{
+	//返回上一页
+	window.history.back(-1); 
+	window.location.href="shopinfoFindById.html?aab101="+vaab101;
+}
+function addcomment(vaab101)
+{
+	alert("评论成功");
+}
+</script>
 </head>
 <body>
-<form id="myform" action="<%=path%>/commentAdd.html" method="post">
-
+<%@ include file="navigate.jsp" %>
+<form id="myform" action="<%=path%>/commentAdd.html"  method="post">
+		
 					<br>
 					<br>
 					
@@ -91,7 +106,12 @@
 	<input type="hidden" name="filePath" value="<%=filePath%>">
 	<br>
 	<div align="center">
-    <input type="submit" value="提交"></input>
+	
+	<c:if test="${Status.status!='1' }"> 
+    <input id="add" type="submit" onclick="addcomment()" value="提交">
+    </c:if>
+    
+    <button type="button" onclick="backto(${ins.aab101 })">返回</button>
     </div>
 </form>
 

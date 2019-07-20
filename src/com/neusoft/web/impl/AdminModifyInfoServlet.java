@@ -4,8 +4,7 @@ public class AdminModifyInfoServlet extends UserControllerSupport {
 
 	@Override
 	public String execute() throws Exception {
-		update("adminModify", "ÐÞ¸Ä");
+		this.updatePWD("adminModify", "ÐÞ¸Ä");
 		return "adminInfo";
 	}
-
 }

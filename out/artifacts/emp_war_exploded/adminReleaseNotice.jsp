@@ -100,11 +100,14 @@
 	    		<input type="file" name="aac204" id="myfile">	    	
 	    	</c:when>
 	    	<c:otherwise>
+	    		原封面<br>
 	    		<img width="200" src="${ins.aac204 }">
+	    		<br>
+	    		你希望改成<br>
+	    		<input type="file" name="aac204" id="myfile">	    	
 	    	</c:otherwise>
 	    </c:choose>
 
-	    
 	    <br>
 		<img src="" id="show" width="200">
 		<script type="text/javascript">
@@ -158,7 +161,7 @@
        			<button type="submit" name="next">发布</button>	    	
        		</c:when>
 	    	<c:otherwise>
-	    		<button name="next" type="submit" formaction="<%=path %>/adminNoticeModify.html">修改</button>
+	    		<button name="next" type="submit" formaction="<%=path %>/adminNoticeModify.html" formenctype="multipart/form-data">修改</button>
 	    	</c:otherwise>
 	    </c:choose>
 		<a href="<%=path %>/adminNotice.html">

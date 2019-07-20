@@ -8,5 +8,4 @@ public class AdminDeleteByIdPostServlet extends UserControllerSupport {
 		this.saveForumPageDataForDelete();
 		return "adminForum";
 	}
-
 }

@@ -35,6 +35,7 @@
     <title>µ¼º½</title>
 </head>
 <body>
+	<%@ include file="navigate.jsp" %>
 <div id="l-map"></div>
 <div id="main">
 </div>

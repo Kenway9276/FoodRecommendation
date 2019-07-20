@@ -9,6 +9,7 @@
    <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome core CSS -->
     <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <meta charset=gb2312 /> 
     <style>
         a {
@@ -49,8 +50,9 @@
     </style>
 </head>
 <body>
+<%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path%>/commentAdd.html" method="post">
-
+		
 					<br>
 					<br>
 					
@@ -84,9 +86,7 @@
     <textarea  name="htmltext" id="text1" ></textarea>
     <textarea  name="aab306" id="text2" ></textarea>
     </div>
-    
-    <input type="hidden" name="aaa101" value="1"></input>
-    <input type="hidden" name="aab101" value="1"></input>
+    <input type="hidden" name="aab101" value="${ins.aab101 }">
     
     <% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
     

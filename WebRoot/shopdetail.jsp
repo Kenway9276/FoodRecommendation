@@ -43,33 +43,27 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
     
     <script>
-	function onSetMark(vaab101)
+	function onSetMark()
     {
-  	  //添加到收藏夹
-  	 var vform = document.getElementById("vform");
-  	 vform.action="<%=path%>/markAdd.html?aab101="+vaab101;
-  	 vform.submit();
-  	//返回商家详情页面
-  	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
- 	 vform.submit();
+  	  	//添加到收藏夹
+  	 	var vform = document.getElementById("myform");
+  	 	vform.action="<%=path%>/markAdd.html";
+  		vform.submit();
     }
 	
 	
 	function onDelMark(vaab101)
     {
-  	  //取消收藏
-  	 var vform = document.getElementById("vform");
-  	 vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
-  	 vform.submit();
-  	//返回商家详情页面
- 	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
-	 vform.submit();
+  	  	//取消收藏
+  	 	var vform = document.getElementById("myform");
+  	 	vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
+  		vform.submit();
     }
 	
 	function onQueryMark()
     {
   	  //查看收藏
-  	 var vform = document.getElementById("vform");
+  	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/markQuery.html";
   	 vform.submit();
     }
@@ -78,7 +72,7 @@
 	function onQueryMessage()
     {
   	  //查看消息
-  	 var vform = document.getElementById("vform");
+  	 var vform = document.getElementById("myform");
   	 vform.action="<%=path%>/messageSearchUnRead.html";
   	 vform.submit();
     }
@@ -116,7 +110,7 @@
 		document.getElementById("closebtn"+vaab301).style="display:none";
     }
 	
-	function onAddReply(vaab301)
+	function onAddReply(vaab301,vaab101)
 	{
 		//提交回复
 		var vform = document.getElementById("myform");
@@ -124,7 +118,7 @@
 	  	vform.submit();
 	}
 	
-	function onDelCommentById(vaab301)
+	function onDelCommentById(vaab301,vaab101)
 	{
 		//删除评论
 		var vform = document.getElementById("myform");
@@ -268,25 +262,15 @@
 	}
 	
 </script>
-
-
+<link rel="stylesheet" href="css/style_nav.css"/>
 
 </head>
 
 <body>
-<form id="vform">
-	<input  type="hidden" name="aab101" value="${ins.aab101 }"></input>
-	<input type="hidden" id="MapAd" value="${ins.aab106 }"></input>
 
-	<!--  
-	<input type="hidden" name="aaa101" value="1"></input>
-	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
-	
-	-->
-</form>
 <form id="myform" method="post" >	
 	<input id="shop_id" type="hidden" name="aab101" value="${ins.aab101 }"></input>
-	
+	<input type="hidden" id="MapAd" value="${ins.aab106 }"></input>
 	<!--
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input> 
@@ -294,64 +278,28 @@
 	
 
     <!--============================= HEADER =============================-->
-    <div class="dark-bg sticky-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html">Listing</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon-menu"></span>
-            </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Explore
-                   <span class="icon-arrow-down"></span>
-                 </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Listing
-                  <span class="icon-arrow-down"></span>
-                </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Pages
-                  <span class="icon-arrow-down"></span>
-                </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" onclick="onQueryMark()" href="#">收藏夹</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" onclick="onQueryMessage()" href="#">我的消息</a>
-                                </li>
-                                <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="c-nav">
+	<div class="container navFlex">
+		<div class="flexItem">
+		吃
+		</div>
+		<div class="flexItem show">
+			<ul>
+				<li><a href="${empty sessionScope.userID?'userLogin.jsp':'userInfo.html'}">${empty sessionScope.userID?'登录':'个人信息'}</a></li>
+				<li><a href="shopsearch.jsp">搜索</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="preferenceIndex.html">推荐</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="markQuery.html">收藏</a></li>
+				<li><a href="bBSBrowse.html">论坛</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userHistory.html">历史订单</a></li>
+				<li><a href="userNotice.html">公告</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="couponList.html">优惠券</a></li>
+				<li><a href="messageSearchUnRead.html">消息</a></li>
+				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userStory.html">关于你</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
     <!--//END HEADER -->
     <!--============================= BOOKING =============================-->
     <div>
@@ -434,20 +382,33 @@
                         </c:choose>
                         </c:if>
                         
+                        <c:if test="${sessionScope.userID!=null}">
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a href="javascript:void(0)" onclick="onShowReserveTable()" class="btn btn-danger">拼座</a>
+                            </div>
+                        </div>
+                        </c:if>
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         <c:if test="${sessionScope.userID!=null}">
                         <c:if test="${empty IsMark }">
 						<div class="reserve-btn">
-                            <div class="featured-btn-wrap" onclick="onSetMark('${ins.aab101}')" >
-                                <a href="#" id="markbtn" onclick="onSetMark('${ins.aab101}')" class="btn btn-danger">收藏</a>
+                            <div class="featured-btn-wrap">
+                                <a href="javascript:void(0)" id="markbtn" onclick="onSetMark('${ins.aab101}')" class="btn btn-danger">收藏</a>
                             </div>
                         </div>
 						</c:if>
 						
 						<c:if test="${!empty IsMark }">
 						<div class="reserve-btn">
-                            <div class="featured-btn-wrap" onclick="onDelMark('${ins.aab101}')" >
-                                <a href="#" id="markbtn" onclick="onDelMark('${ins.aab101}')" class="btn btn-danger">取消收藏</a>
+                            <div class="featured-btn-wrap">
+                                <a href="javascript:void(0)" id="markbtn" onclick="onDelMark('${ins.aab101}')" class="btn btn-danger">取消收藏</a>
                             </div>
                         </div>
 						</c:if> 
@@ -744,7 +705,7 @@
                                 	<ul>
                                 	
                                 	
-                                	<c:if test="${cp.c0!=null}">              	
+                                	<c:if test="${!empty cp.c0 }">              	
                                     <li>
                                     <div href="upload/${cp.c0 }"  class="grid image-link">
                                     <img width="100px" height="100px" src="upload/${cp.c0 }" class="img-fluid" alt="#">
@@ -836,8 +797,8 @@
                                 
                                 <c:if test="${sessionScope.userID==row.aaa101 }">
                                 <span>
-                                <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 })">
-                                <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">删除</a></span>
+                                <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 },${ins.aab101 })">
+                                <span><a href="javascript:void(0)" onclick="onDelCommentById(${row.aab301},${ins.aab101 } )">删除</a></span>
                                 </div>
                                 </span>
                                 </c:if>
@@ -845,8 +806,8 @@
                                 
                                 <c:if test="${sessionScope.adminID!=null}">
                                 <span>
-                                <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 })">
-                                <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">删除</a></span>
+                                <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 },${ins.aab101 })">
+                                <span><a href="javascript:void(0)" onclick="onDelCommentById(${row.aab301},${ins.aab101 } )">删除</a></span>
                                 </div>
                                 </span>
                                 </c:if>
@@ -859,7 +820,7 @@
                                 <br>
                                 <div style="display:none" id="ReplyText${row.aab301 }">                           
                                 <textarea style="width:300px; height:50px" name="ReplyText${row.aab301 }" ></textarea>
-                                <a href="#" onclick="onAddReply(${row.aab301 })">提交</a>
+                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 })">提交</a>
                                 </div>
                                 
                                 

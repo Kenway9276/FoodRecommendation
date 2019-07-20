@@ -31,6 +31,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
     
+    
     <script type="text/javascript">
 
 	
@@ -88,7 +89,9 @@
 </head>
 
 <body>
-    
+
+    <%@ include file="navigate.jsp" %>
+	
     <!-- SLIDER -->
         <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
         <section class="slider d-flex align-items-center">
@@ -129,8 +132,7 @@
     <!--// SLIDER -->
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
-    
-    
+
 
 
 		 
@@ -171,6 +173,7 @@
                 </div>
                 
             </div>
+
             <div class="row">
 		        <c:if test="${rows!=null }">           	
 				<c:forEach items="${rows }" var="row" varStatus="vs">       	
@@ -256,6 +259,7 @@
             };
         });
     </script>
+
 </body>
 </html>
 

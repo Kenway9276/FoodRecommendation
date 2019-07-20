@@ -224,7 +224,7 @@ public class Tools
 		//空值拦截
 		if(element==null || element.equals(""))
 		{
-			return "";
+			return null;
 		}
 		
 		//判断element到底是什么?是字符串还是字符串数组
@@ -353,6 +353,10 @@ public class Tools
     public static String getDateTime()
 	{
 		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
+	}
+    public static String getFDate()
+	{
+		return new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 	}
 	public static String getDate()
 	{

@@ -61,6 +61,7 @@
     <![endif]-->
 </head>
 <body>
+<%@ include file="navigate.jsp" %>
 <div class="news" id="news">
     <div class="container">
         <div class="w3-welcome-heading">
@@ -69,6 +70,46 @@
         <div class="agile-news-grids">
             <div class="agile-news-grid">
                 <c:forEach items="${rows }" var="ins" varStatus="vs">
+                    <div class="col-md-6 agile-news-left">
+                        <div class="col-md-6 news-left-img" style="background: url(upload/${ins.aab113 }) no-repeat 0px 0px;background-size: cover;min-height: 200px;">
+
+                        </div>
+                        <div class="col-md-6 news-grid-info-bottom">
+                            <div class="news-left-top-text">
+                                <a href="#" data-toggle="modal" data-target="#myModal"><br>${ins.aab104 }<br><br></a>
+                            </div>
+                            <c:if test="${!empty ins.popularity }">
+                                <div class="news-grid-info-bottom-text">
+                                    <p>人气值：${ins.popularity }</p>
+                                </div>
+                            </c:if>
+                            <div class="news-grid-info-bottom-text">
+                                <p>地址：${ins.aab106 }</p>
+                            </div>
+                            <div class="news-grid-info-bottom-text">
+                                <p>评分：${ins.aab111 }</p>
+                            </div>
+                            <div class="news-grid-info-bottom-text">
+                                <p>联系电话：${ins.aab107 }</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </c:forEach>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="news" id="news">
+    <div class="container">
+        <div class="w3-welcome-heading">
+            <h3>${title2}</h3>
+        </div>
+        <div class="agile-news-grids">
+            <div class="agile-news-grid">
+                <c:forEach items="${rows2 }" var="ins" varStatus="vs">
                     <div class="col-md-6 agile-news-left">
                         <div class="col-md-6 news-left-img" style="background: url(upload/${ins.aab113 }) no-repeat 0px 0px;background-size: cover;min-height: 200px;">
 
