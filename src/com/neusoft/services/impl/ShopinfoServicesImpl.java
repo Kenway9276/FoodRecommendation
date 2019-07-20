@@ -120,7 +120,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	{
 		Object aab101 =  getaab101();
 		String sql="select aaa401 from aa04 where aaa101=? AND aab101=?";
-		Object args[]={this.get("aaa101"),aab101};
+		Object args[]={this.get("userID"),aab101};
 		return this.queryForList(sql, args);
 	}
 	
@@ -130,7 +130,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	{
 		Object aab101 =  getaab101();
 		String sql="select aab301 from ab03 where aaa101=? AND aab101=? AND aab305='0'";
-		Object args[]={this.get("aaa101"),aab101};
+		Object args[]={this.get("userID"),aab101};
 		return this.queryForList(sql, args);
 	}
 	
@@ -208,8 +208,6 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	public Map<String,String> saveEquipment()throws Exception
 	{
 		String sql="select aab112 from ab01 where aab101=?";
-		System.out.println(this.get("aab101"));
-		System.out.println(this.queryForMap(sql, this.get("aab101")));
 		String str=this.queryForMap(sql, this.get("aab101").toString()).get("aab112");
 		String strs[]=str.split(",");
 		Map<String,String> map= new HashMap();
@@ -220,6 +218,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		return map;
 	}
 	
+	
 	//商家详情页面查看评论
 	public List<Map<String,String>> queryComment()throws Exception
 	{
@@ -227,8 +226,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 					.append(" SELECT aab301 , aab101 , ab03.aaa101 , aab303 , aab304 , aab305 ,")
 					.append(" aab306 , aab307 , aab308 , aaa103 from ab03 LEFT JOIN aa01 on ")
 					.append(" ab03.aaa101 = aa01.aaa101 where aab101= ? ");
-		List<Map<String,String>> rows=this.queryForList(sql.toString(), this.get("aab101"));
-				
+		List<Map<String,String>> rows=this.queryForList(sql.toString(), this.get("aab101"));				
 		//过滤评论中用户的昵称,将其变为 X******X
 		for (Map<String, String> row : rows)
 		{ 
@@ -237,6 +235,31 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		}
 		return rows;
 	}
+	
+	
+	//商家详情页面点评统计
+	public Map<String, String> calComment()throws Exception
+	{
+		//统计好评
+		String sq1="SELECT COUNT(aab301) FROM ab03 where aab101=? AND aab305='0' AND aab307='5'";
+		//统计中评
+		String sq2="SELECT COUNT(aab301) FROM ab03 where aab101=? AND aab305='0' AND (aab307='4' OR aab307='3') ";
+		//统计差评
+		String sq3="SELECT COUNT(aab301) FROM ab03 where aab101=? AND aab305='0' AND (aab307='2' OR aab307='1') ";
+		//统计有图评论
+		String sq4="SELECT COUNT(aab301) FROM ab03 where aab101=? AND aab305='0' AND (aab306!='' AND aab306 is not null) ";
+		Map<String, String> map =new HashMap<>();
+	
+		map.put("good", this.queryForMap(sq1, this.get("aab101")).get("count(aab301)"));
+		map.put("soso", this.queryForMap(sq2, this.get("aab101")).get("count(aab301)"));
+		map.put("bad", this.queryForMap(sq3, this.get("aab101")).get("count(aab301)"));
+		map.put("haveP", this.queryForMap(sq4, this.get("aab101")).get("count(aab301)"));
+		
+		return map;
+	}
+	
+	
+	
 	
 	//分割图片地址
 	public List<Map<String , String>> spiltPhotoAddress(String str)
@@ -247,6 +270,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		{
 			Map<String,String> map= new HashMap();
 			map.put("address",strs[i]);
+			
 			AddressList.add(map);
 		}
 		return AddressList;

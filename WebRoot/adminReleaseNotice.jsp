@@ -42,7 +42,6 @@
 </script>
 </head>
 <body >
-<%request.getSession().getAttribute("ins");%>
 <%request.getSession().getAttribute("管理员流水号");%>
 <%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/adminReleaseNotice.html" enctype="multipart/form-data" method="post">
@@ -79,7 +78,7 @@
       <div class="adminNotice">
 	<table width="90%" style="margin:0 auto">
 	  <caption>
-	              发布公告
+	         ${empty ins.aac201?'发布':'修改' }公告
 	    <hr width="160">
 	  </caption>
 	  <tr>
@@ -90,13 +89,25 @@
 	  <tr>
   	    <td width=60px>标题</td>
 	  	<td>
-	  		<e:text name="aac202" required="true"/>
+	  		<e:text name="aac202" required="true" defval="${ins.aac202 }"/>
 	  	</td>
 	  </tr>
 	  <tr>
 	    <td style="width:60px">封面</td>
 	    <td>
-	    <input type="file" name="aac204" id="myfile">
+	    <c:choose>
+	    	<c:when test="${empty ins.aac201}">
+	    		<input type="file" name="aac204" id="myfile">	    	
+	    	</c:when>
+	    	<c:otherwise>
+	    		原封面<br>
+	    		<img width="200" src="${ins.aac204 }">
+	    		<br>
+	    		你希望改成<br>
+	    		<input type="file" name="aac204" id="myfile">	    	
+	    	</c:otherwise>
+	    </c:choose>
+
 	    <br>
 		<img src="" id="show" width="200">
 		<script type="text/javascript">
@@ -121,7 +132,7 @@
 	    <td style="width:60px">正文</td>
 	  	<td>
 	  		<div id="div1">
-    			<p>这里输入正文</p>
+    			<p>${ins.aac205 }</p>
    			</div>
    			 <textarea name="aac205" id="text1" style="display:none"></textarea>
     		<% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
@@ -131,21 +142,29 @@
 	  <tr>
 	    <td style="width:60px">优先级</td>
 	    <td>
-	  		<e:radio name="aac207" value="普通:0,置顶:1" required="true" />
+	  		<e:radio name="aac207" value="普通:0,置顶:1" required="true" defval="${ins.aac207 }"/>
 	    </td>
 	   </tr>
 	   <tr>
 	    <td style="width:60px">种类</td>
 	  	<td>
-	  		<e:radio name="aac206" value="测评文章:1,优惠活动:2,更新维护:3" required="true" />
+	  		<e:radio name="aac206" value="测评文章:1,优惠活动:2,更新维护:3" required="true" defval="${ins.aac206 }" />
 	 	 </td>
 	  </tr>
 	</table>
 	<br>
 	<br>
 <div style="text-align:center">
-       <button type="submit" name="next">发布</button>
-		<a href="<%=path %>/adminNotice.jsp">
+      <e:hidden name="aac201" value="${ins.aac201 }" />
+   	    <c:choose>
+	    	<c:when test="${empty ins.aac201}">
+       			<button type="submit" name="next">发布</button>	    	
+       		</c:when>
+	    	<c:otherwise>
+	    		<button name="next" type="submit" formaction="<%=path %>/adminNoticeModify.html" formenctype="multipart/form-data">修改</button>
+	    	</c:otherwise>
+	    </c:choose>
+		<a href="<%=path %>/adminNotice.html">
 		<button class="btn btn-danger btn-block" name="next">管理</button>
 		</a> 
 </div>

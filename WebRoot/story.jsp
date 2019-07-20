@@ -1,26 +1,144 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: P7XXTMX-G
-  Date: 2019/7/17
-  Time: 15:15
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%String path=request.getContextPath(); %>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Title</title>
+<head lang="zh-CN">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>ÓÃ»§¹ÊÊÂ</title>
+	
+    <link rel="stylesheet" href="<%=path %>/css/public_userstory.css">
+	
+	<script src="<%=path %>/js/jquery.min.js"></script>
+	<script src="<%=path %>/js/jquery_flexslider.js"></script>
+	<style type="text/css">
+		button{
+		display:inline-block;
+		border:none;
+		background-color:#CCC;
+		color:#FFFFFF;
+		padding: 12px 28px;
+	    text-align: center;
+	    font-size: 16px;
+	    border-radius:6px;
+		}
+	</style>
 </head>
 <body>
-<%@ include file="navigate.jsp" %>
-${rows}
-<p>æˆ‘ä»¬å·²é™ªä½ èµ°è¿‡${rows[0].days}å¤©</p>
-<p>ä½ å­˜å‚¨äº†${rows[0].preferences}ç§å£å‘³</p>
-<p>è¿›è¡Œäº†${rows[0].books}æ¬¡è®¢åº§</p>
-<p>èµ°è¿‡äº†${rows[0].cities}ä¸ªåŸŽå¸‚</p>
+<%-- <%@ include file="navigate.jsp" %> --%>
+<div class="about-history" id="fzlc">
+    <header class="about-title title-white">
+        <h3 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">ÎÒÃÇºÍÄãµÄ¹ÊÊÂ</h3>
+        <hr width="230" align="left">
+        <p class="wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">Our Story</p>
+    </header>
+    <div class="about-history-list wow zoomIn" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: zoomIn;">		
+        <div class="flex-viewport" style="overflow: hidden; position: relative;">
+            <ul class="slides clearfix list" style="width: 2600%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                <li style="width: 253px; float: left; display: block;">
+                    <div class="item">
+                        <h3>TIME</h3>
+                        <div class="desc">
+                            <p>
+                     			ÌìÏÂ¿ìÒâÖ®ÊÂÄªÈôÓÑ£¬¿ìÓÑÖ®ÊÂÄªÈôÊ³¡£<br>
+                            	ÎÒÃÇÒÑÅãÄã×ß¹ý${rows[0].days}Ìì£¬<br>
+                            	ÍùºóµÄÈÕ×ÓÇë¶à¹ØÕÕ£¡
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li style="width: 253px; float: left; display: block;">
+                    <div class="item">
+                        <h3>LOVE</h3>
+                        <div class="desc">
+                            <p>
+                            	Ã»ÓÐ±ÈÈÈ°®ÒûÊ³¸üÕæ³ÏµÄ°®£¡<br>
+                            	ÄãÒÑ¾­ÔÚÕâÀï´æ´¢ÁË${rows[0].preferences}ÖÖ¿ÚÎ¶£¬<br>
+                            	ÒûÊ³Ïà°é£¬Ò²ÈÃÎÒÃÇ¸Ðµ½ÐÒ¸£¡£
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li style="width: 253px; float: left; display: block;">
+                    <div class="item">
+                        <h3>RESERVATION</h3>
+                        <div class="desc">
+                            <p>
+                            	½ñÒ¹Á¼Ñç»á£¬»¶ÀÖÄÑ¾ß³Â¡£<br>
+                            	ÄãÒÑ¾­½øÐÐÁË${rows[0].books}´Î¶©×ù£¬<br>
+                            	ÊÇÈýÁ½ºÃÓÑ£¬Òà»òÊÇ¸ßÅóÂú×ù£¬×ÝÈ»¶ÔÓ°³ÉÈý£¬Ò²ÓÐÎÒÃÇÏà°é¡£
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li style="width: 253px; float: left; display: block;">
+                    <div class="item">
+                        <h3>DESTINATION</h3>
+                        <div class="desc">
+                            <p>
+                            	»¹¹ËÍû¾ÉÏç£¬³¤Â·ÂþºÆºÆ¡£<br>
+                            	ÄãÒÑ¾­×ß¹ýÁË${rows[0].cities}¸ö³ÇÊÐ£¬<br>
+                            	É½³¤Ë®Ô¶£¬¹éÍ¾»òÐíÂþ³¤£¬Ç°Â·»òÐíÃÔÃ££¬Òª¼ÇµÃÎÒÃÇÊÇÄãµÄ±Ü·ç¸Û¡£
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li style="width: 253px; float: left; display: block;">
+                    <div class="item">
+                        <h3>TASTE</h3>
+                        <div class="desc">
+                            <p>
+                            	¿ÚÎ¶ÍòÇ§£¬Äã×îÏ²»¶¡ª¡ª${rows[0].aaa202}<br>
+                            	Ê¢Ñç÷Ò÷Ñ£¬Äã×îÖÐÒâ¡ª¡ª${rows[0].aaa203}<br>
+								½ðé×Çå¾Æ¡¢ÓñÅÌÕäâÊ£¬ÄãÈ´¶À°®¡ª¡ª${rows[0].aaa204}<br>
+								ÎÒÃÇ»á¼ÇµÃÄãµÄÃ¿¸öÒ»¼ûÖÓÇé£¬Ã¿µÀÐÄÍ·ÖìÉ°¡£
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li style="width: 253px; float: left; display: block;">
+                    <div class="item">
+                        <h3>´ý¶¨</h3>
+                        <div class="desc">
+                            <p>°×ÁÛ÷ŽÏ¸¹©´º¾Æ£¬ºìÎ²¸þÏã·îÍí²Í¡£</p>
+                        </div>
+                    </div>
+                </li>
+                <li style="width: 253px; float: left; display: block;">
+                    <div class="item">
+                        <h3>´ý¶¨</h3>
+                        <div class="desc">
+                            <p>
+                            	ÕÐÑ°°éÂÂ³ËÇïÐË£¬È¡´ÎÓãÏº°éÍí²Í¡£<br>
+                            	<div style="text-align:center">
+                            	<button name="Submit" onclick="javascript:history.back(-1);">·µ»Ø</button>
+                            	</div>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                
+                <li style="width: 253px; float: left; display: block;"></li>
+            </ul>
+        </div>
+        <ul class="flex-direction-nav">
+            <li class="flex-nav-prev"><a class="flex-prev" href="#">&lt;</a></li>
+            <li class="flex-nav-next"><a class="flex-next" href="#">&gt;</a></li>
+         </ul>
+    </div>
+</div>
 
-<p>ç››å®´é¥•é¤®ä½ æœ€ä¸­æ„â€”â€”${rows[0].aaa203}</p>
-<p>é‡‘æ¨½æ¸…é…’ã€çŽ‰ç›˜çé¦ï¼Œä½ å´ç‹¬çˆ±â€”â€”${rows[0].aaa204}</p>
-<span>å£å‘³ä¸‡åƒï¼Œä½ æœ€å–œæ¬¢â€”â€”${rows[0].aaa202}</span>
+<script>
+	$(function(){
+
+			$(".about-history-list").flexslider({animation:"slide",slideshow:false,controlNav:false,itemWidth:253,itemMargin:31,prevText:"<",nextText:">",move:1});
+	});
+</script>
+
 </body>
 </html>

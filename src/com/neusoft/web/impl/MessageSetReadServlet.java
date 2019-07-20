@@ -15,7 +15,8 @@ public class MessageSetReadServlet extends MessageControllerSupport {
 	{
 		this.update("setMessageRead", "ря╤а");
 		this.savePageData("rows", "queryUnRead");
-		return "message";		
+		this.saveMapPageData("Status", "saveStausForUnRead");
+		return "messagequery";		
     }
 
 }

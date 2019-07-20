@@ -1,12 +1,12 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=c68c0348a7edc9a39e009a5ceedfb18db1cd7d32
+>>>>>>>=0c9da9439d3bd171358aee19d42364ecb250eff4
 eclipse.preferences.version=1
 encoding//WebRoot/css/gyn.css=UTF-8
 encoding//WebRoot/navigate.jsp=UTF-8
 encoding//WebRoot/shopdetail.jsp=GBK
 encoding//src/com/neusoft/services/JdbcServicesSupport.java=GBK
-encoding//src/com/neusoft/services/impl/Ab01ServicesImpl.java=GBK
+encoding//src/com/neusoft/services/impl/Ab01ServicesImpl.java=UTF-8
 encoding//src/com/neusoft/services/impl/ShopinfoServicesImpl.java=GBK
 encoding//src/com/neusoft/services/impl/UserStoryServiceImpl.java=GBK
 encoding//src/com/neusoft/system/tools/Tools.java=GBK

@@ -83,7 +83,9 @@ if(map != null){
 <!-- </nav> -->
 <header>
   <div class="container">
-    <h2 class="docs-header">不以规矩，不成方圆！</h2>
+    <h2 class="docs-header">
+    	不以规矩，不成方圆！
+    </h2>
   </div>
 </header>
 <section>
@@ -105,7 +107,7 @@ if(map != null){
         <c:forEach items="${rows }" var="ins" varStatus="vs">
 		 <table id="${ins.aab101 }" style="margin:0 auto" width=50%>
 			<tr>
-				<td style="color:#FFFFFF;width:50%">
+				<td style="color:#FFFFFF;width:30%">
 				商家用户名
 				</td>
 				<td style="color:#FFFFFF;text-align:center">
@@ -125,7 +127,9 @@ if(map != null){
 				资质证明
 				</td>
 				<td style="color:#FFFFFF">
+				<a href="${ins.aab108 }">
 				<img src="${ins.aab108 }">
+				</a>
 				</td>
 			</tr>
 			<tr>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: P7XXTMX-G
@@ -85,6 +86,11 @@
         <ul class="nav">
             <li>分享你的故事</li>
         </ul>
+        <ul class="nav">
+            <li><a href="bBSBrowse.html">返回首页</a></li>
+            <li><a href="post.jsp">发布帖子</a></li>
+            <li><a href="bBSBrowseUser.html">查看我发布的帖子</a></li>
+        </ul>
     </div>
 </div>
 <!-- End of Page title -->
@@ -93,41 +99,69 @@
     <div class="row">
 
         <c:forEach items="${rows }" var="ins" varStatus="vs">
-            <!-- Post -->
-            <div class="col-md-6">
-                <div class="post-default post-has-no-thumb">
-                    <div class="post-data">
-                        <!-- Title -->
-                        <div class="title">
-                            <h2><a href="#" onclick="onSelect('${ins.aaa301}')">${ins.aaa303}</a></h2>
+            <c:if test="${vs.count != fn:length(rows)}">
+
+                <!-- Post -->
+                <div class="col-md-6">
+                    <div class="post-default post-has-no-thumb">
+                        <div class="post-data">
+                            <!-- Title -->
+                            <div class="title">
+                                <h2><a href="#" onclick="onSelect('${rows[vs.count - 1].aaa301}')">${ins.aaa303}</a></h2>
+                            </div>
+                            <!-- Post Meta -->
+                            <ul class="nav meta align-items-center">
+                                <li class="meta-author">
+                                    <a href="#">${rows[vs.count - 1].aaa103}</a>
+                                </li>
+                                <li class="meta-date"><a href="#">${rows[vs.count - 1].aaa302}</a></li>
+                                <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> </a></li>
+                            </ul>
+                            <!-- Post Desc -->
+                            <div class="desc">
+                                <p>
+                                        ${rows[vs.count - 1].aaa306}
+                                </p>
+                            </div>
                         </div>
-                        <!-- Post Meta -->
-                        <ul class="nav meta align-items-center">
-                            <li class="meta-author">
-                                <a href="#">${ins.aaa103}</a>
-                            </li>
-                            <li class="meta-date"><a href="#">${ins.aaa302}</a></li>
-                            <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> </a></li>
-                        </ul>
-                        <!-- Post Desc -->
-                        <div class="desc">
-                            <p>
-                                    ${ins.aaa306}
-                            </p>
-                        </div>
+                        <p><a href="#" id="view-more" class="btn btn-primary">view more</a></p>
+                        <input type="hidden" id="hidden-title" value="${rows[vs.count - 1].aaa301}">
+                        <c:if test="${rows[vs.count - 1].isUser == '1'}">
+                            <p><a href="#"  onclick="onDel('${rows[vs.count - 1].aaa301}')" class="btn btn-primary">delete</a></p>
+                        </c:if>
                     </div>
-                    <p><a href="#" id="view-more" class="btn btn-primary">view more</a></p>
-                    <input type="hidden" id="hidden-title" value="${ins.aaa301}">
-                    <c:if test="${ins.isUser == '1'}">
-                        <p><a href="#"  onclick="onDel('${ins.aaa301}')" class="btn btn-primary">delete</a></p>
-                    </c:if>
                 </div>
-            </div>
-            <!-- End of Post -->
+                <!-- End of Post -->
+            </c:if>
+
         </c:forEach>
+        <%
+            List<Map<String,String>> list = (List<Map<String,String>>) request.getAttribute("rows");
+            Map<String,String> map = list.get(list.size() - 1);
+            request.setAttribute("currentPage", map.get("currentPage"));
+            request.setAttribute("totalPages", map.get("totalPages"));
+            request.setAttribute("isUser", map.get("isUser"));
+        %>
+        <c:if test="${isUser != '1'}">
+            <div id="page-number" class="post-pagination d-flex justify-content-center">
+                <input type="hidden" name="currentPage" value="${currentPage}">
+                <span id="current-page" class="current">${currentPage}</span>
+                <c:choose>
+                    <c:when test="${(currentPage + 3) > totalPages}">
+                        <c:forEach begin="${currentPage}" end="${currentPage}" varStatus="vs">
+                            <a id="selectable-page" class="page-btn" href="#">${currentPage + vs.count}</a>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <a id="selectable-page" class="page-btn" href="#">${currentPage + 1}</a>
+                        <a id="selectable-page" class="page-btn" href="#">${currentPage + 2}</a>
+                        <a id="selectable-page" class="page-btn" href="#">${currentPage + 3}</a>
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </c:if>
 
     </div>
-
 </div>
 
 
@@ -140,8 +174,7 @@
 
 <!-- JS Files -->
 
-<!-- ==== ajax ==== -->
-<script src="ajax_js/BBS_ajax.js"></script>
+<script type="text/javascript" src="ajax_js/BBS_ajax.js"></script>
 
 <!-- ==== JQuery 1.12.1 js file ==== -->
 <script src="dw_assets/js/jquery-1.12.1.min.js"></script>
@@ -167,7 +200,6 @@
     function onSelect(aaa301) {
         var form = document.getElementById("tem");
         form.action = "<%=path%>/bBSBrowseSingle.html?aaa301=" + aaa301;
-        alert('aaaaa');
         form.submit();
 
     }
@@ -189,6 +221,5 @@
 
 </script>
 
-<p id="tem-data"></p>
 </body>
 </html>

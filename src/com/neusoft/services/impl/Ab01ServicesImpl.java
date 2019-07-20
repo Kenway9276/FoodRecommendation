@@ -67,6 +67,21 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	
     }
     
+    private boolean busiNotPass()throws Exception
+    {
+    	StringBuilder sql=new StringBuilder()
+    			.append("update ab01")
+    			.append("   set aab105=?")
+    			.append(" where aab101=?")
+    			;
+    	Object args[]={
+    			"0",
+    			this.get("aab101"),
+    	};
+    	return this.executeUpdate(sql.toString(), args)>0;
+    	
+    }
+    
     private boolean adminModify()throws Exception
     {
     	StringBuilder sql=new StringBuilder()
@@ -80,6 +95,30 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			this.get("aac401")
     	};
     	return this.executeUpdate(sql.toString(), args)>0;
+    	
+    }
+    
+    private boolean adminNoticeModify()throws Exception
+    {
+	   	Object imgPath =this.get("imgPath");
+    	StringBuilder sql=new StringBuilder()
+    			.append("update ac02")
+    			.append("   set aac202=?,aac205=?,aac206=?,aac207=?")
+    			;
+    	List<Object> arr=new ArrayList<>();
+    	arr.add(this.get("aac202"));
+    	arr.add(this.get("aac205"));
+    	arr.add(this.get("aac206"));
+    	arr.add(this.get("aac207"));
+    	if (imgPath != null) 
+    	{
+    		sql.append(",aac204=?");
+    		Object aac204 ="upload/" + imgPath;
+    	   	arr.add(aac204);
+    	}
+		sql.append(" where aac201=?");
+    	arr.add(this.get("aac201"));
+    	return this.executeUpdate(sql.toString(), arr.toArray())>0;
     	
     }
     
@@ -101,6 +140,15 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			this.get("aaa108"),
     	};
         return this.executeUpdate(sql.toString(), args)>0;	
+    }
+    
+    private boolean userNameCheck() throws Exception
+    {
+    	StringBuilder sql=new StringBuilder()
+    			.append("select aaa103 from aa01")
+    			.append("where  aaa103=?")
+    			;
+    	return this.queryForMap(sql.toString(), this.get("aaa103"))==null;
     }
     
     private boolean adminReleaseNotice()throws Exception
@@ -132,7 +180,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     	StringBuilder sql=new StringBuilder()
     			.append("update aa01")
     			.append("   set aaa103=?,aaa104=?,aaa105=?,aaa106=?,")
-    			.append("       aaa107=?,aaa108=?,aaa110=?")
+    			.append("       aaa107=?,aaa108=?")
     			.append(" where aaa102=? and aaa105=?")
     			;
     	Object args[]={
@@ -142,7 +190,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			this.get("aaa106"),
     			this.get("aaa107"),
     			this.get("aaa108"),
-    			this.get("aaa110"),
     			this.get("aaa102"),
     			Tools.getMd5(this.get("aaa105"))
     	};
@@ -164,7 +211,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     {
     	String aab103=Tools.getReservationNumber();
     	this.put("aab103", aab103);
-    	
     	StringBuilder sql=new StringBuilder()
     			.append("insert into ab01(aab102,aab103,aab104,aab105,aab106,")
     			.append("                 aab107,aab108,aab109,aab110,aab111,")
@@ -274,7 +320,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     public Map<String,String> findByIdNotice()throws Exception
     {
     	StringBuilder sql=new StringBuilder()
-    			.append("select aac202,aac203,aac204,aac205,")
+    			.append("select aac201,aac202,aac203,aac204,aac205,")
     			.append("       aac206,aac207")
     			.append("  from ac02")
     			.append(" where aac201=?")
@@ -284,7 +330,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     
       /**
-       * 婵炴垶鎸哥粔鎾偩妤ｅ啫绾ч柍銉ュ级椤愪粙鏌＄仦璇插姤妞ゆ洩鎷�
        * @return
        * @throws Exception
        */
@@ -296,7 +341,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		Object aab106=this.get("qaab106");    
 	  		Object baab104=this.get("baab104");    
 	  		Object eaab104=this.get("eaab104");    
-
 	  		StringBuilder sql=new StringBuilder()
 	  				.append("select x.aab101,x.aab102,x.aab103,x.aab104,a.fvalue cnaab105,")
 	  				.append("       b.fvalue cnaab106,x.aab108,x.aab109")
@@ -305,7 +349,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  				.append("   and x.aab106=b.fcode and b.fname='aab106'") 
 	  				;
 	  		
-
 	  		List<Object> paramList=new ArrayList<>();
 	  		if(this.isNotNull(aab102))
 	  		{
@@ -354,20 +397,23 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		Object aaa203=this.get("qaaa203");     	
 	  		Object aaa204=this.get("qaaa204");     	
 	  		Object aaa205=this.get("qaaa205");     	
-	  		Object aaa206=this.get("qaaa206");     		  		
+	  		Object aaa206=this.get("qaaa206");     	
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
 	  		StringBuilder sql=new StringBuilder()
-	  				.append("select aaa102,aaa103,aab104,aac101,aac102,")
-	  				.append("       aac103,aac104,aac105,aaa202,aaa203,")
-	  				.append("       aaa204,aaa205,aaa206,aaa207")
+	  				.append("select a.aaa102,a.aaa103,b.aab104,c.aac101,c.aac102,")
+	  				.append("       c.aac103,c.aac104,c.aac105,d.aaa202,d.aaa203,")
+	  				.append("       d.aaa204,d.aaa205,d.aaa206,d.aaa207,c.aac101")
 	  				.append("  from aa01 a,ab01 b,ac01 c,aa02 d")
 	  				.append(" where a.aaa101=c.aaa101 and b.aab101=c.aab101")
 	  				.append("   and c.aaa201=d.aaa201 and a.aaa101=d.aaa101") 
+	  				.append("   and c.aaa101=? and aac106=?") 
 	  				;
 	  		
 	  		List<Object> paramList=new ArrayList<>();
+	  		paramList.add(aaa101);
+	  		paramList.add("1");
 	  		if(this.isNotNull(aac102))
 	  		{
 	  			sql.append(" and c.aac102=?");
@@ -419,7 +465,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  			paramList.add("%"+aaa206+"%");
 	  		}
 	  		
-	  		sql.append(" order by c.aac102");
+	  		sql.append(" order by c.aac102;");
 	  		//System.out.println(sql.toString());
 	  		List<Map<String, String>> tems = this.queryForList(sql.toString(), paramList.toArray());
 	  		
@@ -468,7 +514,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		Object aac206=this.get("qaac206");     
 	  		Object aac207=this.get("qaac207");   
 	  		System.out.println(aac206);
-
 //	  		select aaa102,aaa103,aab104,aac102,aac103,aac104,aac105,aaa202,aaa203,aaa204,aaa205,aaa206
 //	  		from aa01 a,ab01 b,ac01 c,aa02 d
 //	  		where a.aaa101=c.aaa101 and b.aab101=c.aab101 and c.aaa201=d.aaa201 and a.aaa101=d.aaa101
@@ -859,7 +904,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		};
 			return this.executeUpdate(sql.toString(), args)>0;
 		 }
-		 //(aab402=1)
+
 		 private boolean busiContinuePopularize()throws Exception
 		 {
 			
@@ -922,7 +967,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			    }
 			    return tems;
 		 }
-
 		 private void parseBusiCodeList(Map<String, String> tem, String labelName)throws Exception 
 		 {
 			 
@@ -1021,9 +1065,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  		sql.append(" order by a.aab104");
 		  		return this.queryForList(sql.toString(), paramList.toArray());
 		  }
-		 
-		 
-		 
 		 public List<Map<String,String>> busiQuery()throws Exception
 		  {
 		  		//
@@ -1268,7 +1309,6 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	return this.queryForMap(sql.toString(), this.get("aab101"));
 		    }
 		 
-			//(upload/xxx.jpg,upload/xxx.jpg,.......)
 			public List<Map<String,String>> saveBusiDishPicAddress()throws Exception
 			{
 				Object aab201 = this.get("aab201");
@@ -1331,7 +1371,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				}
 				return AddressList;
 			}
-			//����aab101
+			
 			public Map<String,String> busiConvertBusiId()throws Exception
 		    {
 		    	
@@ -1402,6 +1442,21 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 							aab113,
 							this.get("aab101")
 					};
+				return this.executeUpdate(sql, args)>0;
+			}
+			
+			public boolean addMessageToCust(String MessageText,String CustId)throws Exception
+			{
+				String DateTime= Tools.getDateTime();
+				String sql="insert into ac03 (aaa101,aac302,aac303,aac304) values (?,?,?,?)";
+				Object args[]={CustId,MessageText,DateTime,"1"};
+				return this.executeUpdate(sql, args)>0;
+			}					
+			public boolean addMessageToBuss(String MessageText,String BussId)throws Exception
+			{
+				String DateTime= Tools.getDateTime();
+				String sql="insert into ac03 (aab101,aac302,aac303,aac304) values (?,?,?,?)";
+				Object args[]={BussId,MessageText,DateTime,"1"};
 				return this.executeUpdate(sql, args)>0;
 			}
 }

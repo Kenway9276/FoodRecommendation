@@ -1,6 +1,7 @@
 package com.neusoft.services.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +23,7 @@ public class CommentServicesImpl extends JdbcServicesSupport
     			.append(" aab305 , aab306 , aab307, aab308) values(?,?,?,?,?,?,?,?) ");
 		String Date = Tools.getDate();
 		Object args1[]={
-				this.get("aaa101"),
+				this.get("userID"),
 				this.get("aab101"),
 				DealText(),
 				Date,
@@ -68,7 +69,7 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		String Date = Tools.getDate();
 		Object args[]={
 				this.get("aaa101"),
-				this.get("aab101"),
+				this.get("busiID"),
 				this.get("ReplyText"+this.get("aab301").toString()),
 				Date,
 				this.get("aab301"),
@@ -108,9 +109,22 @@ public class CommentServicesImpl extends JdbcServicesSupport
 	//更新商家点评数
 	public boolean UpdateCommentCount()throws Exception
 	{
-		String sql3="UPDATE ab01 set aab114 = (select COUNT(aab301) FROM ab03 where aab305='0') where aab101=?";
-		Object args3[]={this.get("aab101")};
+		String sql3="UPDATE ab01 set aab114 = (select COUNT(aab301) FROM ab03 where aab305='0' AND aab101=?) where aab101=?";
+		Object args3[]={
+				this.get("aab101"),
+				this.get("aab101")
+				};
 		return this.executeUpdate(sql3, args3)>0;
 	}
+	
+	//临时保存商家流水号
+	public Map<String, String> saveShopID()throws Exception
+	{
+		String aab101 = this.get("aab101").toString();
+		Map<String,String> ins =new HashMap<>();
+		ins.put("aab101", aab101);
+		return ins;			
+	}
+	
 	
 }

@@ -14,7 +14,9 @@ public class MessageDeleteAllServlet extends MessageControllerSupport {
     public String execute() throws Exception
 	{
 		this.update("deleteAllReadMessage", "É¾³ý");
-		return "message";		
+		this.savePageData("rows", "queryRead");
+		this.saveMapPageData("Status", "saveStausForRead");
+		return "messagequery";		
     }
 
 }
