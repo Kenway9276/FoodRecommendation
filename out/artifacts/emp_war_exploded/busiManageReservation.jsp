@@ -180,8 +180,8 @@ ${msg }
 	<table border="1" width="95%" align="center">
 	  <tr>
 	    <td align="center">
-	       <input type="submit" id="del" name="next" value="·µ»Ø"
-	              formaction="<%=path%>/busiModify.jsp">
+	       <input class="login100-form-btn" type="submit" name="next" value="·µ»Ø"
+	 			formaction="<%=path%>/busiReturn.html" formnovalidate="formnovalidate">
 	    </td>
 	  </tr>
 	</table>

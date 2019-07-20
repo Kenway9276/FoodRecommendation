@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>响应式博客幻灯片演示</title>
+    <title>推荐</title>
 
 
     <link rel="stylesheet" href="<%=path%>/css/swiper.min.css">
@@ -40,7 +40,7 @@
 </head>
 
 <body>
-
+<%@ include file="navigate.jsp" %>
 <form class="blog-slider">
 
 <input type="hidden" name="aaa101" value="8"/>
@@ -49,7 +49,7 @@
         <div class="blog-slider__item swiper-slide">
             <c:if test="${empty rows }">
                 <div class="blog-slider__img">
-                    <img src="/upload/2bff830f-c745-4f00-9751-1989b33405a0.jpg" alt="${row.aab104 }">
+                    <img src="/upload/2bff830f-c745-4f00-9751-1989b33405a0.jpg" alt="${rows.aab104 }">
                 </div>
                 <div class="blog-slider__content">
                     <span class="blog-slider__code">2018-08-31</span>
@@ -58,31 +58,26 @@
                     <input type="submit" formaction="<%=path%>/preferenceIndex.html" class="blog-slider__button" value="返回"></a>
                 </div>
             </c:if>
-            <input type="hidden" name="aab101" value="${rows[0].aab101 }">
-
-            <c:forEach items="${rows }" var="row" varStatus="vs">
-            
-                    <input type="hidden" name="aab104"  value="${row.aab104 }">
-                    <input type="hidden" name="aab207"  value="${row.aab207 }">
-                    <input type="hidden" name="aaa202"  value="${row.aaa202 }">
-                    <input type="hidden" name="aaa203"  value="${row.aaa203 }">
-                    <input type="hidden" name="aaa204"  value="${row.aaa204 }">
-                    <div class="blog-slider__img">
-                        <img src="/upload/${row.aab113 }" alt="${row.aab104 }">
-                    </div>
-                    <div class="blog-slider__content">
-                        <span class="blog-slider__code">2018-08-31</span>
-                        <div class="blog-slider__title">${row.aab104 }</div>
-                        <div class="blog-slider__text">这顿吃：${row.aab207 }<br>联系电话：${row.aab107 }<br>地址：${row.aab106 }<br>评分：${row.aab111 }</div>
-                        <input type="submit" formaction="shopinfoFindById.html" class="blog-slider__button" value="就它了"/></a>
-                        <input type="submit" formaction="recommendNext.html" class="blog-slider__button" value="下一个"/></a>
-                    </div>
-
-
-            </c:forEach>
+            <input type="hidden" name="aab101" value="${rows.aab101 }">
+            <c:if test="${!empty rows }">
+                <input type="hidden" name="aab104"  value="${rows.aab104 }">
+                <input type="hidden" name="aab207"  value="${rows.aab207 }">
+                <input type="hidden" name="aaa202"  value="${rows.aaa202 }">
+                <input type="hidden" name="aaa203"  value="${rows.aaa203 }">
+                <input type="hidden" name="aaa204"  value="${rows.aaa204 }">
+                <div class="blog-slider__img">
+                    <img src="/upload/${rows.aab113 }" alt="${rows.aab104 }">
+                </div>
+                <div class="blog-slider__content">
+                    <span class="blog-slider__code">2018-08-31</span>
+                    <div class="blog-slider__title">${rows.aab104 }</div>
+                    <div class="blog-slider__text">这顿吃：${rows.aab207 }<br>联系电话：${rows.aab107 }<br>地址：${rows.aab106 }<br>评分：${rows.aab111 }</div>
+                    <input type="submit" formaction="shopinfoFindById.html" class="blog-slider__button" value="就它了"/></a>
+                    <input type="submit" formaction="recommendNext.html" class="blog-slider__button" value="下一个"/></a>
+                </div>
+            </c:if>
 
         </div>
-
 
     </div>
     <div class="blog-slider__pagination"></div>

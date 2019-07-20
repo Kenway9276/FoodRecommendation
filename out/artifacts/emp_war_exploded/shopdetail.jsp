@@ -268,8 +268,7 @@
 	}
 	
 </script>
-
-
+<link rel="stylesheet" href="css/style_nav.css"/>
 
 </head>
 
@@ -294,64 +293,28 @@
 	
 
     <!--============================= HEADER =============================-->
-    <div class="dark-bg sticky-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html">Listing</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon-menu"></span>
-            </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Explore
-                   <span class="icon-arrow-down"></span>
-                 </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Listing
-                  <span class="icon-arrow-down"></span>
-                </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Pages
-                  <span class="icon-arrow-down"></span>
-                </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" onclick="onQueryMark()" href="#">收藏夹</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" onclick="onQueryMessage()" href="#">我的消息</a>
-                                </li>
-                                <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> Add Listing</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="c-nav">
+	<div class="container navFlex">
+		<div class="flexItem">
+		吃
+		</div>
+		<div class="flexItem show">
+			<ul>
+				<li><a href="${empty sessionScope.userID?'userLogin.jsp':'userInfo.html'}">${empty sessionScope.userID?'登录':'个人信息'}</a></li>
+				<li><a href="shopsearch.jsp">搜索</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="preferenceIndex.html">推荐</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="markQuery.html">收藏</a></li>
+				<li><a href="bBSBrowse.html">论坛</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userHistory.html">历史订单</a></li>
+				<li><a href="userNotice.html">公告</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="couponList.html">优惠券</a></li>
+				<li><a href="messageSearchUnRead.html">消息</a></li>
+				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userStory.html">关于你</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
     <!--//END HEADER -->
     <!--============================= BOOKING =============================-->
     <div>

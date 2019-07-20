@@ -23,6 +23,7 @@
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="preferenceIndex.html">推荐</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="markQuery.html">收藏</a></li>
 				<li><a href="bBSBrowse.html">论坛</a></li>
+				<li><a href="ranking.html">排行榜</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userHistory.html">历史订单</a></li>
 				<li><a href="userNotice.html">公告</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="couponList.html">优惠券</a></li>

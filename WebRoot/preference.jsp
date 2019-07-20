@@ -223,7 +223,7 @@ h2{
                <e:hidden name="aaa201" value="${ins.aaa201 }"/>
                <td>
                    <a href="#" onclick="onDel('${ins.aaa201}')"><button class="forSelect">É¾³ý</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <a id="get-recommend-btn" href="#" onclick="onSelect22('${ins.qaaa203 }','${ins.qaaa202 }','${ins.qaaa204 }')"><button class="forSelect">Ñ¡Ôñ</button></a>
+                   <a href="#" onclick="onSelect22('${ins.qaaa203 }','${ins.qaaa202 }','${ins.qaaa204 }')"><button class="forSelect">Ñ¡Ôñ</button></a>
                </td>
            </tr>
           </c:forEach>

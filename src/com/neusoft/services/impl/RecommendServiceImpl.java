@@ -2,6 +2,7 @@ package com.neusoft.services.impl;
 
 import com.neusoft.services.JdbcServicesSupport;
 import com.neusoft.system.db.RedisUtils;
+import org.apache.taglibs.standard.util.EscapeXML;
 
 import java.util.*;
 
@@ -118,7 +119,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
 
     private void getPreferenceID(Object aaa203, Object aaa204, Object aaa202) throws Exception{
         // todo 获取当前城市
-        Object aaa206 = "%天津%";
+        Object aaa206 = "天津";
         Object aaa101 = this.get("userID");
         String sql = "select aaa201 from aa02 where aaa203 = ? and aaa204 = ? and aaa202 = ?";
         List list =  this.queryForList(sql, aaa203, aaa204, aaa202);
@@ -184,8 +185,8 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("WHERE ")
                 .append("	aab101 = ? and aaa101=?;")
                 ;
-        String[] tem = (String[])this.get("aab101");
-        int aab101 = Integer.valueOf(tem[0]);
+
+        Object aab101 = this.get("aab101");
         return this.executeUpdate(sql.toString(), aab101,aaa101) > 0;
     }
 
@@ -195,5 +196,181 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
             aab101 = ((String[])this.get("aab101"))[0];
         }
         return aab101;
+    }
+
+    public Map<String, String> getRecommend2() throws Exception{
+        resetAa06();
+
+        List<Map<String, String>> list = null;
+
+        // 初步筛选，获取口味暂时相似的餐厅
+        list = getFlavorList();
+
+        // 解析list，如果用户选择表中没有关于该商家的数据——插入
+        parseRecommendListToSelectTable(list);
+
+        // 解析list，如果用户选择表中被选择次数小于零，则从推荐列表中去除该商家
+        parseRecommendListRemove(list);
+
+        // 解析list，更新成一个商家对应多个餐厅的形式
+        if(list.size() > 0){
+            list =  parseRecommendList(list);
+        }
+
+        // 解析list，按照有没有推广的状态排序
+
+        // 存到缓存中
+        RedisUtils.SerializableSet("recommend_list", list);
+
+        List<Map<String, String>> res_list = (List<Map<String, String>>)RedisUtils.SerializableGet("recommend_list");
+        if(res_list.size() > 0){
+            Map<String, String> res_map = res_list.get(0);
+            res_list.remove(0);
+            RedisUtils.SerializableSet("recommend_list", res_list);
+            return res_map;
+        }
+
+        return null;
+    }
+
+    private void parseRecommendListRemove(List<Map<String, String>> list) throws Exception {
+        Iterator<Map<String, String>> it = list.iterator();
+        while (it.hasNext())
+        {
+            Map<String, String> current_map = it.next();
+            String aab101 = current_map.get("aab101");
+            Object aaa101 = this.get("userID");
+            String sql = "SELECT aaa602 from aa06 where aaa101 = ? and aab101 = ?";
+            Map<String, String> tem = this.queryForMap(sql, aaa101, aab101);
+            if(Integer.valueOf(tem.get("aaa602")) <= 0){
+                it.remove();
+            }
+        }
+    }
+
+    private List<Map<String, String>> parseRecommendListOrder(List<Map<String, String>> list) {
+        return list;
+    }
+
+    private void parseRecommendListToSelectTable(List<Map<String, String>> list) throws Exception{
+        for(Map<String, String> ins : list){
+            String aab101 = ins.get("aab101");
+            Object aaa101 = this.get("userID");
+            String sql = "SELECT aaa601 from aa06 where aaa101 = ? and aab101 = ?";
+            List res_from_db =  this.queryForList(sql, aaa101, aab101);
+            if(res_from_db.size() == 0){
+                sql = "insert into aa06 (aaa101, aab101, aaa602,aaa603) VALUES (?,?,1,CURRENT_TIMESTAMP)";
+                this.executeUpdate(sql, aaa101, aab101);
+            }
+        }
+    }
+
+    private List<Map<String, String>> parseRecommendList(List<Map<String, String>> list) {
+        List<Map<String, String>> res = new ArrayList<>();
+        HashMap<String, String> map = new HashMap<>();
+        String tem_shop_id = list.get(0).get("aab101");
+        int count = 0;
+        for(Map<String, String> ins : list){
+            if(ins.get("aab101").equals(tem_shop_id)){
+                String tem = ins.get("aab207");
+                String menu = "";
+                if(map.get("aab207") == null){
+                    menu = tem;
+                    map.put("aab101", ins.get("aab101"));
+                    map.put("aab106", ins.get("aab106"));
+                    map.put("aab107", ins.get("aab107"));
+                    map.put("aab113", ins.get("aab113"));
+                    map.put("aab111", ins.get("aab111"));
+                }
+                else {
+                    menu = map.get("aab207") + "," + tem;
+                }
+                map.put("aab207", menu);
+            }
+            else {
+                res.add((Map<String, String>)map.clone());
+                map = new HashMap<>();
+                String tem = ins.get("aab207");
+                map.put("aab207", tem);
+                map.put("aab101", ins.get("aab101"));
+                map.put("aab106", ins.get("aab106"));
+                map.put("aab107", ins.get("aab107"));
+                map.put("aab113", ins.get("aab113"));
+                map.put("aab111", ins.get("aab111"));
+                tem_shop_id = ins.get("aab101");
+            }
+            if(count == list.size() - 1){
+                res.add(map);
+            }
+            count++;
+        }
+        return res;
+    }
+
+    private List<Map<String, String>> getFlavorList() throws Exception {
+        // todo 当前城市
+        // 定义sql语句
+        Object aaa203 = this.get("aaa203");
+        Object aaa204 = this.get("aaa204");
+        Object aaa202 = this.get("aaa202");
+        Object aaa101 = this.get("userID");
+
+        // 根据口味获取口味流水号，如果为空则插入到口味列表
+        getPreferenceID(aaa203, aaa204, aaa202);
+
+        StringBuilder sql = new StringBuilder()
+                .append("SELECT DISTINCT ")
+                .append("	ab01.aab104, ")
+                .append("	ab01.aab101, ")
+                .append("	ab01.aab106, ")
+                .append("	ab01.aab107, ")
+                .append("	ab01.aab111, ")
+                .append("	ab01.aab113, ")
+                .append("	aab207, ")
+                .append("	aab205, ")
+                .append("	aab206, ")
+                .append("	aab204	 ")
+                .append("FROM ")
+                .append("	ab01 ab01 ")
+                .append("	LEFT JOIN ab02 ON ab02.aab101 = ab01.aab101 ")
+                .append("	LEFT JOIN aa06 ON aa06.aaa101 = 8 	")
+                .append("WHERE ")
+                .append("	aa06.aab101 = ab01.aab101  ")
+                .append("	AND ab01.aab105 = 1  ")
+                .append("	AND aab207 IS NOT NULL  ")
+
+                ;
+        //参数列表
+        List<Object> paramList=new ArrayList<>();
+
+        //逐一判断查询条件是否录入,拼接AND条件
+        if(this.isNotNull(aaa202))
+        {
+            sql.append("	AND aab204 LIKE ? ");
+            paramList.add("%"+aaa202+"%");
+        }
+        if(this.isNotNull(aaa203))
+        {
+            sql.append("	AND aab205 LIKE ? ");
+            paramList.add("%"+aaa203+"%");
+        }
+        if(this.isNotNull(aaa204))
+        {
+            sql.append("	AND aab206 LIKE ? ");
+            paramList.add("%"+aaa204+"%");
+
+        }
+        return this.queryForList(sql.toString(), paramList.toArray());
+    }
+
+    public Map<String, String> getNextRecommend() throws Exception{
+        List<Map<String, String>> res_list = (List<Map<String, String>>)RedisUtils.SerializableGet("recommend_list");
+        if(res_list.size() > 0){
+            Map<String, String> res_map = res_list.get(0);
+            res_list.remove(0);
+            RedisUtils.SerializableSet("recommend_list", res_list);
+            return res_map;
+        }
+        return null;
     }
 }
