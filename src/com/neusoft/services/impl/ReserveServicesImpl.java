@@ -3,6 +3,7 @@ package com.neusoft.services.impl;
 import com.neusoft.services.JdbcServicesSupport;
 import com.neusoft.system.tools.Tools;
 
+//预定座位功能
 public class ReserveServicesImpl extends JdbcServicesSupport
 {
 	private boolean addReserve()throws Exception
@@ -14,6 +15,7 @@ public class ReserveServicesImpl extends JdbcServicesSupport
     			.append("          values(?,?,?,?,?,?,?)");
 		Object args[]=
 			{
+					
 					this.get("userID"),
 					this.get("aab101"),
 					Tools.getDateTime(),
@@ -21,6 +23,7 @@ public class ReserveServicesImpl extends JdbcServicesSupport
 					this.get("aac104"),
 					0,
 					this.get("aaa201")
+					
 			};
         return this.executeUpdate(sql.toString(), args)>0;	
     }

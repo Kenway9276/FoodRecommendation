@@ -33,29 +33,54 @@
     
     <script type="text/javascript">
 
-	
-    var count=0;
-    function onSelect(vstate)
-    {
-	    vstate?count++:count--;
-	    var vdel=document.getElementById("del");
-	    vdel.disabled=(count==0);
-    }
+ 
     
-    function onDetail(vaab101)
+    function showRead()
     {
-  	  //查看商家详情
+  	  //查看已读
   	 var vform = document.getElementById("myform");
-  	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
+  	 vform.action="<%=path%>/messageSearchRead.html?R=";
   	 vform.submit();
     }
     
-    function onDelMark(vaaa401)
+    function showUnRead()
     {
-  	  //取消收藏
+    //查看未读
   	 var vform = document.getElementById("myform");
-  	 vform.action="<%=path%>/markDeleteById.html?aaa401="+vaaa401;
+  	 vform.action="<%=path%>/messageSearchUnRead.html";
   	 vform.submit();
+    }
+    
+    function readAll()
+    {
+  	  //全部设为已读
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/messageSetAllRead.html";
+  	 vform.submit();
+    }
+    
+    function delAll()
+    {
+  	  //全部删除
+  	 var vform = document.getElementById("myform");
+  	 vform.action="<%=path%>/messageDeleteAll.html";
+  	 vform.submit();
+    }
+    
+    function onSetRead(vaac301)
+    {
+    	//设为已读
+    	var vform = document.getElementById("myform");
+     	vform.action="<%=path%>/messageSetRead.html?aac301="+vaac301;
+     	vform.submit();
+    }
+    
+    function onDelById(vaac301)
+    {
+    	//单一删除
+    	var vform = document.getElementById("myform");
+     	vform.action="<%=path%>/messageDelById.html?aac301="+vaac301;
+     	vform.submit();
     }
     
 	</script>
@@ -63,7 +88,7 @@
 </head>
 
 <body>
-<form id="myform" action="<%=path%>/markQuery.html" method="post">
+<form id="myform" action="<%=path%>/messageSearchUnRead.html" method="post">
 	<!-- 暂时 -->
 	<input type="hidden" name="aaa101" value="1"></input>
     <!--============================= HEADER =============================-->
@@ -134,13 +159,19 @@
                     <div class="row detail-filter-wrap">
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
-                                <h5>未读消息</h5>
+                            
+
+                                <c:if test="${Status.status=='Read' }">
+                                <h5 id="ht5">已读消息</h5>
+                                </c:if>
+                                <c:if test="${Status.status=='UnRead' }">
+                                <h5 id="ht5">未读消息</h5>
+                                </c:if>
                                 
+                                                            
                                 
-                                
-                                <c:if test="${rows!=null }">
-                                
-                                <div id="UR" style="display:block">                             
+                                <c:if test="${Status.status=='UnRead' }">
+                                <div id="UR" >                             
 								<!-- 查看已读 -->
 								<button  id="del" name="next" class="btn btn-outline-danger"
 								onclick="showRead()" >查看已读</button>						
@@ -148,19 +179,21 @@
 								<button  id="del" name="next" class="btn btn-outline-danger" 
 								onclick="readAll()" >全部已读</button>
 								</div>
+								</c:if>
 								
 								
-								<div id="R" style="display:none">				
+								<c:if test="${Status.status=='Read' }">
+								<div id="R">				
 								<!-- 查看未读 -->
 								<button  id="del" name="next" class="btn btn-outline-danger" 
-								onclick="showUnRead()" >查看未读</button>
-								</div>
+								onclick="showUnRead()" >查看未读</button>								
 								<!-- 全部删除 -->
 								<button  id="del" name="next" class="btn btn-outline-danger" 
 								onclick="delAll()" >全部删除</button>
-								
-								
+								</div>
 								</c:if>
+								
+								
 
 		
                             </div>
@@ -177,15 +210,19 @@
                    
                         
                         
-                        <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                       	<span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                         
                         <label class="custom-control custom-checkbox">
                 		<span class="custom-control-indicator"></span>
                 		<span>${row.aac302 }</span>
                 		<span>${row.aac303 }</span>
+                		<c:if test="${Status.status=='UnRead' }">
                 		<span><a href="#" onclick="onSetRead('${row.aac301}')">已读</a></span>
+                		</c:if>
+                		<c:if test="${Status.status=='Read' }">
                 		<span><a href="#" onclick="onDelById('${row.aac301}')">删除</a></span>                		
               			</label>
+              			</c:if>
              			
                           			
                         
@@ -197,8 +234,13 @@
                     </c:when>
                     
                     <c:otherwise>
-                    <br><br>              
-                    <h4>暂时还没有消息......</h4>
+                    <br><br>
+                    <c:if test="${Status.status=='Read' }">              
+                    <h4>暂时还没有已读消息......</h4>
+                    </c:if>
+                    <c:if test="${Status.status=='UnRead' }">              
+                    <h4>暂时还没有未读消息......</h4>
+                    </c:if>
                     </c:otherwise>
                     
                     </c:choose>

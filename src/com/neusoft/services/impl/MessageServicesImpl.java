@@ -1,8 +1,11 @@
 package com.neusoft.services.impl;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.net.ssl.HandshakeCompletedEvent;
 
 import com.neusoft.services.JdbcServicesSupport;
 import com.neusoft.system.tools.Tools;
@@ -24,12 +27,20 @@ public class MessageServicesImpl extends JdbcServicesSupport
 		sql1 = "select aac301, aac302, aac303 , aac304 from ac03  where aaa101=? And aac304='1' ";
 		sql2 = "select aac301, aac302, aac303 , aac304 from ac03  where aab101=? And aac304='1' ";
 
-		if(this.get("aab101")==null)
+		if(this.get("busiID")==null)
 		{
-			return this.queryForList(sql1, this.get("aaa101"));
+			return this.queryForList(sql1, this.get("userID"));
 		}
-		else return this.queryForList(sql2, this.get("aab101"));    	
+		else return this.queryForList(sql2, this.get("busiID"));    	
 	}
+	//存储状态
+	public Map<String,String> saveStausForUnRead()throws Exception
+	{
+		Map map= new HashMap<>();
+		map.put("status", "UnRead");
+		return map;
+	}
+	
 	
 	
 	//查看已读
@@ -40,12 +51,20 @@ public class MessageServicesImpl extends JdbcServicesSupport
 		sql1 = "select aac301, aac302, aac303 , aac304 from ac03  where aaa101=? And aac304='0' ";
 		sql2 = "select aac301, aac302, aac303 , aac304 from ac03  where aab101=? And aac304='0' ";
 
-		if(this.get("aab101")==null)
+		if(this.get("busiID")==null)
 		{
-			return this.queryForList(sql1, this.get("aaa101"));
+			return this.queryForList(sql1, this.get("userID"));
 		}
-		else return this.queryForList(sql2, this.get("aab101"));    	
+		else return this.queryForList(sql2, this.get("busiID"));    	
 	}
+	//存储状态
+	public Map<String,String> saveStausForRead()throws Exception
+	{
+		Map map= new HashMap<>();
+		map.put("status", "Read");
+		return map;
+	}
+	
 	
 	
 	//发送消息给用户
@@ -81,11 +100,11 @@ public class MessageServicesImpl extends JdbcServicesSupport
 	{
 		String sql1="update ac03 set aac304='0' where aaa101=? ";
 		String sql2="update ac03 set aac304='0' where aab101=? ";
-		if(this.get("aaa101")!=null)
+		if(this.get("busiID")!=null)
     	{ 		
-    		return this.executeUpdate(sql1, this.get("aaa101"))>0;
+    		return this.executeUpdate(sql1, this.get("userID"))>0;
     	}
-		else return this.executeUpdate(sql2, this.get("aab101"))>0;
+		else return this.executeUpdate(sql2, this.get("busiID"))>0;
 	}
 	
 	
@@ -102,11 +121,11 @@ public class MessageServicesImpl extends JdbcServicesSupport
     {
 		String sql1="delete from ac03 where aaa101=? AND aac304='0' ";
 		String sql2="delete from ac03 where aab101=? AND aac304='0' ";
-		if(this.get("aaa101")==null)
+		if(this.get("userID")==null)
     	{ 		
-    		return this.executeUpdate(sql2, this.get("aab101"))>0;
+    		return this.executeUpdate(sql2, this.get("busiID"))>0;
     	}
-		else return this.executeUpdate(sql1, this.get("aaa101"))>0;
+		else return this.executeUpdate(sql1, this.get("userID"))>0;
     }
 	
 }

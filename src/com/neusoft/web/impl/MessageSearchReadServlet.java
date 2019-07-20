@@ -14,6 +14,7 @@ public class MessageSearchReadServlet extends MessageControllerSupport {
     public String execute() throws Exception
 	{
 		this.savePageData("rows", "queryRead");
+		this.saveMapPageData("Status", "saveStausForRead");
 		return "messagequery";		
     }
 

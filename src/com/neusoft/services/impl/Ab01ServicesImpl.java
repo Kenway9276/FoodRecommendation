@@ -1363,5 +1363,28 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				}
 				return AddressList;
 			}
+			
+			
+			
+			/*
+			 * MessageText---消息内容
+			 * Id---接受方流水号
+			 */
+			//发送消息给用户
+			public boolean addMessageToCust(String MessageText,String CustId)throws Exception
+			{
+				String DateTime= Tools.getDateTime();
+				String sql="insert into ac03 (aaa101,aac302,aac303,aac304) values (?,?,?,?)";
+				Object args[]={CustId,MessageText,DateTime,"1"};
+				return this.executeUpdate(sql, args)>0;
+			}					
+			//发送消息给商家
+			public boolean addMessageToBuss(String MessageText,String BussId)throws Exception
+			{
+				String DateTime= Tools.getDateTime();
+				String sql="insert into ac03 (aab101,aac302,aac303,aac304) values (?,?,?,?)";
+				Object args[]={BussId,MessageText,DateTime,"1"};
+				return this.executeUpdate(sql, args)>0;
+			}
 		 
 }

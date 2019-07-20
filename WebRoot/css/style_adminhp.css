@@ -139,7 +139,7 @@ a:active {
 header {
     padding: 2em 0 2em 0; 
     text-align: center; 
-    background: #ff8040; 
+    background: url(../images/bg1.jpg) no-repeat center fixed;
     color: #fff;
 }
 
@@ -162,6 +162,7 @@ header h2 {
 
 header h2.docs-header {
     margin: 0;
+    height:400px;
 }
 
 footer {

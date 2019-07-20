@@ -14,6 +14,7 @@ public class MessageSearchUnReadServlet extends MessageControllerSupport {
     public String execute() throws Exception
 	{
 		this.savePageData("rows", "queryUnRead");
+		this.saveMapPageData("Status", "saveStausForUnRead");
 		return "messagequery";		
     }
 

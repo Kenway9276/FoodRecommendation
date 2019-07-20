@@ -14,6 +14,8 @@ public class MessageSetAllReadServlet extends MessageControllerSupport {
     public String execute() throws Exception
 	{
 		this.update("setAllMessageRead", "ря╤а");
+		this.savePageData("rows", "queryUnRead");
+		this.saveMapPageData("Status", "saveStausForUnRead");
 		return "messagequery";		
     }
 

@@ -23,7 +23,11 @@
 	.adminNotice table{
 	border:1px solid;
 	}
-	button{
+	thead {
+    color: #ffffff;
+    background: #ff8040;
+}
+	.forSubmit{
 	display:inline-block;
 	border:none;
 	background-color:#ff8040;
@@ -32,7 +36,16 @@
     text-align: center;
     font-size: 16px;
     border-radius:6px;
-
+	}
+	.forSelect{
+	display:inline-block;
+	border:none;
+	background-color:#324960;
+	color:#FFFFFF;
+	padding: 8px 8px;
+    text-align: center;
+    font-size: 10px;
+    border-radius:4px;
 	}
 </style>
 <script type="text/javascript">
@@ -140,6 +153,7 @@
 <!-- （种类分为测评文章、更新维护、优惠活动等，分别用1、2、3表示）、优先级（aac201）存入公告表ac02中。 -->
 <!-- 优先级用0和1分辨，初始都置为0，表示无优先级，都按日期先后排列。优先级为1的则置顶显示， -->
 <!-- 相同优先级也按日期先后排列。 -->
+	<thead>
 	<tr>
 		<td style="width:80px;text-align:center">批量删除</td>
 		<td style="width:40px;text-align:center">序号</td>
@@ -148,6 +162,7 @@
 		<td style="width:40px;text-align:center">种类</td>
 		<td style="width:60px;text-align:center">优先级</td>	
 	</tr>
+	</thead>
   <c:choose>
     <c:when test="${rows!=null }">
         <!-- 显示实际查询到的数据 -->
@@ -175,12 +190,12 @@
 		    </td>
 		    <td style="text-align:center">${ins.aac207==1?"置顶":"普通" }</td>
 		    <td style="width:40px;text-align:center">
-		      <a href="#" onclick="onDel('${ins.aac201}')">删除</a>
+		      <a href="#" onclick="onDel('${ins.aac201}')"><button class="forSelect">删除</button></a>
 		      <c:if test="${ins.aac207 !='1' }">
-		      	<a href="#" onclick="onPop('${ins.aac201}')">置顶</a>
+		      	<a href="#" onclick="onPop('${ins.aac201}')"><button class="forSelect">置顶</button></a>
 		      </c:if>
 		      <c:if test="${ins.aac207 =='1' }">
-		      	<a href="#" onclick="onCancel('${ins.aac201}')">取消</a>
+		      	<a href="#" onclick="onCancel('${ins.aac201}')"><button class="forSelect">取消</button></a>
 		      </c:if>
 		    </td>
 		  </tr>
@@ -212,10 +227,10 @@
   </c:choose>
 </table>
 <div style="text-align:center">
-       <button type="submit" name="next">查询</button>
-       <button type="submit" id="del" name="next"  
+       <button class="forSubmit" type="submit" name="next">查询</button>
+       <button type="submit" id="del" name="next"  class="forSubmit"
               formaction="<%=path%>/adminDeleteNotice.html"  disabled="disabled">删除</button>
-		<button formaction="<%=path %>/adminReleaseNotice.jsp" name="next" >发布</button>
+		<button class="forSubmit" formaction="<%=path %>/adminReleaseNotice.jsp" name="next" >发布</button>
 </div>
 
 </div>

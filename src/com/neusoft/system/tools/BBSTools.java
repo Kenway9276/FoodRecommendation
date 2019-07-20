@@ -49,6 +49,9 @@ public class BBSTools {
                 System.out.println("NO MATCH");
             }
         }
+        if(res==null||res.equals("")){
+        	return "";
+        }
         return res.substring(0, res.length()-1);
     }
 }

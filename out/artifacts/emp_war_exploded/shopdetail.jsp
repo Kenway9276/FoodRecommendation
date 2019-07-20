@@ -37,6 +37,8 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
     
+    <link rel="stylesheet" href="<%=path%>/css/xzs_icheck-bootstrap.css">
+    
     
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
     
@@ -75,7 +77,7 @@
 	
 	function onQueryMessage()
     {
-  	  //查看收藏
+  	  //查看消息
   	 var vform = document.getElementById("vform");
   	 vform.action="<%=path%>/messageSearchUnRead.html";
   	 vform.submit();
@@ -116,6 +118,7 @@
 	
 	function onAddReply(vaab301)
 	{
+		//提交回复
 		var vform = document.getElementById("myform");
 	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301;
 	  	vform.submit();
@@ -123,6 +126,7 @@
 	
 	function onDelCommentById(vaab301)
 	{
+		//删除评论
 		var vform = document.getElementById("myform");
 	  	vform.action="<%=path%>/commentDelById.html?aab301="+vaab301;
 	  	vform.submit();
@@ -140,11 +144,11 @@
 		document.getElementById("reserveDiv").style="display:none";
     }
 	
-	function onSubmitReserveTable()
+	function onSubmitReserveTable(vaab101)
 	{
 		//提交预定表单
 		var vform = document.getElementById("myform");
-	  	vform.action="<%=path%>/ReserveAdd.html";
+	  	vform.action="<%=path%>/ReserveAdd.html?aab101"+vaab101;
 	  	vform.submit();
 	}
 	
@@ -153,29 +157,141 @@
 		//地图导航
 		var vform = document.getElementById("myform");
 
-		//中文编码再传递
+		//将中文参数编码后再传递
 	  	vform.action="<%=path%>/mapGuide.html?aab106="+encodeURI(vaab106);
 	  	vform.submit();
 	}
 	
+	function onShowReserveOff()
+	{
+		//提示无法订座
+		alert("该商家暂不接受预定!");
+	}
 	
-
+	function showGood()
+	{
+		//显示好评
+		showAll();
+		showDiv("5");
+		hideDiv("4");
+		hideDiv("3");
+		hideDiv("2");
+		hideDiv("1");
+	}
 	
+	function showSoSo()
+	{
+		//显示中评
+		showAll();
+		hideDiv("5");
+		showDiv("4");
+		showDiv("3");
+		hideDiv("2");
+		hideDiv("1");
+	}
+	
+	function showBad()
+	{
+		//显示差评
+		showAll();
+		hideDiv("5");
+		hideDiv("4");
+		hideDiv("3");
+		showDiv("2");
+		showDiv("1");
+	}
+	
+	
+	function showDiv(score)
+	{
+		//根据评分显示
+		var divs=document.getElementsByName(score)
+		for(var i=0;i<divs.length;i++)
+		{
+			var div=divs[i];
+			div.style="display:block";
+		}
+	}
+	
+	function hideDiv(score)
+	{
+		//根据评分隐藏
+		var divs=document.getElementsByName(score)
+		for(var i=0;i<divs.length;i++)
+		{
+			var div=divs[i];
+			div.style="display:none";
+		}
+	}
+	
+	
+	function showYP()
+	{
+		//查看有图
+		showAll();
+		
+		var divs=document.getElementsByName("yp")
+		for(var i=0;i<divs.length;i++)
+		{
+			var div=divs[i];
+			div.style="display:block";
+		}
+		var divs=document.getElementsByName("np")
+		for(var i=0;i<divs.length;i++)
+		{
+			var div=divs[i];
+			div.style="display:none";
+		}
+	}
+	
+	
+	//全部显示
+	function showAll()
+	{
+		var divs=document.getElementsByName("yp")
+		for(var i=0;i<divs.length;i++)
+		{
+			var div=divs[i];
+			div.style="display:block";
+		}
+		var divs=document.getElementsByName("np")
+		for(var i=0;i<divs.length;i++)
+		{
+			var div=divs[i];
+			div.style="display:block";
+		}
+		showDiv("5");
+		showDiv("4");
+		showDiv("3");
+		showDiv("2");
+		showDiv("1");
+	}
 	
 </script>
+
+
+
 </head>
 
 <body>
 <form id="vform">
 	<input  type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input type="hidden" id="MapAd" value="${ins.aab106 }"></input>
+
+	<!--  
 	<input type="hidden" name="aaa101" value="1"></input>
 	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
-	<input type="hidden" id="MapAd" value="${ins.aab106 }"></input>
+	
+	-->
 </form>
 <form id="myform" method="post" >	
 	<input id="shop_id" type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	
+	<!--
 	<input type="hidden" name="aaa101" value="1"></input>
-	<input type="hidden" name="aaa" value="${param.aaa101 }"></input>
+	<input type="hidden" name="aaa" value="${param.aaa101 }"></input> 
+	 -->
+	
 
     <!--============================= HEADER =============================-->
     <div class="dark-bg sticky-top">
@@ -281,7 +397,7 @@
                         </div>
                         
                      
-                        
+                        <c:if test="${sessionScope.userID!=null}">
                         <c:if test="${empty IsComment }">
                         <div class="review-btn">
                             <a href="#" onclick="onAddComment(${ins.aab101 })" class="btn btn-outline-danger">&nbsp&nbsp&nbsp&nbsp&nbsp写点评&nbsp&nbsp&nbsp&nbsp&nbsp</a>
@@ -295,8 +411,11 @@
                             <span><a>${ins.aab114 }</a><a>条点评</a></span>
                         </div>
                         </c:if>
+                        </c:if>
                         
                         
+                        
+                        <c:if test="${sessionScope.userID!=null}">
                         <c:choose>
                         <c:when test="${ins.aab110=='1' }"> 
                         <div class="reserve-btn">
@@ -308,12 +427,15 @@
                         <c:otherwise>
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a style="color:white" class="btn btn-danger">订座</a>
+                                <a style="color:white" href="javascript:void(0)" onclick="onShowReserveOff()" class="btn btn-danger">订座</a>
                             </div>
                         </div>
                         </c:otherwise>
                         </c:choose>
+                        </c:if>
                         
+                        
+                        <c:if test="${sessionScope.userID!=null}">
                         <c:if test="${empty IsMark }">
 						<div class="reserve-btn">
                             <div class="featured-btn-wrap" onclick="onSetMark('${ins.aab101}')" >
@@ -329,6 +451,8 @@
                             </div>
                         </div>
 						</c:if> 
+						</c:if>
+						
 						
 						
 						<div id="reserveDiv" style="display:none">
@@ -521,8 +645,32 @@
                     <div class="booking-checkbox_wrap mt-4">
                     	<c:choose> 
                         <c:when test="${rows!=null }">
-                        <h5><a>${ins.aab114 }</a><a>条点评</a></h5>
+                        
+                        <h5 align="left"><a>点评</a><a style="color:grey">(${ins.aab114 })</a></h5>
+                        <br>
+                        
+                        <div class="radio icheck-emerland" style="display:inline">
+						<input type="radio"  onclick="showAll()" checked id="emerland1" name="emerland" />
+						<label for="emerland1">全部&nbsp&nbsp&nbsp&nbsp</label>
+						</div>
+						<div class="radio icheck-emerland" style="display:inline">
+						<input type="radio" onclick="showYP()" id="emerland2" name="emerland" />
+						<label for="emerland2">有图(${Cal.haveP })&nbsp&nbsp&nbsp&nbsp</label>
+						</div>
+						<div class="radio icheck-emerland" style="display:inline">
+						<input type="radio" onclick="showGood()" id="emerland3" name="emerland" />
+						<label for="emerland3">好评(${Cal.good })&nbsp&nbsp&nbsp&nbsp</label>
+						</div>
+						<div class="radio icheck-emerland" style="display:inline">
+						<input type="radio" onclick="showSoSo()" id="emerland4" name="emerland" />
+						<label for="emerland4">中评(${Cal.soso })&nbsp&nbsp&nbsp&nbsp</label>
+						</div>
+						<div class="radio icheck-emerland" style="display:inline">
+						<input type="radio" onclick="showBad()" id="emerland5" name="emerland" />
+						<label for="emerland5">差评(${Cal.bad })&nbsp&nbsp&nbsp&nbsp</label>
+						</div>
                         <hr>
+                        
                         </c:when>
                         <c:otherwise>
                        	<h5><a>暂时还没有点评</a></h5>
@@ -534,14 +682,16 @@
                         <c:when test="${rows!=null }"> 
                         <c:forEach items="${rows }" var="row" varStatus="vs">
                         <c:if test="${row.aab305=='0'}">
-                        <div class="customer-review_wrap">
+                        
+                        <div name="${empty row.aab306?'np':'yp' }">                  
+                        <div class="customer-review_wrap" name="${row.aab307 }">
                             <div class="customer-img">                           
                                 <p>${row.aaa103 }</p>
                             </div>
                             <div class="customer-content-wrap">
                                 <div class="customer-content">
 	                               	<div class="customer-review">                                      
-                                        
+                                      
                                         <c:if test="${row.aab307=='5'}">
                                         <span></span>
                                         <span></span>
@@ -565,7 +715,6 @@
                                         <span></span>
                                         </c:if>  
                                         <c:if test="${row.aab307=='1'}">
-                                        <span></span>
                                         <span></span>
                                         </c:if>                                
                                         <p>${row.aab304 }</p>
@@ -665,12 +814,14 @@
                                 
                                 
                                 
+                                
                                 <span>${row.aab308 } 人觉得很赞</span>
                                 <a href="#"><span class="icon-like"></span>赞</a>
                                 
                                 
                                 
                                 
+                                <c:if test="${sessionScope.busiID==ins.aab101 }">
                                 <span>
                                 <div id="replybtn${row.aab301 }">
                                 <span><a href="javascript:void(0)" onclick="onShowReply(${row.aab301 })">回复</a></span>
@@ -679,14 +830,26 @@
                                 <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">关闭</a></span>
                                 </div>             
                                 </span>
+                                </c:if>
                                 
                                 
                                 
+                                <c:if test="${sessionScope.userID==row.aaa101 }">
                                 <span>
                                 <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 })">
                                 <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">删除</a></span>
                                 </div>
                                 </span>
+                                </c:if>
+                                
+                                
+                                <c:if test="${sessionScope.adminID!=null}">
+                                <span>
+                                <div id="delbtn${row.aab301 }" onclick="onDelCommentById(${row.aab301 })">
+                                <span><a href="javascript:void(0)" onclick="onCloseReply(${row.aab301 })">删除</a></span>
+                                </div>
+                                </span>
+                                </c:if>
                                 
                                 
                                 
@@ -703,8 +866,10 @@
 
                                 
                             </div>
+                        <hr>    
                         </div>
-                        <hr>
+                        </div>
+                        
                         </c:if>
                         </c:forEach>
                     	</c:when>

@@ -18,7 +18,7 @@ public class MarkServicesImpl extends JdbcServicesSupport
 		StringBuilder sql=new StringBuilder()
 				.append(" SELECT ab01.aab101 , aaa401 , aab104 , aab106 , aab111 , aaa402 FROM aa04 LEFT JOIN ")
 				.append(" ab01 on aa04.aab101= ab01.aab101 where aaa101 = ? ORDER BY aaa401 DESC");
-		return this.queryForList(sql.toString(), this.get("aaa101"));	
+		return this.queryForList(sql.toString(), this.get("userID"));	
 	}
 	
 	
@@ -29,7 +29,7 @@ public class MarkServicesImpl extends JdbcServicesSupport
     			.append(" insert into aa04(aaa402 , aaa101 , aab101) ")
     			.append(" values(?,?,?) ");
 		String DateTime = Tools.getDateTime();
-		Object args[]={DateTime,this.get("aaa101"),this.get("aab101")};
+		Object args[]={DateTime,this.get("userID"),this.get("aab101")};
 		return this.executeUpdate(sql.toString(), args)>0;
 	}
 	
@@ -44,7 +44,7 @@ public class MarkServicesImpl extends JdbcServicesSupport
 	private boolean deleteMarkInShopDetail()throws Exception
     {
     	String sql="delete from aa04 where aaa101=? And aab101=? ";
-    	Object args[]={this.get("aaa101"),this.get("aab101")};
+    	Object args[]={this.get("userID"),this.get("aab101")};
     	return this.executeUpdate(sql,args)>0;
     }
 	
@@ -61,7 +61,7 @@ public class MarkServicesImpl extends JdbcServicesSupport
 	private boolean deleteAllMark()throws Exception
 	{
 	    String sql="delete from aa04 where aaa101=?";
-	    return this.executeUpdate(sql, this.get("aaa101"))>=0;
+	    return this.executeUpdate(sql, this.get("userID"))>=0;
 	}
 	
 	
