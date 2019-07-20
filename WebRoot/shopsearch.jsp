@@ -88,7 +88,9 @@
 </head>
 
 <body>
-    
+
+    <%@ include file="navigate.jsp" %>
+	
     <!-- SLIDER -->
         <!-- <img src="images/slider.jpg" class="img-fluid" alt="#"> -->
         <section class="slider d-flex align-items-center">

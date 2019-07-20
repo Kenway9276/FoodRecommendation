@@ -31,83 +31,36 @@
 
 			<form class="login100-form validate-form" >
 				<span class="login100-form-title">
-					商家信息
+					欢迎，${ins.aab104 }
 				</span>
+				<input type="hidden" name="aab101" value="${ins.aab101 }">
 				<div class="wrap-input100 validate-input">
-					<input class="login100-form-btn" type="submit" name="next" value="修改用户头像"
-					 formaction="<%=path%>/busiToAddProfilPicturePage.html" formnovalidate="formnovalidate">
-				</div>
-				<input type="hidden" name="aab101" value="2">
-				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab102" required="required" readonly="readonly" value="${ins.aab102}" />
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-envelope" aria-hidden="true"></i>
-					</span>
-				</div>
-
-				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab103" required="required" value="${ins.aab103}" />
+					<input type="text" class="input100" name="aab105" readonly="readonly" value="${ins.aab105=='0'?'还未通过审核':'已通过审核'}" />
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
 						<i class="fa fa-lock" aria-hidden="true"></i>
 					</span>
 				</div>
-				
+				用户评分
 				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab104" required="required" value="${ins.aab104}" />
+					<input type="text" class="input100" name="aab111" readonly="readonly" value="${ins.aab111}" />
 					<span class="focus-input100"></span>
 					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
 					</span>
 				</div>
-				
 				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab106" required="required" value="${ins.aab106}" />
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
+					<input class="login100-form-btn" type="submit" name="next" value="修改商家账户信息"
+					 formaction="<%=path%>/busiToModifyInfo.html" formnovalidate="formnovalidate">
 				</div>
-				
-				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab107" required="required" value="${ins.aab107}" />
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
-				</div>
-				
 				<div class="wrap-input100 validate-input">
 					<input class="login100-form-btn" type="submit" name="next" value="资质证明"
-					 formaction="<%=path%>/busiToCertificatePage.html" formnovalidate="formnovalidate">
+					 formaction="<%=path%>/busiToCertificationPage.html" formnovalidate="formnovalidate">
 				</div>
 				
 				<div class="wrap-input100 validate-input">
 					<input class="login100-form-btn" type="submit" name="next" value="环境图"
 					 formaction="<%=path%>/busiToEnvironmentPage.html" formnovalidate="formnovalidate">
-				</div>
-				
-				<div class="wrap-input100 validate-input">
-					<e:radio  name="aab110" value="是:0,否:1" defval="${empty ins.aab101?'1':ins.aab110}"/>
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				<div class="wrap-input100 validate-input">
-					<input type="text" class="input100" name="aab112" required="required" value="${ins.aab112}" />
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				
-				<div class="container-login100-form-btn">
-					<input class="login100-form-btn" type="submit" name="next" value="修改"
-					 formaction="<%=path%>/busiModify.html">
 				</div>
 				<div class="container-login100-form-btn">
 					<input class="login100-form-btn" type="submit" name="next" value="推广"
@@ -120,6 +73,10 @@
 				<div class="container-login100-form-btn">
 					<input class="login100-form-btn" type="submit" name="next" value="用户订座"
 					 formaction="<%=path%>/busiManageReservation.html" formnovalidate="formnovalidate">
+				</div>
+				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="登出"
+					 formaction="<%=path%>/userLogin.jsp" formnovalidate="formnovalidate">
 				</div>
 
 			</form>
