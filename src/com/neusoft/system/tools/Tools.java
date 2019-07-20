@@ -354,6 +354,10 @@ public class Tools
 	{
 		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
 	}
+    public static String getFDate()
+	{
+		return new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+	}
 	public static String getDate()
 	{
 		return new SimpleDateFormat("MM-dd").format(new java.util.Date());

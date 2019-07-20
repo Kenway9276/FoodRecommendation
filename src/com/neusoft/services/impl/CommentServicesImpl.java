@@ -21,7 +21,7 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		StringBuilder sql1=new StringBuilder()
     			.append(" insert into ab03(aaa101 , aab101 , aab303 , aab304 , ")
     			.append(" aab305 , aab306 , aab307, aab308) values(?,?,?,?,?,?,?,?) ");
-		String Date = Tools.getDate();
+		String Date = Tools.getFDate();
 		Object args1[]={
 				this.get("userID"),
 				this.get("aab101"),
@@ -84,8 +84,12 @@ public class CommentServicesImpl extends JdbcServicesSupport
 	//从编辑器中处理文字
 	public String DealText()throws Exception
 	{
-		String CommentText=this.get("aab306").toString();
-		return CommentText;
+		if(this.get("aab306")!=null)
+		{
+			String CommentText=this.get("aab306").toString();
+			return CommentText;
+		}
+		else return "";
 	}
 	//从编辑器中处理图片并保存
 	public String DealPhoto()throws Exception
@@ -126,5 +130,13 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		return ins;			
 	}
 	
+	
+	//保存点评状态
+	public Map<String, String> saveStatus()throws Exception
+	{
+		Map<String,String> ins =new HashMap<>();
+		ins.put("status", "1" );
+		return ins;			
+	}
 	
 }
