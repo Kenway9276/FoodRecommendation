@@ -21,7 +21,7 @@ public class Tools
 	{
 		try 
 		{
-			String aab103=Tools.getEmpNumber();
+			String aab103=Tools.getReservationNumber();
 			System.out.println(aab103);
 		}
 		catch (Exception e) 
@@ -115,9 +115,9 @@ public class Tools
 	 * @return  String number="yyyy"+4Î»Á÷Ë®Âë
 	 * @throws Exception
 	 */
-	public static String getEmpNumber()throws Exception
+	public static String getReservationNumber()throws Exception
 	{
-		return Tools.getCurrentYear()+Tools.getFormatNumber("E");
+		return Tools.getDate()+Tools.getFormatNumber("E");
 	}
 	
 	private static final String baseCode1="0000";
@@ -193,8 +193,6 @@ public class Tools
 			DBUtils.close(pstm1);
 			DBUtils.close(pstm2);
 		}
-		
-		
 	}
 	
 	/**
@@ -358,7 +356,7 @@ public class Tools
 	}
 	public static String getDate()
 	{
-		return new SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
+		return new SimpleDateFormat("MM-dd").format(new java.util.Date());
 	}
 	
 	

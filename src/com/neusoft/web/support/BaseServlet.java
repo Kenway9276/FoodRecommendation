@@ -56,7 +56,10 @@ public class BaseServlet extends HttpServlet
 
 
 
-     		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("AdminNoticeModify")||controllerFirstName.contains("Certificate"))
+     		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("Certificate")
+     				||controllerFirstName.contains("BusiModifyDishPic")||controllerFirstName.contains("ModifyEnvironment")
+     				||controllerFirstName.contains("UpdatePortrait")||controllerFirstName.contains("AdminNoticeModify"))
+
      		{
      			controller.setMapDtoForFile(this.createDtoForFile(request));
      		}

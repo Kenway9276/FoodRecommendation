@@ -9,6 +9,7 @@ public class BusiDelDishByIdServlet extends BusiControllerSupport
 		this.saveBusiMenuDataForDelete();
 		this.saveBusiDishQueryData();
 		this.saveSyscodeInstance();
+		this.busiConvertBusiId();
 		return "busiDishQuery";
 	}
 }

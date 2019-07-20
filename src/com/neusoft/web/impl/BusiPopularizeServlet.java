@@ -7,6 +7,7 @@ public class BusiPopularizeServlet extends BusiControllerSupport
 	public String execute() throws Exception 
 	{
 		this.setBusiPopularizeEndTime();
+		this.saveBusiPopularizeInstance();
 		return "busiPopularize";
 	}
 

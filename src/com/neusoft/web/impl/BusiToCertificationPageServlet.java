@@ -1,6 +1,6 @@
 package com.neusoft.web.impl;
 
-public class BusiToCertificatePageServlet extends BusiControllerSupport 
+public class BusiToCertificationPageServlet extends BusiControllerSupport 
 {
 
 	@Override

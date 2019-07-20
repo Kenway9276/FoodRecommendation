@@ -18,21 +18,21 @@
     <!-- Page Title -->
     <title>Listing &amp; Directory Website Template</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
+    <link rel="stylesheet" href="css/xzs_bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="<%=path%>/css/xzs_simple-line-icons.css">
+    <link rel="stylesheet" href="css/xzs_simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="<%=path%>/css/xzs_themify-icons.css">
+    <link rel="stylesheet" href="css/xzs_themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="<%=path%>/css/xzs_set1.css">
+    <link rel="stylesheet" href="css/xzs_set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="<%=path%>/css/xzs_swiper.min.css">
+    <link rel="stylesheet" href="css/xzs_swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="<%=path%>/css/xzs_magnific-popup.css">
+    <link rel="stylesheet" href="css/xzs_magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
+    <link rel="stylesheet" href="css/xzs_style.css">
     
     <script>
 	
@@ -109,9 +109,9 @@
 </head>
 
 <body>
-<form id="myform" action="<%=path%>/busiModifyDishPic.html" method="post">
+<form id="myform" action="<%=path%>/busiModifyDishPic.html" method="post" enctype="multipart/form-data">
+<input type="hidden" name="aab201" value="${ins.aab201 }">		
 	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
-	<input type="hidden" name="aaa101" value="1"></input>
     <!--============================= HEADER =============================-->
     <!--//END HEADER -->
     <!--============================= BOOKING =============================-->
@@ -125,9 +125,7 @@
         	
             <div class="swiper-slide">
             <div style="width:672px;height:300px">
-                    <a href="${ad.address }" class="grid image-link">
-                        <img src="${ad.address }" class="img-fluid" alt="#">
-                    </a>
+                 <img src="${ad.address }" class="img-fluid" alt="#">
             </div>
             </div>
             </c:forEach>
@@ -144,14 +142,16 @@
         </div>
         <div style="height:200px">
             <div style="height: 30%">
-        		<span>请选择菜品图片</span>
-       			<input type="file" name="aab202" id="choose-file" required="required" multiple="multiple"/>
+        		<span>请选择菜品图片(清一次性选择所有图片)</span>
+       			<input type="file" name="aab202" id="choose-file" required="required" multiple/>
         		<!--<input type="file" name="" id="choose-file" />-->
     		</div>
    			<div style="height: 70%">
     			<ul class="file-list "></ul>
 			</div>
 		<input type="submit" name="next" value="上传">
+		<input class="login100-form-btn" type="submit" name="next" value="返回"
+	 			formaction="<%=path%>/busiMenuManage.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
         </div>
     </div>
     <!--//END BOOKING -->
@@ -159,17 +159,16 @@
     <!--//END RESERVE A SEAT -->
     <!--============================= BOOKING DETAILS =============================-->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src=" <%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
-    <script src=" <%=path%>/js/xzs_popper.min.js"></script>
-    <script src=" <%=path%>/js/xzs_bootstrap.min.js"></script>
+    <script src="js/xzs_jquery-3.2.1.min.js"></script>
+    <script src="js/xzs_popper.min.js"></script>
+    <script src="js/xzs_bootstrap.min.js"></script>
     <!-- Magnific popup JS -->
-    <script src=" <%=path%>/js/xzs_jquery.magnific-popup.js"></script>
+    <script src="js/xzs_jquery.magnific-popup.js"></script>
     <!-- Swipper Slider JS -->
-    <script src=" <%=path%>/js/xzs_swiper.min.js"></script>
+    <script src="js/xzs_swiper.min.js"></script>
     <script src="js/jquery.min.js"></script>
 	<script src="layer/layer.js"></script>
-<script>
-
+	<script>
     $(function () {
         ////////////////////////////////////////////////图片上传//////////////////////////////////////////////
         //声明变量
@@ -317,8 +316,8 @@
     })
 
 
-</script>
-    <script>
+	</script>
+<script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
             slidesPerGroup: 3,
@@ -333,8 +332,8 @@
                 prevEl: '.swiper-button-prev',
             },
         });
-    </script>
-    <script>
+</script>
+<script>
         if ($('.image-link').length) {
             $('.image-link').magnificPopup({
                 type: 'image',
@@ -351,7 +350,7 @@
                 }
             });
         }
-    </script>
+</script>
 </form>
 </body>
 
