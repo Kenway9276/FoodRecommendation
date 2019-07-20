@@ -158,18 +158,18 @@
 				</div>
 				
 				<div class="wrap-input100 validate-input">
-					<input type="checkbox" name="aab112" class="aab112" id="airconditional" onclick="aircheck(this)" value="1" ${Equipment.e0=='1'?"checked='checked'":""}>空调
-					<input type="checkbox" style="display:none" name="aab112" class="aab112" id="airconditional-copy" value="0" ${Equipment.e0=='0'?"checked='checked'":""}>
-					<input type="checkbox" name="aab112" class="aab112" id="wifi" onclick="wificheck(this)" value="1" ${Equipment.e1=='1'?"checked='checked'":""}>WIFI
-					<input type="checkbox" style="display:none" name="aab112" class="aab112" id="wifi-copy" value="0" ${Equipment.e1=='0'?"checked='checked'":""}>
-					<input type="checkbox" name="aab112" class="aab112" id="charger" onclick="chargercheck(this)" value="1" ${Equipment.e2=='1'?"checked='checked'":""}>充电宝
-					<input type="checkbox" style="display:none" name="aab112" class="aab112" id="charger-copy" value="0" ${Equipment.e2=='0'?"checked='checked'":""}>
-					<input type="checkbox" name="aab112" class="aab112" id="join" onclick="joincheck(this)" value="1" ${Equipment.e3=='1'?"checked='checked'":""}>洗手间
-					<input type="checkbox" style="display:none" name="aab112" class="aab112" id="join-copy" value="0" ${Equipment.e3=='0'?"checked='checked'":""}>
-					<input type="checkbox" name="aab112" class="aab112" id="parking" onclick="parkingcheck(this)" value="1" ${Equipment.e4=='1'?"checked='checked'":""}>停车位
-					<input type="checkbox" style="display:none" name="aab112" class="aab112" id="parking-copy" value="0" ${Equipment.e4=='0'?"checked='checked'":""}>
-					<input type="checkbox" name="aab112" class="aab112" id="somoking" onclick="somokingcheck(this)" value="1" ${Equipment.e5=='1'?"checked='checked'":""}>吸烟区
-					<input type="checkbox" style="display:none" name="aab112" class="aab112" id="somoking-copy" value="0" ${Equipment.e5=='0'?"checked='checked'":""}>
+					<input type="checkbox" name="aaab112" class="aab112" id="airconditional" onclick="aircheck(this)" value="1" ${Equipment.e0=='1'?"checked='checked'":""}>空调
+					<input type="checkbox" style="display:none" name="aaab112" class="aab112" id="airconditional-copy" value="0" ${Equipment.e0=='0'?"checked='checked'":""}>
+					<input type="checkbox" name="baab112" class="aab112" id="wifi" onclick="wificheck(this)" value="1" ${Equipment.e1=='1'?"checked='checked'":""}>WIFI
+					<input type="checkbox" style="display:none" name="baab112" class="aab112" id="wifi-copy" value="0" ${Equipment.e1=='0'?"checked='checked'":""}>
+					<input type="checkbox" name="caab112" class="aab112" id="charger" onclick="chargercheck(this)" value="1" ${Equipment.e2=='1'?"checked='checked'":""}>充电宝
+					<input type="checkbox" style="display:none" name="caab112" class="aab112" id="charger-copy" value="0" ${Equipment.e2=='0'?"checked='checked'":""}>
+					<input type="checkbox" name="daab112" class="aab112" id="join" onclick="joincheck(this)" value="1" ${Equipment.e3=='1'?"checked='checked'":""}>洗手间
+					<input type="checkbox" style="display:none" name="daab112" class="aab112" id="join-copy" value="0" ${Equipment.e3=='0'?"checked='checked'":""}>
+					<input type="checkbox" name="eaab112" class="aab112" id="parking" onclick="parkingcheck(this)" value="1" ${Equipment.e4=='1'?"checked='checked'":""}>停车位
+					<input type="checkbox" style="display:none" name="eaab112" class="aab112" id="parking-copy" value="0" ${Equipment.e4=='0'?"checked='checked'":""}>
+					<input type="checkbox" name="faab112" class="aab112" id="somoking" onclick="somokingcheck(this)" value="1" ${Equipment.e5=='1'?"checked='checked'":""}>吸烟区
+					<input type="checkbox" style="display:none" name="faab112" class="aab112" id="somoking-copy" value="0" ${Equipment.e5=='0'?"checked='checked'":""}>
 				</div>
 				
 				<div class="container-login100-form-btn">
