@@ -5,7 +5,7 @@ public class UserLoginServlet extends UserControllerSupport
 	{
 		if(this.saveUserLoginInstance())
 		{
-			return "userHistory";
+			return "shopsearch";
 		}
 		else
 		{
