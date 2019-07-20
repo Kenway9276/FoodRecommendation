@@ -109,9 +109,10 @@
 </head>
 
 <body>
-<form id="myform" action="<%=path%>/busiModifyDishPic.html" method="post" enctype="multipart/form-data">
-<input type="hidden" name="aab201" value="${ins.aab201 }">		
+<form id="myform" action="<%=path%>/busiModifyEnvironmentPic.html" method="post" enctype="multipart/form-data">
+<input type="hidden" name="aab101" value="${ins.aab101 }">		
 	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
+	<input type="hidden" name="aaa101" value="1"></input>
     <!--============================= HEADER =============================-->
     <!--//END HEADER -->
     <!--============================= BOOKING =============================-->
@@ -142,7 +143,7 @@
         </div>
         <div style="height:200px">
             <div style="height: 30%">
-        		<span>请选择菜品图片(清一次性选择所有图片)</span>
+        		<span>请选择环境图(请一次性选择所有图片)</span>
        			<input type="file" name="aab202" id="choose-file" required="required" multiple/>
         		<!--<input type="file" name="" id="choose-file" />-->
     		</div>
@@ -151,7 +152,7 @@
 			</div>
 		<input type="submit" name="next" value="上传">
 		<input class="login100-form-btn" type="submit" name="next" value="返回"
-	 			formaction="<%=path%>/busiMenuManage.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
+	 			formaction="<%=path%>/busiReturn.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
         </div>
     </div>
     <!--//END BOOKING -->

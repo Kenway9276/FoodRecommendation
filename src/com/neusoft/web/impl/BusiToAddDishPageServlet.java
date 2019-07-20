@@ -6,6 +6,7 @@ public class BusiToAddDishPageServlet extends BusiControllerSupport
 	public String execute() throws Exception 
 	{
 		this.saveSyscodeInstance();
+		this.busiConvertBusiId();
 		return "busiAddDish";
 	}
 }

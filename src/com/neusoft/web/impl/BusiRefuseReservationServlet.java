@@ -9,6 +9,7 @@ public class BusiRefuseReservationServlet extends BusiControllerSupport
 		this.update("busiRefuseReservation", "拒绝");
 		this.saveTodoReservationInstance();
 		this.saveReservationInstance();
+		this.busiConvertBusiId();
 		return "busiManageReservation";
 	}
 

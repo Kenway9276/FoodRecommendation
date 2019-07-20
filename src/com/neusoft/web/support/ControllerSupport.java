@@ -328,11 +328,12 @@ public abstract class ControllerSupport implements BaseController
 	{
 		Map<String,String> ins=this.services.findBusiPopularizeById();
 		String aab402 = ins.get("aab402");
+		System.out.println(aab402);
 		if(aab402.equals("0"))
 		{
 			this.update("busiPopularize", "推广");
 		}
-		else
+		else if(aab402.equals("1"))
 		{
 			this.update("busiContinuePopularize","推广");
 		}
@@ -426,6 +427,42 @@ public abstract class ControllerSupport implements BaseController
 			this.saveAttribute("msg", "查询失败!");
 		}
 	}
+	//
+		protected final void busiConvertDishId()throws Exception
+		{
+			Map<String,String> ins=this.services.busiConvertDishId();
+			if(ins!=null)
+			{
+				this.saveAttribute("ins",  ins);
+			}
+		}
+		//返回时获取商家信息
+		protected final void busiReturnInfo()throws Exception
+		{
+			Map<String,String> ins=this.services.busiReturnInfo();
+			if(ins!=null)
+			{
+				this.saveAttribute("ins",  ins);
+			}
+		}
+		protected final void busiConvertBusiId()throws Exception
+		{
+			Map<String,String> ins=this.services.busiConvertBusiId();
+			if(ins!=null)
+			{
+				this.saveAttribute("ins",  ins);
+			}
+		}
+		//获取商家头像以及商家id
+
+		protected final void saveBusiPortrait()throws Exception
+		{
+			Map<String,String> ins=this.services.busiToPortraitPage();
+			if(ins!=null)
+			{
+				this.saveAttribute("ins",  ins);
+			}	
+		}
 	//ajax存储用户名是否重复信息
 	protected final boolean busiCheckName(String aab102)throws Exception
 	{	

@@ -7,6 +7,7 @@ public class BusiDishPicServlet extends BusiControllerSupport
 	public String execute() throws Exception 
 	{
 		this.savePageData("Address", "saveBusiDishPicAddress");	
+		this.busiConvertDishId();
 		return "busiManageDishPic";	
 	}
 
