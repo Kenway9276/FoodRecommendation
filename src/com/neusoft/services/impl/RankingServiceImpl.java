@@ -66,4 +66,6 @@ public class RankingServiceImpl extends JdbcServicesSupport {
                 ;
         return this.queryForList(sql.toString(), city);
     }
+
+
 }

@@ -52,7 +52,6 @@
 </script>
 </head>
 <body>
-<%=request.getSession().getAttribute("userID")%>
 <%@ include file="navigate.jsp" %>
 <form id="myform" action="<%=path %>/userHistory.html" method="post">
 <section id="pricing">
@@ -150,6 +149,13 @@
       </c:forEach>
     </c:when>
     <c:otherwise>
+    <tr>
+    	<td style="color:#FFFFFF" colspan="13">
+    		<div style="text-align:center">    
+        		ÔÝÎÞ¶©×ù¼ÇÂ¼
+        	</div>
+        </td>
+    </tr>
        <c:forEach begin="1" step="1" end="15">
           <tr>
             <td></td>

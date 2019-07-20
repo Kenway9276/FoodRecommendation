@@ -4,7 +4,7 @@ public class RecommendGetServlet extends RecommendControllerSupport{
 
     @Override
     public String execute() throws Exception {
-        this.savePageData();
+        this.savePageInstance("rows", "getRecommend2");
         return "tem";
     }
 }

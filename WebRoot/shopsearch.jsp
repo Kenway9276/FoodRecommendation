@@ -131,8 +131,7 @@
     <!--// SLIDER -->
     <!--//END HEADER -->
     <!--============================= FIND PLACES =============================-->
-    
-    
+
 
 
 		 
@@ -173,6 +172,7 @@
                 </div>
                 
             </div>
+
             <div class="row">
 		        <c:if test="${rows!=null }">           	
 				<c:forEach items="${rows }" var="row" varStatus="vs">       	

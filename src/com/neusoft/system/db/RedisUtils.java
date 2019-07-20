@@ -5,6 +5,7 @@ import redis.clients.jedis.Jedis;
 import javax.imageio.IIOException;
 import java.io.*;
 import java.lang.ThreadLocal;
+import java.util.List;
 
 public class RedisUtils {
     private static final ThreadLocal<redis.clients.jedis.Jedis> threadLocal=new ThreadLocal<>();
@@ -45,5 +46,24 @@ public class RedisUtils {
 
     public static void del(String key) {
         getConnection().del(key);
+    }
+
+    public static void lpush(String key, Object o) throws IOException{
+        // 序列化
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(stream);
+        oos.writeObject(o);
+        getConnection().lpush(key.getBytes(), stream.toByteArray());
+    }
+
+    public static Object blpop(String key) throws Exception{
+        List<String> list =  getConnection().blpop(10, key);
+        if (list.size() > 0){
+            //反序列化
+            ByteArrayInputStream bri = new ByteArrayInputStream(list.get(1).getBytes());
+            ObjectInputStream outs = new ObjectInputStream(bri);
+            return outs.readObject();
+        }
+        return null;
     }
 }

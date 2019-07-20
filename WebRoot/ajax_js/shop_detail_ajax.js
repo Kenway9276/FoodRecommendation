@@ -11,7 +11,7 @@ $(function() {
             data:form.serializeArray(),
             scriptCharset:"utf-8",
             success:function(data) {
-                alert("提交成功")
+                alert("提交成功，请等待商家审核。")
             },
             error:function(jqXHR,textStatus,errorThrown,data) {
                 console.log(data)
