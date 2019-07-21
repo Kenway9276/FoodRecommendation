@@ -59,7 +59,7 @@
     <script type="text/javascript">
         function rankingToShopDetail(aab101){
             var form = document.getElementById("rank-to-shop-form")
-            form.action = "/shopinfoFindById.html?aab101=" + aab101;
+            form.action = "/emp/shopinfoFindById.html?aab101=" + aab101;
             form.submit()
         }
     </script>
@@ -70,7 +70,6 @@
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
-${rows2}
 <form method="post" id="rank-to-shop-form"></form>
 <div class="news" id="news">
     <div class="container">

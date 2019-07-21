@@ -48,7 +48,7 @@
         <div class="blog-slider__item swiper-slide">
             <c:if test="${empty rows }">
                 <div class="blog-slider__img">
-                    <img src="/images/bg4.jpg" alt="${rows.aab104 }">
+                    <img src="/emp/images/bg4.jpg" alt="${rows.aab104 }">
                 </div>
                 <div class="blog-slider__content">
                     <div class="blog-slider__title">没有找到适合的餐厅哦</div>

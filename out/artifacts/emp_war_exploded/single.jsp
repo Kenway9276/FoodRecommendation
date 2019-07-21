@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="dw_assets/css/custom.css">
 </head>
 <body>
-
+<%@ include file="navigate.jsp" %>
 
 <!-- Nav Search Box -->
 <div class="nav-search-box">

@@ -15,7 +15,7 @@
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
-<form id="aaa" action="/bBSPost.html" method="post">
+<form id="aaa" action="/emp/bBSPost.html" method="post">
     <br>
     <p align="center">БъЬт &nbsp;&nbsp;<input type="text" name="aaa303"></p><br>
     <div id="div1" style="width:60%;height:40%;margin:0 auto;">
