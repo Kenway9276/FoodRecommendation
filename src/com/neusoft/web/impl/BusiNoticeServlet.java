@@ -7,5 +7,4 @@ public class BusiNoticeServlet extends UserControllerSupport {
 		this.saveUserNoticePageData();
 		return "busiNotice";
 	}
-
 }

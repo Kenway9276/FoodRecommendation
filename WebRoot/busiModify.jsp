@@ -58,6 +58,11 @@
 					<input class="login100-form-btn" type="submit" name="next" value="公告"
 					 formaction="<%=path%>/busiNotice.html">
 				</div>
+				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="优惠券"
+					 formaction="">
+				</div>
+				<br/>
 				<div class="wrap-input100 validate-input">
 					<input class="login100-form-btn" type="submit" name="next" value="资质证明"
 					 formaction="<%=path%>/busiToCertificationPage.html" formnovalidate="formnovalidate">

@@ -1,120 +1,105 @@
 <%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%String path=request.getContextPath(); %>
-<html lang="zh-CN">
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
-	<title>商家注册</title>
-	<meta charset="gbk">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<!--图标-->
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	
-	<!--布局框架-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	
-	<!--主要样式-->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/nevigation_style.css">
-	
-	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-	<script type="text/javascript">
-		function check_username(val)
-		{
-			$.ajax({  
-     		  type: "POST",      
-      		  url: "check", //看下面xml的配置     
-      		  data: "aab102="+val,   //形成一对key-value，提交对象可以通过request.getParameter("username");获得val值
-       		 success: function(data){  //提交成功后调用的方法
-      		  if(data=="false"){//后台返回表示重名
-        	$("#span").html("X");
-      		  }
-      		  else if(data=="true"){
-        			$("#span").html("√");
-  
-       		 }   
-       		 }
-	  		  //error://提交失败将调用的方法
-     		   });  
-		}
-</script>
-	
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+<link href="<%=path %>/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="<%=path %>/css/style_login.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+<style type="text/css">
+.btn-danger
+{
+background-color: #87CEFA;
+}
+.w3_info h2
+{
+color: #87CEFA;
+}
+i.fa.fa-user
+{
+color: #87CEFA;
+}
+i.fa.fa-lock
+{
+color: #87CEFA;
+}
+i.fa.fa-shopping-basket
+{
+color: #87CEFA;
+}
+i.fa.fa-map-o
+{
+color: #87CEFA;
+}
+i.fa.fa-phone
+{
+color: #87CEFA;
+}
+</style>
 </head>
-
 <body>
-
-<%-- <%@include file="nevigation.jsp"%> --%>
-
-<div class="login">
-	<div class="container-login100">
-		<div class="wrap-login100">
-			<div class="login100-pic js-tilt" data-tilt>
-				<img src="images/img-01.png" alt="IMG">
-			</div>
-
-			<form class="login100-form validate-form" >
-				<span class="login100-form-title">
-					商家注册(基础信息)
-				</span>
-
-				<div class="wrap-input100 validate-input">
-					<input class="input100" type="text" name="aab102" required="required" placeholder="商家用户名">
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-					</span>
-				</div>
-
-				<div class="wrap-input100 validate-input">
-					<input class="input100" type="password" name="aab103" required="required" placeholder="商家密码">
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				<div class="wrap-input100 validate-input">
-					<input class="input100" type="text" name="aab104" required="required" placeholder="店铺名">
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				<div class="wrap-input100 validate-input">
-					<input class="input100" type="text" name="aab106" required="required" placeholder="地址">
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-map-o" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				<div class="wrap-input100 validate-input">
-					<input class="input100" type="text" name="aab107" required="required" placeholder="联系电话">
-					<span class="focus-input100"></span>
-					<span class="symbol-input100">
-						<i class="fa fa-phone" aria-hidden="true"></i>
-					</span>
-				</div>
-				
-				<div class="container-login100-form-btn">
-					<input class="login100-form-btn" type="submit" name="next" value="注册"
-					 formaction="<%=path%>/busiRegister.html">
-				</div>
-
-				<div class="text-center p-t-136">
-					<a class="txt2" href="<%=path%>/busiLogin.jsp">
-							已有账号?立即登录
-						<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-					</a>
-				</div>
-			</form>
-		</div>
-	</div>
+<div style="color:#FFFFFF">
+${msg}
 </div>
+<br>
+<form action="<%=path %>/busiRegister.html" method="post">
+<div class="signupform">
+<h1></h1>
+	<div class="container">
+		
+		<div class="agile_info">
+			<div class="w3l_form">
+				<div class="left_grid_info">
+					<h3>Welcome !</h3>
+					<h4>我们的美食网站是最贴心的美食网站。</h4>
+					<p> Our food website is the most intimate food website.</p>
+					<br><br>
+				</div>
+			</div>
+			<div class="w3_info">
+				<h2>Create Your Account</h2>
+				<p>商家账户注册</p>
+						<div class="input-group">
+							<span><i class="fa fa-user" aria-hidden="true"></i></span>
+							<e:text id="username-input-text" placeholder="请输入商家用户名（用于登陆，不可更改）" name="aab102" required="true" autofocus="true"/>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<e:text placeholder="请输入商家密码" name="aab103" required="true"/>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
+							<e:text placeholder="请输入商家店铺名" name="aab104" required="true"/>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-map-o" aria-hidden="true"></i></span>
+							<e:text placeholder="请输入商家地址（格式：xx市+商家具体地址）" name="aab106" required="true"/>
+						</div>
+						<div class="input-group">
+							<span><i class="fa fa-phone" aria-hidden="true"></i></span>
+							<e:text placeholder="请输入商家联系电话" name="aab107" required="true"/>
+						</div>
+							<input id="submit-btn" class="btn btn-danger btn-block" type="submit" name="next" value="注册"
+        					formaction="<%=path%>/busi.html">      
+							<a href="<%=path %>/busiLogin.jsp">
+							<input class="btn btn-danger btn-block" type="button" name="next" value="已有账号，马上登录">
+							</a> 
+			</div>
+			<div class="clear"></div>
+			</div>
+			
+		</div>
+		<div class="footer">
+ </div>
+	</div>
+	</form>
+<!-- ==== JQuery 1.12.1 js file ==== -->
+<script src="dw_assets/js/jquery-1.12.1.min.js"></script>
+<script src="ajax_js/register_ajax.js"></script>
 
-</body>
+	</body>
 </html>

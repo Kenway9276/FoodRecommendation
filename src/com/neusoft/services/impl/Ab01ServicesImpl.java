@@ -1443,7 +1443,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 						.append("	 FROM ab01")
 						.append("	WHERE aab101=?")
 		    			;
-		    	return this.queryForMap(sql.toString(), this.get("aab101"));
+		    	return this.queryForMap(sql.toString(), this.get("busiID"));
 		    }
 			//��ʾ�̼��豸��Ϣ
 			public Map<String,String> saveBusiEquipment()throws Exception
