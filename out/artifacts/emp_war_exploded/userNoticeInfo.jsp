@@ -43,7 +43,7 @@ function onEdit(vaac201)
 </head>
 <body>
 <%request.getSession().getAttribute("ins");%>
-<form id="myform" action="<%=path %>/userNoticeInfo.html" enctype="multipart/form-data" method="post">
+<form id="myform" action="<%=path %>/busiNotice.html" enctype="multipart/form-data" method="post">
 <section id="pricing">
 	<div class="container">
 		<div class="section-header">
@@ -92,7 +92,11 @@ function onEdit(vaac201)
 <table border="0" width="100%" align="center">
   <tr>
     <td align="center">
+<<<<<<< HEAD
+		<button type="submit" formaction="<%=path %>/busiNotice.html" name="next">·µ»Ø</button>
+=======
 		<button  type="submit" formaction="<%=path %>/userNotice.html" name="next" id="return">·µ»Ø</button>
+>>>>>>> 89db06d6227f57efde55e453cca40eac4ebf8f78
 		<button  name="next" onclick="onEdit('${ins.aac201 }')">±à¼­</button>
     </td>
   </tr>

@@ -56,12 +56,22 @@
         });
     </script>
 
+    <script type="text/javascript">
+        function rankingToShopDetail(aab101){
+            var form = document.getElementById("rank-to-shop-form")
+            form.action = "/shopinfoFindById.html?aab101=" + aab101;
+            form.submit()
+        }
+    </script>
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
+${rows2}
+<form method="post" id="rank-to-shop-form"></form>
 <div class="news" id="news">
     <div class="container">
         <div class="w3-welcome-heading">
@@ -76,7 +86,7 @@
                         </div>
                         <div class="col-md-6 news-grid-info-bottom">
                             <div class="news-left-top-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><br>${ins.aab104 }<br><br></a>
+                                <a href="#" onclick="rankingToShopDetail('${ins.aab101 }')" data-toggle="modal" data-target="#myModal"><br>${ins.aab104 }<br><br></a>
                             </div>
                             <c:if test="${!empty ins.popularity }">
                                 <div class="news-grid-info-bottom-text">
@@ -116,7 +126,7 @@
                         </div>
                         <div class="col-md-6 news-grid-info-bottom">
                             <div class="news-left-top-text">
-                                <a href="#" data-toggle="modal" data-target="#myModal"><br>${ins.aab104 }<br><br></a>
+                                <a href="#" onclick="rankingToShopDetail('${ins.aab101 }')" data-toggle="modal" data-target="#myModal"><br>${ins.aab104 }<br><br></a>
                             </div>
                             <c:if test="${!empty ins.popularity }">
                                 <div class="news-grid-info-bottom-text">

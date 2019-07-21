@@ -171,4 +171,18 @@ public class CouponServiceImpl extends JdbcServicesSupport {
         String sql = "delete from ab05 where aab501 = ?";
         return this.executeUpdate(sql, aab501) > 0;
     }
+
+    public List<Map<String, String>> queryForShop() throws Exception{
+        StringBuilder sql = new StringBuilder()
+                .append("SELECT ")
+                .append("	COUNT(*) AS count ,aab504,aab503,aab505,aab506 ")
+                .append("FROM ")
+                .append("	ab05  ")
+                .append("	WHERE ")
+                .append("	aab101 = ? ")
+                .append("GROUP BY ")
+                .append("	aab504,aab503,aab505,aab506")
+                ;
+        return this.queryForList(sql.toString(), this.get("busiID"));
+    }
 }

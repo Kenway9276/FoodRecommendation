@@ -22,6 +22,7 @@ public class RankingServiceImpl extends JdbcServicesSupport {
         StringBuilder sql = new StringBuilder()
                 .append("SELECT ")
                 .append("	aab104, ")
+                .append("	aab101, ")
                 .append("	aab106, ")
                 .append("	aab113, ")
                 .append("	aab107, ")

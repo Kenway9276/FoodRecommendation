@@ -78,7 +78,7 @@
             <li>分享你的故事</li>
         </ul>
         <ul class="nav">
-            <li><a href="bBSBrowse.html">返回首页</a></li>
+            <li><a href="bBSBrowseAll.html">返回首页</a></li>
             <li><a href="post.jsp">发布帖子</a></li>
             <li><a href="bBSBrowseUser.html">查看我发布的帖子</a></li>
         </ul>

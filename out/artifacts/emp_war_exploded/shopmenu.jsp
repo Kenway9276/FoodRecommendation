@@ -54,6 +54,7 @@ $(document).ready(function() {
 <![endif]-->
 </head>
 <body>
+<%@ include file="navigate.jsp" %>
 	
 	<!-- //services -->
 	<!--gallery-->
