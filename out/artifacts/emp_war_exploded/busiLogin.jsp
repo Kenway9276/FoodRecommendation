@@ -22,7 +22,7 @@
 </head>
 
 <body>
-
+${msg }
 <div class="login">
 	<div class="container-login100">
 		<div class="wrap-login100">
@@ -66,6 +66,15 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+// window.onload=function()
+// {
+// 	if(msg!=null&&msg!="")
+// 		{
+// 		alert(msg)
+// 		}
+// }
 
+</script>
 </body>
 </html>
