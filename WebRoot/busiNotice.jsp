@@ -108,11 +108,11 @@ function onEdit(vaac201)
        </c:forEach>
     </c:otherwise>
   </c:choose>
-  
-
 </table>
 </form>
-  <input class="login100-form-btn" type="submit" name="next" value="·µ»Ø"
-	 			formaction="<%=path%>/busiReturn.html" formnovalidate="formnovalidate">
+<div style="align:center">
+<input class="login100-form-btn" type="submit" name="next" value="·µ»Ø"
+	 			formaction="<%=path%>/busiReturn.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
+</div>
 </body>
 </html>
