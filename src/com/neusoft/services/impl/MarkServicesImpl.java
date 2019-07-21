@@ -15,10 +15,13 @@ public class MarkServicesImpl extends JdbcServicesSupport
 	@Override
 	public List<Map<String,String>> query()throws Exception
 	{
-		StringBuilder sql=new StringBuilder()
+		StringBuilder sql1=new StringBuilder()
 				.append(" SELECT ab01.aab101 , aaa401 , aab104 , aab106 , aab111 , aaa402 FROM aa04 LEFT JOIN ")
 				.append(" ab01 on aa04.aab101= ab01.aab101 where aaa101 = ? ORDER BY aaa401 DESC");
-		return this.queryForList(sql.toString(), this.get("userID"));	
+		
+		String sql2="delete from aa04 where aab101 is null ";
+		this.executeUpdate(sql2);
+		return this.queryForList(sql1.toString(), this.get("userID"));	
 	}
 	
 	

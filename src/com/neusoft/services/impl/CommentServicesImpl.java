@@ -1,5 +1,6 @@
 package com.neusoft.services.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +22,7 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		StringBuilder sql1=new StringBuilder()
     			.append(" insert into ab03(aaa101 , aab101 , aab303 , aab304 , ")
     			.append(" aab305 , aab306 , aab307, aab308) values(?,?,?,?,?,?,?,?) ");
-		String Date = Tools.getDate();
+		String Date = Tools.getFDate();
 		Object args1[]={
 				this.get("userID"),
 				this.get("aab101"),
@@ -37,6 +38,8 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		
 		//计算并更新商家评分
 		UpdateScore();	
+		//商家推广
+		UpdateScoreWhenPopularize();
 		//更新商家评论数
 		UpdateCommentCount();
 		
@@ -84,8 +87,12 @@ public class CommentServicesImpl extends JdbcServicesSupport
 	//从编辑器中处理文字
 	public String DealText()throws Exception
 	{
-		String CommentText=this.get("aab306").toString();
-		return CommentText;
+		if(this.get("aab306")!=null)
+		{
+			String CommentText=this.get("aab306").toString();
+			return CommentText;
+		}
+		else return "";
 	}
 	//从编辑器中处理图片并保存
 	public String DealPhoto()throws Exception
@@ -104,6 +111,33 @@ public class CommentServicesImpl extends JdbcServicesSupport
     			.append(" aab101=? AND aab305='0') where ab01.aab101= ?  ");
 		Object args2[]={this.get("aab101"),this.get("aab101")};
 		return this.executeUpdate(sql2.toString(), args2)>0;
+	}
+	//商家推广
+	private void UpdateScoreWhenPopularize()throws Exception
+	{
+		StringBuilder sql = new StringBuilder()	
+				.append("SELECT a.aab101,a.aab111,b.aab101,b.aab402")
+				.append("	FROM ab01 a,ab04 b")
+				.append("	WHERE a.aab101=b.aab101 AND a.aab101 = ?")
+				;
+		Map<String,String> tmp = this.queryForMap(sql.toString(), this.get("aab101"));
+		Object aab402 = tmp.get("aab402");
+		if(aab402.equals("1"))
+		{
+			Double aab111 = Double.valueOf(String.valueOf(tmp.get("aab111")));
+			aab111+=0.2;
+			if(aab111>5.0)
+			{
+				aab111=5.0;
+			}
+			String rsql = "UPDATE ab01 SET aab111=? WHERE aab101 = ?";
+			Object args[]=
+				{
+						aab111,
+						this.get("aab101")
+				};
+			this.executeUpdate(rsql, args);
+		}	
 	}
 	
 	//更新商家点评数
@@ -126,5 +160,13 @@ public class CommentServicesImpl extends JdbcServicesSupport
 		return ins;			
 	}
 	
+	
+	//保存点评状态
+	public Map<String, String> saveStatus()throws Exception
+	{
+		Map<String,String> ins =new HashMap<>();
+		ins.put("status", "1" );
+		return ins;			
+	}
 	
 }

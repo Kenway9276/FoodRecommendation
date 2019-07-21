@@ -282,16 +282,18 @@ public abstract class ControllerSupport implements BaseController
 	 * @throws Exception
 	 */
 	//读取商家信息
-	protected final void saveBusiLoginInstance()throws Exception
+	protected final boolean saveBusiLoginInstance()throws Exception
 	{
 		Map<String,String> ins=this.services.busiLogin();
 		if(ins!=null)
 		{
 			this.saveAttribute("ins",  ins);
+			return true;
 		}
 		else
 		{
-			this.saveAttribute("msg", "警告:该用户不存在!");
+			this.saveAttribute("msg", "用户名或密码不相符!");
+			return false;
 		}	
 	}
 	//读取用户拼座信息
@@ -470,6 +472,15 @@ public abstract class ControllerSupport implements BaseController
 		protected final void saveBusiPortrait()throws Exception
 		{
 			Map<String,String> ins=this.services.busiToPortraitPage();
+			if(ins!=null)
+			{
+				this.saveAttribute("ins",  ins);
+			}	
+		}
+		//获取用户拼座信息
+		protected final void getAssembleById()throws Exception
+		{
+			Map<String,String> ins=this.services.getAssembleById();
 			if(ins!=null)
 			{
 				this.saveAttribute("ins",  ins);

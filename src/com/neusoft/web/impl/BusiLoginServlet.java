@@ -5,7 +5,13 @@ public class BusiLoginServlet extends BusiControllerSupport {
 	@Override
 	public String execute() throws Exception 
 	{
-		this.saveBusiLoginInstance();
-		return "busiModify";
+		if(this.saveBusiLoginInstance())
+		{
+			return "busiModify";
+		}
+		else
+		{
+			return "busiLogin";
+		}
 	}
 }

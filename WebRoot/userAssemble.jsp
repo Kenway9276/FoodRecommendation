@@ -30,10 +30,10 @@
     	 vform.submit();
       }
 
-      function onApply(vaab101)
+      function onApply(vaaa501)
       {
     	 var vform = document.getElementById("myform");
-    	 vform.action="<%=path%>/userAssembleMsg.html?aab101="+vaab101;
+    	 vform.action="<%=path%>/userToApplyAssemble.html?aaa501="+vaaa501;
     	 //alert(vform.action);
     	 vform.submit();
       }     
@@ -52,6 +52,7 @@ ${msg }
 <%=session.getId() %>
 <br>
 <form id="myform" action="<%=path%>/userAssemble.html" method="post">
+<input type="hidden" name="aab101" value="${ins.aab101 }">
   <!-- 查询条件区 -->
 	<table border="1" width="95%" align="center">
 	  <caption>
@@ -107,7 +108,7 @@ ${msg }
 	     <c:when test="${rows!=null}">
 	         <!-- 显示实际查询到的数据 -->
 		     <c:forEach items="${rows}" var="ins" varStatus="vs">
-		     	<c:if test="${ins.aaa503>now }">
+<%-- 		     	<c:if test="${ins.aaa503>now }"> --%>
 	    	   	  <tr>
 				    <td>${vs.count}</td>
 				    <td>${ins.aab104 }</td>
@@ -119,7 +120,7 @@ ${msg }
 				      <a href="#" onclick="onApply('${ins.aaa501}')"><button>申请拼座</button></a>
 				    </td>
 				  </tr>
-				  </c:if>
+<%-- 				  </c:if> --%>
 		      </c:forEach>
 		      <!-- 补充空行 -->
 		      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">
@@ -156,7 +157,9 @@ ${msg }
 	    <td align="center">
 	       <input type="submit" name="next" value="查询" formaction="<%=path%>/userAssemble.html">
 	       <input type="submit" name="next" value="申请拼座" 
-	              formaction="<%=path%>/userAssembleApply.jsp">
+	              formaction="<%=path%>/userToAssembleApply.html">
+	              <input type="submit" name="next" value="返回" 
+	              formaction="<%=path%>/shopinfoFindById.html">
 	    </td>
 	  </tr>
 	</table>
