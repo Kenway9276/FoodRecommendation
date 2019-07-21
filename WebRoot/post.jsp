@@ -6,7 +6,7 @@
   Time: 15:53
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=GBK" language="java" %>
+<%@ page contentType="text/html;charset=gbk" language="java" %>
 <html>
 <head>
     <!-- Bootstrap core CSS -->

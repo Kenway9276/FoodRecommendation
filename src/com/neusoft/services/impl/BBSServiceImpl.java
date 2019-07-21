@@ -52,12 +52,20 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         return list;
     }
 
+    public boolean initCache() throws Exception{
+        List<Map<String,String>> list = queryForList();
+        RedisUtils.SerializableSet("list", list);
+        return true;
+    }
+
     /**
      * 获取当前页的帖子列表
      * @return
      * @throws Exception
      */
     public List<Map<String, String>> queryForPage() throws Exception {
+
+
         // 当前页码
         int page = this.getCurrentPage();
 
@@ -121,6 +129,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
     public boolean post() throws Exception{
 
         Object aaa101 = this.get("userID");
+
         Object aaa303 = this.get("aaa303");
 
         Object aaa304 = this.get("aaa304");
@@ -168,18 +177,19 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         Map<String,String> map = new HashMap<>();
         map.put("currentPage", Integer.toString(getCurrentPage()));
         map.put("totalPages",Integer.toString(getPageCount()));
-        list.add(map);
+        //list.add(map);
         return list;
     }
 
     private void parseBBSList(List<Map<String,String>> list) {
         for(Map<String,String> map : list){
-            String aaa306 = map.get("aaa306");
-            if(aaa306.length() > 100){
-                aaa306 = aaa306.replace(aaa306.substring(100), "......");
-                map.put("aaa306", aaa306);
+            if(map.get("aaa306") != null){
+                String aaa306 = map.get("aaa306");
+                if(aaa306.length() > 100){
+                    aaa306 = aaa306.replace(aaa306.substring(100), "......");
+                    map.put("aaa306", aaa306);
+                }
             }
-
         }
     }
 
