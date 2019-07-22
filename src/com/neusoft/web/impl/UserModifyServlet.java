@@ -5,7 +5,7 @@ public class UserModifyServlet extends UserControllerSupport {
 	@Override
 	public String execute() throws Exception 
 	{
-		this.update("adminModify", "ÐÞ¸Ä");
+		this.update("userModify", "ÐÞ¸Ä");
 		return "userLogin";
 	}
 

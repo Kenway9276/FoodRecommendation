@@ -67,6 +67,7 @@ if(map != null){
 <%request.getSession().getAttribute("管理员流水号");%>
 <%request.getSession().setAttribute("ins", map); %>
 <%@ include file="navigate.jsp" %>
+<%@ include file="floatTool.jsp" %>
 <form id="myform" action="<%=path %>/adminBusiness.html" method="post">
 <!-- <nav> -->
 <!--   <div class="container"> -->
@@ -93,10 +94,10 @@ if(map != null){
     <ul class="docs-nav" id="menu-left">
       <li><strong>请开始你的管理！</strong></li>
       <li><a href="<%=path %>/adminInfo.html" class=" ">个人信息</a></li>
-      <li><a href="<%=path %>/adminBusiness.jsp" class="selected">商家管理  √</a></li>
-      <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
-      <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
-      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminBusiness.html" class="selected">商家管理  √</a></li>
+      <li><a href="<%=path %>/adminForum.html" class=" ">论坛管理</a></li>
+      <li><a href="<%=path %>/adminNotice.html" class=" ">公告管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.html" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <div class="adminInfo">
@@ -145,7 +146,7 @@ if(map != null){
         	</c:otherwise>
         </c:choose>
         <div style="margin:0 auto;width:100px">
-                 <button type="submit" name="next">查询</button>
+                 <button id="bottom" type="submit" name="next">查询</button>
         </div>
 </div>
 </div>

@@ -1,4 +1,3 @@
-<%@ taglib prefix="e" uri="http://org.wangxg/jsp/extl" %>
 <%@ page contentType="text/html;charset=GBK" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%String path=request.getContextPath(); %>
@@ -71,7 +70,7 @@ function addcomment(vaab101)
 					
 		            <h3 align="center">ÆÀ·Ö</h3>
 		            <div class="rating-stars block" id="rating">
-		                <input type="hidden" readonly class="form-control rating-value" name="aab307" id="rating-stars-value">
+		                <input type="hidden" readonly required class="form-control rating-value" name="aab307" id="rating-stars-value">
 		                <div class="rating-stars-container">
 		                    <div class="rating-star">
 		                        <i class="fa fa-star"></i>

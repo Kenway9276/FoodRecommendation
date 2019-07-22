@@ -79,6 +79,7 @@ public abstract class ControllerSupport implements BaseController
 
 	}
 
+
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
 		//1.获取需要调用的方法对象
@@ -231,7 +232,7 @@ public abstract class ControllerSupport implements BaseController
 		}
 		else
 		{
-			this.saveAttribute("msg", "提示:信息已删除!");
+			this.saveAttribute("msg", "提示:密码错误或信息已删除!");
 		}	
 	}
 	

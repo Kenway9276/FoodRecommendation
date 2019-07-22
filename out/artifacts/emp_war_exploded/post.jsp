@@ -15,7 +15,7 @@
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
-<form id="aaa" action="/bBSPost.html" method="post">
+<form id="aaa" action="/emp/bBSPost.html" method="post">
     <br>
     <p align="center">标题 &nbsp;&nbsp;<input type="text" name="aaa303"></p><br>
     <div id="div1" style="width:60%;height:40%;margin:0 auto;">
@@ -25,7 +25,11 @@
     <textarea name="aaa306" id="text2" style="display: none"></textarea>
     <% String filePath = request.getSession().getServletContext().getRealPath("/upload");%>
     <input type="hidden" name="filePath" value="<%=filePath%>">
-    <p align="center"><button class="btn btn-outline-danger" type="submit" value="发布">发布</button></p>
+    <p align="center">
+        <button class="btn btn-outline-danger" type="submit" value="发布">发布</button>
+        <button class="btn btn-outline-danger" formaction="/emp/bBSBrowseAll.html" type="submit" value="返回">返回</button>
+    </p>
+
 </form>
 
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>

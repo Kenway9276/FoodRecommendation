@@ -22,6 +22,7 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-outline-danger" value="查询">查询</button>
+            
         </div>
     </form>
     <c:if test="${!empty ins}">
@@ -32,6 +33,11 @@
             <p><button type="submit" class="btn btn-outline-danger" value="验证并删除">验证并删除</button></p>
         </form>
     </c:if>
-
+    <c:if test="${!empty msg && empty ins}">
+        <div style="margin: auto;width: 50%;padding: 10px;"><h3>没有查询到相关优惠券</h3></div>
+    </c:if>
+    <form class="form-inline" role="form" method="post" style="margin: auto;width: 50%;padding: 10px;">
+        <input type="submit" formaction="/emp/busiReturn.html" class="btn btn-outline-danger" value="返回" >
+    </form>
 </body>
 </html>

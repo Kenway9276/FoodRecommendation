@@ -22,13 +22,13 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="coupon-money-input" class="col-sm-2 control-label">优惠金额：</label>
+        <label for="coupon-money-input" class="col-sm-2 control-label">优惠条件：</label>
         <div class="col-sm-10">
             <input id="coupon-money-input" class="form-control" type="text" name="aab505" style="width: 50%">
         </div>
     </div>
     <div class="form-group">
-        <label for="coupon-condition-input" class="col-sm-2 control-label">优惠条件：</label>
+        <label for="coupon-condition-input" class="col-sm-2 control-label">优惠金额：</label>
         <div class="col-sm-10">
             <input id="coupon-condition-input" class="form-control" type="text" name="aab504" style="width: 50%">
         </div>
@@ -47,7 +47,9 @@
     </div>
     <div class="form-group" style="width: 30%;margin: 0 auto;">
         <button type="submit" class="btn btn-outline-danger" value="发布" >发布</button>
+        <input type="submit" formaction="/emp/busiReturn.html" class="btn btn-outline-danger" value="返回" >
     </div>
 </form>
+
 </body>
 </html>

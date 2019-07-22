@@ -138,9 +138,9 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
+    <script src="<%=path%>/js/xzs_popper.min.js"></script>
+    <script src="<%=path%>/js/xzs_bootstrap.min.js"></script>
 
 
     <script>
@@ -173,8 +173,7 @@
             });
         }
     </script>
-    <!-- Map JS (Please change the API key below. Read documentation for more info) -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
+    
 
 </form>
 </body>

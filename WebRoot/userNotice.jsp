@@ -11,6 +11,8 @@
 	td
 	{
 	border:0;
+	text-align:center;
+	font-size:17px;
 	}
 	table tr:nth-child(odd)
 	{
@@ -19,6 +21,10 @@
 	table tr:nth-child(even)
 	{
 	background:#f33131;
+	}
+	table
+	{
+	border:1px solid black;
 	}
 	h2
 	{
@@ -55,7 +61,7 @@ function onEdit(vaac201)
 <div class="section-header">
 	<h2 class="section-title wow fadeInDown">公    告</h2>
 </div>
-<table border="1px;solid" width="60%" style="margin:0 auto">
+<table width="60%" style="margin:0 auto">
 	<tr>
 		<td>标题</td>
 		<td>发布日期</td>
@@ -67,7 +73,7 @@ function onEdit(vaac201)
         <!-- 显示实际查询到的数据 -->
      <c:forEach items="${rows }" var="ins" varStatus="vs">
    	   	  <tr>
-   	   	  	<td>
+   	   	  	<td style="text-align:left">
 				<!-- #  空锚 -->
 				<a style="color:#FFFFFF" href="#" onclick="onEdit('${ins.aac201}')">${ins.aac202 }</a>
 			</td>
@@ -87,15 +93,6 @@ function onEdit(vaac201)
 		    </td>
    		    <td style="color:#FFFFFF">${ins.aac207==1?"置顶":"普通" }</td>
 		  </tr>
-      </c:forEach>
-      <!-- 补充空行 -->
-      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">
-	          <tr>
-	            <td>吃</td>
-	            <td>吃</td>
-	            <td>吃</td>
-	            <td>吃</td>
-	          </tr>
       </c:forEach>
     </c:when>
     <c:otherwise>

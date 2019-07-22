@@ -16,7 +16,7 @@ public class UserStoryServiceImpl extends JdbcServicesSupport {
      */
     private Map<String, String> dayCount() throws Exception{
         Object aaa101 = this.get("userID");
-        String sql = "SELECT (CURRENT_DATE - aaa108) as days from aa01 where aaa101 = ?";
+        String sql = "SELECT (CURRENT_DATE - aaa110) as days from aa01 where aaa101 = ?";
         return this.queryForMap(sql, aaa101);
     }
 

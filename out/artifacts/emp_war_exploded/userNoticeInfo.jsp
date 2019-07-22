@@ -58,7 +58,7 @@ function onEdit(vaac201)
 						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;发布日期&nbsp;&nbsp;&nbsp;${ins.aac203 }</a>
 						</li>
-						<li>
+						<li style="display:${ins.aac204=='upload/null'?'none':''}">
 							<a style="text-decoration:none;text-align:center" href="#"><img height=300px src="${ins.aac204 }"></a>
 						</li>
 						<li>
@@ -92,17 +92,14 @@ function onEdit(vaac201)
 <table border="0" width="100%" align="center">
   <tr>
     <td align="center">
-<<<<<<< HEAD
-		<button type="submit" formaction="<%=path %>/busiNotice.html" name="next">返回</button>
-=======
+
 		<button  type="submit" formaction="<%=path %>/userNotice.html" name="next" id="return">返回</button>
->>>>>>> 89db06d6227f57efde55e453cca40eac4ebf8f78
-		<button  name="next" onclick="onEdit('${ins.aac201 }')">编辑</button>
+		<button style="display:${empty sessionScope.adminID?'none':''}" name="next" onclick="onEdit('${ins.aac201 }')">编辑</button>
     </td>
   </tr>
 </table>
-			</div>
-			<div class="guide">
+</div>
+<div class="guide">
 	<div class="guide-wrap">
 		<a href="javascript:window.scrollTo(0,0)" class="top" title="回顶部"><span>回顶部</span></a>
 		<a href="#return" class="bottom" title="到底部"><span style="transform:rotate(180deg);">到底部</span></a>

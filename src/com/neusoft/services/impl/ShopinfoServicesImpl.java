@@ -353,7 +353,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 			StringBuilder sql=new StringBuilder()
 	    			.append(" insert into ab03(aaa101 , aab101 , aab303 , aab304 , ")
 	    			.append(" aab305 , aab306 , aab307 , aab308) values(?,?,?,?,?,?,?,?) ");
-			String Date = Tools.getDate();
+			String Date = Tools.getFDate();
 			Object args[]={
 					this.get("aaa101"),
 					this.get("busiID"),

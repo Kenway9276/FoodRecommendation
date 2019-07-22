@@ -37,7 +37,7 @@ ${msg}
 			</div>
 			<div class="w3_info">
 				<h2>${empty ins.aaa101?'Create':'Modify' } Your Account</h2>
-				<p>赶紧${empty ins.aaa101?'注册':'修改' }臭弟弟</p>
+				<p>用户${empty ins.aaa101?'注册':'修改' }</p>
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text id="username-input-text" placeholder="请输入用户名" name="aaa102" required="true" readonly="${empty ins.aaa101 ?false:true}" autofocus="true" defval="${ins.aaa102}"/>

@@ -88,70 +88,74 @@
 
     <!--============================= DETAIL =============================-->
     <section>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin: 0 auto;">
             <div class="row">
                 <div class="col-md-7 responsive-wrap">
                     <div class="row detail-filter-wrap">
                         <div class="col-md-4 featured-responsive">
                             <div class="detail-filter-text">
-                                <p><span>优惠券</span></p>
-                                <p><span><a href="couponUserList.html">我的优惠券</a></span></p>
-                                <p><span>${msg.msg }</span></p>
+
+                                <c:if test="${rows[0].isUser == 1}">
+                                    <p><span><a href="couponList.html">浏览优惠券</a></span></p>
+                                </c:if>
+                                <c:if test="${rows[0].isUser == 0}">
+                                    <p><span><a href="couponUserList.html">我的优惠券</a></span></p>
+                                </c:if>
+
+
                             </div>
                         </div>
                         <div class="col-md-8 featured-responsive">
                         </div>
                     </div>
-                    
+
                     <c:choose>
-                    <c:when test="${rows!=null }">
-					<!-- 显示实际查询到的数据 -->
-					<c:forEach items="${rows }" var="row" varStatus="vs">
-                    <div style="background-color:F8F8F8" class="row detail-checkbox-wrap">
+                        <c:when test="${rows[0].aab503!=null }">
+                        <!-- 显示实际查询到的数据 -->
+                            <c:forEach items="${rows }" var="row" varStatus="vs">
+                            <div style="background-color:F8F8F8" class="row detail-checkbox-wrap">
+                                <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                                <label class="custom-control custom-checkbox">
+                                <input type="checkbox" name="idlist" value="${row.aab501 }"
+                                onclick="onSelect(this.checked)" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span><a href="#" onclick="onDetail('${row.aab101}')">${row.aab104 }</a></span>
+                                    <span>${row.aab503 }&nbsp</span>
+                                <span>有效日期：${row.aab506 }&nbsp</span>
+                                    <span>满${row.aab505 }&nbsp</span>
+                                    <span>减${row.aab504 }&nbsp</span>
 
-                        <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
-                        <label class="custom-control custom-checkbox">
-                		<input type="checkbox" name="idlist" value="${row.aab501 }"
-                		onclick="onSelect(this.checked)" class="custom-control-input">
-                		<span class="custom-control-indicator"></span>
-                		<span><a href="#" onclick="onDetail('${row.aab101}')">${row.aab104 }</a></span>
-                            <span>${row.aab503 }&nbsp</span>
-                		<span>有效日期：${row.aab506 }&nbsp</span>
-                            <span>满${row.aab505 }&nbsp</span>
-                            <span>减${row.aab504 }&nbsp</span>
+                                    <c:if test="${row.isUser != 1}">
+                                        <span>剩余：${row.remain }&nbsp</span>
+                                    </c:if>
 
-                            <c:if test="${row.isUser != 1}">
-                                <span>剩余：${row.remain }&nbsp</span>
-                            </c:if>
+                                <span>
 
-                		<span>
+                                    <c:choose>
+                                        <c:when test="${row.isUser == 1}">
+                                            <span>优惠券码：${row.aab502 }&nbsp</span>
+                                            <a href="#" onclick="onDel('${row.aab501}')">删除</a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="#" onclick="onGet('${row.aab503 }','${row.aab506 }','${row.aab101}','${row.aab504}','${row.aab505}')">领取优惠券</a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </span>
 
-                            <c:choose>
-                                <c:when test="${row.isUser == 1}">
-                                    <span>优惠券码：${row.aab502 }&nbsp</span>
-                                    <a href="#" onclick="onDel('${row.aab501}')">删除</a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="#" onclick="onGet('${row.aab503 }','${row.aab506 }','${row.aab101}','${row.aab504}','${row.aab505}')">领取优惠券</a>
-                                </c:otherwise>
-                            </c:choose>
-                        </span>
+                                </label>
 
-              			</label>
-             			
-                          			
-                        
-                    </div>
-                    
-                    <br>
-                    
-                    </c:forEach>
-                    </c:when>
-                    
-                    <c:otherwise>
-                    <br><br>              
-                    <h4>没有优惠券......</h4>
-                    </c:otherwise>
+
+
+                            </div>
+
+                            <br>
+
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <br><br>
+                            <h4>没有优惠券......</h4>
+                        </c:otherwise>
                     
                     </c:choose>
                     
@@ -169,9 +173,9 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
+    <script src="<%=path%>/js/xzs_popper.min.js"></script>
+    <script src="<%=path%>/js/xzs_bootstrap.min.js"></script>
 
 
     <script>
@@ -204,8 +208,7 @@
             });
         }
     </script>
-    <!-- Map JS (Please change the API key below. Read documentation for more info) -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
+   
 
 </form>
 </body>

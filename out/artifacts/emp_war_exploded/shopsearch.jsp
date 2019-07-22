@@ -164,10 +164,13 @@
                     </div>
                     </c:if>
                     </c:when>
-                    <c:otherwise> 
+                    <c:otherwise>
+                    <c:if test="${msg!='登陆成功!' }">                  
                     <div class="styled-heading">
-                        <h3>暂无搜索结果!</h3>
+                        <h3>暂无搜索结果!${msg }</h3>
                     </div>
+                    </c:if>
+
                     </c:otherwise>
                     </c:choose>
                 </div>
@@ -180,7 +183,7 @@
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="#" onclick="onDetail('${row.aab101}')">                       
-                            <img src="upload/${row.aab113}" class="img-fluid" alt="#">             
+                            <img src="<%=path%>/${row.aab113}" class="img-fluid" alt="#">
                             <span class="featured-rating">${row.aab111 }</span>
                             
                             <div class="featured-title-box">

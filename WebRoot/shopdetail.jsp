@@ -110,11 +110,11 @@
 		document.getElementById("closebtn"+vaab301).style="display:none";
     }
 	
-	function onAddReply(vaab301,vaab101)
+	function onAddReply(vaab301,vaab101,vaaa101)
 	{
 		//提交回复
 		var vform = document.getElementById("myform");
-	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301;
+	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301+"&aab101="+vaab101+"&aaa101="+vaaa101;
 	  	vform.submit();
 	}
 	
@@ -268,6 +268,17 @@
   		vform.submit();
     }
 	
+	
+	//
+	function onCloseShop(vaab101)
+	{
+		//管理员关停商家
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/shopClose.html?aab101"+vaab101;
+	  	alert("操作成功!");
+	  	vform.submit();
+	}
+	
 </script>
 <link rel="stylesheet" href="css/style_nav.css"/>
 
@@ -318,9 +329,13 @@
         	<c:forEach items="${Address }" var="ad" varStatus="vs">
         	
             <div class="swiper-slide">
-            <div style="width:672px;height:300px">
+
+
+            <div style="width:100%;height:300px">
+
                     <a href="upload/${ad.address }" class="grid image-link">
                         <img src="upload/${ad.address }" class="img-fluid" alt="#">
+
                     </a>
             </div>
             </div>
@@ -389,6 +404,7 @@
                         </c:choose>
                         </c:if>
                         
+                        
                         <c:if test="${sessionScope.userID!=null}">
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
@@ -398,9 +414,15 @@
                         </c:if>
                         
                         
+                        <c:if test="${sessionScope.adminID!=null}">
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a href="javascript:void(0)" onclick="onCloseShop(${ins.aab101 })" class="btn btn-danger">关停商家</a>
+                            </div>
+                        </div>
+                        </c:if>
                         
-                        
-                        
+                                     
                         
                         
                         <c:if test="${sessionScope.userID!=null}">
@@ -411,6 +433,9 @@
                             </div>
                         </div>
 						</c:if>
+						
+						
+						
 						
 						<c:if test="${!empty IsMark }">
 						<div class="reserve-btn">
@@ -781,11 +806,10 @@
                                 
                                 
                                 
-                                
-                                
+                                <!--
                                 <span>${row.aab308 } 人觉得很赞</span>
                                 <a href="#"><span class="icon-like"></span>赞</a>
-                                
+                                 -->
                                 
                                 
                                 
@@ -827,7 +851,7 @@
                                 <br>
                                 <div style="display:none" id="ReplyText${row.aab301 }">                           
                                 <textarea style="width:300px; height:50px" name="ReplyText${row.aab301 }" ></textarea>
-                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 })">提交</a>
+                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 },${row.aaa101 })">提交</a>
                                 </div>
                                 
                                 
@@ -894,9 +918,15 @@
     <script type="text/javascript" src="<%=path%>/js/xzs03_jquery.js"></script>
 	<script type="text/javascript" src="<%=path%>/js/xzs03_jquery.datetimepicker.js"></script>
 	<script type="text/javascript">
-	$('#datetimepicker_mask').datetimepicker({
-	mask:'9999/19/39 29:59'
-	});
+	var newDate = new Date();
+    var t       = newDate.toJSON();
+	$('#datetimepicker_mask').datetimepicker
+	(
+			{
+				mask:'9999/19/39 29:59',
+			}
+	);
+	
 	</script>
     <script src=" <%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
     <script src=" <%=path%>/js/xzs_popper.min.js"></script>
