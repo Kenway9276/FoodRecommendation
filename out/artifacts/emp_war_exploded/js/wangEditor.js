@@ -1,4 +1,4 @@
-(function (global, factory) {
+﻿(function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
 	(global.wangEditor = factory());
@@ -2750,7 +2750,7 @@ Image.prototype = {
 
         // tabs 的配置
         var tabsConfig = [{
-            title: '上传图片',
+            title: '本地图片',
             tpl: '<div class="w-e-up-img-container">\n                    <div id="' + upTriggerId + '" class="w-e-up-btn">\n                        <i class="w-e-icon-upload2"></i>\n                    </div>\n                    <div style="display:none;">\n                        <input id="' + upFileId + '" type="file" multiple="multiple" accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp"/>\n                    </div>\n                </div>',
             events: [{
                 // 触发选择图片

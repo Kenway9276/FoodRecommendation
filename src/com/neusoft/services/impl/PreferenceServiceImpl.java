@@ -23,9 +23,18 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
 
         //1.编写SQL语句
         StringBuilder sql=new StringBuilder()
-                .append("select aaa201, aaa202, aaa203, aaa204, aaa205, aaa206, aaa207")
-                .append("          from aa02")
-                .append("          where aaa101 = ?")
+                .append("SELECT aaa201, aaa202, aaa203, aaa204, aaa205, aaa206, aaa207 from aa02 where aaa201 in \n" +
+                        "(SELECT\n" +
+                        "\tmax( aaa201 ) \n" +
+                        "FROM\n" +
+                        "\taa02 \n" +
+                        "\tWHERE\n" +
+                        "\taaa101 = ?\n" +
+                        "GROUP BY\n" +
+                        "\taaa202,\n" +
+                        "\taaa203,\n" +
+                        "\taaa204 \n" +
+                        ")")
                 ;
         //偏好列表
         List<Map<String, String>> tems = this.queryForList(sql.toString(), aaa101);
@@ -38,7 +47,13 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
             parseCodeList(tems.get(i),"aaa202");
             parseCodeList(tems.get(i),"aaa203");
         }
+        // 去除重复的
+        parsePreferenceList(tems);
         return tems;
+    }
+
+    private void parsePreferenceList(List<Map<String, String>> tems) {
+
     }
 
     /**
@@ -110,8 +125,7 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
     {
         Object aaa101 = this.get("userID");
 
-        // TODO 将aaa206(地址)传给许泽松的地图模块解析
-
+        Object currentCity = this.get("currentCity");
 
         //1.编写SQL语句
         StringBuilder sql=new StringBuilder()
@@ -124,7 +138,7 @@ public class PreferenceServiceImpl extends JdbcServicesSupport {
                 Tools.joinArray(this.get("aaa202")),
                 Tools.joinArray(this.get("aaa203")),
                 Tools.joinArray(this.get("aaa204")),
-                "天津"
+                currentCity
         };
         return this.executeUpdate(sql.toString(), args)>0;
     }

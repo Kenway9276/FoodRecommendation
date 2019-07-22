@@ -150,4 +150,8 @@ public interface BaseServices
     {
     	return null;
     }
+    default Map<String,String> getAssembleById()throws Exception
+    {
+    	return null;
+    }
 }

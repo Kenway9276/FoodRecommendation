@@ -3,7 +3,8 @@ package com.neusoft.web.impl;
 public class CouponGetServlet extends CouponControllerSupport{
     @Override
     public String execute() throws Exception {
-        this.update("getCoupon", "获取优惠券");
+        //this.update("getCoupon", "获取优惠券");
+        this.savePageInstance("msg", "getCoupon");
         this.savePageData();
         return "markquery2";
     }

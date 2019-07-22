@@ -7,7 +7,8 @@
 <head>
 <meta charset="GBK">
 <title>商家菜单管理</title>
-
+<script src="<%=path%>/js/jquery-1.11.1.min.js"></script>
+<script src="<%=path%>/js/jquery.validate.maximin.js"></script>
 <script type="text/javascript">
       var count=0;
       function onSelect(vstate)
@@ -166,6 +167,14 @@ h2{
     }
 }
 </style>
+<script>
+
+$('#month').each(function() {
+$(this).onlypressPositiveInteger();//只允许输入正整数
+
+});
+
+</script>
 </head>
 <body>
 ${Msg }
@@ -192,9 +201,9 @@ ${Msg }
         </tr>
         <tr>
             <td>推广时长</td>
-     		<td>
-       			<e:text placeholder="请输入想要申请的月数" name="popularizeMonth" required="true" autofocus="true"/>月 
-     		</td>
+            <td>
+	      		<e:select name="popularizeMonth" value=" 请选择想要推广的时长:0,一个月:1,三个月:3,六个月:6,九个月:9,十二个月:12"/>
+	    	</td>
         </tr>
         <tr>
             <td colspan="3" align="center">
@@ -206,7 +215,6 @@ ${Msg }
         </tr>
         <tbody>
     </table>
-    
 </div>
 
 

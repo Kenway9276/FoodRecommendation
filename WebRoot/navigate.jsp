@@ -3,14 +3,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>导航</title>
-
+	<script type="text/javascript"
+			src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
 <link rel="stylesheet" href="css/style_nav.css"/>
-<script type="text/javascript">
 
-</script>
+
+
 </head>
 <body>
-
 <div class="c-nav">
 	<div class="container navFlex">
 		<div class="flexItem">
@@ -37,6 +37,13 @@
 		</div>
 	</div>
 </div>
+<div id="allmap">
+</div>
+
+<form id="current-city-form" method="post">
+
+</form>
+	<div id="hidden-city-name" style="display: none"></div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="ajax_js/BBS_ajax.js"></script>
@@ -63,6 +70,30 @@ $(window).resize(function() {
 	}
 });
 </script>
+<!-- 百度地图api获取当前城市 -->
+<script type="text/javascript">
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,12);
 
+	function myFun(result){
+		var cityName = result.name;
+		//document.getElementById("city").innerHTML="当前位置: "+cityName;
+		//document.getElementById("cityName").placeholder="当前定位: "+cityName;
+		//document.getElementById("localcity").value=cityName;
+		$("#hidden-city-name").html(cityName)
+	}
+	var myCity = new BMap.LocalCity();
+	myCity.get(myFun);
+</script>
+<script type="text/javascript">
+	function onSelectRanking() {
+		var form = document.getElementById("current-city-form");
+		var currentCity = $("#hidden-city-name").html()
+		currentCity = encodeURIComponent(currentCity)
+		form.action = "/emp/ranking.html?currentCity=" + currentCity;
+		form.submit();
+	}
+</script>
 </body>
 </html>

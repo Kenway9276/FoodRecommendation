@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="dw_assets/css/custom.css">
 </head>
 <body>
-
+<%@ include file="navigate.jsp" %>
 
 <!-- Nav Search Box -->
 <div class="nav-search-box">
@@ -101,7 +101,7 @@
 
                 <!-- Comments -->
                 <button class="btn btn-comment" type="button" data-toggle="collapse" data-target="#commentToggle" aria-expanded="false" aria-controls="commentToggle">
-                    Hide Comments
+                    隐藏回复
                 </button>
                     <c:if test="${!empty rows[1]}">
                         <div class="collapse show" id="commentToggle">
@@ -128,14 +128,14 @@
 
                 <!-- Comment Form -->
                 <div class="post-comment-form-cover">
-                    <h3>Write your comment</h3>
+                    <h3>回复帖子</h3>
                     <form id="comment-form-id" class="comment-form" method="post">
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea id="comment-content" class="form-control" placeholder="Write your comment"></textarea>
+                                <textarea id="comment-content" class="form-control"></textarea>
                             </div>
                             <div class="col-md-12">
-                                <button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">Submit </button>
+                                <button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">提交 </button>
                             </div>
                         </div>
                     </form>
@@ -148,31 +148,7 @@
 
 
 
-<!-- Footer -->
-<footer class="footer-container d-flex align-items-center">
-    <div class="container">
-        <div class="row align-items-center footer">
-            <div class="col-md-4 text-center text-md-left order-md-1 order-2">
-                <div class="footer-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center order-md-2 order-1">
-                <a href="#" onclick="onBack()"><img src="dw_assets/images/logo.png" alt="" class="img-fluid"></a>
-            </div>
-            <div class="col-md-4 order-md-3 order-3">
-                <div class="footer-cradit text-center text-md-right">
-                    <p>© 2019 <a href="http://www.17sucai.com">Themelooks.</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- End of Footer -->
+
 
 <!-- Back to Top Button -->
 <div class="back-to-top d-flex align-items-center justify-content-center">

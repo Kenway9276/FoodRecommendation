@@ -2,10 +2,7 @@ package com.neusoft.services.impl;
 
 import com.neusoft.services.JdbcServicesSupport;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class CouponServiceImpl extends JdbcServicesSupport {
     @Override
@@ -85,7 +82,8 @@ public class CouponServiceImpl extends JdbcServicesSupport {
         return res.toString();
     }
 
-    public boolean getCoupon() throws Exception{
+    public Map<String, String> getCoupon() throws Exception{
+        Map<String, String> res = new HashMap<>();
         Object aaa101 = this.get("userID");
         String sql = "select aab501,aaa101 from ab05 where aab101 = ? and aab503 = ? and aab506 = ? and aab504 = ? and aab505 = ?";
         Object aab101 = this.get("aab101");
@@ -101,11 +99,14 @@ public class CouponServiceImpl extends JdbcServicesSupport {
                 continue;
             }
             if(map.get("aaa101").equals(aaa101) || map.get("aaa101") == aaa101){
-                return false;
+                res.put("msg", "领取失败，不能多次领取");
+                return res;
             }
         }
         String sql2 = "UPDATE ab05 set aaa101 = ? where aab501 = ? ";
-        return this.executeUpdate(sql2, aaa101, aab501) > 0;
+        this.executeUpdate(sql2, aaa101, aab501);
+        res.put("msg", "领取成功");
+        return res;
     }
 
     public List<Map<String, String>> queryForUser() throws Exception{
@@ -120,7 +121,8 @@ public class CouponServiceImpl extends JdbcServicesSupport {
                 .append("	aab505, ")
                 .append("	aab506, ")
                 .append("	aab104,  ")
-                .append("	aab501  ")
+                .append("	aab501,  ")
+                .append("	aab502  ")
                 .append("FROM ")
                 .append("	ab05 a, ")
                 .append("	ab01 b  ")
@@ -168,5 +170,19 @@ public class CouponServiceImpl extends JdbcServicesSupport {
         Object aab501 = this.get("aab501");
         String sql = "delete from ab05 where aab501 = ?";
         return this.executeUpdate(sql, aab501) > 0;
+    }
+
+    public List<Map<String, String>> queryForShop() throws Exception{
+        StringBuilder sql = new StringBuilder()
+                .append("SELECT ")
+                .append("	COUNT(*) AS count ,aab504,aab503,aab505,aab506 ")
+                .append("FROM ")
+                .append("	ab05  ")
+                .append("	WHERE ")
+                .append("	aab101 = ? ")
+                .append("GROUP BY ")
+                .append("	aab504,aab503,aab505,aab506")
+                ;
+        return this.queryForList(sql.toString(), this.get("busiID"));
     }
 }

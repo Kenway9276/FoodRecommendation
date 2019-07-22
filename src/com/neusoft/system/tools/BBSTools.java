@@ -21,7 +21,7 @@ public class BBSTools {
                 String imgFilePath = path + uuid;
                 Base64Utils.GenerateImage(imgData,imgFilePath);
                 res = res.replace("<img src=\"data:image/jpeg;base64," + imgData + "\" style=\"max-width:100%;\">"
-                        , "<img src=\"\\upload\\" + uuid + "\"/>");
+                        , "<img src=\"upload\\" + uuid + "\"/>");
             } else {
                 System.out.println("NO MATCH");
             }

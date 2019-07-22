@@ -12,8 +12,7 @@ ${ins}
 ${msg}
 
 <form id="busiRegisterForm" action="<%=path%>/userAssmbleApply.html" method="post">
-<input type="hidden" name="aaa101" value="1">
-<input type="hidden" name="aab101" value="2">
+<input type="hidden" name="aab101" value="${ins.aab101 }">
 <table border="1" align="center" width="45%">
 	<tr>
      	<td colspan="2" align="center">Æ´×ùÉêÇë</td>

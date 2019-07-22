@@ -823,10 +823,17 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  		Object aab106=this.get("aab106");  
 		  		Object aab107=this.get("aab107");     
 		  		Object aab110=this.get("aab110");     
-		  		Object aab112=Tools.joinArray(this.get("aab112"));     
+		  		Object aaab112=this.get("aaab112");
+		  		Object baab112=this.get("baab112");     
+		  		Object caab112=this.get("caab112");     
+		  		Object daab112=this.get("daab112");     
+		  		Object eaab112=this.get("eaab112");     
+		  		Object faab112=this.get("faab112"); 
+		  		Object aab112=String.valueOf(aaab112) + "," + String.valueOf(baab112) + "," +String.valueOf(caab112) + ","
+		  		+String.valueOf(daab112) + "," +String.valueOf(eaab112) + "," +String.valueOf(faab112);
 		  		Object imgPath=this.get("imgPath");     
 		  		Object aab101=this.get("aab101");     
-//		  		System.out.println(aab103);
+//		  		System.out.println(aaab112);
 //		  		System.out.println(aab104);
 //		  		System.out.println(aab106);
 //		  		System.out.println(aab107);
@@ -1027,7 +1034,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		   			;
 		    	Object args[]=
 		    	{
-		    		this.get("aaa101"),
+		    		this.get("userID"),
 		   			this.get("aab101"),
 		   			this.get("aaa502"),
 		   			this.get("aaa503"),
@@ -1049,10 +1056,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  				.append("		b.aaa502,b.aaa503,b.aaa504,b.aaa505,c.aaa101,")
 		  				.append("		c.aaa102,c.aaa103")
 		  				.append(" from 	ab01 a,aa05 b,aa01 c")
-		  				.append(" where	a.aab101=b.aab101 and c.aaa101=b.aaa101")
+		  				.append(" where	a.aab101=b.aab101 and c.aaa101=b.aaa101 ")
+		  				.append(" and b.aaa503>CURRENT_TIMESTAMP and b.aaa505=? ")
 		  				;
 		  		
 		  		List<Object> paramList=new ArrayList<>();
+		  		paramList.add("1");
+		  		sql.append(" and a.aab101 = ?");
+		  		paramList.add(this.get("aab101"));
 		  		if(this.isNotNull(aab104))
 		  		{
 		  			sql.append(" and a.aab104 like ?");
@@ -1180,7 +1191,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		 {
 			
 			 StringBuilder sql=new StringBuilder()
-		    			.append("UPDATE ac01 SET aac106 = ?")
+		    			.append("UPDATE ac01 SET aac106 = ?,aac105=UUID_SHORT()")
 		    			.append(" WHERE aac101 = ?")
 		    			;
 		    	Object args[]=
@@ -1188,7 +1199,12 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			"1",
 		    			this.get("aac101")
 		    		};
-			return this.executeUpdate(sql.toString(), args)>0;
+			this.executeUpdate(sql.toString(), args);
+			String rsql="SELECT aab101,aac105,aac104 FROM ac01 WHERE aac101=?";
+			Map<String,String> tmp =this.queryForMap(rsql,this.get("aac101"));
+			String msg ="商家已经接受了您的申请，用餐人数为：" + String.valueOf(tmp.get("aac104")) + 
+					"订座号为：" + String.valueOf(tmp.get("aac105")) + ",请及时前往。";
+			return this.addMessageToCust(msg, String.valueOf(this.get("aac101")));
 		 }
 		 private boolean busiRefuseReservation()throws Exception
 		 {
@@ -1202,8 +1218,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			"2",
 		    			this.get("aac101")
 		    		};
-		    	
-			return this.executeUpdate(sql.toString(), args)>0;
+			this.executeUpdate(sql.toString(), args);
+			String msg = "商家拒绝了您的订座请求！";
+			return this.addMessageToCust(msg, String.valueOf(this.get("aac101")));
 		 }
 		 public Map<String,String> busiFindDishById()throws Exception
 		    {
@@ -1345,7 +1362,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				}
 				return AddressList;
 			}
-			//传递aab201
+			//锟斤拷锟斤拷aab201
 			public Map<String,String> busiConvertDishId()throws Exception
 		    {
 		    	
@@ -1356,7 +1373,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			;
 		    	return this.queryForMap(sql.toString(), this.get("aab201"));
 		    }
-			//上传Dish图片
+			//锟较达拷Dish图片
 			private boolean busiModifyDishPic()throws Exception
 			 {
 				 Object aab202 ="upload/" + this.get("imgPath");
@@ -1415,7 +1432,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			    		};
 				return this.executeUpdate(sql.toString(), args)>0;
 			 }
-			//查询商家信息
+			//锟斤拷询锟教硷拷锟斤拷息
 			public Map<String,String> busiReturnInfo()throws Exception
 		    {
 		    	System.out.println(this.get("aab101"));
@@ -1426,9 +1443,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 						.append("	 FROM ab01")
 						.append("	WHERE aab101=?")
 		    			;
-		    	return this.queryForMap(sql.toString(), this.get("aab101"));
+		    	return this.queryForMap(sql.toString(), this.get("busiID"));
 		    }
-			//显示商家设备信息
+			//锟斤拷示锟教硷拷锟借备锟斤拷息
 			public Map<String,String> saveBusiEquipment()throws Exception
 			{
 				String sql="select aab112 from ab01 where aab101=?";
@@ -1443,13 +1460,13 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				}
 				return map;
 			}
-			//获取商家头像
+			//锟斤拷取锟教硷拷头锟斤拷
 			public Map<String, String> busiToPortraitPage()throws Exception
 			{
 				String sql="select aab113,aab101 from ab01 where aab101 = ?";
 				return this.queryForMap(sql, this.get("aab101"));
 			}
-			//商家修改头像
+			//锟教硷拷锟睫革拷头锟斤拷
 			private boolean busiUpdatePortrait()throws Exception
 			{	
 				Object aab113 = "upload/" + this.get("imgPath");
@@ -1474,6 +1491,38 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				String DateTime= Tools.getDateTime();
 				String sql="insert into ac03 (aab101,aac302,aac303,aac304) values (?,?,?,?)";
 				Object args[]={BussId,MessageText,DateTime,"1"};
+				return this.executeUpdate(sql, args)>0;
+			}
+			public Map<String,String> getAssembleById()throws Exception
+		    {
+				StringBuilder sql=new StringBuilder()
+						.append("  SELECT a.aaa501,a.aaa101,a.aab101,a.aaa502,a.aaa503,")
+						.append("  		  a.aaa504,a.aaa505,b.aaa101,b.aaa103")
+						.append("	 FROM aa05 a,aa01 b")
+						.append("	WHERE a.aaa101=b.aaa101 AND a.aaa501 = ?")
+		    			;
+		    	return this.queryForMap(sql.toString(), this.get("aaa501"));
+		    }
+			private boolean sendUserAssembleMsg()throws Exception
+			{
+				StringBuilder sql=new StringBuilder()
+						.append(" SELECT aaa103,aaa107 ")
+						.append("  	FROM aa01")
+						.append("  WHERE aaa101=?")
+						;
+				Map<String, String> tem = queryForMap(sql.toString(), this.get("userID"));
+				String msg = "您的拼座申请已被用户" + tem.get("aab103") +"接受，请联系" + tem.get("aaa107") + "如未谈妥，请重新发起拼座";
+				this.closeAssembleById();
+				return this.addMessageToCust(msg, String.valueOf(this.get("aaa101")));
+			}
+			private boolean closeAssembleById()throws Exception
+			{
+				String sql="UPDATE aa05 SET aaa505 = ? WHERE aaa501 = ?";
+				Object args[]=
+					{
+							"0",
+							this.get("aaa501")
+					};
 				return this.executeUpdate(sql, args)>0;
 			}
 }
