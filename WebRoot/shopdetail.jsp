@@ -260,6 +260,13 @@
 		showDiv("2");
 		showDiv("1");
 	}
+	function onAssemble(vaab101)
+    {
+  	  	//Æ´×ù
+  	 	var vform = document.getElementById("myform");
+  	 	vform.action="<%=path%>/userToAssemblePage.html?aab101="+vaab101;
+  		vform.submit();
+    }
 	
 </script>
 <link rel="stylesheet" href="css/style_nav.css"/>
@@ -385,7 +392,7 @@
                         <c:if test="${sessionScope.userID!=null}">
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="javascript:void(0)" onclick="onShowReserveTable()" class="btn btn-danger">Æ´×ù</a>
+                                <a href="javascript:void(0)" onclick="onAssemble(${ins.aab101})" class="btn btn-danger">Æ´×ù</a>
                             </div>
                         </div>
                         </c:if>

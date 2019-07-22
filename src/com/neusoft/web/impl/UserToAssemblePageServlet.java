@@ -1,6 +1,6 @@
 package com.neusoft.web.impl;
 
-public class UserAssembleServlet extends UserControllerSupport 
+public class UserToAssemblePageServlet extends BusiControllerSupport 
 {
 
 	@Override

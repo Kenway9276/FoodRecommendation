@@ -170,6 +170,7 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	//分割商家环境图的地址(xxx.jpg,xxx.jpg,.......)
 	public List<Map<String,String>> saveEnPhotoAddress()throws Exception
 	{
+		System.out.println(this.get("aab101"));
 		String sql="select aab109 from ab01 where aab101=? ";
 		Object aab101 = this.get("aab101");
 		if(aab101 instanceof String[]){

@@ -56,7 +56,7 @@ ${msg}
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<input name="aab103" type="password" placeholder="商家密码">
+							<input name="aab103" type="password" required="required" placeholder="商家密码">
 						</div>    
        					<input class="btn btn-danger btn-block" type="submit" name="next" value="登录" >
 						<a href="<%=path %>/busiRegister.jsp">

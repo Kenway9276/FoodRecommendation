@@ -1,15 +1,22 @@
 <%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>商家资质信息管理</title>
+<title>商家资质信息修改</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+<link href="<%=path %>/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="<%=path %>/css/style_login.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 <style type="text/css">
 #preview{width:260px;height:190px;border:1px solid #000;overflow:hidden;}
 #imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}
+.btn-danger 
+{
+background-color: #87CEFA;
+}
 </style>
 <script type="text/javascript">
 
@@ -70,22 +77,38 @@
             param.top = Math.round((maxHeight - param.height) / 2);
             return param;
         }
-</script>     
-</head>     
+</script>  
+</head>
 <body>
+<div style="color:#FFFFFF">
 ${msg}
-<form enctype="multipart/form-data" method="post">
-<div id="preview" style="height:50%;width:50%;margin:0 auto;margin-top:10%" >
-    <img id="imghead" src="${ins.aab108}" border=0 style="height:auto;width:auto;margin" width="400px" height="400px" />
 </div>
-<input type="hidden" name="aab101" value="${ins.aab101}">
-<input type="file" name="aab108" onchange="previewImage(this)" required="required" />
-<input type="submit" name="next" value="上传资质信息图片"
-	   formaction="<%=path%>/busiAddCertificate.html">
-<div class="container-login100-form-btn">
-	<input class="login100-form-btn" type="submit" name="next" value="返回"
-	 formaction="<%=path%>/busiReturn.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
-</div>
-</form>
-</body>     
+<br>
+<form action="<%=path %>/busiAddCertificate.html" method="post">
+<div class="signupform">.
+<h1></h1>
+	<div class="container">
+		
+		<div class="agile_info">
+			<div class="w3_info" style="-webkit-flex-basis: 100%">
+				<h2 style="color:#87CEFA">资质信息修改</h2>
+						<div id="preview" style="height:50%;width:50%;margin:0 auto;margin-top:10%" >
+   							<img id="imghead" src="${ins.aab108}" border=0 style="height:auto;width:auto;margin-top: 161px;" width="356" height="178" />
+						</div>  
+       					<input style="width:49%" class="btn btn-danger btn-block" onchange="previewImage(this)" type="file" name="aab108" 
+       					value="选择图片" required="required">
+       					<input style="width:49%;height: 56px" class="btn btn-danger btn-block" type="submit" name="next" value="上传资质信息图片"
+       					 formaction="<%=path%>/busiAddCertificate.html">
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="返回" style="width: 98.8%;"
+       					 formaction="<%=path%>/busiReturn.html" formnovalidate="formnovalidate">
+			</div>
+									</div>
+			<div class="clear"></div>
+			</div>
+			
+		</div>
+		<div class="footer">
+ </div>
+	</form>
+	</body>
 </html>
