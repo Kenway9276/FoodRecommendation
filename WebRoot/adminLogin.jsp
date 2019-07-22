@@ -15,6 +15,7 @@
 <div style="color:#FFFFFF">
 ${msg}
 </div>
+<br>
 <form action="<%=path %>/adminLogin.html" method="post">
 <div class="signupform">
 <h1></h1>

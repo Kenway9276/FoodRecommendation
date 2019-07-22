@@ -194,6 +194,8 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean userModify()throws Exception
     {
+    	if(this.get("aaa105")==null) return false;
+    	if(this.get("raaa105")==null) return false;
     	StringBuilder sql=new StringBuilder()
     			.append("update aa01")
     			.append("   set aaa103=?,aaa104=?,aaa105=?,aaa106=?,")
