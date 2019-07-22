@@ -110,11 +110,11 @@
 		document.getElementById("closebtn"+vaab301).style="display:none";
     }
 	
-	function onAddReply(vaab301,vaab101)
+	function onAddReply(vaab301,vaab101,vaaa101)
 	{
 		//提交回复
 		var vform = document.getElementById("myform");
-	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301;
+	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301+"&aab101="+vaab101+"&aaa101"+vaaa101;
 	  	vform.submit();
 	}
 	
@@ -843,7 +843,7 @@
                                 <br>
                                 <div style="display:none" id="ReplyText${row.aab301 }">                           
                                 <textarea style="width:300px; height:50px" name="ReplyText${row.aab301 }" ></textarea>
-                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 })">提交</a>
+                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 },${row.aaa101 })">提交</a>
                                 </div>
                                 
                                 
