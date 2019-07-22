@@ -63,9 +63,9 @@
 					<h4>请在下表输入查询条件。</h4>
 					<ul class="menuPrice">
 						<li>
-							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;订餐日期&nbsp;&nbsp;&nbsp;<e:date name="qaac102"/>&nbsp;&nbsp;&nbsp;
+							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;订餐日期&nbsp;&nbsp;&nbsp;<input type="date" name="qaac102">
 							商家名&nbsp;&nbsp;&nbsp;<e:text name="qaab104"/>&nbsp;&nbsp;&nbsp;
-							用餐日期&nbsp;&nbsp;&nbsp;<e:date name="qaac103"/></a>
+							用餐日期&nbsp;&nbsp;&nbsp;<input type="date" name="qaac103"></a>
 						</li>
 						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;人数&nbsp;&nbsp;&nbsp;<e:number step="1" name="qaac104"/>
@@ -95,13 +95,13 @@
 		<td	style="color:#FFFFFF;width:80px;text-align:center">商家名</td>
 		<td	style="color:#FFFFFF;text-align:center">用餐日期</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">人数</td>
-		<td	style="color:#FFFFFF;text-align:center">订座号</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">口味</td>
 		<td	style="color:#FFFFFF;width:60px;text-align:center">菜系</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">种类</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">设备</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">位置</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">备注</td>		
+		<td style="width:40px"></td>
 	</tr>
   <c:choose>
     <c:when test="${rows!=null }">
@@ -117,14 +117,13 @@
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aab104 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aac103 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aac104 }</td>
-		    <td	style="color:#FFFFFF;text-align:center">${ins.aac105 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa202 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa203 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa204 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa205 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa206 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa207 }</td>
-		    <td>
+		    <td style="color:#FFFFFF;text-align:center">
 		      <a style="color:#FFFFFF" href="#" onclick="onDel('${ins.aac101}')">删除</a>
 		    </td>
 		  </tr>
@@ -134,17 +133,17 @@
 	          <tr>
 	            <td></td>
 	            <td></td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
-	            <td	style="color:#FFFFFF;text-align:center">吃</td>
+	            <td></td>
+	            <td style="color:#FFFFFF;text-align:center">...</td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
 	          </tr>
       </c:forEach>
     </c:when>

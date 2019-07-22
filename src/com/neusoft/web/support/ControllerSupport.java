@@ -232,7 +232,7 @@ public abstract class ControllerSupport implements BaseController
 		}
 		else
 		{
-			this.saveAttribute("msg", "提示:信息已删除!");
+			this.saveAttribute("msg", "提示:密码错误或信息已删除!");
 		}	
 	}
 	

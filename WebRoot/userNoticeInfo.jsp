@@ -58,7 +58,7 @@ function onEdit(vaac201)
 						<li>
 							<a style="text-decoration:none" href="#">&nbsp;&nbsp;&nbsp;发布日期&nbsp;&nbsp;&nbsp;${ins.aac203 }</a>
 						</li>
-						<li>
+						<li style="display:${ins.aac204=='upload/null'?'none':''}">
 							<a style="text-decoration:none;text-align:center" href="#"><img height=300px src="${ins.aac204 }"></a>
 						</li>
 						<li>
@@ -98,8 +98,8 @@ function onEdit(vaac201)
     </td>
   </tr>
 </table>
-			</div>
-			<div class="guide">
+</div>
+<div class="guide">
 	<div class="guide-wrap">
 		<a href="javascript:window.scrollTo(0,0)" class="top" title="回顶部"><span>回顶部</span></a>
 		<a href="#return" class="bottom" title="到底部"><span style="transform:rotate(180deg);">到底部</span></a>
