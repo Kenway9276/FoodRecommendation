@@ -76,6 +76,7 @@
 <%request.getSession().getAttribute("ins");%>
 <%request.getSession().getAttribute("管理员流水号");%>
 <%@ include file="navigate.jsp" %>
+<%@ include file="floatTool.jsp" %>
 <form id="myform" action="<%=path %>/adminCoupon.html" method="post">
 <!-- <nav> -->
 <!--   <div class="container"> -->
@@ -100,10 +101,10 @@
     <ul class="docs-nav" id="menu-left">
       <li><strong>请开始你的管理！</strong></li>
       <li><a href="<%=path %>/adminInfo.html" class=" ">个人信息</a></li>
-      <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
-      <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
-      <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
-      <li><a href="<%=path %>/adminCoupon.jsp" class="selected">优惠券管理  √</a></li>
+      <li><a href="<%=path %>/adminBusiness.html" class=" ">商家管理</a></li>
+      <li><a href="<%=path %>/adminForum.html" class=" ">论坛管理</a></li>
+      <li><a href="<%=path %>/adminNotice.html" class=" ">公告管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.html" class="selected">优惠券管理  √</a></li>
     </ul>
     <div class="docs-content">
       <h3 align="center"> 优惠券管理</h3>
@@ -213,7 +214,7 @@
   </c:choose>
 </table>
 <div style="text-align:center">
-       <button type="submit" name="next" class="forSubmit">查询</button>
+       <button type="submit" name="next" id="bottom" class="forSubmit">查询</button>
        <button type="submit" id="del" name="next" class="forSubmit" 
               formaction="<%=path%>/adminDeleteCoupon.html"  disabled="disabled">删除</button>
 </div>

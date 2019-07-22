@@ -90,6 +90,7 @@
 <%request.getSession().getAttribute("ins");%>
 <%request.getSession().getAttribute("管理员流水号");%>
 <%@ include file="navigate.jsp" %>
+<%@ include file="floatTool.jsp" %>
 <form id="myform" action="<%=path %>/adminNotice.html" method="post">
 <header>
   <div class="container">
@@ -101,10 +102,10 @@
     <ul class="docs-nav" id="menu-left">
       <li><strong>请开始你的管理！</strong></li>
       <li><a href="<%=path %>/adminInfo.html" class=" ">个人信息</a></li>
-      <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
-      <li><a href="<%=path %>/adminForum.jsp" class=" ">论坛管理</a></li>
-      <li><a href="<%=path %>/adminNotice.jsp" class="selected">公告管理  √</a></li>
-      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminBusiness.html" class=" ">商家管理</a></li>
+      <li><a href="<%=path %>/adminForum.html" class=" ">论坛管理</a></li>
+      <li><a href="<%=path %>/adminNotice.html" class="selected">公告管理  √</a></li>
+      <li><a href="<%=path %>/adminCoupon.html" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <h3 align="center"> 公告管理</h3>
@@ -161,6 +162,7 @@
 		<td style="text-align:center">标题</td>
 		<td style="width:40px;text-align:center">种类</td>
 		<td style="width:60px;text-align:center">优先级</td>	
+		<td></td>
 	</tr>
 	</thead>
   <c:choose>
@@ -174,7 +176,7 @@
 		    </td>
 		    <td style="text-align:center">${vs.count }</td>
 		    <td style="text-align:center">${ins.aac203 }</td>
-		    <td style="width:150px"><a href="#" onclick="onEdit('${ins.aac201}')">${ins.aac202 }</a></td>
+		    <td style="width:180px"><a href="#" onclick="onEdit('${ins.aac201}')">${ins.aac202 }</a></td>
 		    <td style="width:80px;text-align:center"> 
 		    	<c:choose>
 		    		<c:when test="${ins.aac206==1 }">
@@ -205,10 +207,10 @@
 	          <tr>
 	            <td></td>
 	            <td></td>
-	            <td style="text-align:center">吃</td>
-	            <td>吃</td>
-	            <td style="text-align:center">吃</td>
-	            <td style="text-align:center">吃</td>
+	            <td style="text-align:center"></td>
+	            <td>...</td>
+	            <td style="text-align:center"></td>
+	            <td style="text-align:center"></td>
 	          </tr>
       </c:forEach>
     </c:when>
@@ -227,7 +229,7 @@
   </c:choose>
 </table>
 <div style="text-align:center">
-       <button class="forSubmit" type="submit" name="next">查询</button>
+       <button class="forSubmit" type="submit" id="bottom" name="next">查询</button>
        <button type="submit" id="del" name="next"  class="forSubmit"
               formaction="<%=path%>/adminDeleteNotice.html"  disabled="disabled">删除</button>
 		<button class="forSubmit" formaction="<%=path %>/adminReleaseNotice.jsp" name="next" >发布</button>

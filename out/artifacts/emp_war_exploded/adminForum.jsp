@@ -77,6 +77,7 @@
 <%request.getSession().getAttribute("ins");%>
 <%request.getSession().getAttribute("管理员流水号");%>
 <%@ include file="navigate.jsp" %>
+<%@ include file="floatTool.jsp" %>
 <form id="myform" action="<%=path %>/adminForum.html" method="post">
 <header>
   <div class="container">
@@ -88,10 +89,10 @@
     <ul class="docs-nav" id="menu-left">
       <li><strong>请开始你的管理！</strong></li>
       <li><a href="<%=path %>/adminInfo.html" class=" ">个人信息</a></li>
-      <li><a href="<%=path %>/adminBusiness.jsp" class=" ">商家管理</a></li>
-      <li><a href="<%=path %>/adminForum.jsp" class="selected">论坛管理  √</a></li>
-      <li><a href="<%=path %>/adminNotice.jsp" class=" ">公告管理</a></li>
-      <li><a href="<%=path %>/adminCoupon.jsp" class=" ">优惠券管理</a></li>
+      <li><a href="<%=path %>/adminBusiness.html" class=" ">商家管理</a></li>
+      <li><a href="<%=path %>/adminForum.html" class="selected">论坛管理  √</a></li>
+      <li><a href="<%=path %>/adminNotice.html" class=" ">公告管理</a></li>
+      <li><a href="<%=path %>/adminCoupon.html" class=" ">优惠券管理</a></li>
     </ul>
     <div class="docs-content">
       <h3 align="center"> 论坛管理</h3>
@@ -142,6 +143,7 @@
 <!-- 相同优先级也按日期先后排列。 -->
 	<thead>
 	<tr>
+		<td></td>
 		<td style="text-align:center">批量删除</td>
 		<td style="text-align:center">序号</td>
 		<td style="text-align:center">发布日期</td>
@@ -201,7 +203,7 @@
   </c:choose>
 </table>
 <div style="text-align:center">
-       <button type="submit" name="next" class="forSubmit">查询</button>
+       <button type="submit" name="next" id="bottom" class="forSubmit">查询</button>
        <button type="submit" id="del" name="next"  class="forSubmit"
               formaction="<%=path%>/adminDeletePost.html"  disabled="disabled">删除</button>
 </div>
