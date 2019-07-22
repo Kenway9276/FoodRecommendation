@@ -11,7 +11,6 @@
 
 </head>
 <body>
-
 <div class="c-nav">
 	<div class="container navFlex">
 		<div class="flexItem">
@@ -89,7 +88,7 @@ $(window).resize(function() {
 		var form = document.getElementById("current-city-form");
 		var currentCity = $("#hidden-city-name").html()
 		currentCity = encodeURIComponent(currentCity)
-		form.action = "/ranking.html?currentCity=" + currentCity;
+		form.action = "/emp/ranking.html?currentCity=" + currentCity;
 		form.submit();
 	}
 </script>

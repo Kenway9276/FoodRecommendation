@@ -96,7 +96,10 @@
                             <div class="detail-filter-text">
                                 <p><span>优惠券</span></p>
                                 <p><span><a href="couponUserList.html">我的优惠券</a></span></p>
-                                <p><span>${msg.msg }</span></p>
+                                <c:if test="${!empty msg}">
+                                    <p><span>${msg.msg }</span></p>
+                                </c:if>
+
                             </div>
                         </div>
                         <div class="col-md-8 featured-responsive">

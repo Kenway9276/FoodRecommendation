@@ -10,19 +10,26 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <form method="post" action="couponCheck.html">
-        <p>输入优惠券码<input type="text" name="aab502" value="${ins.aab502}"></p>
-        <p><input type="submit" value="查询"></p>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+    <form class="form-inline" role="form" method="post" action="couponCheck.html" style="margin: auto;width: 50%;padding: 10px;">
+        <div class="form-group">
+            <label for="coupon-code-input">输入优惠券码</label>
+            <input required id="coupon-code-input" type="text" name="aab502" value="${ins.aab502}" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-danger" value="查询">查询</button>
+        </div>
     </form>
-    <p>${ins}</p>
     <c:if test="${!empty ins}">
-        <form method="post" action="couponDelete.html">
+        <form method="post" action="couponDelete.html" style="margin: auto;width: 50%;padding: 10px;">
             <input type="hidden" value="${ins.aab501}" name="aab501">
-            <p>优惠券名称：${ins.aab503}</p>
-            <p>满：${ins.aab504}</p> <p> 减：${ins.aab505}</p>
-            <p><input type="submit" value="验证并删除"></p>
+            <p><h3>优惠券名称：${ins.aab503}</h3></p>
+            <p><h3>满：${ins.aab504}</h3></p> <p> <h3>减：${ins.aab505}</h3></p>
+            <p><button type="submit" class="btn btn-outline-danger" value="验证并删除">验证并删除</button></p>
         </form>
     </c:if>
 
