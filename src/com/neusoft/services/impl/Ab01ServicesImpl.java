@@ -980,7 +980,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		   			;
 		    	Object args[]=
 		    	{
-		    		this.get("aab101"),
+		    		this.get("busiID"),
 		    		this.get("aab202"),
 		   			this.get("aab207"),
 		   			this.get("aab203"),
@@ -1006,7 +1006,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 					 .append("FROM ab02 a ")
 					 .append("where a.aab101 = ? ")
 					 ;
-			 List<Map<String,String>> tems = this.queryForList(sql.toString(), this.get("aab101"));
+			 List<Map<String,String>> tems = this.queryForList(sql.toString(), this.get("busiID"));
 			 for (int i = 0; i < tems.size(); i++) 
 			 	{
 			        tems.get(i).put("qaab204", tems.get(i).get("aab204"));

@@ -312,8 +312,8 @@
         	
             <div class="swiper-slide">
             <div style="width:120%;height:300px">
-                    <a href="upload/${ad.address }" class="grid image-link">
-                        <img src="upload/${ad.address }" class="img-fluid" alt="#">
+                    <a href="/${ad.address }" class="grid image-link">
+                        <img src="/${ad.address }" class="img-fluid" alt="#">
                     </a>
             </div>
             </div>

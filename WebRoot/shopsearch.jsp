@@ -183,7 +183,7 @@
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                         <a href="#" onclick="onDetail('${row.aab101}')">                       
-                            <img src="upload/${row.aab113}" class="img-fluid" alt="#">             
+                            <img src="<%=path%>/${row.aab113}" class="img-fluid" alt="#">
                             <span class="featured-rating">${row.aab111 }</span>
                             
                             <div class="featured-title-box">
