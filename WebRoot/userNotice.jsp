@@ -12,6 +12,7 @@
 	{
 	border:0;
 	text-align:center;
+	font-size:17px;
 	}
 	table tr:nth-child(odd)
 	{
@@ -20,6 +21,10 @@
 	table tr:nth-child(even)
 	{
 	background:#f33131;
+	}
+	table
+	{
+	border:1px solid black;
 	}
 	h2
 	{
@@ -56,7 +61,7 @@ function onEdit(vaac201)
 <div class="section-header">
 	<h2 class="section-title wow fadeInDown">公    告</h2>
 </div>
-<table border="0;solid" width="60%" style="margin:0 auto">
+<table width="60%" style="margin:0 auto">
 	<tr>
 		<td>标题</td>
 		<td>发布日期</td>
