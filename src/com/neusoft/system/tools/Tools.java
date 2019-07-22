@@ -389,11 +389,12 @@ public class Tools
 	    int beginIndex = frontNum;
 	    int endIndex = len - endNum;
 	    char[] cardChar = content.toCharArray();
-	 
-	    for (int j = beginIndex; j < endIndex; j++) {
+	    
+	    for (int j = beginIndex; j < endIndex; j++) 
+	    {
 	        cardChar[j] = '*';
 	    }
-	 
+	    
 	    return new String(cardChar);
 	}
 

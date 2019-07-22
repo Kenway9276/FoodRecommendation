@@ -311,7 +311,7 @@
         	<c:forEach items="${Address }" var="ad" varStatus="vs">
         	
             <div class="swiper-slide">
-            <div style="width:672px;height:300px">
+            <div style="width:100%;height:300px">
                     <a href="upload/${ad.address }" class="grid image-link">
                         <img src="upload/${ad.address }" class="img-fluid" alt="#">
                     </a>
@@ -887,9 +887,15 @@
     <script type="text/javascript" src="<%=path%>/js/xzs03_jquery.js"></script>
 	<script type="text/javascript" src="<%=path%>/js/xzs03_jquery.datetimepicker.js"></script>
 	<script type="text/javascript">
-	$('#datetimepicker_mask').datetimepicker({
-	mask:'9999/19/39 29:59'
-	});
+	var newDate = new Date();
+    var t       = newDate.toJSON();
+	$('#datetimepicker_mask').datetimepicker
+	(
+			{
+				mask:'9999/19/39 29:59',
+			}
+	);
+	
 	</script>
     <script src=" <%=path%>/js/xzs_jquery-3.2.1.min.js"></script>
     <script src=" <%=path%>/js/xzs_popper.min.js"></script>
