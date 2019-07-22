@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="dw_assets/css/custom.css">
 </head>
 <body>
-
+<%@ include file="navigate.jsp" %>
 
 <!-- Nav Search Box -->
 <div class="nav-search-box">
@@ -155,6 +155,9 @@
     <span><i class="fa fa-long-arrow-up"></i></span>
 </div>
 <!-- End of Back to Top Button -->
+<div class="back-to-top d-flex align-items-center justify-content-center">
+    <span><i class="fa fa-long-arrow-up"></i></span>
+</div>
 
 <!-- JS Files -->
 

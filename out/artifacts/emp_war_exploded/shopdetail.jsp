@@ -311,7 +311,7 @@
         	<c:forEach items="${Address }" var="ad" varStatus="vs">
         	
             <div class="swiper-slide">
-            <div style="width:672px;height:300px">
+            <div style="width:120%;height:300px">
                     <a href="upload/${ad.address }" class="grid image-link">
                         <img src="upload/${ad.address }" class="img-fluid" alt="#">
                     </a>

@@ -79,6 +79,7 @@ public abstract class ControllerSupport implements BaseController
 
 	}
 
+
 	protected final void savePageData(String key, String methodName)throws Exception
 	{
 		//1.获取需要调用的方法对象
