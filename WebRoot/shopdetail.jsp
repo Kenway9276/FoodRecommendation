@@ -114,7 +114,7 @@
 	{
 		//Ã·Ωªªÿ∏¥
 		var vform = document.getElementById("myform");
-	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301+"&aab101="+vaab101+"&aaa101"+vaaa101;
+	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301+"&aab101="+vaab101+"&aaa101="+vaaa101;
 	  	vform.submit();
 	}
 	
@@ -796,7 +796,6 @@
                                 </p>
                                 </c:if>
                                 </c:forEach>
-                                
                                 
                                 
                                 
