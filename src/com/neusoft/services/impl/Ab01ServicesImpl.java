@@ -1240,7 +1240,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		};
 			this.executeUpdate(sql.toString(), args);
 			String msg = "商家拒绝了您的订座请求！";
-			return this.addMessageToCust(msg, String.valueOf(this.get("aac101")));
+			String rsql="SELECT aab101,aaa101,aac105,aac104 FROM ac01 WHERE aac101=?";
+			Map<String,String> tmp =this.queryForMap(rsql,this.get("aac101"));
+			return this.addMessageToCust(msg, tmp.get("aaa101"));
 		 }
 		 public Map<String,String> busiFindDishById()throws Exception
 		    {
