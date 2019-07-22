@@ -197,10 +197,8 @@ public class DBUtils
 	{
 		try 
 		{
-			for(int i=0;i<1000;i++)
-			{
+			
 				System.out.println(DBUtils.getConnection());	
-			}
 			
 		}
 		catch (Exception e) 
