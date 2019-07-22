@@ -93,6 +93,10 @@
 					 formaction="<%=path%>/busiManageReservation.html" formnovalidate="formnovalidate">
 				</div>
 				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="ÎÒµÄµêÆÌ"
+						   formaction="<%=path%>/shopinfoFindById.html?aab101=${sessionScope.busiID}" formnovalidate="formnovalidate">
+				</div>
+				<div class="container-login100-form-btn">
 					<input class="login100-form-btn" type="submit" name="next" value="µÇ³ö"
 					 formaction="<%=path%>/userLogin.jsp" formnovalidate="formnovalidate">
 				</div>

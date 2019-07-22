@@ -52,7 +52,7 @@
 </head>
 <body>
 <%@ include file="navigate.jsp" %>
-
+<%@ include file="floatTool.jsp"%>
 <!-- Nav Search Box -->
 <div class="nav-search-box">
     <form>
@@ -127,20 +127,25 @@
                 <!-- End of Comments -->
 
                 <!-- Comment Form -->
-                <div class="post-comment-form-cover">
+                <div id="bottom" class="post-comment-form-cover">
                     <h3>回复帖子</h3>
                     <form id="comment-form-id" class="comment-form" method="post">
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea required id="comment-content" class="form-control"></textarea>
+                                <textarea  id="comment-content" class="form-control"></textarea>
+                                <input type="hidden" name="aaa301" value="${rows[0].aaa301}">
                             </div>
                             <div class="col-md-12">
-                                <button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">提交 </button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-primary" type="submit" formaction="adminForum.html">返回</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">提交 </button>
                             </div>
                         </div>
                     </form>
+                    <c:if test="${!empty sessionScope.adminID}">
+                        <form method="post">
+                            <div style="margin-left: 0" class="col-md-12"><button class="btn btn-primary" type="submit" formaction="adminForum.html">返回</button></div>
+                        </form>
+                    </c:if>
+
                 </div>
                 <!-- End of Comment Form -->
             </div>
@@ -152,14 +157,7 @@
 
 
 
-<!-- Back to Top Button -->
-<div class="back-to-top d-flex align-items-center justify-content-center">
-    <span><i class="fa fa-long-arrow-up"></i></span>
-</div>
-<!-- End of Back to Top Button -->
-<div class="back-to-top d-flex align-items-center justify-content-center">
-    <span><i class="fa fa-long-arrow-up"></i></span>
-</div>
+
 
 <!-- JS Files -->
 
@@ -186,11 +184,16 @@
     function onSubmit(aaa301) {
         var vform = document.getElementById("comment-form-id");
         var aaa304 =  document.getElementById('comment-content').value;
+        if (aaa304 == ""){
+            alert("评价内容不能为空")
+        }
+        else{
+            var path = "<%=path%>/bBSComment.html?aaa304="+aaa304 + "&aaa301="+aaa301
 
-        var path = "<%=path%>/bBSComment.html?aaa304="+aaa304 + "&aaa301="+aaa301
+            vform.action = "<%=path%>/bBSComment.html?aaa304="+encodeURI(aaa304) + "&aaa301="+aaa301;
+            vform.submit();
+        }
 
-        vform.action = "<%=path%>/bBSComment.html?aaa304="+encodeURI(aaa304) + "&aaa301="+aaa301;
-        vform.submit();
     }
 
     function onBack() {
