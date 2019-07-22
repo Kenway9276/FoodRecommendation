@@ -16,7 +16,7 @@
 <div class="c-nav">
 	<div class="container navFlex">
 		<div class="flexItem">
-			吃
+			美食小助手
 		</div>
 		<div class="flexItem show">
 			<ul>

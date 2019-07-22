@@ -47,7 +47,9 @@
     </div>
     <div class="form-group" style="width: 30%;margin: 0 auto;">
         <button type="submit" class="btn btn-outline-danger" value="发布" >发布</button>
+        <input type="submit" formaction="/emp/busiReturn.html" class="btn btn-outline-danger" value="返回" >
     </div>
 </form>
+
 </body>
 </html>

@@ -48,7 +48,7 @@
         <div class="blog-slider__item swiper-slide">
             <c:if test="${empty rows }">
                 <div class="blog-slider__img">
-                    <img src="/emp/images/bg4.jpg" alt="${rows.aab104 }">
+                    <img src="images/bg4.jpg" alt="${rows.aab104 }">
                 </div>
                 <div class="blog-slider__content">
                     <div class="blog-slider__title">没有找到适合的餐厅哦</div>
@@ -64,7 +64,7 @@
                 <input type="hidden" name="aaa203"  value="${rows.aaa203 }">
                 <input type="hidden" name="aaa204"  value="${rows.aaa204 }">
                 <div class="blog-slider__img">
-                    <img src="/upload/${rows.aab113 }" alt="${rows.aab104 }">
+                    <img src="upload/${rows.aab113 }" alt="${rows.aab104 }">
                 </div>
                 <div class="blog-slider__content">
                     <span class="blog-slider__code">2018-08-31</span>

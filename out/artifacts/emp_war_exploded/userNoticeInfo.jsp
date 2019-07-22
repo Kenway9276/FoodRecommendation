@@ -94,7 +94,7 @@ function onEdit(vaac201)
     <td align="center">
 
 		<button  type="submit" formaction="<%=path %>/userNotice.html" name="next" id="return">·µ»Ø</button>
-		<button  name="next" onclick="onEdit('${ins.aac201 }')">±à¼­</button>
+		<button style="display:${empty sessionScope.adminID?'none':''}" name="next" onclick="onEdit('${ins.aac201 }')">±à¼­</button>
     </td>
   </tr>
 </table>

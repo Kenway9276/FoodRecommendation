@@ -7,29 +7,33 @@
 			src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
 <link rel="stylesheet" href="css/style_nav.css"/>
 
+<style type="text/css">
 
+</style>
 
 </head>
 <body>
 <div class="c-nav">
 	<div class="container navFlex">
 		<div class="flexItem">
-			吃
+			美食小助手
 		</div>
 		<div class="flexItem show">
 			<ul>
 				<li><a href="${empty sessionScope.userID?'userLogin.jsp':'userInfo.html'}">${empty sessionScope.userID?'登录':'个人信息'}</a></li>
 				<li><a href="shopsearch.jsp">搜索</a></li>
+				<li><a href="bBSBrowse.html">论坛</a></li>
+				<li><a href="ranking.html">排行榜</a></li>
+				<span style="display:${empty sessionScope.userID?'none':''}">
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="preferenceIndex.html">推荐</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="markQuery.html">收藏</a></li>
-				<li><a href="bBSBrowseAll.html">论坛</a></li>
-				<li><a onclick="onSelectRanking()">排行榜</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userHistory.html">历史订单</a></li>
-				<li><a href="userNotice.html">公告</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="couponList.html">优惠券</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="messageSearchUnRead.html">消息</a></li>
-				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userStory.html">关于你</a></li>
+				</span>
+				<li><a href="userNotice.html">公告</a></li>
+				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
 			</ul>
 		</div>
 	</div>
