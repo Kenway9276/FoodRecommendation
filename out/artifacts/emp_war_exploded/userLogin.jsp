@@ -31,7 +31,7 @@ ${msg}
 			</div>
 			<div class="w3_info">
 				<h2>Sign In</h2>
-				<p>¸Ï½ôµÇÂ¼³ôµÜµÜ</p>
+				<p>ÓÃ»§µÇÂ½</p>
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text name="aaa102" required="true" autofocus="true" />

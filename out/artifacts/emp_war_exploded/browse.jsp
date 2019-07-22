@@ -138,6 +138,9 @@
                 <input type="hidden" name="currentPage" value="${currentPage}">
                 <span id="current-page" class="current">${currentPage}</span>
                 <c:choose>
+                    <c:when test="${currentPage == totalPages}">
+
+                    </c:when>
                     <c:when test="${(currentPage + 3) > totalPages}">
                         <c:forEach begin="${currentPage}" end="${currentPage}" varStatus="vs">
                             <a id="selectable-page" class="page-btn" href="#">${currentPage + vs.count}</a>

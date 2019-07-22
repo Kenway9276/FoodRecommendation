@@ -58,6 +58,19 @@
 					<input class="login100-form-btn" type="submit" name="next" value="公告"
 					 formaction="<%=path%>/busiNotice.html">
 				</div>
+				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="发布优惠券"
+					 formaction="publishCoupon.jsp">
+				</div>
+				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="验证优惠券"
+					 formaction="checkCoupon.jsp">
+				</div>
+				<div class="container-login100-form-btn">
+					<input class="login100-form-btn" type="submit" name="next" value="我的优惠券"
+					 formaction="<%=path%>/couponListShop.html">
+				</div>
+				<br/>
 				<div class="wrap-input100 validate-input">
 					<input class="login100-form-btn" type="submit" name="next" value="资质证明"
 					 formaction="<%=path%>/busiToCertificationPage.html" formnovalidate="formnovalidate">
