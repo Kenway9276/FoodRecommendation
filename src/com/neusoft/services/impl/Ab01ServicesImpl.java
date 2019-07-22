@@ -1,6 +1,10 @@
 package com.neusoft.services.impl;
 
+import java.awt.DefaultKeyboardFocusManager;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +89,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     
     private boolean adminModify()throws Exception
     {
+    	if(this.get("aac404")==null) return false;
     	StringBuilder sql=new StringBuilder()
     			.append("update ac04")
     			.append("   set aac404=?,aac405=?")
@@ -404,6 +409,22 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		return this.queryForList(sql.toString(), paramList.toArray());
 	  }
     
+	  private Object dateCal(Object date)throws Exception 
+	  {
+		  SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+		  String date1=(String)date;
+		  //System.out.println(date1);
+		  Date date2=df.parse(date1);
+		  //System.out.println(date2);
+		  Calendar c = Calendar.getInstance();  
+          c.setTime(date2);  
+          c.add(Calendar.DAY_OF_MONTH, 1);
+          date2=c.getTime();
+         // System.out.println(date2);
+          //System.out.println(df.format(date2));
+		  return df.format(date2);
+	  }
+	  
 	  public List<Map<String,String>> userHistoryQuery()throws Exception
 	  {
 		  	Object aaa101=this.get("userID");
@@ -435,8 +456,10 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		paramList.add("1");
 	  		if(this.isNotNull(aac102))
 	  		{
-	  			sql.append(" and c.aac102=?");
+	  			sql.append(" and c.aac102>=?");
 	  			paramList.add(aac102);
+	  			sql.append(" and c.aac102<=?");
+	  			paramList.add(dateCal(aac102));
 	  		}
 	  		if(this.isNotNull(aab104))
 	  		{
@@ -445,8 +468,10 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  		}
 	  		if(this.isNotNull(aac103))
 	  		{
-	  			sql.append(" and c.aac103=?");
+	  			sql.append(" and c.aac103>=?");
 	  			paramList.add(aac103);
+	  			sql.append(" and c.aac103<=?");
+	  			paramList.add(dateCal(aac103));
 	  		}
 	  		if(this.isNotNull(aac104))
 	  		{

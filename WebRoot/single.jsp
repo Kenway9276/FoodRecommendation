@@ -136,6 +136,8 @@
                             </div>
                             <div class="col-md-12">
                                 <button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">提交 </button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-primary" type="submit" formaction="adminForum.html">返回</button>
                             </div>
                         </div>
                     </form>
