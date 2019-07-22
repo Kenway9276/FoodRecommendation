@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="dw_assets/css/custom.css">
 </head>
 <body>
-
+<%@ include file="navigate.jsp" %>
 
 <!-- Nav Search Box -->
 <div class="nav-search-box">
@@ -136,6 +136,8 @@
                             </div>
                             <div class="col-md-12">
                                 <button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">提交 </button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-primary" type="submit" formaction="adminForum.html">返回</button>
                             </div>
                         </div>
                     </form>
@@ -155,6 +157,9 @@
     <span><i class="fa fa-long-arrow-up"></i></span>
 </div>
 <!-- End of Back to Top Button -->
+<div class="back-to-top d-flex align-items-center justify-content-center">
+    <span><i class="fa fa-long-arrow-up"></i></span>
+</div>
 
 <!-- JS Files -->
 

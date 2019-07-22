@@ -1230,7 +1230,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			String rsql="SELECT aab101,aaa101,aac105,aac104 FROM ac01 WHERE aac101=?";
 			Map<String,String> tmp =this.queryForMap(rsql,this.get("aac101"));
 			String msg ="商家已经接受了您的申请，用餐人数为：" + String.valueOf(tmp.get("aac104")) + 
-					"订座号为：" + String.valueOf(tmp.get("aac105")) + ",请及时前往。";
+					"   订座号为：" + String.valueOf(tmp.get("aac105")) + "，请及时前往。";
 			return this.addMessageToCust(msg, String.valueOf(tmp.get("aaa101")));
 		 }
 		 private boolean busiRefuseReservation()throws Exception

@@ -41,8 +41,11 @@ ${msg}
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
 							<input name="aac404" type="password">
 						</div>  
-						<div class="input-group"></div>
 						<input class="btn btn-danger btn-block" type="submit" name="next" value="µÇÂ¼" >  
+						<a href="userLogin.jsp">
+							<input class="btn btn-danger btn-block" type="button" name="next"  value="·µ»Ø" >  
+						</a>
+					
 			</div>
 									</div>
 			<div class="clear"></div>

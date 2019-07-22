@@ -42,7 +42,16 @@ public class CouponServiceImpl extends JdbcServicesSupport {
                 .append("	aab104, ")
                 .append("	aab506 ,aab101")
                 ;
-        return this.queryForList(sql.toString(), aab507);
+        List<Map<String, String>> list =  this.queryForList(sql.toString(), aab507);
+        for (Map<String, String> map:list) {
+            map.put("isUser", "0");
+        }
+        if(list.size() == 0){
+            Map<String, String> map = new HashMap<>();
+            map.put("isUser", "0");
+            list.add(map);
+        }
+        return list;
     }
 
     public boolean publish() throws Exception{
@@ -50,7 +59,7 @@ public class CouponServiceImpl extends JdbcServicesSupport {
         int count = Integer.valueOf(tem);
 
         // todo 获取当前商家id，获取当前城市
-        int aab101 = 2;
+        Object aab101 = this.get("busiID");
         String aab507 = "天津";
 
         Object aab503 = this.get("aab503");
@@ -134,6 +143,11 @@ public class CouponServiceImpl extends JdbcServicesSupport {
         List<Map<String, String>> list = this.queryForList(sql.toString(), aab507, aaa101);
         for (Map<String, String> map:list) {
             map.put("isUser", "1");
+        }
+        if(list.size() == 0){
+            Map<String, String> map = new HashMap<>();
+            map.put("isUser", "0");
+            list.add(map);
         }
         return list;
     }
