@@ -261,6 +261,17 @@
 		showDiv("1");
 	}
 	
+	
+	//
+	function onCloseShop(vaab101)
+	{
+		//管理员关停商家
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/shopClose.html?aab101"+vaab101;
+	  	alert("操作成功!");
+	  	vform.submit();
+	}
+	
 </script>
 <link rel="stylesheet" href="css/style_nav.css"/>
 
@@ -382,6 +393,7 @@
                         </c:choose>
                         </c:if>
                         
+                        
                         <c:if test="${sessionScope.userID!=null}">
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
@@ -391,9 +403,15 @@
                         </c:if>
                         
                         
+                        <c:if test="${sessionScope.adminID!=null}">
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a href="javascript:void(0)" onclick="onCloseShop(${ins.aab101 })" class="btn btn-danger">关停商家</a>
+                            </div>
+                        </div>
+                        </c:if>
                         
-                        
-                        
+                                     
                         
                         
                         <c:if test="${sessionScope.userID!=null}">
@@ -404,6 +422,9 @@
                             </div>
                         </div>
 						</c:if>
+						
+						
+						
 						
 						<c:if test="${!empty IsMark }">
 						<div class="reserve-btn">
