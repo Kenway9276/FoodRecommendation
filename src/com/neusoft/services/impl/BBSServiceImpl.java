@@ -74,7 +74,7 @@ public class BBSServiceImpl extends JdbcServicesSupport {
         int begin = (page - 1) * 12;
         // 当前页数最后第一个帖子在list中的索引
         int end = begin + 12;
-        end = end > getBBSCount() ? getBBSCount() : end;
+        end = end > getBBSCount()  ? getBBSCount() : end;
         System.out.println("begin: "+begin);
         System.out.println("end: "+end);
 

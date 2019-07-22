@@ -73,8 +73,8 @@ $(document).ready(function() {
 							
 							
 							<div class="col-md-3 w3-agileits-gallery-grids">
-							<a class="wow zoomIn animated" data-wow-delay=".7s" href="<%=path%>/images/${menu.aab202 }" data-lightbox="example-set" data-title="${menu.aab207 }">
-							<img  src="<%=path%>/images/${menu.aab202 }" width="100%" height="100%" class="img-responsive zoom-img" alt=""/>
+							<a class="wow zoomIn animated" data-wow-delay=".7s" href="<%=path%>/upload/${menu.aab202 }" data-lightbox="example-set" data-title="${menu.aab207 }">
+							<img  src="<%=path%>/upload/${menu.aab202 }" width="100%" height="100%" class="img-responsive zoom-img" alt=""/>
 							<div class="agile-b-wrapper">
 							<h5><span>&yen</span>${menu.aab203 }</h5>
 							</div>

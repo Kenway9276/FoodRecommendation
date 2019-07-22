@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="dw_assets/css/custom.css">
 </head>
 <body>
-<%@ include file="navigate.jsp" %>
+
 
 <!-- Nav Search Box -->
 <div class="nav-search-box">
@@ -132,7 +132,7 @@
                     <form id="comment-form-id" class="comment-form" method="post">
                         <div class="row">
                             <div class="col-md-12">
-                                <textarea id="comment-content" class="form-control"></textarea>
+                                <textarea required id="comment-content" class="form-control"></textarea>
                             </div>
                             <div class="col-md-12">
                                 <button onclick="onSubmit('${rows[0].aaa301}')" class="btn btn-primary">提交 </button>

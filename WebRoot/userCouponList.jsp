@@ -134,7 +134,9 @@
                         </c:otherwise>
 
                     </c:choose>
-
+                <c:if test="${!empty sessionScope.busiID}">
+                    <input type="submit" formaction="/emp/busiReturn.html" class="btn btn-outline-danger" value="·µ»Ø" >
+                </c:if>
                 </div>
                 <div class="col-md-5 responsive-wrap map-wrap">
 
