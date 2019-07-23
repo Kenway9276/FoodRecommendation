@@ -65,7 +65,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			;
     	Object args[]={
     			"1",
-    			this.get("aab101"),
+    			this.get("busiID"),
     	};
     	return this.executeUpdate(sql.toString(), args)>0;
     	
@@ -80,7 +80,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			;
     	Object args[]={
     			"0",
-    			this.get("aab101"),
+    			this.get("busiID"),
     	};
     	return this.executeUpdate(sql.toString(), args)>0;
     	
@@ -858,7 +858,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  		Object aab112=String.valueOf(aaab112) + "," + String.valueOf(baab112) + "," +String.valueOf(caab112) + ","
 		  		+String.valueOf(daab112) + "," +String.valueOf(eaab112) + "," +String.valueOf(faab112);
 		  		Object imgPath=this.get("imgPath");     
-		  		Object aab101=this.get("aab101");     
+		  		Object aab101=this.get("busiID");     
 //		  		System.out.println(aaab112);
 //		  		System.out.println(aab104);
 //		  		System.out.println(aab106);
@@ -937,7 +937,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			.append("  from ab04 a")
 		    			.append(" where a.aab101=?")
 		    			;
-		    	return this.queryForMap(sql.toString(), this.get("aab101"));
+		    	return this.queryForMap(sql.toString(), this.get("busiID"));
 		    }
 		 private boolean busiPopularize()throws Exception
 		 {
@@ -950,7 +950,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		{
 		    			"1",
 		    			this.get("popularizeMonth"),
-		    			this.get("aab101")
+		    			this.get("busiID")
 		    		};
 			return this.executeUpdate(sql.toString(), args)>0;
 		 }
@@ -965,7 +965,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	Object args[]=
 		    		{
 		    			this.get("popularizeMonth"),
-		    			this.get("aab101")
+		    			this.get("busiID")
 		    		};
 			return this.executeUpdate(sql.toString(), args)>0;
 		 }
@@ -1070,17 +1070,16 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
 		 public List<Map<String,String>> userAssemble()throws Exception
-		  {
-		  		Object aab104=this.get("qaab104");     
+		  {   
 		  		Object aaa103=this.get("qaaa103");     
 		  		Object aaa504=this.get("qaaa504");     
 		  		Object aaa502=this.get("qaaa502");   
 		  		Object aaa503=this.get("qaaa503");     
 		  		
 		  		StringBuilder sql=new StringBuilder()
-		  				.append("select	a.aab101,a.aab104,a.aab105,b.aaa101,b.aab101,")
-		  				.append("		b.aaa502,b.aaa503,b.aaa504,b.aaa505,c.aaa101,")
-		  				.append("		c.aaa102,c.aaa103")
+		  				.append("select	a.aab101,a.aab104,b.aaa101,b.aab101,")
+		  				.append("		b.aaa501,b.aaa502,b.aaa503,b.aaa504,b.aaa505,c.aaa101,")
+		  				.append("		c.aaa103")
 		  				.append(" from 	ab01 a,aa05 b,aa01 c")
 		  				.append(" where	a.aab101=b.aab101 and c.aaa101=b.aaa101 ")
 		  				.append(" and b.aaa503>CURRENT_TIMESTAMP and b.aaa505=? ")
@@ -1090,19 +1089,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  		paramList.add("1");
 		  		sql.append(" and a.aab101 = ?");
 		  		paramList.add(this.get("aab101"));
-		  		if(this.isNotNull(aab104))
-		  		{
-		  			sql.append(" and a.aab104 like ?");
-		  			paramList.add("%"+aab104+"%");
-		  		}
 		  		if(this.isNotNull(aaa103))
 		  		{
 		  			sql.append(" and c.aab103 like ?");
-		  			paramList.add("%"+aab104+"%");
+		  			paramList.add("%"+aaa103+"%");
 		  		}
 		  		if(this.isNotNull(aaa504))
 		  		{
-		  			sql.append(" and b.aab105=?");
+		  			sql.append(" and b.aaa504=?");
 		  			paramList.add(aaa504);
 		  		}
 		  		if(this.isNotNull(aaa502))
@@ -1122,7 +1116,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		 public List<Map<String,String>> busiQuery()throws Exception
 		  {
 		  		//
-			 	Object aab101=this.get("aab101");
+			 	Object aab101=this.get("busiID");
 		  		Object aab207=this.get("qaab207");     //
 		  		Object aab204=Tools.joinArray(this.get("qaab204"));     //
 		  		Object aab205=Tools.joinArray(this.get("qaab205"));     //
@@ -1190,7 +1184,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			 ;
 		    	Object args[]=
 			    	{
-			   			this.get("aab101"),
+			   			this.get("busiID"),
 			   			"0"
 			    	};
 		    	return this.queryForList(sql.toString(), args);
@@ -1208,7 +1202,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			 ;
 		    	Object args[]=
 			    	{
-			   			this.get("aab101"),
+			   			this.get("busiID"),
 			   			"1"
 			    	};
 		    	return this.queryForList(sql.toString(), args);
@@ -1246,7 +1240,9 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		};
 			this.executeUpdate(sql.toString(), args);
 			String msg = "商家拒绝了您的订座请求！";
-			return this.addMessageToCust(msg, String.valueOf(this.get("aac101")));
+			String rsql="SELECT aab101,aaa101,aac105,aac104 FROM ac01 WHERE aac101=?";
+			Map<String,String> tmp =this.queryForMap(rsql,this.get("aac101"));
+			return this.addMessageToCust(msg, tmp.get("aaa101"));
 		 }
 		 public Map<String,String> busiFindDishById()throws Exception
 		    {
@@ -1331,7 +1327,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 						.append("	FROM ab04 a")
 						.append("WHERE a.aab101=?")
 		    			;
-		    	return this.queryForMap(sql.toString(), this.get("aab101"));
+		    	return this.queryForMap(sql.toString(), this.get("busiID"));
 		    }
 		 public Map<String, String> busiCheckName(String aab102)throws Exception
 		    {
@@ -1353,7 +1349,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    		{
 		    			"0",
 		    			aab108,
-		    			this.get("aab101")
+		    			this.get("busiID")
 		    		};
 		    	
 			return this.executeUpdate(sql.toString(), args)>0;
@@ -1366,7 +1362,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 						.append("	 FROM ab01")
 						.append("	WHERE aab101=?")
 		    			;
-		    	return this.queryForMap(sql.toString(), this.get("aab101"));
+		    	return this.queryForMap(sql.toString(), this.get("busiID"));
 		    }
 		 
 			public List<Map<String,String>> saveBusiDishPicAddress()throws Exception
@@ -1418,7 +1414,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			//(upload/xxx.jpg,upload/xxx.jpg,.......)
 			public List<Map<String,String>> saveBusiEnvironmentPicAddress()throws Exception
 			{
-				Object aab101 = this.get("aab101");
+				Object aab101 = this.get("busiID");
 				String sql="SELECT aab109 FROM ab01 WHERE aab101 = ? ";
 				String str=this.queryForMap(sql, aab101).get("aab109");
 				String strs[]=str.split(",");
@@ -1454,14 +1450,14 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			    	Object args[]=
 			    		{
 			    			aab109,
-			    			this.get("aab101")
+			    			this.get("busiID")
 			    		};
 				return this.executeUpdate(sql.toString(), args)>0;
 			 }
 			//锟斤拷询锟教硷拷锟斤拷息
 			public Map<String,String> busiReturnInfo()throws Exception
 		    {
-		    	System.out.println(this.get("aab101"));
+		    	System.out.println(this.get("busiID"));
 				StringBuilder sql=new StringBuilder()
 						.append("  SELECT aab101,aab102,aab103,aab104,aab105,")
 						.append("  		  aab106,aab107,aab108,aab109,aab110,")
@@ -1477,7 +1473,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				String sql="select aab112 from ab01 where aab101=?";
 				//System.out.println(this.get("aab101"));
 				//System.out.println(this.queryForMap(sql, this.get("aab101")));
-				String str=this.queryForMap(sql, this.get("aab101").toString()).get("aab112");
+				String str=this.queryForMap(sql, this.get("busiID").toString()).get("aab112");
 				String strs[]=str.split(",");
 				Map<String,String> map= new HashMap();
 				for (int i = 0; i <strs.length; i++)
@@ -1490,7 +1486,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 			public Map<String, String> busiToPortraitPage()throws Exception
 			{
 				String sql="select aab113,aab101 from ab01 where aab101 = ?";
-				return this.queryForMap(sql, this.get("aab101"));
+				return this.queryForMap(sql, this.get("busiID"));
 			}
 			//锟教硷拷锟睫革拷头锟斤拷
 			private boolean busiUpdatePortrait()throws Exception
@@ -1500,7 +1496,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				Object args[]=
 					{
 							aab113,
-							this.get("aab101")
+							this.get("busiID")
 					};
 				return this.executeUpdate(sql, args)>0;
 			}
@@ -1539,7 +1535,8 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 				Map<String, String> tem = queryForMap(sql.toString(), this.get("userID"));
 				String msg = "您的拼座申请已被用户" + tem.get("aab103") +"接受，请联系" + tem.get("aaa107") + "如未谈妥，请重新发起拼座";
 				this.closeAssembleById();
-				return this.addMessageToCust(msg, String.valueOf(this.get("aaa101")));
+				Map<String,String> tmp = this.getAssembleById();
+				return this.addMessageToCust(msg, String.valueOf(tmp.get("aaa101")));
 			}
 			private boolean closeAssembleById()throws Exception
 			{
