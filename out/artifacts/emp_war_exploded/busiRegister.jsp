@@ -39,6 +39,13 @@ i.fa.fa-phone
 {
 color: #87CEFA;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 </style>
 </head>
 <body>
