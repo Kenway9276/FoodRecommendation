@@ -94,7 +94,7 @@
                     </div>
                 </li>
                 </c:if>
-                <c:if test="${(!empty rows[0].aaa202) || (!empty rows[0].aaa203) || (!empty rows[0].aaa204)}">
+
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>TASTE</h3>
@@ -108,10 +108,9 @@
                         </div>
                     </div>
                 </li>
-                </c:if>
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
-                        <h3>´ý¶¨</h3>
+                        <h3></h3>
                         <div class="desc">
                             <p>°×ÁÛ÷ŽÏ¸¹©´º¾Æ£¬ºìÎ²¸þÏã·îÍí²Í¡£</p>
                         </div>
@@ -119,7 +118,7 @@
                 </li>
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
-                        <h3>´ý¶¨</h3>
+                        <h3></h3>
                         <div class="desc">
                             <p>
                             	ÕÐÑ°°éÂÂ³ËÇïÐË£¬È¡´ÎÓãÏº°éÍí²Í¡£<br>

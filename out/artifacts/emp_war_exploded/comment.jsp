@@ -3,7 +3,7 @@
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-    <title>Title</title>
+    <title>–¥µ„∆¿</title>
     <!-- Bootstrap core CSS -->
    <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome core CSS -->

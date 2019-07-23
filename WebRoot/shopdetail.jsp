@@ -19,7 +19,7 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
-    <title>Listing &amp; Directory Website Template</title>
+    <title>…Ãº“œÍ«È</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
     <!-- Google Fonts -->
@@ -344,8 +344,8 @@
 
             <div style="width:100%;height:300px">
 
-                    <a href="<%=path%>/${ad.address }" class="grid image-link">
-                        <img src="<%=path%>/${ad.address }" class="img-fluid" alt="#">
+                    <a href="<%=path %>/${ad.address }" class="grid image-link">
+                        <img src="<%=path %>/${ad.address }" class="img-fluid" alt="#">
 
                     </a>
             </div>
