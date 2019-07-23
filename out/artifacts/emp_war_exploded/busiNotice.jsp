@@ -43,7 +43,7 @@
 function onEdit(vaac201)
 {
 	 var vform = document.getElementById("myform");
-	 vform.action="<%=path%>/findByIdNotice.html?aac201="+vaac201;
+	 vform.action="<%=path%>/busiFindByIdNotice.html?aac201="+vaac201;
 	 vform.submit();
 }
 
@@ -111,8 +111,7 @@ function onEdit(vaac201)
 </table>
 </form>
 <div style="align:center">
-<input class="login100-form-btn" type="submit" name="next" value="·µ»Ø"
-	 			formaction="<%=path%>/busiReturn.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
+<input type="submit" name="next" value="·µ»Ø" formaction="<%=path %>/busiReturn.html" formnovalidate="formnovalidate">
 </div>
 </body>
 </html>

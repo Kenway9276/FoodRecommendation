@@ -110,11 +110,11 @@
 		document.getElementById("closebtn"+vaab301).style="display:none";
     }
 	
-	function onAddReply(vaab301,vaab101)
+	function onAddReply(vaab301,vaab101,vaaa101)
 	{
 		//提交回复
 		var vform = document.getElementById("myform");
-	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301;
+	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301+"&aab101="+vaab101+"&aaa101="+vaaa101;
 	  	vform.submit();
 	}
 	
@@ -260,6 +260,13 @@
 		showDiv("2");
 		showDiv("1");
 	}
+	function onAssemble(vaab101)
+    {
+  	  	//拼座
+  	 	var vform = document.getElementById("myform");
+  	 	vform.action="<%=path%>/userToAssemblePage.html?aab101="+vaab101;
+  		vform.submit();
+    }
 	
 	
 	//
@@ -401,7 +408,7 @@
                         <c:if test="${sessionScope.userID!=null}">
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="javascript:void(0)" onclick="onShowReserveTable()" class="btn btn-danger">拼座</a>
+                                <a href="javascript:void(0)" onclick="onAssemble(${ins.aab101})" class="btn btn-danger">拼座</a>
                             </div>
                         </div>
                         </c:if>
@@ -799,7 +806,6 @@
                                 
                                 
                                 
-                                
                                 <!--
                                 <span>${row.aab308 } 人觉得很赞</span>
                                 <a href="#"><span class="icon-like"></span>赞</a>
@@ -845,7 +851,7 @@
                                 <br>
                                 <div style="display:none" id="ReplyText${row.aab301 }">                           
                                 <textarea style="width:300px; height:50px" name="ReplyText${row.aab301 }" ></textarea>
-                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 })">提交</a>
+                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 },${row.aaa101 })">提交</a>
                                 </div>
                                 
                                 
