@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=GB18030"
-    pageEncoding="GB18030"%>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 <title>Insert title here</title>
@@ -17,8 +15,8 @@
 <body>
 <div class="guide">
 	<div class="guide-wrap">
-		<a href="javascript:window.scrollTo(0,0)" class="top" title="»Ø¶¥²¿"><span>»Ø¶¥²¿</span></a>
-		<a href="#bottom" class="bottom" title="µ½µ×²¿"><span style="transform:rotate(180deg);">µ½µ×²¿</span></a>
+		<a href="javascript:window.scrollTo(0,0)" class="top" title="å›žé¡¶éƒ¨"><span>å›žé¡¶éƒ¨</span></a>
+		<a href="#bottom" class="bottom" title="åˆ°åº•éƒ¨"><span style="transform:rotate(180deg);">åˆ°åº•éƒ¨</span></a>
 	</div>
 </div>
 </body>

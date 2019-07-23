@@ -3,7 +3,7 @@
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-<title>Home</title>
+<title>商家注册</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
@@ -83,8 +83,8 @@ ${msg}
 							<span><i class="fa fa-phone" aria-hidden="true"></i></span>
 							<e:text placeholder="请输入商家联系电话" name="aab107" required="true"/>
 						</div>
-							<input id="submit-btn" class="btn btn-danger btn-block" type="submit" name="next" value="注册"
-        					formaction="<%=path%>/busi.html">      
+							<input id="submit-btn"  class="btn btn-danger btn-block" type="submit" name="next" value="注册"
+        					formaction="<%=path%>/busiRegister.html">
 							<a href="<%=path %>/busiLogin.jsp">
 							<input class="btn btn-danger btn-block" type="button" name="next" value="已有账号，马上登录">
 							</a> 

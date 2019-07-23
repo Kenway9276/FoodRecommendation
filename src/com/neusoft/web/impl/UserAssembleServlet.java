@@ -7,6 +7,7 @@ public class UserAssembleServlet extends UserControllerSupport
 	public String execute() throws Exception 
 	{
 		this.saveUserAssembleInstance();
+		this.busiConvertBusiId();
 		return "userAssemble";
 	}
 

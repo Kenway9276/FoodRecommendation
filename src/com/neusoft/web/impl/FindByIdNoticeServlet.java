@@ -6,5 +6,4 @@ public class FindByIdNoticeServlet extends UserControllerSupport {
 		this.saveNoticeInstance();
 		return "userNoticeInfo";
 	}
-
 }

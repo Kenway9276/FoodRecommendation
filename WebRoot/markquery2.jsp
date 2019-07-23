@@ -88,7 +88,7 @@
 
     <!--============================= DETAIL =============================-->
     <section>
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin: 0 auto;">
             <div class="row">
                 <div class="col-md-7 responsive-wrap">
                     <div class="row detail-filter-wrap">
