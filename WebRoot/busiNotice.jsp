@@ -109,9 +109,10 @@ function onEdit(vaac201)
     </c:otherwise>
   </c:choose>
 </table>
+<input type="submit" name="next" value="·µ»Ø" formaction="<%=path %>/busiReturn.html" formnovalidate="formnovalidate">
 </form>
 <div style="align:center">
-<input type="submit" name="next" value="·µ»Ø" formaction="<%=path %>/busiReturn.html" formnovalidate="formnovalidate">
+<%-- <input type="submit" name="next" value="·µ»Ø" formaction="<%=path %>/busiReturn.html" formnovalidate="formnovalidate"> --%>
 </div>
 </body>
 </html>

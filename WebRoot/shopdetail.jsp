@@ -333,8 +333,8 @@
 
             <div style="width:100%;height:300px">
 
-                    <a href="upload/${ad.address }" class="grid image-link">
-                        <img src="upload/${ad.address }" class="img-fluid" alt="#">
+                    <a href="<%=path%>/${ad.address }" class="grid image-link">
+                        <img src="<%=path%>/${ad.address }" class="img-fluid" alt="#">
 
                     </a>
             </div>

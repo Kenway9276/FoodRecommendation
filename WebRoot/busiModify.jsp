@@ -44,7 +44,7 @@ ${msg}
 <h1></h1>
 	<div class="container">
 		
-		<div class="agile_info" style="height:950px">
+		<div class="agile_info" style="height:auto">
 			<div class="w3l_form">
 				<div class="left_grid_info">
 					<div class="login100-pic js-tilt" data-tilt>
@@ -66,6 +66,8 @@ ${msg}
 						</div>    
        					<input class="btn btn-danger btn-block" type="submit" name="next" value="修改商家账户信息"
        					 formaction="<%=path%>/busiToModifyInfo.html" formnovalidate="formnovalidate">
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="查看商家页面"
+       					 formaction="<%=path%>/shopinfoFindById.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="公告"
        					 formaction="<%=path%>/busiNotice.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="发布优惠券"
