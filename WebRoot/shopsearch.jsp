@@ -59,6 +59,14 @@
     	 vform.submit();
       }
       
+      function onQueryAll()
+      {
+    	  //浏览全部
+     	 var vform = document.getElementById("myform");
+     	 vform.action="<%=path%>/ShopinfoFindAll.html";
+     	 vform.submit();
+      }
+      
       window.onload = function(){
           var btn = document.getElementById("BackToTop");
           var timer = null;
@@ -118,9 +126,18 @@
 										
                                     	<input id="cityName" name="cityName" type="text" placeholder="当前定位: " class="btn-group2">
                                         <input type="text" name="keywords" placeholder="搜索餐厅名或菜品名" required="required" class="btn-group1" />
-                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>搜索<i class="pe-7s-angle-right"></i></button>
+                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>搜索<i class="pe-7s-angle-right"></i></button>                                      
                                         
                                     </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    
+                                        <div class="reserve-btn" align="center">
+                            			<div class="featured-btn-wrap">
+                                		<a href="javascript:void(0)" onclick="onQueryAll()" class="btn btn-danger">浏览全部</a>
+                            			</div>
+                        				</div>
                                 </form>                              
                             </div>
                         </div>

@@ -47,25 +47,76 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	}
 	
 	
+	public List<Map<String,String>> queryAllShop()throws Exception
+	{
+		/*	aab104--店铺名    aab111--评分           aab114--点评数
+		 * 	aab106--地址        aab113--商家图标
+		 *  aab207--菜品名
+		 */	
+		StringBuilder sql=new StringBuilder()
+				.append(" select ab01.aab101 , aab104 , aab113 , aab111, ") 
+				.append(" aab114 , aab106 , aab107 , aab110  from ab01 ") 
+				.append(" left join ab02 on ab01.aab101=ab02.aab101 ")
+				.append(" WHERE ") 
+				.append(" aab105='1' ")
+				.append(" AND aab106 like CONCAT('%', ?, '%')")
+				.append(" group by ab01.aab101 ");
+
+
+		Object args[]=
+		{
+				this.get("localcity")
+		};
+		
+		return this.queryForList(sql.toString(), args);
+	}
+	
+	
+	
+	
 	
 	//查询餐厅并按照评分排序
 	public List<Map<String,String>> queryOrderByScore()throws Exception
 	{
 		//aab111--评分
-		StringBuilder sql=new StringBuilder()
-				.append(" select ab01.aab101 , aab104 , aab113 , aab111, ") 
-				.append(" aab114 , aab106 , aab107 , aab110  from ab01 ") 
-				.append(" left join ab02 on ab01.aab101=ab02.aab101 ")
-				.append(" WHERE (aab104 like CONCAT('%', ?, '%') ") 
-				.append(" OR aab207 like CONCAT('%', ?, '%') ) AND aab105='1' ")
-				.append(" AND aab106 like CONCAT('%', ?, '%')")
-				.append(" group by ab01.aab101 ")
-		        .append(" ORDER BY ab01.aab111 DESC ");
 		
-		Object args[]={	this.get("CurrentKeywords"),
-						this.get("CurrentKeywords"),
-						this.get("CurrentCityName")};
-		return this.queryForList(sql.toString(), args);
+		//搜索情况下
+		if((this.get("CurrentKeywords")!=null)&&(this.get("CurrentCityName")!=null))
+		{
+			StringBuilder sql1=new StringBuilder()
+					.append(" select ab01.aab101 , aab104 , aab113 , aab111, ") 
+					.append(" aab114 , aab106 , aab107 , aab110  from ab01 ") 
+					.append(" left join ab02 on ab01.aab101=ab02.aab101 ")
+					.append(" WHERE (aab104 like CONCAT('%', ?, '%') ") 
+					.append(" OR aab207 like CONCAT('%', ?, '%') ) AND aab105='1' ")
+					.append(" AND aab106 like CONCAT('%', ?, '%')")
+					.append(" group by ab01.aab101 ")
+			        .append(" ORDER BY ab01.aab111 DESC ");
+			
+			Object args[]={	this.get("CurrentKeywords"),
+							this.get("CurrentKeywords"),
+							this.get("CurrentCityName")};
+			return this.queryForList(sql1.toString(), args);
+		}
+		
+		
+		//浏览全部情况下
+		else
+		{
+			StringBuilder sql2=new StringBuilder()
+					.append(" select ab01.aab101 , aab104 , aab113 , aab111, ") 
+					.append(" aab114 , aab106 , aab107 , aab110  from ab01 ") 
+					.append(" left join ab02 on ab01.aab101=ab02.aab101 ")
+					.append(" WHERE ") 
+					.append(" aab105='1' ")
+					.append(" AND aab106 like CONCAT('%', ?, '%')")
+					.append(" group by ab01.aab101 ")
+			        .append(" ORDER BY ab01.aab111 DESC ");
+			
+			Object args[]={this.get("localcity")};
+			return this.queryForList(sql2.toString(), args);
+		}
+		
 	}
 	
 	
@@ -75,19 +126,41 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	{
 		//aab114--点评数
 		//判断关键词是否为空
-		StringBuilder sql=new StringBuilder()
-				.append(" select ab01.aab101 , aab104 , aab113 , aab111, ") 
-				.append(" aab114 , aab106 , aab107 , aab110  from ab01 ") 
-				.append(" left join ab02 on ab01.aab101=ab02.aab101 ")
-				.append(" WHERE (aab104 like CONCAT('%', ?, '%') ") 
-				.append(" OR aab207 like CONCAT('%', ?, '%') ) AND aab105='1' ")
-				.append(" AND aab106 like CONCAT('%', ?, '%')")
-				.append(" group by ab01.aab101 ")
-			    .append(" ORDER BY ab01.aab114 DESC ");
-		Object args[]={	this.get("CurrentKeywords"),
-						this.get("CurrentKeywords"),
-						this.get("CurrentCityName")};
-		return this.queryForList(sql.toString(), args);
+		if((this.get("CurrentKeywords")!=null)&&(this.get("CurrentCityName")!=null))
+		{
+			StringBuilder sql1=new StringBuilder()
+					.append(" select ab01.aab101 , aab104 , aab113 , aab111, ") 
+					.append(" aab114 , aab106 , aab107 , aab110  from ab01 ") 
+					.append(" left join ab02 on ab01.aab101=ab02.aab101 ")
+					.append(" WHERE (aab104 like CONCAT('%', ?, '%') ") 
+					.append(" OR aab207 like CONCAT('%', ?, '%') ) AND aab105='1' ")
+					.append(" AND aab106 like CONCAT('%', ?, '%')")
+					.append(" group by ab01.aab101 ")
+			        .append(" ORDER BY ab01.aab114 DESC ");
+			
+			Object args[]={	this.get("CurrentKeywords"),
+							this.get("CurrentKeywords"),
+							this.get("CurrentCityName")};
+			return this.queryForList(sql1.toString(), args);
+		}
+		
+		
+		//浏览全部情况下
+		else
+		{
+			StringBuilder sql2=new StringBuilder()
+					.append(" select ab01.aab101 , aab104 , aab113 , aab111, ") 
+					.append(" aab114 , aab106 , aab107 , aab110  from ab01 ") 
+					.append(" left join ab02 on ab01.aab101=ab02.aab101 ")
+					.append(" WHERE ") 
+					.append(" aab105='1' ")
+					.append(" AND aab106 like CONCAT('%', ?, '%')")
+					.append(" group by ab01.aab101 ")
+			        .append(" ORDER BY ab01.aab114 DESC ");
+			
+			Object args[]={this.get("localcity")};
+			return this.queryForList(sql2.toString(), args);
+		}
 	}
 	
 	
@@ -157,13 +230,25 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 	//排序后再次存储城市关键词和搜索关键词
 	public Map<String,String> saveCurrentKeyWordsAgain()throws Exception
 	{
-		String Keywords=this.get("CurrentKeywords").toString();
-		String CityName=this.get("CurrentCityName").toString();
-			
-		Map<String, String> map =new HashMap<>();		
-		map.put("CurrentKeywords", Keywords);
-		map.put("CurrentCityName", CityName);
-		return map;
+		if(this.get("CurrentKeywords")!=null)
+		{
+			String Keywords=this.get("CurrentKeywords").toString();
+			String CityName=this.get("CurrentCityName").toString();
+				
+			Map<String, String> map =new HashMap<>();		
+			map.put("CurrentKeywords", Keywords);
+			map.put("CurrentCityName", CityName);
+			return map;
+		}
+		
+		else
+		{				
+			Map<String, String> map =new HashMap<>();		
+			map.put("CurrentKeywords", null);
+			map.put("CurrentCityName", this.get("localcity").toString());
+			return map;
+		}
+		
 	}
 	
 	
