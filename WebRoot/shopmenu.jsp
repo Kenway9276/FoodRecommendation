@@ -9,23 +9,23 @@
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
-<link href="css/xzs1_bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<%=path%>/css/xzs1_bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!--// bootstrap-css -->
 <!-- css -->
-<link rel="stylesheet" href="css/xzs1_style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<%=path%>/css/xzs1_style.css" type="text/css" media="all" />
 <!--// css -->
-<link rel="stylesheet" href="css/xzs1_lightbox.css">  
-<link rel="stylesheet" href="css/xzs1_owl.carousel.css" type="text/css" media="all">
-<link href="css/xzs1_owl.theme.css" rel="stylesheet">
+<link rel="stylesheet" href="<%=path%>/css/xzs1_lightbox.css">  
+<link rel="stylesheet" href="<%=path%>/css/xzs1_owl.carousel.css" type="text/css" media="all">
+<link href="<%=path%>/css/xzs1_owl.theme.css" rel="stylesheet">
 <!-- font-awesome icons -->
-<link href="css/xzs1_font-awesome.css" rel="stylesheet"> 
+<link href="<%=path%>/css/xzs1_font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 <!-- font -->
 <link href="http://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 <!-- //font -->
-<script src="js/xzs1_jquery-1.11.1.min.js"></script>
-<script src="js/xzs1_bootstrap.js"></script>
+<script src="<%=path%>/js/xzs1_jquery-1.11.1.min.js"></script>
+<script src="<%=path%>/js/xzs1_bootstrap.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -54,6 +54,14 @@ function onback()
 	history.back(-1)
 }
 </script>
+<style>
+.lb-data .lb-caption {
+    font-size: 20px;
+    line-height: 1.8em;
+    color: #fff;
+    letter-spacing: 1px;
+}
+</style>
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -106,8 +114,8 @@ function onback()
 	
 	
 	<!-- //footer -->
-	<script src="js/xzs1_jarallax.js"></script>
-	<script src="js/xzs1_SmoothScroll.min.js"></script>
+	<script src="<%=path%>/js/xzs1_jarallax.js"></script>
+	<script src="<%=path%>/js/xzs1_SmoothScroll.min.js"></script>
 	<script type="text/javascript">
 		/* init Jarallax */
 		$('.jarallax').jarallax({
@@ -116,9 +124,9 @@ function onback()
 			imgHeight: 768
 		})
 	</script>
-	<script src="js/xzs1_responsiveslides.min.js"></script>
-	<script type="text/javascript" src="js/xzs1_move-top.js"></script>
-	<script type="text/javascript" src="js/xzs1_easing.js"></script>
+	<script src="<%=path%>/js/xzs1_responsiveslides.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/xzs1_move-top.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/xzs1_easing.js"></script>
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -137,6 +145,6 @@ function onback()
 	</script>
 	<!-- //here ends scrolling icon -->
 	<!-- Tabs-JavaScript -->
-	<script src="js/xzs1_owl.carousel.js"></script>  
+	<script src="<%=path%>/js/xzs1_owl.carousel.js"></script>  
 </body>	
 </html>
