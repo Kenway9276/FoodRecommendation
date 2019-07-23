@@ -326,8 +326,8 @@
 
             <div style="width:100%;height:300px">
 
-                    <a href="upload/${ad.address }" class="grid image-link">
-                        <img src="upload/${ad.address }" class="img-fluid" alt="#">
+                    <a href="${ad.address }" class="grid image-link">
+                        <img src="${ad.address }" class="img-fluid" alt="#">
 
                     </a>
             </div>
