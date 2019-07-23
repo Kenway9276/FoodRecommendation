@@ -54,7 +54,7 @@ public class BaseServlet extends HttpServlet
 
      		//为业务控制器织入DTO切片
 
-
+//     		if(controllerFirstName.contains("ReleaseNotice")
 
      		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("Certificate")
      				||controllerFirstName.contains("BusiModifyDishPic")||controllerFirstName.contains("ModifyEnvironment")
