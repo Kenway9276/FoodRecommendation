@@ -65,7 +65,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			;
     	Object args[]={
     			"1",
-    			this.get("busiID"),
+    			this.get("aab101"),
     	};
     	return this.executeUpdate(sql.toString(), args)>0;
     	
@@ -80,7 +80,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			;
     	Object args[]={
     			"0",
-    			this.get("busiID"),
+    			this.get("aab101"),
     	};
     	return this.executeUpdate(sql.toString(), args)>0;
     	
