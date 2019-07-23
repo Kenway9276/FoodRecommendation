@@ -19,7 +19,7 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
-    <title>Listing &amp; Directory Website Template</title>
+    <title>…Ãº“œÍ«È</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
     <!-- Google Fonts -->
