@@ -1,7 +1,7 @@
 @charset "utf-8";
 html,body{width:100%; height:100%; padding:0; margin:0;}
 /* about-history */
-.about-history{ height:701px; padding:64px 106px 0; background:url(../images/bg4.jpg) no-repeat center fixed; -webkit-background-size:100% 100%; background-size:100% 100%;}
+.about-history{ height:701px; padding:64px 106px 0; background:url(../images/bg5.jpg) no-repeat center fixed; -webkit-background-size:100% 100%; background-size:100% 100%;}
 .about-title {margin-bottom: 25px;}
 .about-title h3 {margin: 0 0 10px;font-size:34px;font-weight:400;color: #2c2c2c;}
 .about-title p {margin: 0;font-size: 36px;font-weight: 300;color: #ECECEC;}
