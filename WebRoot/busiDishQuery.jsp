@@ -103,6 +103,13 @@ h2{
 .fl-table tr:nth-child(even) {
     background: #F8F8F8;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 
 /* Responsive */
 

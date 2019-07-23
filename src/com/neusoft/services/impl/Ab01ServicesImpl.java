@@ -890,7 +890,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  			Object aab113 = "upload/" + imgPath;
 		  			paramList.add(aab113);
 		  		}
-		  		if(this.isNotNull(imgPath))
+		  		if(this.isNotNull(this.get("aab103")))
 		  		{
 		  			sql.append(" ,a.aab103=? ");
 		  			Object aab103=Tools.getMd5(this.get("aab103")); 

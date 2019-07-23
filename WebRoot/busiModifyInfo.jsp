@@ -5,7 +5,7 @@
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-<title>Home</title>
+<title>商家修改账户信息</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
@@ -45,9 +45,20 @@ i.fa.fa-star
 {
 color:#87CEFA;
 }
+i.fa.fa-smile-o
+{
+color:#87CEFA;
+}
 .btn-danger 
 {
 background-color: #87CEFA;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
 }
 </style>
 <script>    
@@ -119,7 +130,7 @@ background-color: #87CEFA;
     }
 	</script>
 </head>
-<body>
+<body >
 <div style="color:#FFFFFF">
 ${msg}
 </div>
@@ -164,7 +175,8 @@ ${msg}
 							<span><i class="fa fa-star" aria-hidden="true"></i></span>
 							<e:radio id="aab110"  name="aab110" value="接受预定:1,不接受预订:0" defval="${empty ins.aab101?'0':ins.aab110}"/>
 						</div>
-						<div class="input-group"> 
+						<div class="input-group" style="height:45px;margin-top: 12px;"> 
+						<span><i class="fa fa-smile-o" aria-hidden="true"></i></span>
 							<input type="checkbox" name="aaab112" class="aab112" id="airconditional" onclick="aircheck(this)" value="1" ${Equipment.e0=='1'?"checked='checked'":""}>空调
 							<input type="checkbox" style="display:none" name="aaab112" class="aab112" id="airconditional-copy" value="0" ${Equipment.e0=='0'?"checked='checked'":""}>
 							<input type="checkbox" name="baab112" class="aab112" id="wifi" onclick="wificheck(this)" value="1" ${Equipment.e1=='1'?"checked='checked'":""}>WIFI

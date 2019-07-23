@@ -436,7 +436,7 @@
                         </div>
                         </c:if>
                         
-                        <c:if test="${sessionScope.adminID!=null}">
+                        <c:if test="${sessionScope.busiID!=null}">
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
                                 <a href="javascript:void(0)" onclick="onReturnShop()" class="btn btn-danger">·µ»Ø</a>
