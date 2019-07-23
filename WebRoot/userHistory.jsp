@@ -20,7 +20,7 @@
 	}
 	table tr:nth-child(even)
 	{
-	background:#f33131;
+	background:#f08080;
 	}
 	button{
 	display:inline-block;
