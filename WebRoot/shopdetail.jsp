@@ -279,6 +279,15 @@
 	  	vform.submit();
 	}
 	
+	
+	function onReturnShop()
+	{
+		//返回商家管理
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/busiReturn.html";
+	  	vform.submit();
+	}
+	
 </script>
 <link rel="stylesheet" href="css/style_nav.css"/>
 
@@ -296,6 +305,7 @@
 	
 
     <!--============================= HEADER =============================-->
+    <c:if test="${sessionScope.busiID==null}">
     <div class="c-nav">
 	<div class="container navFlex">
 		<div class="flexItem">
@@ -317,7 +327,8 @@
 			</ul>
 		</div>
 	</div>
-</div>
+	</div>
+	</c:if>
     <!--//END HEADER -->
     <!--============================= BOOKING =============================-->
     <div>
@@ -418,6 +429,14 @@
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
                                 <a href="javascript:void(0)" onclick="onCloseShop(${ins.aab101 })" class="btn btn-danger">关停商家</a>
+                            </div>
+                        </div>
+                        </c:if>
+                        
+                        <c:if test="${sessionScope.adminID!=null}">
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a href="javascript:void(0)" onclick="onReturnShop()" class="btn btn-danger">返回</a>
                             </div>
                         </div>
                         </c:if>
@@ -985,7 +1004,6 @@
 	map.addControl(new BMap.NavigationControl());    
 	map.addControl(new BMap.ScaleControl());    
 	map.addControl(new BMap.OverviewMapControl());    
-	map.addControl(new BMap.MapTypeControl());
 	// 创建地址解析器实例
 	var myGeo = new BMap.Geocoder();
 	// 将地址解析结果显示在地图上,并调整地图视野
