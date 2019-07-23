@@ -120,12 +120,12 @@ ${msg}
     						<ul class="file-list "></ul>
 						</div>
             <input style="width:49%" id="choose-file" class="btn btn-danger btn-block" type="file"
-       					 name="aab202"  multiple value="选择图片（请使用control一次选完）" required="required">
-       					<input style="width:49%;height: 56px" class="btn btn-danger btn-block" type="submit" name="next" value="上传环境图片"
-       					 formaction="<%=path%>/busiModifyEnvironmentPic.html">
-       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="返回" style="width: 98.8%;"
-       					 formaction="<%=path%>/busiReturn.html" formnovalidate="formnovalidate">     
-            </div>
+			 name="aab202"  multiple value="选择图片（请使用control一次选完）" required="required">
+			<input style="width:49%;height: 56px" class="btn btn-danger btn-block" type="submit" name="next" value="上传环境图片"
+			 formaction="<%=path%>/busiModifyEnvironmentPic.html">
+			 <input class="btn btn-danger btn-block" type="submit" name="next" value="返回" style="width: 98.8%;"
+			 formaction="<%=path%>/busiReturn.html" formnovalidate="formnovalidate">     
+         	</div>
             
         </div>
 						</div> 

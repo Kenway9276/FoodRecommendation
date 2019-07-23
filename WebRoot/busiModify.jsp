@@ -39,12 +39,12 @@ color: #87CEFA;
 ${msg}
 </div>
 <br>
-<form action="<%=path %>/busiLogin.html" method="post">
+<form action="<%=path %>/busiLogin.html" method="post" style="margin-top:-30px;">
 <div class="signupform">.
 <h1></h1>
 	<div class="container">
 		
-		<div class="agile_info" style="height:830px">
+		<div class="agile_info" style="height:950px">
 			<div class="w3l_form">
 				<div class="left_grid_info">
 					<div class="login100-pic js-tilt" data-tilt>
@@ -68,8 +68,12 @@ ${msg}
        					 formaction="<%=path%>/busiToModifyInfo.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="公告"
        					 formaction="<%=path%>/busiNotice.html" formnovalidate="formnovalidate">
-       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="优惠券"
-       					 formaction="">
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="发布优惠券"
+       					 formaction="<%=path%>/publishCoupon.jsp" formnovalidate="formnovalidate">
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="验证优惠券"
+       					 formaction="<%=path%>/checkCoupon.jsp" formnovalidate="formnovalidate">
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="查看优惠券"
+       					 formaction="<%=path%>/couponListShop.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="资质证明"
        					 formaction="<%=path%>/busiToCertificationPage.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="环境图"
