@@ -1,6 +1,8 @@
 package com.neusoft.web.support;
 
 import com.google.gson.Gson;
+
+import org.apache.catalina.Session;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -54,7 +56,12 @@ public class BaseServlet extends HttpServlet
 
      		//为业务控制器织入DTO切片
 
-//     		if(controllerFirstName.contains("ReleaseNotice")
+     		if(controllerFirstName.contains("Logout"))
+     		{
+     			request.getSession().removeAttribute("userID");
+     			request.getSession().removeAttribute("busiID");
+     			request.getSession().removeAttribute("adminID");
+     		}
 
      		if(controllerFirstName.contains("ReleaseNotice")||controllerFirstName.contains("Certificate")
      				||controllerFirstName.contains("BusiModifyDishPic")||controllerFirstName.contains("ModifyEnvironment")

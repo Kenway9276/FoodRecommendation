@@ -1535,7 +1535,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 						.append("  WHERE aaa101=?")
 						;
 				Map<String, String> tem = queryForMap(sql.toString(), this.get("userID"));
-				String msg = "您的拼座申请已被用户" + tem.get("aab103") +"接受，请联系" + tem.get("aaa107") + "如未谈妥，请重新发起拼座";
+				String msg = "您的拼座申请已被用户" + tem.get("aaa103") +"接受，请联系:" + tem.get("aaa107") + "如未谈妥，请重新发起拼座";
 				this.closeAssembleById();
 				Map<String,String> tmp = this.getAssembleById();
 				return this.addMessageToCust(msg, String.valueOf(tmp.get("aaa101")));
