@@ -167,7 +167,7 @@
                     <c:otherwise>
                     <c:if test="${msg!='登陆成功!' }">                  
                     <div class="styled-heading">
-                        <h3>暂无搜索结果!${msg }</h3>
+                        <h3>暂无搜索结果!</h3>
                     </div>
                     </c:if>
 
