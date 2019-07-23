@@ -30,7 +30,6 @@
 	</style>
 </head>
 <body>
-<%-- <%@ include file="navigate.jsp" %> --%>
 <div class="about-history" id="fzlc">
     <header class="about-title title-white">
         <h3 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">我们和你的故事</h3>
