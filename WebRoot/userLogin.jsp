@@ -24,14 +24,18 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>Welcome !</h3>
-					<h4>我们的美食网站是最好的美食网站。</h4>
-					<p> Our food website is one of the best.</p>
+					<h3>欢迎 !</h3><br>
+					<h4>雪沫乳花浮午盏，蓼茸蒿笋试春盘。</h4><br>
+					<h4>白鳞鲙细供春酒，红尾羹香奉晚餐。</h4><br>
+					<hr width="400px" color="#FFFFFF">
+					<p>春江水暖，刀鱼最鲜；夏天滋补，笋干炖鸡；秋季肥美，鱼头不容错过；冬日最爱，必是那热腾腾的火锅。</p>
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>Sign In</h2>
-				<p>用户登陆</p>
+				<div style="text-align:center">
+					<h2>用户登录</h2>				
+				</div>
+				<br><br><br>
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text name="aaa102" required="true" autofocus="true" />
