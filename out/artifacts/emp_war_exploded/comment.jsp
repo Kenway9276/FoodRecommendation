@@ -70,7 +70,7 @@ function addcomment(vaab101)
 					
 		            <h3 align="center">ÆÀ·Ö</h3>
 		            <div class="rating-stars block" id="rating">
-		                <input type="hidden" readonly required class="form-control rating-value" name="aab307" id="rating-stars-value">
+		                <input type="hidden" readonly value="5" class="form-control rating-value" name="aab307" id="rating-stars-value">
 		                <div class="rating-stars-container">
 		                    <div class="rating-star">
 		                        <i class="fa fa-star"></i>
