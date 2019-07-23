@@ -484,7 +484,7 @@ public abstract class ControllerSupport implements BaseController
 			Map<String,String> ins=this.services.getAssembleById();
 			if(ins!=null)
 			{
-				this.saveAttribute("ins",  ins);
+				this.saveAttribute("ains",  ins);
 			}	
 		}
 	//ajax存储用户名是否重复信息
