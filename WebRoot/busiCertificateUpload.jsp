@@ -17,6 +17,13 @@
 {
 background-color: #87CEFA;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 </style>
 <script type="text/javascript">
 
@@ -79,12 +86,11 @@ background-color: #87CEFA;
         }
 </script>  
 </head>
-<body>
+<body >
 <div style="color:#FFFFFF">
-${msg}
 </div>
 <br>
-<form action="<%=path %>/busiAddCertificate.html" method="post">
+<form action="<%=path %>/busiAddCertificate.html" enctype="multipart/form-data" method="post">
 <div class="signupform">.
 <h1></h1>
 	<div class="container">

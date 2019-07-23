@@ -169,9 +169,16 @@ h2{
         text-align: center;
     }
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 </style>
 </head>
-<body>
+<body >
 <div class="controls" >
 	<input style="display: none;"  class="controls__slider" data-slider type="range" min="300" max="700" step="1" value="600" />
 <h2>用户申请订座信息</h2>

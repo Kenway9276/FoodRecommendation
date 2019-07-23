@@ -31,10 +31,17 @@ i.fa.fa-star
 {
 color: #87CEFA;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 </style>
 
 </head>
-<body>
+<body  >
 <div style="color:#FFFFFF">
 ${msg}
 </div>
@@ -44,7 +51,7 @@ ${msg}
 <h1></h1>
 	<div class="container">
 		
-		<div class="agile_info" style="height:950px">
+		<div class="agile_info" style="height:auto">
 			<div class="w3l_form">
 				<div class="left_grid_info">
 					<div class="login100-pic js-tilt" data-tilt>
@@ -66,6 +73,8 @@ ${msg}
 						</div>    
        					<input class="btn btn-danger btn-block" type="submit" name="next" value="修改商家账户信息"
        					 formaction="<%=path%>/busiToModifyInfo.html" formnovalidate="formnovalidate">
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="查看商家页面"
+       					 formaction="<%=path%>/shopinfoFindById.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="公告"
        					 formaction="<%=path%>/busiNotice.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="发布优惠券"
@@ -85,7 +94,7 @@ ${msg}
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="用户订座"
        					 formaction="<%=path%>/busiManageReservation.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="登出"
-       					 formaction="<%=path%>/userLogin.jsp" formnovalidate="formnovalidate">
+       					 formaction="<%=path%>/busiLogin.jsp" formnovalidate="formnovalidate">
 						
 			</div>
 									</div>
