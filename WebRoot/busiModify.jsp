@@ -31,10 +31,17 @@ i.fa.fa-star
 {
 color: #87CEFA;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 </style>
 
 </head>
-<body>
+<body  >
 <div style="color:#FFFFFF">
 ${msg}
 </div>
@@ -87,7 +94,7 @@ ${msg}
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="ÓÃ»§¶©×ù"
        					 formaction="<%=path%>/busiManageReservation.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="µÇ³ö"
-       					 formaction="<%=path%>/userLogin.jsp" formnovalidate="formnovalidate">
+       					 formaction="<%=path%>/busiLogin.jsp" formnovalidate="formnovalidate">
 						
 			</div>
 									</div>

@@ -19,6 +19,13 @@
     background-color: #87CEFA;
     border-color: #87CEFA;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 </style>
 <title>∑¢≤º”≈ª›»Ø</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">

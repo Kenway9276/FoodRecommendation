@@ -85,11 +85,17 @@ background-color: #87CEFA;
         margin-top: 5px;
         cursor: pointer;
     }
-
+	body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+	}
 
 </style>
 </head>
-<body>
+<body >
 <div style="color:#FFFFFF">
 ${msg}
 </div>
