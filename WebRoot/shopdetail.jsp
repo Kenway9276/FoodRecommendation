@@ -1004,7 +1004,6 @@
 	map.addControl(new BMap.NavigationControl());    
 	map.addControl(new BMap.ScaleControl());    
 	map.addControl(new BMap.OverviewMapControl());    
-	map.addControl(new BMap.MapTypeControl());
 	// 创建地址解析器实例
 	var myGeo = new BMap.Geocoder();
 	// 将地址解析结果显示在地图上,并调整地图视野
