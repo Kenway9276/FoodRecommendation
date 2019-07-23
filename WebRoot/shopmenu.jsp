@@ -3,7 +3,7 @@
 <%String path=request.getContextPath(); %>
 <html lang="en">
 <head>
-<title>Home</title>
+<title>菜单</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset=gb2312 /> 
 <meta name="keywords" content="" />
