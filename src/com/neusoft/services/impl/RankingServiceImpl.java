@@ -30,7 +30,7 @@ public class RankingServiceImpl extends JdbcServicesSupport {
                 .append("FROM ")
                 .append("	ab01 ab01 ")
                 .append("WHERE ")
-                .append("	aab106 LIKE ? ")
+                .append("	aab106 LIKE ? and aab105 = 1 ")
                 .append("ORDER BY ")
                 .append("	aab111 DESC, ")
                 .append("	aab114 DESC ")

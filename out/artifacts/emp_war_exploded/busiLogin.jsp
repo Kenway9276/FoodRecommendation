@@ -49,14 +49,14 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>Welcome !</h3>
+					<h3>欢迎你！</h3>
 					<h4>我们的美食网站是最贴心的美食网站。</h4>
 					<p> Our food website is the most intimate food website.</p>
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>Sign In</h2>
-				<p>商家登录</p>
+				<h2>商家登录</h2>
+
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text name="aab102" required="true" autofocus="true" placeholder="商家用户名"/>

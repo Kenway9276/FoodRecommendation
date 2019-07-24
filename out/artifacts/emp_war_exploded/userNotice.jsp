@@ -97,7 +97,7 @@ function onEdit(vaac201)
       </c:forEach>
     </c:when>
     <c:otherwise>
-       <c:forEach begin="1" step="1" end="15">
+       <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">
           <tr>
             <td></td>
             <td></td>
