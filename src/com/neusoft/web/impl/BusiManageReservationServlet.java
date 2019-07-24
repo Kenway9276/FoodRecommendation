@@ -8,7 +8,6 @@ public class BusiManageReservationServlet extends BusiControllerSupport
 	{
 		this.saveTodoReservationInstance();
 		this.saveReservationInstance();
-		this.busiConvertBusiId();
 		return "busiManageReservation";
 	}
 

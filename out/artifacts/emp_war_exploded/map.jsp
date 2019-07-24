@@ -5,6 +5,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    
+    <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <!-- Simple line Icon -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_simple-line-icons.css">
+    <!-- Themify Icon -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_themify-icons.css">
+    <!-- Hover Effects -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_set1.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
     <style type="text/css">
         body, html {width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
         #l-map{height:100%;width:50%; float:left}
@@ -33,6 +45,12 @@
     </style>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
     <title>导航</title>
+    <script>
+    function onback()
+    {
+    	history.back(-1)
+    }
+    </script>
 </head>
 <body>
 	<%@ include file="navigate.jsp" %>
@@ -43,7 +61,9 @@
 <input type="hidden" id="ad" value="${Address.address }">
 
 
-<div id="r-result"></div>
+<button onclick="onback()" class="btn btn-outline-danger">返回</button>
+<div id="r-result">
+</div>
 </body>
 </html>
 

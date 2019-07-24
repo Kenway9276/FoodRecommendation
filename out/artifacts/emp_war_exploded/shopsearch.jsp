@@ -17,7 +17,7 @@
 	<script type="text/javascript"
 	src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
     <!-- Page Title -->
-    <title>Listing &amp; Directory Website Template</title>
+    <title>首页</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
     <!-- Google Fonts -->
@@ -57,6 +57,14 @@
     	 var vform = document.getElementById("myform");
     	 vform.action="<%=path%>/shopinfoSortByCommentCount.html";
     	 vform.submit();
+      }
+      
+      function onQueryAll()
+      {
+    	  //浏览全部
+     	 var vform = document.getElementById("myform");
+     	 vform.action="<%=path%>/ShopinfoFindAll.html";
+     	 vform.submit();
       }
       
       window.onload = function(){
@@ -101,7 +109,7 @@
                     	<div class="slider-title_box">
                     	<div class="row">
                             	<div class="col-md-12">
-                                    <h2 style="color:white">智能美食推荐助手</h2>
+                                    <h2 style="color:white">食分有料</h2>
                                 </div>
                         </div>
                         <div class="row d-flex justify-content-center">
@@ -118,9 +126,18 @@
 										
                                     	<input id="cityName" name="cityName" type="text" placeholder="当前定位: " class="btn-group2">
                                         <input type="text" name="keywords" placeholder="搜索餐厅名或菜品名" required="required" class="btn-group1" />
-                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>搜索<i class="pe-7s-angle-right"></i></button>
+                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>搜索<i class="pe-7s-angle-right"></i></button>                                      
                                         
                                     </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    
+                                        <div class="reserve-btn" align="center">
+                            			<div class="featured-btn-wrap">
+                                		<a href="javascript:void(0)" onclick="onQueryAll()" class="btn btn-danger">浏览全部</a>
+                            			</div>
+                        				</div>
                                 </form>                              
                             </div>
                         </div>
@@ -167,7 +184,7 @@
                     <c:otherwise>
                     <c:if test="${msg!='登陆成功!' }">                  
                     <div class="styled-heading">
-                        <h3>暂无搜索结果!${msg }</h3>
+                        <h3>暂无搜索结果!</h3>
                     </div>
                     </c:if>
 

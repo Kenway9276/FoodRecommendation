@@ -1,13 +1,11 @@
 <%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
-<%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
 <%String path=request.getContextPath(); %>
-<html lang="en">
-
+<html>
 <head>
-    <!-- Required meta tags -->
-    <meta charset=gb2312 />
+<meta charset=gb2312 />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Colorlib">
@@ -16,9 +14,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <script type="text/javascript"
             src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
-    <!-- Page Title -->
-    <title>Listing &amp; Directory Website Template</title>
-    <!-- Bootstrap CSS -->
+<title>查看优惠券</title>
     <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
@@ -30,6 +26,89 @@
     <link rel="stylesheet" href="<%=path%>/css/xzs_set1.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+<link href="<%=path %>/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="<%=path %>/css/style_login.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+<style type="text/css">
+
+    <!-- Required meta tags -->
+    <meta charset=gb2312 /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Colorlib">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="#">
+    <!-- Page Title -->
+    <title>Listing &amp; Directory Website Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/xzs_bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <!-- Simple line Icon -->
+    <link rel="stylesheet" href="css/xzs_simple-line-icons.css">
+    <!-- Themify Icon -->
+    <link rel="stylesheet" href="css/xzs_themify-icons.css">
+    <!-- Hover Effects -->
+    <link rel="stylesheet" href="css/xzs_set1.css">
+    <!-- Swipper Slider -->
+    <link rel="stylesheet" href="css/xzs_swiper.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="css/xzs_magnific-popup.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/xzs_style.css">
+
+
+#preview{width:260px;height:190px;border:1px solid #000;overflow:hidden;}
+#imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}
+.btn-danger 
+{
+background-color: #87CEFA;
+}
+</style>
+
+ <style>
+
+    .add_div {
+        width: 400px;
+        height: 500px;
+        border: solid #ccc 1px;
+        margin-top: 40px;
+        margin-left: 170px;
+        padding-left: 20px;
+    }
+
+    .file-list {
+        height: 125px;
+        display: none;
+        list-style-type: none;
+    }
+
+    .file-list img {
+        max-width: 70px;
+        vertical-align: middle;
+    }
+
+    .file-list .file-item {
+        margin-bottom: 10px;
+        float: left;
+        margin-left: 20px;
+    }
+
+
+    .file-list .file-item .file-del {
+        display: block;
+        margin-left: 20px;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+
+
+</style>
 
     <script type="text/javascript">
 
@@ -77,17 +156,24 @@
 
     </script>
 
+
 </head>
-
 <body>
-
+<div style="color:#FFFFFF">
+${msg}
+</div>
+<br>
 <form id="myform" action="<%=path%>/markQuery.html" method="post">
-    <!-- 暂时 -->
-
-    <input type="hidden" name="aaa101" value="8"></input>
-
-    <!--============================= DETAIL =============================-->
-    <section>
+<div class="signupform">.
+<h1></h1>
+	<div class="container" style="margin-top: 10%">
+		
+		<div class="agile_info">
+			<div class="w3_info" style="-webkit-flex-basis: 100%">
+				<h2 style="color: #87CEFA;">查看优惠券</h2>
+						
+        	
+        	    <section>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-7 responsive-wrap">
@@ -144,14 +230,22 @@
             </div>
         </div>
     </section>
-    <!--//END DETAIL -->
+            
+            
+            
+            <!-- Add Pagination -->    
+         	</div>
+            
+        </div>
+						</div> 
+						 
+       					
+			</div>
+			<div class="clear"></div>
 
-
-
-
-    <!-- jQuery, Bootstrap JS. -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
+		<div class="footer">
+ </div>
+     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
@@ -188,13 +282,10 @@
     </script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
     <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
-
-</form>
-</body>
+ 
+	</form>
+	</body>
 </html>
-
-
-<!-- 百度地图api获取当前城市 -->
 <script type="text/javascript">
     var map = new BMap.Map("allmap");
     var point = new BMap.Point(116.331398,39.897445);

@@ -31,7 +31,21 @@
     	 //alert(vform.action);
     	 vform.submit();
       }
-      
+	  function onAccess(vaac101)
+	  {
+		  var vform = document.getElementById("myform");
+		  vform.action="<%=path%>/busiAccessReservation.html?aac101="+vaac101;
+		  //alert(vform.action);
+		  vform.submit();
+	  }
+
+	  function onRefuse(vaac101)
+	  {
+		  var vform = document.getElementById("myform");
+		  vform.action="<%=path%>/busiRefuseReservation.html?aac101="+vaac101;
+		  //alert(vform.action);
+		  vform.submit();
+	  }
       function onDel(vaab201)
       {
     	 var vform = document.getElementById("myform");
@@ -49,7 +63,7 @@
 body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-    background: #87CEFA;
+    background: #f4f4f4;
 }
 h2{
     text-align: center;
@@ -90,13 +104,15 @@ h2{
 }
 
 .fl-table thead th {
-    color: #ffffff;
+    color: #FFFFFF;
     background: #4FC3A1;
 }
-
+.fl-table td {
+	color: #000000;
+}
 
 .fl-table thead th:nth-child(odd) {
-    color: #ffffff;
+    color: #FFFFFF;
     background: #324960;
 }
 
@@ -169,19 +185,15 @@ h2{
         text-align: center;
     }
 }
-body {
-    padding: 0;
-    margin: 0;
-    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
-    background-size: cover;
-    font-family: 'Raleway', sans-serif;
-}
+
 </style>
 </head>
-<body >
+<body style="color: #FFFFFF">
 <div class="controls" >
-	<input style="display: none;"  class="controls__slider" data-slider type="range" min="300" max="700" step="1" value="600" />
-<h2 style="color:#FFF">用户申请订座信息</h2>
+
+
+<h2 style="margin-top: -70px;">用户申请订座信息</h2>
+
 <div class="table-wrapper">
 <form id="myform" method="post">
     <table class="fl-table">
@@ -244,7 +256,9 @@ body {
 	   </c:choose>
         <tbody>
     </table>
-    <h2 style="color:#FFF">已通过订座信息</h2>
+
+    <h2 style="color: #000000">已通过订座信息</h2>
+
         <table class="fl-table">
         <thead>
         <tr>
@@ -259,7 +273,7 @@ body {
         <c:choose>
 	     <c:when test="${rows!=null }">
 	         <!-- 显示实际查询到的数据 -->
-		     <c:forEach items="${rows }" var="ins" varStatus="vs">
+		     <c:forEach items="${row }" var="ins" varStatus="vs">
 	    	   	  <tr>
 				    <td>${vs.count }</td>
 				    <td>${ins.aaa103 }</td>

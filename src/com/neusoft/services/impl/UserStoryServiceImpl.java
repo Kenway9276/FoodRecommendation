@@ -68,6 +68,7 @@ public class UserStoryServiceImpl extends JdbcServicesSupport {
             parseCodeList(map, "aaa202");
             parseCodeList(map, "aaa203");
             parseCodeList(map, "aaa204");
+            return map;
         }
 
         return null;

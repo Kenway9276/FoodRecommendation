@@ -64,7 +64,7 @@
                 <input type="hidden" name="aaa203"  value="${rows.aaa203 }">
                 <input type="hidden" name="aaa204"  value="${rows.aaa204 }">
                 <div class="blog-slider__img">
-                    <img src="upload/${rows.aab113 }" alt="${rows.aab104 }">
+                    <img src="<%=path%>/${rows.aab113 }" alt="${rows.aab104 }">
                 </div>
                 <div class="blog-slider__content">
                     <span class="blog-slider__code">2018-08-31</span>

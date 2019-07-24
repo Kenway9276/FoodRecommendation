@@ -164,9 +164,7 @@
 	    		<button name="next" type="submit" formaction="<%=path %>/adminNoticeModify.html" formenctype="multipart/form-data">修改</button>
 	    	</c:otherwise>
 	    </c:choose>
-		<a href="<%=path %>/adminNotice.html">
-		<button class="btn btn-danger btn-block" name="next">管理</button>
-		</a> 
+		<button class="btn btn-danger btn-block" onclick="javascript:history.back(-1);" name="next">管理</button>
 </div>
 
 </div>

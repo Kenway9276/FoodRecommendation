@@ -3,7 +3,7 @@
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-    <title>Title</title>
+    <title>–¥µ„∆¿</title>
     <!-- Bootstrap core CSS -->
    <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome core CSS -->
@@ -70,7 +70,7 @@ function addcomment(vaab101)
 					
 		            <h3 align="center">∆¿∑÷</h3>
 		            <div class="rating-stars block" id="rating">
-		                <input type="hidden" readonly required class="form-control rating-value" name="aab307" id="rating-stars-value">
+		                <input type="hidden" readonly value="5" class="form-control rating-value" name="aab307" id="rating-stars-value">
 		                <div class="rating-stars-container">
 		                    <div class="rating-star">
 		                        <i class="fa fa-star"></i>
