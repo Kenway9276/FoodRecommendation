@@ -796,34 +796,36 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    	};
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
-		 private boolean insertAa06()throws Exception
-		 {
-			 	StringBuilder sql=new StringBuilder()
-		    		.append("insert into aa06(aaa101,aab101,aaa602,aaa603)")
-		    		.append("values			(?,?,?,?)")
-		   			;
-		    	Object args[]=
-		    	{
-		    			"1",
-		    			"1",
-		    			"0",
-		    			"2000-01-01"
-		    	};
-		    	return this.executeUpdate(sql.toString(), args)>0;	
-		    }
+//		 private boolean insertAa06()throws Exception
+//		 {
+//			 	StringBuilder sql=new StringBuilder()
+//		    		.append("insert into aa06(aaa101,aab101,aaa602,aaa603)")
+//		    		.append("values			(?,?,?,?)")
+//		   			;
+//		    	Object args[]=
+//		    	{
+//		    			"1",
+//		    			"1",
+//		    			"0",
+//		    			"2000-01-01"
+//		    	};
+//		    	return this.executeUpdate(sql.toString(), args)>0;	
+//		    }
 		 private boolean insertAb04()throws Exception
 		 {
-			 	StringBuilder sql=new StringBuilder()
-		    		.append("insert into ab04(aab101,aab402,aab403,aab404)")
-		    		.append("values			(?,?,?,?)")
-		   			;
-		    	Object args[]=
-		    	{
-		    			"1",
-		    			"0",
-		    			"2016-01-01",
-		    			"2017-02-03"
-		    	};
+			 String rsql = "SELECT aab101 FROM ab01 WHERE aab102 = ?";
+			 Map<String, String> tmp = this.queryForMap(rsql, this.get("aab102"));
+			 StringBuilder sql=new StringBuilder()
+		    	.append("insert into ab04(aab101,aab402,aab403,aab404)")
+		    	.append("values			(?,?,?,?)")
+		   		;
+		    Object args[]=
+		    {
+		    		tmp.get("aab101"),
+		    		"0",
+		    		"2016-01-01",
+		    		"2017-02-03"
+		    };
 		    	return this.executeUpdate(sql.toString(), args)>0;	
 		    }
 		 private boolean busiModify()throws Exception
@@ -1533,7 +1535,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 						.append("  WHERE aaa101=?")
 						;
 				Map<String, String> tem = queryForMap(sql.toString(), this.get("userID"));
-				String msg = "您的拼座申请已被用户" + tem.get("aab103") +"接受，请联系" + tem.get("aaa107") + "如未谈妥，请重新发起拼座";
+				String msg = "您的拼座申请已被用户" + tem.get("aaa103") +"接受，请联系:" + tem.get("aaa107") + "如未谈妥，请重新发起拼座";
 				this.closeAssembleById();
 				Map<String,String> tmp = this.getAssembleById();
 				return this.addMessageToCust(msg, String.valueOf(tmp.get("aaa101")));

@@ -94,7 +94,7 @@ ${msg}
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="ÓÃ»§¶©×ù"
        					 formaction="<%=path%>/busiManageReservation.html" formnovalidate="formnovalidate">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="µÇ³ö"
-       					 formaction="<%=path%>/busiLogin.jsp" formnovalidate="formnovalidate">
+       					 formaction="<%=path%>/logout.html" formnovalidate="formnovalidate">
 						
 			</div>
 									</div>

@@ -195,7 +195,9 @@ body {
 <body >
 <div class="controls" >
 	<input style="display: none;"  class="controls__slider" data-slider type="range" min="300" max="700" step="1" value="600" />
+
 <h2 style="color: #FFFFFF">用户申请订座信息</h2>
+
 <div class="table-wrapper">
 <form id="myform" method="post">
     <table class="fl-table">
@@ -258,7 +260,9 @@ body {
 	   </c:choose>
         <tbody>
     </table>
+
     <h2 style="color: #FFFFFF">已通过订座信息</h2>
+
         <table class="fl-table">
         <thead>
         <tr>
