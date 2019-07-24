@@ -63,7 +63,7 @@
 body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-    background: #87CEFA;
+    background: #f4f4f4;
 }
 h2{
     text-align: center;
@@ -104,13 +104,15 @@ h2{
 }
 
 .fl-table thead th {
-    color: #ffffff;
+    color: #FFFFFF;
     background: #4FC3A1;
 }
-
+.fl-table td {
+	color: #000000;
+}
 
 .fl-table thead th:nth-child(odd) {
-    color: #ffffff;
+    color: #FFFFFF;
     background: #324960;
 }
 
@@ -183,20 +185,13 @@ h2{
         text-align: center;
     }
 }
-body {
-    padding: 0;
-    margin: 0;
-    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
-    background-size: cover;
-    font-family: 'Raleway', sans-serif;
-}
 </style>
 </head>
-<body >
+<body style="color: #FFFFFF">
 <div class="controls" >
-	<input style="display: none;"  class="controls__slider" data-slider type="range" min="300" max="700" step="1" value="600" />
 
-<h2 style="color: #FFFFFF">用户申请订座信息</h2>
+
+<h2 style="margin-top: -70px;">用户申请订座信息</h2>
 
 <div class="table-wrapper">
 <form id="myform" method="post">
@@ -261,7 +256,7 @@ body {
         <tbody>
     </table>
 
-    <h2 style="color: #FFFFFF">已通过订座信息</h2>
+    <h2 style="color: #000000">已通过订座信息</h2>
 
         <table class="fl-table">
         <thead>
