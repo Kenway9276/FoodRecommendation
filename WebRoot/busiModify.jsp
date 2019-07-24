@@ -61,7 +61,7 @@ ${msg}
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>欢迎，${ins.aab104 }</h2>
+				<h2>${ins.aab104 }</h2>
 				<input type="hidden" name="aab101" value="${ins.aab101 }">
 						<div class="input-group">
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
@@ -69,7 +69,7 @@ ${msg}
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-star" aria-hidden="true"></i></span>
-							<input name="aab111" readonly="readonly" type="text" placeholder="商家评分" value="${ins.aab111}(评分)">
+							<input name="aab111" readonly="readonly" type="text" placeholder="商家评分" value="${ins.aab111}(用户评分)">
 						</div>    
        					<input class="btn btn-danger btn-block" type="submit" name="next" value="修改商家账户信息"
        					 formaction="<%=path%>/busiToModifyInfo.html" formnovalidate="formnovalidate">
