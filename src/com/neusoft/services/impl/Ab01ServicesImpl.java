@@ -155,20 +155,22 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			;
     	Gson gson = new Gson();
     	if(this.queryForMap(sql.toString(), this.get("aaa102"))==null){
+    		
+    		String msg = "{\"msg\":0}";
+			Map<String, String> map = new HashMap<>();
+			map.put("msg", "0");
+			String json = gson.toJson(map);
+			System.out.println(json);
+			return json;
+		}
+    	else {
     		String msg = "{\"msg\":1}";
     		Map<String, String> map = new HashMap<>();
     		map.put("msg", "1");
     		String json = gson.toJson(map);
 			System.out.println(json);
     		return json;
-		}
-    	else {
-			String msg = "{\"msg\":0}";
-			Map<String, String> map = new HashMap<>();
-			map.put("msg", "0");
-			String json = gson.toJson(map);
-			System.out.println(json);
-			return json;
+			
 		}
     }
     
@@ -525,11 +527,15 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 	  }
 	    
 	    public void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
-	        String[] elements = tem.get(labelName).split(",");
-	        for(int i = 0; i < elements.length; i++){
-	            elements[i] = convertCodeToName(elements[i], labelName);
-	        }
-	        tem.put(labelName, Tools.joinArray(elements)) ;
+	  		if(tem.get(labelName) != null){
+				String[] elements = tem.get(labelName).split(",");
+				for(int i = 0; i < elements.length; i++){
+					elements[i] = convertCodeToName(elements[i], labelName);
+				}
+				tem.put(labelName, Tools.joinArray(elements)) ;
+			}
+
+
 	    }
 
 	    /**
@@ -1103,16 +1109,16 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		  		}
 		  		if(this.isNotNull(aaa502))
 		  		{
-		  			sql.append(" and b.aaa502>=?");
+		  			sql.append(" and b.aaa502<=?");
 		  			paramList.add(aaa502);
 		  		}
 		  		if(this.isNotNull(aaa503))
 		  		{
-		  			sql.append(" and b.aaa503<=?");
+		  			sql.append(" and b.aaa503>=?");
 		  			paramList.add(aaa503);
 		  		}
 		  		
-		  		sql.append(" order by a.aab104");
+		  		sql.append(" order by b.aaa503");
 		  		return this.queryForList(sql.toString(), paramList.toArray());
 		  }
 		 public List<Map<String,String>> busiQuery()throws Exception
@@ -1181,6 +1187,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			 .append("		 b.aaa103")
 		    			 .append("	FROM ac01 a,aa01 b")
 		    			 .append(" WHERE a.aaa101 = b.aaa101  ")
+		    			 .append("	AND  a.aac103 > CURRENT_TIMESTAMP ")
 		    			 .append("	AND  a.aab101 = ? ")
 		    			 .append(" 	AND  a.aac106 = ? ")
 		    			 ;
@@ -1199,6 +1206,7 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 		    			 .append("		 b.aaa103")
 		    			 .append("	FROM ac01 a,aa01 b")
 		    			 .append(" WHERE a.aaa101 = b.aaa101  ")
+		    			 .append("	AND  a.aac103 > CURRENT_TIMESTAMP ")
 		    			 .append("	AND  a.aab101 = ? ")
 		    			 .append(" 	AND  a.aac106 = ? ")
 		    			 ;
@@ -1550,4 +1558,29 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 					};
 				return this.executeUpdate(sql, args)>0;
 			}
+		    private String busiNameCheck() throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("select aab102 from ab01 ")
+		    			.append("where  aab102=?")
+		    			;
+		    	Gson gson = new Gson();
+		    	if(this.queryForMap(sql.toString(), this.get("aab102"))==null){
+		    		String msg = "{\"msg\":0}";
+					Map<String, String> map = new HashMap<>();
+					map.put("msg", "0");
+					String json = gson.toJson(map);
+					System.out.println(json);
+					return json;
+				}
+		    	else {
+		    		String msg = "{\"msg\":1}";
+		    		Map<String, String> map = new HashMap<>();
+		    		map.put("msg", "1");
+		    		String json = gson.toJson(map);
+					System.out.println(json);
+		    		return json;
+					
+				}
+		    }
 }

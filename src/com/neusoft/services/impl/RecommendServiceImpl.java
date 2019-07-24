@@ -122,12 +122,57 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
 
         Object aaa206 = this.get("currentCity");
         Object aaa101 = this.get("userID");
-        String sql = "select aaa201 from aa02 where aaa203 = ? and aaa204 = ? and aaa202 = ?";
-        List list =  this.queryForList(sql, aaa203, aaa204, aaa202);
+        List<Object> params = new ArrayList<>();
+        String sql = "select aaa201 from aa02 where true ";
+        if(aaa203 != null){
+            params.add(aaa203);
+            sql += " and aaa203 = ? ";
+        }
+        if(aaa204 != null){
+            params.add(aaa204);
+            sql += " and aaa204 = ? ";
+        }
+        if(aaa202 != null){
+            params.add(aaa202);
+            sql += " and aaa202 = ? ";
+        }
+
+        List list =  this.queryForList(sql, params.toArray());
         if(list.size() == 0){
             sql = "insert into aa02 (aaa101,aaa202,aaa203,aaa204,aaa206) values (?,?,?,?,?)";
             this.executeUpdate(sql, aaa101,aaa202,aaa203,aaa204,aaa206);
         }
+    }
+
+    private String getPreferenceID2(Object aaa203, Object aaa204, Object aaa202) throws Exception{
+        Object aaa206 = this.get("currentCity");
+        Object aaa101 = this.get("userID");
+        List<Object> params = new ArrayList<>();
+        String sql = "select aaa201 from aa02 where true ";
+        if(aaa203 != null){
+            params.add(aaa203);
+            sql += " and aaa203 = ? ";
+        }
+        if(aaa204 != null){
+            params.add(aaa204);
+            sql += " and aaa204 = ? ";
+        }
+        if(aaa202 != null){
+            params.add(aaa202);
+            sql += " and aaa202 = ? ";
+        }
+
+        List<Map<String,String>> list =  this.queryForList(sql, params.toArray());
+        if(list.size() > 0){
+            return list.get(0).get("aaa201");
+        }
+        return "null";
+    }
+
+    public String getPreferenceIDWithoutFlavour(Object userID) throws Exception{
+        String sql = "select aaa201 from aa02 where aaa101 = ? and aaa202 is null and aaa203 is null and aaa204 is null";
+        Map<String, String> res = this.queryForMap(sql, userID);
+        return res.get("aaa201");
     }
 
     private List<Map<String, String>> queryForNew() {
@@ -202,6 +247,10 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
     public Map<String, String> getRecommend2() throws Exception{
         resetAa06();
 
+        Object aaa202 = this.get("aaa202");
+        Object aaa203 = this.get("aaa203");
+        Object aaa204 = this.get("aaa204");
+
         List<Map<String, String>> list = null;
 
         // 初步筛选，获取口味暂时相似的餐厅
@@ -218,7 +267,10 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
             list =  parseRecommendList(list);
         }
 
-        // 解析list，按照有没有推广的状态排序
+        // 解析list，放入偏好流水号
+        for (Map<String, String> map :list) {
+            map.put("aaa201", getPreferenceID2(aaa203, aaa204, aaa202));
+        }
 
         // 存到缓存中
         RedisUtils.SerializableSet("recommend_list", list);
@@ -278,6 +330,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 if(map.get("aab207") == null){
                     menu = tem;
                     map.put("aab101", ins.get("aab101"));
+                    map.put("aab104", ins.get("aab104"));
                     map.put("aab106", ins.get("aab106"));
                     map.put("aab107", ins.get("aab107"));
                     map.put("aab113", ins.get("aab113"));
@@ -297,6 +350,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 map.put("aab106", ins.get("aab106"));
                 map.put("aab107", ins.get("aab107"));
                 map.put("aab113", ins.get("aab113"));
+                map.put("aab104", ins.get("aab104"));
                 map.put("aab111", ins.get("aab111"));
                 tem_shop_id = ins.get("aab101");
             }
@@ -335,11 +389,9 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("	aab204	 ")
                 .append("FROM ")
                 .append("	ab01 ab01 ")
-                .append("	LEFT JOIN ab02 ON ab02.aab101 = ab01.aab101 ")
-                .append("	LEFT JOIN aa06 ON aa06.aaa101 = 8 	")
+                .append("	LEFT JOIN ab02 ON ab02.aab101 = ab01.aab101  ")
                 .append("WHERE ")
-                .append("	aa06.aab101 = ab01.aab101  ")
-                .append("	AND ab01.aab105 = 1  ")
+                .append("	 ab01.aab105 = 1  ")
                 .append("	AND aab207 IS NOT NULL  and ab01.aab106 like ?")
 
                 ;

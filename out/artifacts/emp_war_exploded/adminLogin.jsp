@@ -24,14 +24,14 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>Welcome Administrator !</h3>
+					<h3>欢迎你管理员！</h3>
 					<h4>我们的美食网站是最好的美食网站。</h4>
-					<p> Our food website is one of the best.</p>
+					<p>请遵守相关规定</p>
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>Sign In</h2>
-				<p>赶紧登录臭弟弟</p>
+				<h2>管理员登录</h2>
+
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text name="aac403" required="true" autofocus="true" />

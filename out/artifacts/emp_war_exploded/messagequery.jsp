@@ -17,7 +17,7 @@
 	<script type="text/javascript"
 	src="http://api.map.baidu.com/api?v=2.0&ak=LtaZG8G4TNzGd6Rs57WGyKMr7Hx7GxbU"></script>
     <!-- Page Title -->
-    <title>Listing &amp; Directory Website Template</title>
+    <title>我的消息</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
     <!-- Google Fonts -->

@@ -72,7 +72,8 @@ ${msg}
 				<p>商家账户注册</p>
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
-							<e:text id="username-input-text" placeholder="请输入商家用户名（用于登陆，不可更改）" name="aab102" required="true" autofocus="true"/>
+							<e:text id="businame-input-text" placeholder="请输入商家用户名（用于登陆，不可更改）" name="aab102" required="true" autofocus="true"/>
+							<p id="businame-msg"></p>
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
@@ -90,7 +91,7 @@ ${msg}
 							<span><i class="fa fa-phone" aria-hidden="true"></i></span>
 							<e:text placeholder="请输入商家联系电话" name="aab107" required="true"/>
 						</div>
-							<input id="submit-btn"  class="btn btn-danger btn-block" type="submit" name="next" value="注册"
+							<input id="busi-submit-btn" class="btn btn-danger btn-block" type="submit" name="next" value="注册"
         					formaction="<%=path%>/busiRegister.html">
 							<a href="<%=path %>/busiLogin.jsp">
 							<input class="btn btn-danger btn-block" type="button" name="next" value="已有账号，马上登录">
@@ -106,7 +107,7 @@ ${msg}
 	</form>
 <!-- ==== JQuery 1.12.1 js file ==== -->
 <script src="dw_assets/js/jquery-1.12.1.min.js"></script>
-<script src="ajax_js/register_ajax.js"></script>
+<script src="ajax_js/busi_register_ajax.js"></script>
 
 	</body>
 </html>

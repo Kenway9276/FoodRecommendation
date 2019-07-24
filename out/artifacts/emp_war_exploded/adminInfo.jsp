@@ -135,8 +135,9 @@ if(map != null){
 	</tr>
 </table>
 <br>
-<div style="margin:0 auto;width:100px">
+<div style="margin:0 auto;width:100px;display:inline;margin-left: 40%">
 	<button type="submit" name="next" formaction="<%=path %>/adminModifyInfo.html" name="next" >ÐÞ¸Ä</button>
+	<button type="submit" name="next" formaction="<%=path %>/logout.html" name="next" >µÇ³ö</button>
 </div>
 </div>
 </div>

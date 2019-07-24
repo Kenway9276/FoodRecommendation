@@ -94,24 +94,23 @@
                     </div>
                 </li>
                 </c:if>
-                <c:if test="${(!empty rows[0].aaa202) || (!empty rows[0].aaa203) || (!empty rows[0].aaa204)}">
+
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>TASTE</h3>
                         <div class="desc">
                             <p>
                                 <c:if test="${!empty rows[0].aaa202}">口味万千，你最喜欢——${rows[0].aaa202}<br></c:if>
-                                <c:if test="${!empty rows[0].aaa202}">盛宴饕餮，你最中意——${rows[0].aaa203}<br></c:if>
-                                <c:if test="${!empty rows[0].aaa202}">金樽清酒、玉盘珍馐，你却独爱——${rows[0].aaa204}<br></c:if>
+                                <c:if test="${!empty rows[0].aaa203}">盛宴饕餮，你最中意——${rows[0].aaa203}<br></c:if>
+                                <c:if test="${!empty rows[0].aaa204}">金樽清酒、玉盘珍馐，你却独爱——${rows[0].aaa204}<br></c:if>
 								我们会记得你的每个一见钟情，每道心头朱砂。
                             </p>
                         </div>
                     </div>
                 </li>
-                </c:if>
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
-                        <h3>待定</h3>
+                        <h3></h3>
                         <div class="desc">
                             <p>白鳞鲙细供春酒，红尾羹香奉晚餐。</p>
                         </div>
@@ -119,7 +118,7 @@
                 </li>
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
-                        <h3>待定</h3>
+                        <h3></h3>
                         <div class="desc">
                             <p>
                             	招寻伴侣乘秋兴，取次鱼虾伴晚餐。<br>

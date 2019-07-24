@@ -14,7 +14,6 @@
 <link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
 <style type="text/css">
 
-    <!-- Required meta tags -->
     <meta charset=gb2312 /> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -96,8 +95,7 @@ background-color: #87CEFA;
 </style>
 </head>
 <body >
-<div style="color:#FFFFFF">
-${msg}
+<div style="color:#FFFFFF;">
 </div>
 <br>
 <form id="myform" action="<%=path%>/busiModifyDishPic.html" method="post" enctype="multipart/form-data">

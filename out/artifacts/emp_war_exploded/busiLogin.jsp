@@ -3,7 +3,7 @@
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-<title>Home</title>
+<title>商家登陆</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
@@ -27,6 +27,13 @@
 	{
 	color: #87CEFA;
 	}
+	body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 	</style>
 </head>
 <body>
@@ -42,21 +49,21 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>Welcome !</h3>
+					<h3>欢迎你！</h3>
 					<h4>我们的美食网站是最贴心的美食网站。</h4>
 					<p> Our food website is the most intimate food website.</p>
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>Sign In</h2>
-				<p>商家登录</p>
+				<h2>商家登录</h2>
+
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text name="aab102" required="true" autofocus="true" placeholder="商家用户名"/>
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<input name="aab103" type="password" placeholder="商家密码">
+							<input name="aab103" type="password" required="required" placeholder="商家密码">
 						</div>    
        					<input class="btn btn-danger btn-block" type="submit" name="next" value="登录" >
 						<a href="<%=path %>/busiRegister.jsp">

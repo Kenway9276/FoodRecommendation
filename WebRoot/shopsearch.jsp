@@ -109,7 +109,7 @@
                     	<div class="slider-title_box">
                     	<div class="row">
                             	<div class="col-md-12">
-                                    <h2 style="color:white">智能美食推荐助手</h2>
+                                    <h2 style="color:white">食分有料</h2>
                                 </div>
                         </div>
                         <div class="row d-flex justify-content-center">
@@ -173,7 +173,7 @@
                         <h3>搜索结果</h3>
                         <br>
                         <div class="review-btn">
-                            <a href="#" onclick="onSortByScore()" class="btn btn-outline-danger">评分↓</a>                          
+                            <a href="#" onclick="onSortByScore()" class="btn btn-outline-danger">评分↓</a>
                         </div>
                         <div class="review-btn">
                             <a href="#" onclick="onSortByCommentCount()" class="btn btn-outline-danger">点评数↓</a>

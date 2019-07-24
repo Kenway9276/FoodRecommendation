@@ -102,9 +102,9 @@ public class MessageServicesImpl extends JdbcServicesSupport
 		String sql2="update ac03 set aac304='0' where aab101=? ";
 		if(this.get("busiID")!=null)
     	{ 		
-    		return this.executeUpdate(sql1, this.get("userID"))>0;
+    		return this.executeUpdate(sql2, this.get("busiID"))>0;
     	}
-		else return this.executeUpdate(sql2, this.get("busiID"))>0;
+		else return this.executeUpdate(sql1, this.get("userID"))>0;
 	}
 	
 	

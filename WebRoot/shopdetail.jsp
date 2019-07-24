@@ -315,7 +315,7 @@
 			<ul>
 				<li><a href="${empty sessionScope.userID?'userLogin.jsp':'userInfo.html'}">${empty sessionScope.userID?'登录':'个人信息'}</a></li>
 				<li><a href="shopsearch.jsp">搜索</a></li>
-				<li><a href="bBSBrowseAll.html">论坛</a></li>
+				<li><a href="bBSBrowseAll.html">美食社区</a></li>
 				<li><a href="#" onclick="onSelectRanking()">排行榜</a></li>
 				<span style="display:${empty sessionScope.userID?'none':''}">
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="preferenceIndex.html">推荐</a></li>
@@ -476,9 +476,13 @@
 						<span>预定时间</span>
 						<span><input type="text"  name="aac103" value="" id="datetimepicker_mask" required/></span>
 						<span>用餐人数</span>
+<<<<<<< HEAD
 						<span><input type="number"  onkeydown="return false"  name="aac104" min="1" max="20" required/></span>
+=======
+						<span><input onkeydown="return false;" type="number" name="aac104" min="1" max="15" /></span>
+>>>>>>> 59acf7f1f50b4e46efe2921d7242b4799bf94208
 						
-						<input type="hidden" name="aaa201" value='65'>						 
+						<input type="hidden" name="aaa201" value='${aaa201.aaa201}'>
 						<br>
 						<br>
 						<button  type="button" id="dell" name="next" class="btn btn-outline-danger" 

@@ -58,13 +58,15 @@
             </c:if>
             <input type="hidden" name="aab101" value="${rows.aab101 }">
             <c:if test="${!empty rows }">
+
                 <input type="hidden" name="aab104"  value="${rows.aab104 }">
+                <input type="hidden" name="aaa201"  value="${rows.aaa201 }">
                 <input type="hidden" name="aab207"  value="${rows.aab207 }">
                 <input type="hidden" name="aaa202"  value="${rows.aaa202 }">
                 <input type="hidden" name="aaa203"  value="${rows.aaa203 }">
                 <input type="hidden" name="aaa204"  value="${rows.aaa204 }">
                 <div class="blog-slider__img">
-                    <img src="upload/${rows.aab113 }" alt="${rows.aab104 }">
+                    <img src="<%=path%>/${rows.aab113 }" alt="${rows.aab104 }">
                 </div>
                 <div class="blog-slider__content">
                     <span class="blog-slider__code">2018-08-31</span>

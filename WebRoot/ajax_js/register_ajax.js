@@ -12,13 +12,13 @@ $(function() {
                 console.log(json)
                 console.log(json.msg)
                 if(json.msg == "1"){
-                    $("#username-msg").html("用户名已存在")
-                    console.log("用户名已存在")
+                    $("#username-msg").html("用户名可用")
+                    console.log("用户名可用")
                     $("#submit-btn").attr("disabled", false);
                 }
                 else {
-                    $("#username-msg").html("用户名可用")
-                    console.log("用户名可用")
+                    $("#username-msg").html("用户名已存在")
+                    console.log("用户名已存在")
                     $("#submit-btn").attr("disabled", true);
                 }
             },
