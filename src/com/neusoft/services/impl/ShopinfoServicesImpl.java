@@ -530,15 +530,20 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		}
 
 		public Map<String, String> saveAaa201() throws Exception{
-			Map<String, String> res = new HashMap<>();
-			if(this.get("aaa201") == null){
-				RecommendServiceImpl recommendService = new RecommendServiceImpl();
-				String aaa201 = recommendService.getPreferenceIDWithoutFlavour(this.get("userID"));
-				res.put("aaa201", aaa201);
+			if(this.get("userID") != null){
+				Map<String, String> res = new HashMap<>();
+				if(this.get("aaa201") == null){
+					RecommendServiceImpl recommendService = new RecommendServiceImpl();
+					String aaa201 = recommendService.getPreferenceIDWithoutFlavour(this.get("userID"));
+					res.put("aaa201", aaa201);
+				}
+				else {
+					res.put("aaa201", (String)this.get("aaa201"));
+				}
+				return res;
 			}
 			else {
-				res.put("aaa201", (String)this.get("aaa201"));
+				return null;
 			}
-			return res;
 		}
 }

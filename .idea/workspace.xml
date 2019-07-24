@@ -6,22 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e3a9c7-120b-468e-a34d-20e9d4705f3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/build/classes/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/neusoft/web/impl/BusiNameCheckServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/ajax_js/busi_register_ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/ajax_js/busi_register_ajax.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/busiDishQuery.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiDishQuery.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/busiManageDishPic.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiManageDishPic.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/busiManageReservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiManageReservation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/busiNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiNotice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/busiRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiRegister.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/userNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/userNotice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/Ab01ServicesImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/services/impl/Ab01ServicesImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiManageReservationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiManageReservationServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiRegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/com/neusoft/web/impl/BusiRegisterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="e3e3a9c7-120b-468e-a34d-20e9d4705f3a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +44,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebRoot/busiManageReservation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
+            <state relative-caret-position="-1005">
               <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -569,12 +554,12 @@
       <workItem from="1563873046439" duration="89000" />
       <workItem from="1563882745471" duration="174000" />
       <workItem from="1563883077642" duration="122000" />
-      <workItem from="1563929070065" duration="9607000" />
+      <workItem from="1563929070065" duration="9888000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334310000" />
+    <option name="totallyTimeSpent" value="334591000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -587,9 +572,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4924078" visible="true" weight="0.21641791" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4924078" visible="true" weight="0.21641791" />
       <window_info id="Structure" order="1" sideWeight="0.5075922" side_tool="true" weight="0.21641791" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -600,7 +584,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.2635575" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.29826465" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29826465" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
@@ -1040,7 +1024,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/busiManageReservation.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
+        <state relative-caret-position="-1005">
           <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
