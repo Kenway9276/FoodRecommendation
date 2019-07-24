@@ -95,7 +95,7 @@ background-color: #87CEFA;
 </style>
 </head>
 <body >
-<div style="color:#FFFFFF">
+<div style="color:#FFFFFF;">
 </div>
 <br>
 <form id="myform" action="<%=path%>/busiModifyDishPic.html" method="post" enctype="multipart/form-data">

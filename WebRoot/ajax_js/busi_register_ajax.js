@@ -1,10 +1,10 @@
 $(function() {
     //
-    $("#username-input-text").bind('input propertychange', function(){
-        var username = $(this).val()
+    $("#businame-input-text").bind('input propertychange', function(){
+        var businame = $(this).val()
         $.ajax({
-            type:"post",
-            url:"userNameCheck.html?aaa102=" + username,
+            type:"get",
+            url:"busiNameCheck.html?aab102=" + businame,
             data:{},
             dataType:"json",//
             success:function(data) {
@@ -12,14 +12,14 @@ $(function() {
                 console.log(json)
                 console.log(json.msg)
                 if(json.msg == "1"){
-                    $("#username-msg").html("用户名已存在")
+                    $("#businame-msg").html("用户名已存在")
                     console.log("用户名已存在")
-                    $("#submit-btn").attr("disabled", false);
+                    $("#busi-submit-btn").attr("disabled", true);
                 }
                 else {
-                    $("#username-msg").html("用户名可用")
+                    $("#businame-msg").html("用户名可用")
                     console.log("用户名可用")
-                    $("#submit-btn").attr("disabled", true);
+                    $("#busi-submit-btn").attr("disabled", false);
                 }
             },
             error:function(jqXHR,textStatus,errorThrown,data) {
