@@ -3,7 +3,7 @@
 <%String path=request.getContextPath(); %>
 <html>
 <head>
-<title>Home</title>
+<title>商家注册</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="" />
@@ -38,6 +38,13 @@ color: #87CEFA;
 i.fa.fa-phone
 {
 color: #87CEFA;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
 }
 </style>
 </head>

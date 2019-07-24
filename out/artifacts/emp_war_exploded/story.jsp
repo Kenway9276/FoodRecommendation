@@ -30,7 +30,6 @@
 	</style>
 </head>
 <body>
-<%-- <%@ include file="navigate.jsp" %> --%>
 <div class="about-history" id="fzlc">
     <header class="about-title title-white">
         <h3 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">我们和你的故事</h3>
@@ -95,7 +94,7 @@
                     </div>
                 </li>
                 </c:if>
-                <c:if test="${(!empty rows[0].aaa202) || (!empty rows[0].aaa203) || (!empty rows[0].aaa204)}">
+
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
                         <h3>TASTE</h3>
@@ -109,10 +108,9 @@
                         </div>
                     </div>
                 </li>
-                </c:if>
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
-                        <h3>待定</h3>
+                        <h3></h3>
                         <div class="desc">
                             <p>白鳞鲙细供春酒，红尾羹香奉晚餐。</p>
                         </div>
@@ -120,7 +118,7 @@
                 </li>
                 <li style="width: 253px; float: left; display: block;">
                     <div class="item">
-                        <h3>待定</h3>
+                        <h3></h3>
                         <div class="desc">
                             <p>
                             	招寻伴侣乘秋兴，取次鱼虾伴晚餐。<br>

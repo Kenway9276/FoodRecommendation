@@ -18,8 +18,10 @@
 <form id="aaa" action="/emp/bBSPost.html" method="post">
     <br>
     <p align="center">标题 &nbsp;&nbsp;<input type="text" name="aaa303"></p><br>
-    <div id="div1" style="width:60%;height:40%;margin:0 auto;">
-    <p>这里输入正文</p>
+    <div id="div0" class="toolbar">
+    </div>
+    <div id="div1" style="width:60%;height:50%;margin:0 auto;">
+        <p>这里输入正文</p>
     </div>
     <textarea name="aaa304" id="text1" style="display: none"></textarea>
     <textarea name="aaa306" id="text2" style="display: none"></textarea>

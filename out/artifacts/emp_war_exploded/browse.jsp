@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Document Title -->
-    <title>BizBlog</title>
+    <title>美食社区</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="dw_assets/images/favicon.png">
@@ -73,9 +73,9 @@
 <!-- Page title -->
 <div class="page-title">
     <div class="container">
-        <h2>社区讨论</h2>
+        <h2>美食社区</h2>
         <ul class="nav">
-            <li>分享你的故事</li>
+            <li>分享你与美食的故事</li>
         </ul>
         <ul class="nav">
             <li><a href="bBSBrowseAll.html">返回首页</a></li>

@@ -1,24 +1,24 @@
-ï»¿$(function() {
-    // ï¿½ï¿½Ö¤ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½
+$(function() {
+    //
     $("#username-input-text").bind('input propertychange', function(){
         var username = $(this).val()
         $.ajax({
             type:"post",
             url:"userNameCheck.html?aaa102=" + username,
             data:{},
-            dataType:"json",//ï¿½ï¿½ï¿½Øµï¿½
+            dataType:"json",//
             success:function(data) {
                 var json = $.parseJSON(data)
                 console.log(json)
                 console.log(json.msg)
                 if(json.msg == "1"){
-                    $("#username-msg").html("ç”¨æˆ·åå·²å­˜åœ¨")
-                    console.log("ç”¨æˆ·åå·²å­˜åœ¨")
+                    $("#username-msg").html("ÓÃ»§Ãû¿ÉÓÃ")
+                    console.log("ÓÃ»§Ãû¿ÉÓÃ")
                     $("#submit-btn").attr("disabled", false);
                 }
                 else {
-                    $("#username-msg").html("ç”¨æˆ·åå¯ç”¨")
-                    console.log("ç”¨æˆ·åå¯ç”¨")
+                    $("#username-msg").html("ÓÃ»§ÃûÒÑ´æÔÚ")
+                    console.log("ÓÃ»§ÃûÒÑ´æÔÚ")
                     $("#submit-btn").attr("disabled", true);
                 }
             },

@@ -103,6 +103,13 @@ h2{
 .fl-table tr:nth-child(even) {
     background: #F8F8F8;
 }
+body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
 
 /* Responsive */
 
@@ -174,7 +181,6 @@ h2{
 <body>
 <div class="controls" >
 	<input style="display: none;"  class="controls__slider" data-slider type="range" min="300" max="700" step="1" value="600" />
-<%=session.getId() %>
 <h2>≤À∆∑π‹¿Ì</h2>
 <div class="table-wrapper">
 <form id="myform" action="<%=path%>/busiQuery.html" method="post">

@@ -1,12 +1,19 @@
 <%@ page  language="java" import="java.util.*" pageEncoding="GBK"%>
-<%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://org.wangxg/jsp/extl"  prefix="e"%>
 <%String path=request.getContextPath(); %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html>
 <head>
-    <!-- Required meta tags -->
+<title>修改菜品图片</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+<link href="<%=path %>/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="<%=path %>/css/style_login.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+<style type="text/css">
+
     <meta charset=gb2312 /> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,42 +40,16 @@
     <link rel="stylesheet" href="css/xzs_magnific-popup.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/xzs_style.css">
-    
-    <script>
-	
-    
-    
-	function onSetMark(vaab101)
-    {
-  	  //添加到收藏夹
-  	 var vform = document.getElementById("myform");
-  	 vform.action="<%=path%>/markAdd.html?aab101="+vaab101;
-  	 vform.submit();
-  	document.getElementById("markbtn").innerHTML="取消收藏";
-  	//返回商家详情页面
-  	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
- 	 vform.submit();
- 	document.getElementById("markbtn").innerHTML="取消收藏";
-    }
-	
-	
-	function onDelMark(vaab101)
-    {
-  	  //取消收藏
-  	 var vform = document.getElementById("myform");
-  	 vform.action="<%=path%>/markDeleteInShopDetail.html?aab101="+vaab101;
-  	 vform.submit();
-  	 document.getElementById("markbtn").innerHTML="收藏";
-  	//返回商家详情页面
- 	 vform.action="<%=path%>/shopinfoFindById.html?aab101="+vaab101;
-	 vform.submit();
-	 document.getElementById("markbtn").innerHTML="收藏";
-    }
-	
 
-	
-</script>
-<style>
+
+#preview{width:260px;height:190px;border:1px solid #000;overflow:hidden;}
+#imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}
+.btn-danger 
+{
+background-color: #87CEFA;
+}
+</style>
+ <style>
 
     .add_div {
         width: 400px;
@@ -103,63 +84,63 @@
         margin-top: 5px;
         cursor: pointer;
     }
-
+	body {
+    padding: 0;
+    margin: 0;
+    background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+	}
 
 </style>
 </head>
-
-<body>
+<body >
+<div style="color:#FFFFFF">
+</div>
+<br>
 <form id="myform" action="<%=path%>/busiModifyDishPic.html" method="post" enctype="multipart/form-data">
-<input type="hidden" name="aab201" value="${ins.aab201 }">		
-	<input type="hidden" name="aab101" value="${ins.aab101 }"></input>
-    <!--============================= HEADER =============================-->
-    <!--//END HEADER -->
-    <!--============================= BOOKING =============================-->
-    <div>
-        <!-- Swiper -->
-        <div class="swiper-container" style="height:400px">
-        
-        	<div class="swiper-wrapper">
+<input type="hidden" name="aab201" value="${ins.aab201 }">	
+<div class="signupform">.
+<h1></h1>
+	<div class="container">
+		
+		<div class="agile_info">
+			<div class="w3_info" style="-webkit-flex-basis: 100%">
+				<h2 style="color:#87CEFA">菜品图片修改</h2>
+						
         	
-        	<c:forEach items="${Address }" var="ad" varStatus="vs">
+        	<c:forEach items="${Address}" var="ad" varStatus="vs">
         	
-            <div class="swiper-slide">
-            <div style="width:672px;height:300px">
-                 <img src="${ad.address }" class="img-fluid" alt="#">
-            </div>
-            </div>
+            	<div class="swiper-slide" style="margin-left: 27%">
+	            	<div style="width:500px;height:250px">
+	                 	<img src="${ad.address}" class="img-fluid" alt="#" style="max-height:250px">
+	            	</div>
+            	</div>
             </c:forEach>
             
             
             
-            <!-- Add Pagination -->
-            <div class="swiper-pagination swiper-pagination-white"></div>
-            <!-- Add Arrows -->
-            <div class="swiper-button-next swiper-button-white"></div>
-            <div class="swiper-button-prev swiper-button-white"></div>
-            
+            <!-- Add Pagination -->    
+            <div style="height: 12%">
+    						<ul class="file-list "></ul>
+						</div>
+            <input style="width:49%" id="choose-file" class="btn btn-danger btn-block" type="file"
+       					 name="aab202"  multiple value="选择图片（请使用control一次选完）" required="required">
+       					<input style="width:49%;height: 56px" class="btn btn-danger btn-block" type="submit" name="next" value="上传菜品图片">
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="返回" style="width: 98.8%;"
+       					 formaction="<%=path%>/busiMenuManage.html" formnovalidate="formnovalidate">     
             </div>
+            
         </div>
-        <div style="height:200px">
-            <div style="height: 30%">
-        		<span>请选择菜品图片(清一次性选择所有图片)</span>
-       			<input type="file" name="aab202" id="choose-file" required="required" multiple/>
-        		<!--<input type="file" name="" id="choose-file" />-->
-    		</div>
-   			<div style="height: 70%">
-    			<ul class="file-list "></ul>
+	</div> 
+						 
+       					
 			</div>
-		<input type="submit" name="next" value="上传">
-		<input class="login100-form-btn" type="submit" name="next" value="返回"
-	 			formaction="<%=path%>/busiMenuManage.html?aab101=${ins.aab101}" formnovalidate="formnovalidate">
-        </div>
-    </div>
-    <!--//END BOOKING -->
-    <!--============================= RESERVE A SEAT =============================-->
-    <!--//END RESERVE A SEAT -->
-    <!--============================= BOOKING DETAILS =============================-->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/xzs_jquery-3.2.1.min.js"></script>
+			<div class="clear"></div>
+
+		<div class="footer">
+ </div>
+  <script src="js/xzs_jquery-3.2.1.min.js"></script>
     <script src="js/xzs_popper.min.js"></script>
     <script src="js/xzs_bootstrap.min.js"></script>
     <!-- Magnific popup JS -->
@@ -280,8 +261,8 @@
             //     layer.alert('请选择商品图片');
             //     return;
             // }
-             if(fileList.length > 6){
-                    layer.alert('最多允许上传6张图片');
+             if(fileList.length > 4){
+                    layer.alert('最多允许上传4张图片');
                     return;
             } else {
                 var formData = new FormData();
@@ -351,7 +332,6 @@
             });
         }
 </script>
-</form>
-</body>
-
+	</form>
+	</body>
 </html>

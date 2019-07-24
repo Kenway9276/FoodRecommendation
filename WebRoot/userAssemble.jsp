@@ -150,10 +150,9 @@ h2{
 }
 </style>
 </head>
-<body style="margin-top: -80px">
+<body style="margin-top: -80px;background-color: white">
 <div class="controls" >
 <%@ include file="navigate.jsp" %>
-	<input style="display: none;"  class="controls__slider" data-slider type="range" min="300" max="700" step="1" value="600" />
 <h2>Æ´×ù²éÑ¯</h2>
 <div class="table-wrapper">
 <form id="myform" action="<%=path%>/userAssemble.html" method="post">

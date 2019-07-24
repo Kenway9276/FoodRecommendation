@@ -278,6 +278,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 if(map.get("aab207") == null){
                     menu = tem;
                     map.put("aab101", ins.get("aab101"));
+                    map.put("aab104", ins.get("aab104"));
                     map.put("aab106", ins.get("aab106"));
                     map.put("aab107", ins.get("aab107"));
                     map.put("aab113", ins.get("aab113"));
@@ -297,6 +298,7 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 map.put("aab106", ins.get("aab106"));
                 map.put("aab107", ins.get("aab107"));
                 map.put("aab113", ins.get("aab113"));
+                map.put("aab104", ins.get("aab104"));
                 map.put("aab111", ins.get("aab111"));
                 tem_shop_id = ins.get("aab101");
             }
@@ -335,11 +337,9 @@ public class RecommendServiceImpl extends JdbcServicesSupport {
                 .append("	aab204	 ")
                 .append("FROM ")
                 .append("	ab01 ab01 ")
-                .append("	LEFT JOIN ab02 ON ab02.aab101 = ab01.aab101 ")
-                .append("	LEFT JOIN aa06 ON aa06.aaa101 = 8 	")
+                .append("	LEFT JOIN ab02 ON ab02.aab101 = ab01.aab101  ")
                 .append("WHERE ")
-                .append("	aa06.aab101 = ab01.aab101  ")
-                .append("	AND ab01.aab105 = 1  ")
+                .append("	 ab01.aab105 = 1  ")
                 .append("	AND aab207 IS NOT NULL  and ab01.aab106 like ?")
 
                 ;

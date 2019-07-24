@@ -3,29 +3,29 @@
 <%String path=request.getContextPath(); %>
 <html lang="en">
 <head>
-<title>Home</title>
+<title>菜单</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset=gb2312 /> 
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
-<link href="css/xzs1_bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<%=path%>/css/xzs1_bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!--// bootstrap-css -->
 <!-- css -->
-<link rel="stylesheet" href="css/xzs1_style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<%=path%>/css/xzs1_style.css" type="text/css" media="all" />
 <!--// css -->
-<link rel="stylesheet" href="css/xzs1_lightbox.css">  
-<link rel="stylesheet" href="css/xzs1_owl.carousel.css" type="text/css" media="all">
-<link href="css/xzs1_owl.theme.css" rel="stylesheet">
+<link rel="stylesheet" href="<%=path%>/css/xzs1_lightbox.css">  
+<link rel="stylesheet" href="<%=path%>/css/xzs1_owl.carousel.css" type="text/css" media="all">
+<link href="<%=path%>/css/xzs1_owl.theme.css" rel="stylesheet">
 <!-- font-awesome icons -->
-<link href="css/xzs1_font-awesome.css" rel="stylesheet"> 
+<link href="<%=path%>/css/xzs1_font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 <!-- font -->
 <link href="http://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 <!-- //font -->
-<script src="js/xzs1_jquery-1.11.1.min.js"></script>
-<script src="js/xzs1_bootstrap.js"></script>
+<script src="<%=path%>/js/xzs1_jquery-1.11.1.min.js"></script>
+<script src="<%=path%>/js/xzs1_bootstrap.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -48,6 +48,20 @@ $(document).ready(function() {
 	
 }); 
 </script>
+<script>
+function onback()
+{
+	history.back(-1)
+}
+</script>
+<style>
+.lb-data .lb-caption {
+    font-size: 20px;
+    line-height: 1.8em;
+    color: #fff;
+    letter-spacing: 1px;
+}
+</style>
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -62,6 +76,9 @@ $(document).ready(function() {
 		<div class="container">
 			<div class="w3-welcome-heading">
 				<h3>菜&nbsp&nbsp单</h3>
+				<div class="more-button" align="center">
+				<a href="#" onclick="onback()">返回</a>
+				</div>
 			</div>
 			<div class="agileinfo-gallery">
 				
@@ -73,7 +90,9 @@ $(document).ready(function() {
 							
 							
 							<div class="col-md-3 w3-agileits-gallery-grids">
-							<a class="wow zoomIn animated" data-wow-delay=".7s" href="<%=path%>/upload/${menu.aab202 }" data-lightbox="example-set" data-title="${menu.aab207 }">
+
+							<a class="wow zoomIn animated" data-wow-delay=".5s" href="<%=path%>/${menu.aab202 }" data-lightbox="example-set" data-title="${menu.aab207 }">
+
 							<img  src="<%=path%>/${menu.aab202 }" width="100%" height="100%" class="img-responsive zoom-img" alt=""/>
 							<div class="agile-b-wrapper">
 							<h5><span>&yen</span>${menu.aab203 }</h5>
@@ -97,8 +116,8 @@ $(document).ready(function() {
 	
 	
 	<!-- //footer -->
-	<script src="js/xzs1_jarallax.js"></script>
-	<script src="js/xzs1_SmoothScroll.min.js"></script>
+	<script src="<%=path%>/js/xzs1_jarallax.js"></script>
+	<script src="<%=path%>/js/xzs1_SmoothScroll.min.js"></script>
 	<script type="text/javascript">
 		/* init Jarallax */
 		$('.jarallax').jarallax({
@@ -107,9 +126,9 @@ $(document).ready(function() {
 			imgHeight: 768
 		})
 	</script>
-	<script src="js/xzs1_responsiveslides.min.js"></script>
-	<script type="text/javascript" src="js/xzs1_move-top.js"></script>
-	<script type="text/javascript" src="js/xzs1_easing.js"></script>
+	<script src="<%=path%>/js/xzs1_responsiveslides.min.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/xzs1_move-top.js"></script>
+	<script type="text/javascript" src="<%=path%>/js/xzs1_easing.js"></script>
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -128,6 +147,6 @@ $(document).ready(function() {
 	</script>
 	<!-- //here ends scrolling icon -->
 	<!-- Tabs-JavaScript -->
-	<script src="js/xzs1_owl.carousel.js"></script>  
+	<script src="<%=path%>/js/xzs1_owl.carousel.js"></script>  
 </body>	
 </html>

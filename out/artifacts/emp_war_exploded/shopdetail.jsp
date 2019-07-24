@@ -19,7 +19,7 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
-    <title>Listing &amp; Directory Website Template</title>
+    <title>商家详情</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<%=path%>/css/xzs_bootstrap.min.css">
     <!-- Google Fonts -->
@@ -110,11 +110,11 @@
 		document.getElementById("closebtn"+vaab301).style="display:none";
     }
 	
-	function onAddReply(vaab301,vaab101)
+	function onAddReply(vaab301,vaab101,vaaa101)
 	{
 		//提交回复
 		var vform = document.getElementById("myform");
-	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301;
+	  	vform.action="<%=path%>/commentReplyAdd.html?aab301="+vaab301+"&aab101="+vaab101+"&aaa101="+vaaa101;
 	  	vform.submit();
 	}
 	
@@ -260,6 +260,13 @@
 		showDiv("2");
 		showDiv("1");
 	}
+	function onAssemble(vaab101)
+    {
+  	  	//拼座
+  	 	var vform = document.getElementById("myform");
+  	 	vform.action="<%=path%>/userToAssemblePage.html?aab101="+vaab101;
+  		vform.submit();
+    }
 	
 	
 	//
@@ -269,6 +276,15 @@
 		var vform = document.getElementById("myform");
 	  	vform.action="<%=path%>/shopClose.html?aab101"+vaab101;
 	  	alert("操作成功!");
+	  	vform.submit();
+	}
+	
+	
+	function onReturnShop()
+	{
+		//返回商家管理
+		var vform = document.getElementById("myform");
+	  	vform.action="<%=path%>/busiReturn.html";
 	  	vform.submit();
 	}
 	
@@ -289,28 +305,33 @@
 	
 
     <!--============================= HEADER =============================-->
+    <c:if test="${sessionScope.busiID==null}">
     <div class="c-nav">
 	<div class="container navFlex">
 		<div class="flexItem">
-		吃
+			美食小助手
 		</div>
 		<div class="flexItem show">
 			<ul>
 				<li><a href="${empty sessionScope.userID?'userLogin.jsp':'userInfo.html'}">${empty sessionScope.userID?'登录':'个人信息'}</a></li>
 				<li><a href="shopsearch.jsp">搜索</a></li>
+				<li><a href="bBSBrowseAll.html">美食社区</a></li>
+				<li><a href="#" onclick="onSelectRanking()">排行榜</a></li>
+				<span style="display:${empty sessionScope.userID?'none':''}">
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="preferenceIndex.html">推荐</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="markQuery.html">收藏</a></li>
-				<li><a href="bBSBrowse.html">论坛</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userHistory.html">历史订单</a></li>
-				<li><a href="userNotice.html">公告</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="couponList.html">优惠券</a></li>
-				<li><a href="messageSearchUnRead.html">消息</a></li>
-				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
+				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="messageSearchUnRead.html">消息</a></li>
 				<li style="display:${empty sessionScope.adminID?'':'none'}"><a href="userStory.html">关于你</a></li>
+				</span>
+				<li><a href="userNotice.html">公告</a></li>
+				<li style="display:${empty sessionScope.adminID?'none':''}"><a href="adminInfo.html">后台</a></li>
 			</ul>
 		</div>
 	</div>
-</div>
+	</div>
+	</c:if>
     <!--//END HEADER -->
     <!--============================= BOOKING =============================-->
     <div>
@@ -326,8 +347,8 @@
 
             <div style="width:100%;height:300px">
 
-                    <a href="upload/${ad.address }" class="grid image-link">
-                        <img src="upload/${ad.address }" class="img-fluid" alt="#">
+                    <a href="<%=path %>/${ad.address }" class="grid image-link">
+                        <img src="<%=path %>/${ad.address }" class="img-fluid" alt="#">
 
                     </a>
             </div>
@@ -401,7 +422,7 @@
                         <c:if test="${sessionScope.userID!=null}">
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
-                                <a href="javascript:void(0)" onclick="onShowReserveTable()" class="btn btn-danger">拼座</a>
+                                <a href="javascript:void(0)" onclick="onAssemble(${ins.aab101})" class="btn btn-danger">拼座</a>
                             </div>
                         </div>
                         </c:if>
@@ -411,6 +432,14 @@
                         <div class="reserve-btn">
                             <div class="featured-btn-wrap">
                                 <a href="javascript:void(0)" onclick="onCloseShop(${ins.aab101 })" class="btn btn-danger">关停商家</a>
+                            </div>
+                        </div>
+                        </c:if>
+                        
+                        <c:if test="${sessionScope.busiID!=null}">
+                        <div class="reserve-btn">
+                            <div class="featured-btn-wrap">
+                                <a href="javascript:void(0)" onclick="onReturnShop()" class="btn btn-danger">返回</a>
                             </div>
                         </div>
                         </c:if>
@@ -799,7 +828,6 @@
                                 
                                 
                                 
-                                
                                 <!--
                                 <span>${row.aab308 } 人觉得很赞</span>
                                 <a href="#"><span class="icon-like"></span>赞</a>
@@ -845,7 +873,7 @@
                                 <br>
                                 <div style="display:none" id="ReplyText${row.aab301 }">                           
                                 <textarea style="width:300px; height:50px" name="ReplyText${row.aab301 }" ></textarea>
-                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 })">提交</a>
+                                <a href="#" onclick="onAddReply(${row.aab301 },${ins.aab101 },${row.aaa101 })">提交</a>
                                 </div>
                                 
                                 
@@ -979,7 +1007,6 @@
 	map.addControl(new BMap.NavigationControl());    
 	map.addControl(new BMap.ScaleControl());    
 	map.addControl(new BMap.OverviewMapControl());    
-	map.addControl(new BMap.MapTypeControl());
 	// 创建地址解析器实例
 	var myGeo = new BMap.Geocoder();
 	// 将地址解析结果显示在地图上,并调整地图视野

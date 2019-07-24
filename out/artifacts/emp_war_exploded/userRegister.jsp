@@ -24,9 +24,13 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>Welcome !</h3>
-					<h4>我们的美食网站是最好的美食网站。</h4>
-					<p> Our food website is one of the best.</p>
+					<h3>欢迎 !</h3><br>
+					<h4>鲜鲫银丝脍，香芹碧涧羹。</h4><br>
+					<h4>蒌蒿满地芦芽短，正是河豚欲上时。</h4><br>
+					<h4>烹羊宰牛且为乐，会须一饮三百杯。</h4><br>
+					<h4>长江绕郭知鱼美，好竹连山觉笋香。</h4>
+					<hr width="400px" color="#FFFFFF">
+					<p>无论是干旱贫瘠的土地，还是深不可测的大海，一旦注入人类的智慧，都能变成美食的秘境。</p>
 					<br><br>
 					<div style="display:${empty ins.aaa101?'none':''};margin-left:30%">
 						<input class="btn btn-danger btn-clock"
@@ -36,8 +40,10 @@ ${msg}
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>${empty ins.aaa101?'Create':'Modify' } Your Account</h2>
-				<p>用户${empty ins.aaa101?'注册':'修改' }</p>
+				<div style="text-align:center">
+					<h2>用户${empty ins.aaa101?'注册':'修改' }</h2>
+				</div>
+				<br><br>
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text id="username-input-text" placeholder="请输入用户名" name="aaa102" required="true" readonly="${empty ins.aaa101 ?false:true}" autofocus="true" defval="${ins.aaa102}"/>
@@ -73,7 +79,7 @@ ${msg}
 						</div>      
 							<input id="submit-btn" class="btn btn-danger btn-block" type="submit" name="next" value="${empty ins.aaa101?'注册':'修改' }"
         					formaction="<%=path%>/user${empty ins.aaa101?'Register':'Modify' }.html">      
-							<a href="<%=path %>/userLogin.jsp">
+							<a href="<%=path %>/${empty ins.aaa101?'userLogin.jsp':'logout.html'}">
 							<input class="btn btn-danger btn-block" type="button" name="next" value="${empty ins.aaa101?'已有账号，马上登录':'退出登录' }">
 							</a> 
 			</div>

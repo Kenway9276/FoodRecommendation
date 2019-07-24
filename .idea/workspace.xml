@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3e3a9c7-120b-468e-a34d-20e9d4705f3a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/WebRoot/busiModify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiModify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/busiRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiRegister.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/floatTool.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/floatTool.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/markquery2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/markquery2.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/shopdetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/shopdetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/shopmenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/shopmenu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/shopsearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/shopsearch.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/single.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/single.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/busiManageReservation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/busiManageReservation.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -34,104 +26,99 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/story.jsp">
+        <entry file="file://$PROJECT_DIR$/src/DBOptions.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1984">
-              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+            <state relative-caret-position="96">
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/single.jsp">
+        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/ShopinfoFindAllServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="131" column="81" selection-start-line="131" selection-start-column="81" selection-end-line="131" selection-end-column="81" />
+            <state relative-caret-position="64">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/userAssemble.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="152" column="56" lean-forward="true" selection-start-line="152" selection-start-column="56" selection-end-line="152" selection-end-column="56" />
               <folding>
-                <element signature="e#5476#5482#0#HTML" expanded="true" />
-                <element signature="e#5482#5488#0#HTML" expanded="true" />
-                <element signature="e#5488#5494#0#HTML" expanded="true" />
-                <element signature="e#5494#5500#0#HTML" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/markquery2.jsp">
+        <entry file="file://$PROJECT_DIR$/WebRoot/shopsearch.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="90" column="59" selection-start-line="90" selection-start-column="59" selection-end-line="90" selection-end-column="59" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/busiModify.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="96" column="99" selection-start-line="96" selection-start-column="99" selection-end-line="96" selection-end-column="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/shopmenu.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="76" column="49" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/shopdetail.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="357" column="38" lean-forward="true" selection-start-line="357" selection-start-column="38" selection-end-line="357" selection-end-column="38" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="224">
+              <caret line="111" column="64" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebRoot/shopsearch.jsp">
+        <entry file="file://$PROJECT_DIR$/WebRoot/navigate.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="183" column="53" lean-forward="true" selection-start-line="183" selection-start-column="53" selection-end-line="183" selection-end-column="53" />
+            <state relative-caret-position="320">
+              <caret line="22" column="80" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="80" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BusiRegisterServlet.java">
+        <entry file="file://$PROJECT_DIR$/WebRoot/busiManageReservation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="2" column="32" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="32" />
+            <state relative-caret-position="202">
+              <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+              <folding>
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/busiRegister.jsp">
+        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/LogoutServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
-              <caret line="87" column="63" lean-forward="true" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
+            <state relative-caret-position="224">
+              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="1008" column="95" selection-start-line="1008" selection-start-column="95" selection-end-line="1008" selection-end-column="95" />
+            <state relative-caret-position="224">
+              <caret line="62" column="64" lean-forward="true" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BusiPopularizeServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/ControllerSupport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="405" column="17" lean-forward="true" selection-start-line="405" selection-start-column="17" selection-end-line="405" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -178,6 +165,8 @@
       <find>e a child r</find>
       <find>busiacc</find>
       <find>dish</find>
+      <find>fff</find>
+      <find>000000</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,40 +175,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WebRoot/ajax_js/register_ajax.js" />
-        <option value="$PROJECT_DIR$/WebRoot/ajax_js/preference_ajax.js" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/PreferenceAddServlet.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/ShopSearchServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/system/db/RedisUtils.java" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendGetServlet.java" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RecommendNextServlet.java" />
         <option value="$PROJECT_DIR$/WebRoot/ajax_js/shop_detail_ajax.js" />
-        <option value="$PROJECT_DIR$/WebRoot/story.jsp" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/UserStoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/RankingServlet.java" />
         <option value="$PROJECT_DIR$/src/com/neusoft/system/tools/Tools.java" />
         <option value="$PROJECT_DIR$/WebRoot/preference.jsp" />
         <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/PreferenceServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java" />
         <option value="$PROJECT_DIR$/WebRoot/css/recommend_style.css" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponGetServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/tem.jsp" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseAllServlet.java" />
         <option value="$PROJECT_DIR$/WebRoot/ajax_js/BBS_ajax.js" />
         <option value="$PROJECT_DIR$/WebRoot/js/wangEditor.js" />
         <option value="$PROJECT_DIR$/out/artifacts/emp_war_exploded/js/wangEditor.js" />
-        <option value="$PROJECT_DIR$/WebRoot/ranking.jsp" />
         <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/RankingServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponListShop.java" />
         <option value="$PROJECT_DIR$/WebRoot/userCouponList.jsp" />
         <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/BBSServiceImpl.java" />
-        <option value="$PROJECT_DIR$/WebRoot/browse.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/messagequery.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/userLogin.jsp" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BBSPostServlet.java" />
-        <option value="$PROJECT_DIR$/WebRoot/post.jsp" />
-        <option value="$PROJECT_DIR$/WebRoot/navigate.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/publishCoupon.jsp" />
         <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/CouponServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponPublishServlet.java" />
@@ -227,16 +202,30 @@
         <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/CouponCheckServlet.java" />
         <option value="$PROJECT_DIR$/WebRoot/checkCoupon.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/userRegister.jsp" />
-        <option value="$PROJECT_DIR$/src/DBOptions.properties" />
         <option value="$PROJECT_DIR$/WebRoot/floatTool.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/single.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/busiRegister.jsp" />
         <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java" />
         <option value="$PROJECT_DIR$/WebRoot/markquery2.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/busiModify.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/tem.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java" />
+        <option value="$PROJECT_DIR$/WebRoot/ranking.jsp" />
+        <option value="$PROJECT_DIR$/src/DBOptions.properties" />
         <option value="$PROJECT_DIR$/WebRoot/shopmenu.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/services/impl/UserStoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/WebRoot/story.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/post.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/browse.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/shopdetail.jsp" />
+        <option value="$PROJECT_DIR$/.gitingnore" />
+        <option value="$PROJECT_DIR$/WebRoot/navigate.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/busiManageDishPic.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/ajax_js/register_ajax.js" />
+        <option value="$PROJECT_DIR$/WebRoot/userAssemble.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/shopsearch.jsp" />
+        <option value="$PROJECT_DIR$/src/com/neusoft/web/impl/BusiManageReservationServlet.java" />
+        <option value="$PROJECT_DIR$/WebRoot/busiManageReservation.jsp" />
       </list>
     </option>
   </component>
@@ -284,40 +273,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="neusoft" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FoodRecommendation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FoodRecommendation" type="b2602c69:ProjectViewProjectNode" />
@@ -427,10 +382,10 @@
     <configuration name="markquery2.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/markquery2.jsp">
       <method v="2" />
     </configuration>
-    <configuration name="preference.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/preference.jsp">
+    <configuration name="shopsearch.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/shopsearch.jsp">
       <method v="2" />
     </configuration>
-    <configuration name="shopsearch.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/shopsearch.jsp">
+    <configuration name="userAssemble.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/emp/userAssemble.jsp">
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 8.5.38" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -510,18 +465,18 @@
     <list>
       <item itemvalue="Application.CouponServiceImpl" />
       <item itemvalue="Application.Base64Utils" />
-      <item itemvalue="JavaScript Debug.preference.jsp" />
       <item itemvalue="JavaScript Debug.markquery2.jsp" />
       <item itemvalue="JavaScript Debug.shopsearch.jsp" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.38" />
+      <item itemvalue="JavaScript Debug.userAssemble.jsp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.userAssemble.jsp" />
         <item itemvalue="Application.Base64Utils" />
         <item itemvalue="JavaScript Debug.shopsearch.jsp" />
         <item itemvalue="JavaScript Debug.markquery2.jsp" />
         <item itemvalue="Application.CouponServiceImpl" />
-        <item itemvalue="JavaScript Debug.preference.jsp" />
       </list>
     </recent_temporary>
   </component>
@@ -564,12 +519,19 @@
       <workItem from="1563723889452" duration="557000" />
       <workItem from="1563724917169" duration="1309000" />
       <workItem from="1563755915122" duration="1314000" />
-      <workItem from="1563760971279" duration="12760000" />
+      <workItem from="1563760971279" duration="15424000" />
+      <workItem from="1563842834480" duration="337000" />
+      <workItem from="1563843225524" duration="9217000" />
+      <workItem from="1563868598737" duration="972000" />
+      <workItem from="1563873046439" duration="89000" />
+      <workItem from="1563882745471" duration="174000" />
+      <workItem from="1563883077642" duration="122000" />
+      <workItem from="1563929070065" duration="2766000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311128000" />
+    <option name="totallyTimeSpent" value="327469000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -584,7 +546,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49312714" visible="true" weight="0.20149253" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49312714" visible="true" weight="0.21641791" />
       <window_info id="Structure" order="1" sideWeight="0.50689656" side_tool="true" weight="0.23560767" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -594,7 +556,7 @@
       <window_info id="Favorites" order="7" sideWeight="0.50687283" side_tool="true" weight="0.19296375" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.5043384" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.045553144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.29284164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -668,202 +630,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebRoot/ranking.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/queryEmp.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/CouponListShop.java" />
-    <entry file="file://$PROJECT_DIR$/WebRoot/ajax_js/register_ajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/userNoticeInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/tools/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2752">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseForPageServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/system/db/RedisUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/userNotice.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/busiLogin.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/browse.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="140" column="64" selection-start-line="140" selection-start-column="64" selection-end-line="140" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/BBSServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/messagequery.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="188" column="22" selection-start-line="188" selection-start-column="22" selection-end-line="188" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/classes/DBOptions.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/CouponListServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSBrowseAllServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BBSPostServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/post.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/navigate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="99" column="7" lean-forward="true" selection-start-line="99" selection-start-column="7" selection-end-line="99" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#span#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#span#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#span#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#3;n#span#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#4;n#span#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#5;n#span#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/dw_assets/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="3" column="16493" selection-start-line="3" selection-start-column="16493" selection-end-line="3" selection-end-column="16493" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/dw_assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="3302" column="21" lean-forward="true" selection-start-line="3302" selection-start-column="21" selection-end-line="3302" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/dw_assets/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="5" column="116285" selection-start-line="5" selection-start-column="116285" selection-end-line="5" selection-end-column="116285" />
-          <folding>
-            <element signature="e#25768#26002#2" expanded="true" />
-            <element signature="e#26806#26959#1" expanded="true" />
-            <element signature="e#26999#27233#1" expanded="true" />
-            <element signature="e#30239#30515#2" expanded="true" />
-            <element signature="e#31347#31500#1" expanded="true" />
-            <element signature="e#31540#31816#1" expanded="true" />
-            <element signature="e#61072#61259#2" expanded="true" />
-            <element signature="e#61488#61624#2" expanded="true" />
-            <element signature="e#62027#62160#2" expanded="true" />
-            <element signature="e#63642#63795#1" expanded="true" />
-            <element signature="e#75788#76018#2" expanded="true" />
-            <element signature="e#76885#77121#2" expanded="true" />
-            <element signature="e#106714#106891#2" expanded="true" />
-            <element signature="e#106937#107114#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/preference.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="183" column="12" selection-start-line="183" selection-start-column="12" selection-end-line="183" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/RankingServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/RankingServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/couponList.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/publishCoupon.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="863">
           <caret line="30" column="79" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/JdbcServicesSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4103">
-          <caret line="445" column="3" lean-forward="true" selection-start-line="445" selection-start-column="3" selection-end-line="445" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -878,18 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/ControllerSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-          <folding>
-            <element signature="e#13588#13589#0" expanded="true" />
-            <element signature="e#13874#13875#0" expanded="true" />
-            <element signature="e#13986#13987#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -933,11 +691,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/message.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2496" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/message.jsp" />
     <entry file="file://$PROJECT_DIR$/WebRoot/userLogin.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
@@ -955,24 +709,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBOptions.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/floatTool.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/story.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1984">
-          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1000,55 +740,270 @@
     <entry file="file://$PROJECT_DIR$/WebRoot/busiRegister.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="768">
-          <caret line="87" column="63" lean-forward="true" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="1008" column="95" selection-start-line="1008" selection-start-column="95" selection-end-line="1008" selection-end-column="95" />
+          <caret line="87" column="63" selection-start-line="87" selection-start-column="63" selection-end-line="87" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/markquery2.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
+        <state relative-caret-position="2880">
           <caret line="90" column="59" selection-start-line="90" selection-start-column="59" selection-end-line="90" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/busiModify.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="96" column="99" selection-start-line="96" selection-start-column="99" selection-end-line="96" selection-end-column="99" />
+        <state relative-caret-position="3008">
+          <caret line="94" column="14" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/shopdetail.jsp">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="357" column="38" lean-forward="true" selection-start-line="357" selection-start-column="38" selection-end-line="357" selection-end-column="38" />
+        <state relative-caret-position="-3296">
+          <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/UserToAssemblePageServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/UserAssembleApplyServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/ranking.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3904">
+          <caret line="122" column="107" selection-start-line="122" selection-start-column="107" selection-end-line="122" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/tem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2144">
+          <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/RecommendServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9312">
+          <caret line="300" column="53" selection-start-line="300" selection-start-column="53" selection-end-line="300" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BusiMenuManageServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/JdbcServicesSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/CommentServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BusiControllerSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/shopmenu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="76" column="49" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="49" />
+        <state relative-caret-position="119">
+          <caret line="17" column="83" lean-forward="true" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/story.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/browse.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-800">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/post.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/UserStoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2592">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/emp_war_exploded/ajax_js/register_ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-192" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/shopdetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10272">
+          <caret line="321" column="112" selection-start-line="321" selection-start-column="112" selection-end-line="321" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/adminBusiness.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/busiManageDishPic.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/ajax_js/register_ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/services/impl/Ab01ServicesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31136">
+          <caret line="991" column="28" selection-start-line="991" selection-start-column="28" selection-end-line="991" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBOptions.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/ShopinfoFindAllServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/userAssemble.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="152" column="56" lean-forward="true" selection-start-line="152" selection-start-column="56" selection-end-line="152" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/shopsearch.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="183" column="53" lean-forward="true" selection-start-line="183" selection-start-column="53" selection-end-line="183" selection-end-column="53" />
+        <state relative-caret-position="224">
+          <caret line="111" column="64" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BusiPopularizeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/BusiManageReservationServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/ControllerSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="405" column="17" lean-forward="true" selection-start-line="405" selection-start-column="17" selection-end-line="405" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/WeChat Files/Kenway9276/FileStorage/File/2019-07/busiManageReservation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2848">
+          <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/busiManageReservation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/impl/LogoutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/neusoft/web/support/BaseServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="62" column="64" lean-forward="true" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/navigate.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="22" column="80" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="80" />
         </state>
       </provider>
     </entry>
