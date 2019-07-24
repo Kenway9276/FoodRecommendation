@@ -34,7 +34,28 @@
     background-size: cover;
     font-family: 'Raleway', sans-serif;
 }
-	</style>
+	</style> 
+<!-- <!--     <script type="text/javascript">   --> -->
+<!-- //     $(document).ready(function() -->
+<!-- //     		{ -->
+<!-- // 		        var a = Math.random() + ""          //产生一个随机数   -->
+<!-- // 		        var rand1 = a.charAt(5)             //的到这个数的第五个字符(实际还是从0~9的数字)   -->
+<!-- // 		        quotes = new Array              //创建消息数组   -->
+<!-- // 		        quotes[1] = '语录1'               //这里分配十句随机出现的文本   -->
+<!-- // 		        quotes[2] = '语录2'   -->
+<!-- // 		        quotes[3] = '语录3'   -->
+<!-- // 		        quotes[4] = '语录4'   -->
+<!-- // 		        quotes[5] = '语录5'   -->
+<!-- // 		        quotes[6] = '语录6'   -->
+<!-- // 		        quotes[7] = '语录7'   -->
+<!-- // 		        quotes[8] = '语录8'   -->
+<!-- // 		        quotes[9] = '语录9'   -->
+<!-- // 		        quotes[0] = '语录10'   -->
+<!-- // 		        var quote = quotes[rand1]  -->
+<!-- //         		document.getElementById("quote").innerHTML=quote;  -->
+<!-- //     		}); -->
+<!-- //    						//将上面选择的话写进页面   -->
+<!-- <!--     </script>   --> -->
 </head>
 <body>
 <div style="color:#FFFFFF">
@@ -49,13 +70,18 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>欢迎你！</h3>
-					<h4>我们的美食网站是最贴心的美食网站。</h4>
-					<p> Our food website is the most intimate food website.</p>
+					<h3>欢迎 !</h3><br>
+					<h4>风吹柳花满店香，吴姬压酒唤客尝。</h4><br>
+					<h4>堆盘栗子炒深黄，客到长谈素酒尝。</h4><br>
+					<hr width="400px" color="#FFFFFF">
+					<p>有一千双手，就有一千种味道，中国烹饪，无比神秘，难以复制，从深山到闹市，厨艺的传授，仍然遵循口耳相传，心领神会的传统方式。</p>
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>商家登录</h2>
+				<div style="text-align:center">
+					<h2>商家登录</h2>				
+				</div>
+				<br><br><br>
 
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>

@@ -128,6 +128,22 @@ body {
     		document.getElementById('somoking-copy').checked = true;
     		}
     }
+    function validate() 
+    {
+		var pwd1 = document.getElementById("pwd1").value;
+		var pwd2 = document.getElementById("pwd2").value;
+		if(pwd1 == pwd2) 
+		{
+			document.getElementById("password-msg").innerHTML="<font color='#87CEFA'>两次密码相同</font>";
+			document.getElementById("busi-modify-submit-btn").disabled = false;
+		}
+		else 
+		{
+			document.getElementById("password-msg").innerHTML="<font color='red'>两次密码不相同</font>";
+			document.getElementById("busi-modify-submit-btn").disabled = true;
+		}
+	}
+
 	</script>
 </head>
 <body >
@@ -157,7 +173,12 @@ ${msg}
 						</div>
 						<div class="input-group">
 							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<input name="aab103"  type="text" placeholder="修改商家密码">
+							<input name="aab103" id="pwd1"  type="text" placeholder="修改商家密码" onblur="validate()">
+						</div> 
+						<div class="input-group">
+							<span><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<input type="text" id="pwd2" placeholder="二次输入要修改的密码" onblur="validate()">
+							<p id="password-msg"></p>
 						</div> 
 						<div class="input-group">  
 							<span><i class="fa fa-shopping-basket" aria-hidden="true"></i></span>
@@ -192,7 +213,7 @@ ${msg}
 						</div>  
        					<input class="btn btn-danger btn-block" type="submit" name="next" value="修改商家头像"
        					 formaction="<%=path%>/busiToPortraitPic.html" formnovalidate="formnovalidate">
-       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="修改信息"
+       					 <input class="btn btn-danger btn-block" type="submit" name="next" value="修改信息" id="busi-modify-submit-btn"
        					 formaction="<%=path%>/busiModifyInfo.html">
        					 <input class="btn btn-danger btn-block" type="submit" name="next" value="返回"
        					 formaction="<%=path%>/busiReturn.html" formnovalidate="formnovalidate">

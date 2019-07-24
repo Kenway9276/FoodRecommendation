@@ -24,14 +24,20 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>欢迎你管理员！</h3>
-					<h4>我们的美食网站是最好的美食网站。</h4>
+					<h3>欢迎 !</h3><br>
+					<h4>时人不识凌云木，直待凌云始道高。</h4><br>
+					<h4>山不厌高，海不厌深；周公吐哺，天下归心。</h4><br>
+					<hr width="400px" color="#FFFFFF">
+					<p>在中文里，'火候'一词的使用并不局限在厨房，更能用来评价处世的修养，以及为人的境界。</p>
 					<p>请遵守相关规定</p>
+					
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>管理员登录</h2>
-
+				<div style="text-align:center">
+					<h2>管理员登录</h2>				
+				</div>
+				<br><br><br>
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text name="aac403" required="true" autofocus="true" />

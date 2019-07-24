@@ -81,6 +81,7 @@
 
 <body>
 <%@ include file="navigate.jsp" %>
+<div>
 <form id="myform" action="<%=path%>/markQuery.html" method="post">
 	<!-- 暂时 -->
 
@@ -99,7 +100,7 @@
                                     <p><span><a href="couponList.html">浏览优惠券</a></span></p>
                                 </c:if>
                                 <c:if test="${rows[0].isUser == 0}">
-                                    <p><span><a href="couponUserList.html">我的优惠券</a></span></p>
+                                    <p><span><a href="couponUserList.html" style="font-size: 28px;color:black;">我的优惠券</a></span></p>
                                 </c:if>
 
 
@@ -143,9 +144,6 @@
                                 </span>
 
                                 </label>
-
-
-
                             </div>
 
                             <br>
@@ -211,6 +209,7 @@
    
 
 </form>
+</div>
 </body>
 </html>
 
