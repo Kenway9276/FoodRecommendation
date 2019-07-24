@@ -474,9 +474,9 @@
 						<br>
 						<br>
 						<span>预定时间</span>
-						<span><input type="text" name="aac103" value="" id="datetimepicker_mask"/></span>
+						<span><input type="text"  name="aac103" value="" id="datetimepicker_mask" required/></span>
 						<span>用餐人数</span>
-						<span><input type="number" name="aac104" min="1" max="15" /></span>
+						<span><input type="number"  onkeydown="return false"  name="aac104" min="1" max="20" required/></span>
 						
 						<input type="hidden" name="aaa201" value='65'>						 
 						<br>
