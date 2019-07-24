@@ -155,20 +155,22 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
     			;
     	Gson gson = new Gson();
     	if(this.queryForMap(sql.toString(), this.get("aaa102"))==null){
+    		
+    		String msg = "{\"msg\":0}";
+			Map<String, String> map = new HashMap<>();
+			map.put("msg", "0");
+			String json = gson.toJson(map);
+			System.out.println(json);
+			return json;
+		}
+    	else {
     		String msg = "{\"msg\":1}";
     		Map<String, String> map = new HashMap<>();
     		map.put("msg", "1");
     		String json = gson.toJson(map);
 			System.out.println(json);
     		return json;
-		}
-    	else {
-			String msg = "{\"msg\":0}";
-			Map<String, String> map = new HashMap<>();
-			map.put("msg", "0");
-			String json = gson.toJson(map);
-			System.out.println(json);
-			return json;
+			
 		}
     }
     
@@ -1550,4 +1552,28 @@ public class Ab01ServicesImpl extends JdbcServicesSupport
 					};
 				return this.executeUpdate(sql, args)>0;
 			}
+		    private String busiNameCheck() throws Exception
+		    {
+		    	StringBuilder sql=new StringBuilder()
+		    			.append("select aab102 from ab01 ")
+		    			.append("where  aab102=?")
+		    			;
+		    	Gson gson = new Gson();
+		    	if(this.queryForMap(sql.toString(), this.get("aab102"))==null){
+		    		String msg = "{\"msg\":1}";
+		    		Map<String, String> map = new HashMap<>();
+		    		map.put("msg", "1");
+		    		String json = gson.toJson(map);
+					System.out.println(json);
+		    		return json;
+				}
+		    	else {
+					String msg = "{\"msg\":0}";
+					Map<String, String> map = new HashMap<>();
+					map.put("msg", "0");
+					String json = gson.toJson(map);
+					System.out.println(json);
+					return json;
+				}
+		    }
 }

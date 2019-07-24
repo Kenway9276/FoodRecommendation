@@ -172,6 +172,9 @@ h2{
 body {
     padding: 0;
     margin: 0;
+    overflow-y:auto;
+    overflow-x:auto;
+    height:1500px;
     background: url(<%=path%>/images/9.jpg) no-repeat 0px 0px;
     background-size: cover;
     font-family: 'Raleway', sans-serif;

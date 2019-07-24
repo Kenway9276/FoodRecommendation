@@ -96,7 +96,7 @@ background-color: #87CEFA;
 </style>
 </head>
 <body >
-<div style="color:#FFFFFF">
+<div style="color:#FFFFFF;">
 ${msg}
 </div>
 <br>
