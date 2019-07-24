@@ -31,7 +31,8 @@ public class ShopinfoFindByIdServlet extends ShopinfoControllerSupport
 		this.savePageData("CommentPhoto","saveCmPhotoAddress" );
 		//更新用户选择表
 		this.update("updateSelectionPlus","更新");
-
+		//用户偏好流水号
+		this.savePageInstance("aaa201", "saveAaa201");
 		return "shopdetail";	
     }
 }

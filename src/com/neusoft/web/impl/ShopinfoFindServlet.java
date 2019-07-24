@@ -15,6 +15,7 @@ public class ShopinfoFindServlet extends ShopinfoControllerSupport {
 	{
 		this.savePageData();
 		this.saveMapPageData("ins", "saveCurrentKeyWords");
+
 		return "shopsearch";		
     }
 }

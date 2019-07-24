@@ -49,14 +49,19 @@ ${msg}
 		<div class="agile_info">
 			<div class="w3l_form">
 				<div class="left_grid_info">
-					<h3>Welcome !</h3>
-					<h4>我们的美食网站是最贴心的美食网站。</h4>
-					<p> Our food website is the most intimate food website.</p>
+					<h3>欢迎 !</h3><br>
+					<h4>风吹柳花满店香，吴姬压酒唤客尝。</h4><br>
+					<h4>堆盘栗子炒深黄，客到长谈素酒尝。</h4><br>
+					<hr width="400px" color="#FFFFFF">
+					<p>有一千双手，就有一千种味道，中国烹饪，无比神秘，难以复制，从深山到闹市，厨艺的传授，仍然遵循口耳相传，心领神会的传统方式。</p>
 				</div>
 			</div>
 			<div class="w3_info">
-				<h2>Sign In</h2>
-				<p>商家登录</p>
+				<div style="text-align:center">
+					<h2>商家登录</h2>				
+				</div>
+				<br><br><br>
+
 						<div class="input-group">
 							<span><i class="fa fa-user" aria-hidden="true"></i></span>
 							<e:text name="aab102" required="true" autofocus="true" placeholder="商家用户名"/>

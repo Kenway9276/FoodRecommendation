@@ -596,11 +596,13 @@ public abstract class JdbcServicesSupport  implements BaseServices
 	 * @throws Exception
 	 */
 	public void parseCodeList(Map<String, String> tem, String labelName)throws Exception {
-		String[] elements = tem.get(labelName).split(",");
-		for(int i = 0; i < elements.length; i++){
-			elements[i] = convertCodeToName(elements[i], labelName);
+		if(tem.get(labelName) != null){
+			String[] elements = tem.get(labelName).split(",");
+			for(int i = 0; i < elements.length; i++){
+				elements[i] = convertCodeToName(elements[i], labelName);
+			}
+			tem.put(labelName, Tools.joinArray(elements)) ;
 		}
-		tem.put(labelName, Tools.joinArray(elements)) ;
 	}
 
 	/**

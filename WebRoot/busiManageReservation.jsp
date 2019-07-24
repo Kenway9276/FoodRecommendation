@@ -62,6 +62,9 @@
 }
 body{
     font-family: Helvetica;
+     overflow-y:auto;
+     overflow-x:auto;
+     height:1500px;
     -webkit-font-smoothing: antialiased;
     background: #f4f4f4;
 }
@@ -189,6 +192,10 @@ h2{
 </style>
 </head>
 <body style="color: #FFFFFF">
+
+<div style="color: black;">
+</div>
+
 <div class="controls" >
 
 
@@ -241,7 +248,7 @@ h2{
 		      </c:forEach>
 	     </c:when>
 	     <c:otherwise>
-	        <c:forEach begin="1" step="1" end="15">
+	        <c:forEach begin="1" step="1" end="5">
 	           <tr>
 	             <td></td>
 	             <td></td>
@@ -271,7 +278,7 @@ h2{
         </thead>
         <tbody>
         <c:choose>
-	     <c:when test="${rows!=null }">
+	     <c:when test="${row!=null }">
 	         <!-- 显示实际查询到的数据 -->
 		     <c:forEach items="${row }" var="ins" varStatus="vs">
 	    	   	  <tr>

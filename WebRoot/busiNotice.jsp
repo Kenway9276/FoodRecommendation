@@ -18,7 +18,7 @@
 	}
 	table tr:nth-child(even)
 	{
-	background:#f33131;
+	background:#f08080;
 	}
 	h2
 	{
@@ -55,9 +55,9 @@ function onEdit(vaac201)
 <div class="section-header">
 	<h2 class="section-title wow fadeInDown">公    告</h2>
 </div>
-<table border="1px;solid" width="60%" style="margin:0 auto">
-	<tr>
-		<td>标题</td>
+<table width="60%" style="margin:0 auto">
+	<tr height="20px">
+		<td style="font-weight:bold">标题</td>
 		<td>发布日期</td>
 		<td>种类</td>
 		<td>优先级</td>		
@@ -89,24 +89,16 @@ function onEdit(vaac201)
 		  </tr>
       </c:forEach>
       <!-- 补充空行 -->
-      <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">
-	          <tr>
-	            <td>吃</td>
-	            <td>吃</td>
-	            <td>吃</td>
-	            <td>吃</td>
-	          </tr>
-      </c:forEach>
     </c:when>
     <c:otherwise>
-       <c:forEach begin="1" step="1" end="15">
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-       </c:forEach>
+    <c:forEach begin="${fn:length(rows)+1 }" step="1" end="15">
+	          <tr>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	            <td></td>
+	          </tr>
+      </c:forEach>
     </c:otherwise>
   </c:choose>
 </table>
