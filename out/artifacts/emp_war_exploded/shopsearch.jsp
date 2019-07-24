@@ -173,7 +173,7 @@
                         <h3>搜索结果</h3>
                         <br>
                         <div class="review-btn">
-                            <a href="#" onclick="onSortByScore()" class="btn btn-outline-danger">评分↓</a>                          
+                            <a href="#" onclick="onSortByScore()" class="btn btn-outline-danger">评分↓</a>
                         </div>
                         <div class="review-btn">
                             <a href="#" onclick="onSortByCommentCount()" class="btn btn-outline-danger">点评数↓</a>

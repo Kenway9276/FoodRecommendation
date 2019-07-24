@@ -59,7 +59,7 @@ public class UserStoryServiceImpl extends JdbcServicesSupport {
      */
     private Map<String, String> tasteFavorite() throws Exception{
         Object aaa101 = this.get("userID");
-        String sql = "SELECT * from aa02 WHERE aaa201 = (" +
+        String sql = "SELECT aaa201,aaa202,aaa203,aaa204 from aa02 WHERE aaa201 = (" +
                 "SELECT  aaa201 from ac01 where aaa101 = ? and aac106 = 1 GROUP BY aaa201 ORDER BY count(aaa201) DESC LIMIT 1)";
         Map<String, String> map = new HashMap<>();
         map = this.queryForMap(sql, aaa101);

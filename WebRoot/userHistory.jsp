@@ -99,8 +99,8 @@
 		<td	style="color:#FFFFFF;width:60px;text-align:center">菜系</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">种类</td>
 		<td	style="color:#FFFFFF;width:40px;text-align:center">设备</td>
-		<td	style="color:#FFFFFF;width:40px;text-align:center">位置</td>
-		<td	style="color:#FFFFFF;width:40px;text-align:center">备注</td>		
+		<td	style="color:#FFFFFF;width:60px;text-align:center">位置</td>
+
 		<td style="width:40px"></td>
 	</tr>
   <c:choose>
@@ -122,7 +122,7 @@
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa204 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa205 }</td>
 		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa206 }</td>
-		    <td	style="color:#FFFFFF;text-align:center">${ins.aaa207 }</td>
+
 		    <td style="color:#FFFFFF;text-align:center">
 		      <a style="color:#FFFFFF" href="#" onclick="onDel('${ins.aac101}')">删除</a>
 		    </td>
@@ -142,7 +142,7 @@
 	            <td></td>
 	            <td></td>
 	            <td></td>
-	            <td></td>
+
 	            <td></td>
 	          </tr>
       </c:forEach>
@@ -157,6 +157,7 @@
     </tr>
        <c:forEach begin="1" step="1" end="15">
           <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

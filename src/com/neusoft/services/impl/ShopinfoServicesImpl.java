@@ -14,7 +14,7 @@ import com.neusoft.system.tools.Tools;
 //功能点:  搜索、获取餐厅信息
 public class ShopinfoServicesImpl extends JdbcServicesSupport
 {
-	
+
 	//在当前定位城市下根据店铺名或者菜品模糊搜索餐厅
 	//查询店铺名包含关键词的餐厅,或者菜品名包含关键词的餐厅
 	@Override
@@ -529,4 +529,16 @@ public class ShopinfoServicesImpl extends JdbcServicesSupport
 		
 		}
 
+		public Map<String, String> saveAaa201() throws Exception{
+			Map<String, String> res = new HashMap<>();
+			if(this.get("aaa201") == null){
+				RecommendServiceImpl recommendService = new RecommendServiceImpl();
+				String aaa201 = recommendService.getPreferenceIDWithoutFlavour(this.get("userID"));
+				res.put("aaa201", aaa201);
+			}
+			else {
+				res.put("aaa201", (String)this.get("aaa201"));
+			}
+			return res;
+		}
 }

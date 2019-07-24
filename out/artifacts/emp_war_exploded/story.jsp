@@ -101,8 +101,8 @@
                         <div class="desc">
                             <p>
                                 <c:if test="${!empty rows[0].aaa202}">口味万千，你最喜欢——${rows[0].aaa202}<br></c:if>
-                                <c:if test="${!empty rows[0].aaa202}">盛宴饕餮，你最中意——${rows[0].aaa203}<br></c:if>
-                                <c:if test="${!empty rows[0].aaa202}">金樽清酒、玉盘珍馐，你却独爱——${rows[0].aaa204}<br></c:if>
+                                <c:if test="${!empty rows[0].aaa203}">盛宴饕餮，你最中意——${rows[0].aaa203}<br></c:if>
+                                <c:if test="${!empty rows[0].aaa204}">金樽清酒、玉盘珍馐，你却独爱——${rows[0].aaa204}<br></c:if>
 								我们会记得你的每个一见钟情，每道心头朱砂。
                             </p>
                         </div>
